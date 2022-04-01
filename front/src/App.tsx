@@ -1,4 +1,3 @@
-/* eslint-disable */
 import React from 'react';
 import OurRoutes from './routes';
 import Theme from './themes/theme';
