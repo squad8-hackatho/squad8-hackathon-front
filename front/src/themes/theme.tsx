@@ -8,14 +8,14 @@ fontSizes.bodyExtraLarge = fontSizes[1];
 fontSizes.displayExtraLarge = fontSizes[2];
 
 const primary = 'blue';
-const secundary = 'orange'
+const secundary = 'orange';
 
 const theme = {
   fontSizes,
   colors: {
     primary,
-    secundary
-  }
+    secundary,
+  },
 };
 
 const Theme: React.FC = ({ children }) => {
