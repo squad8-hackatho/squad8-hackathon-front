@@ -12,7 +12,10 @@
     "@types/react-dom": "^17.0.14",
     "react": "^18.0.0",
     "react-dom": "^18.0.0",
+    "react-router-dom": "^6.3.0",
     "react-scripts": "5.0.0",
+    "styled-components": "^5.3.5",
+    "styled-system": "^5.1.5",
     "typescript": "^4.6.3",
     "web-vitals": "^2.1.4"
   },
@@ -41,6 +44,8 @@
     ]
   },
   "devDependencies": {
+    "@types/styled-components": "^5.1.24",
+    "@types/styled-system": "^5.1.15",
     "@typescript-eslint/eslint-plugin": "^5.17.0",
     "@typescript-eslint/parser": "^5.17.0",
     "eslint": "^8.12.0",
