@@ -7,7 +7,7 @@ fontSizes.body = fontSizes[0];
 fontSizes.bodyExtraLarge = fontSizes[1];
 fontSizes.displayExtraLarge = fontSizes[2];
 
-const primary = 'blue';
+const primary = 'white';
 const secundary = 'orange'
 
 const theme = {
@@ -18,7 +18,9 @@ const theme = {
   }
 };
 
-const Theme: React.FC = ({ children }) => {
+export type ThemeType = typeof theme;
+
+export const Theme: React.FC = ({ children }) => {
   return <ThemeProvider theme={theme}>{children}</ThemeProvider>;
 };
 

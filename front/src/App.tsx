@@ -1,11 +1,12 @@
 /* eslint-disable */
 import React from 'react';
 import OurRoutes from './routes';
-import Theme from './themes/theme';
+import { Theme, GlobalStyle } from './themes';
 
 function App() {
   return (
     <Theme>
+      <GlobalStyle />
       <OurRoutes />
     </Theme>
   );
