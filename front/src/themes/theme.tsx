@@ -8,14 +8,14 @@ fontSizes.bodyExtraLarge = fontSizes[1];
 fontSizes.displayExtraLarge = fontSizes[2];
 
 const primary = 'white';
-const secundary = 'orange'
+const secundary = 'orange';
 
 const theme = {
   fontSizes,
   colors: {
     primary,
-    secundary
-  }
+    secundary,
+  },
 };
 
 export type ThemeType = typeof theme;

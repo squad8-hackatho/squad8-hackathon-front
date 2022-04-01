@@ -1,18 +1,20 @@
 /* eslint-disable import/no-unresolved */
 /* eslint-disable import/extensions */
 import React from 'react';
-import ReactDOM from 'react-dom';
+import ReactDOM from 'react-dom/client';
 import { BrowserRouter } from 'react-router-dom';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 
-ReactDOM.render(
+const modalRoot = document.getElementById('root') as HTMLElement;
+const root = ReactDOM.createRoot(modalRoot);
+
+root.render(
   <React.StrictMode>
     <BrowserRouter>
       <App />
     </BrowserRouter>
-  </React.StrictMode>,
-  document.getElementById('root')
+  </React.StrictMode>
 );
 
 reportWebVitals();
