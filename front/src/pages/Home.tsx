@@ -1,11 +1,17 @@
-import React from "react";
+import React from 'react';
+import { MentorCard } from '../components/MentorCard';
+import { ProfileInfo } from './ProfileInfo';
+import { ProfilePicture } from './ProfilePicture';
 
-export function Home() {
-  return(
-    <div>
-      <p>Home</p>
-    </div>
-  )
+function Home() {
+  return (
+    <main>
+      <MentorCard >
+        <ProfilePicture />
+        <ProfileInfo />
+      </MentorCard>
+    </main>
+  );
 }
 
 export default Home;
