@@ -1,9 +1,7 @@
-/* eslint-disable import/no-unresolved */
-/* eslint-disable import/extensions */
-import { createGlobalStyle } from "styled-components";
-import { ThemeType } from "./theme";
+import { createGlobalStyle } from 'styled-components';
+import { ThemeType } from './theme';
 
-export const GlobalStyle = createGlobalStyle<{ theme: ThemeType }>`
+const GlobalStyle = createGlobalStyle<{ theme: ThemeType }>`
    * {
      margin: 0;
      padding: 0;
@@ -12,8 +10,10 @@ export const GlobalStyle = createGlobalStyle<{ theme: ThemeType }>`
    }
 
    body {
-     background-color: ${({ theme }) => theme.colors.primary};
+     background-color: ${({ theme }) => {
+       return theme.colors.primary;
+     }};
    }
-`
+`;
 
 export default GlobalStyle;

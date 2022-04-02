@@ -14,6 +14,7 @@
   },
   "plugins": ["react", "@typescript-eslint"],
   "rules": {
+    "import/prefer-default-export": "off",
     "react/jsx-filename-extension": [0],
     "import/extensions": [
       "error",
@@ -24,7 +25,12 @@
         "ts": "never",
         "tsx": "never"
       }
-    ]
+    ],
+    "react/function-component-definition": [0, {
+      "namedComponents": "function-declaration",
+      "unnamedComponents": "function-expression"
+    }],
+    "arrow-body-style": ["error", "always"]
   },
   "settings": {
     "import/resolver": {

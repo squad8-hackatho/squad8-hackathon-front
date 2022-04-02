@@ -1,11 +1,13 @@
-/* eslint-disable */
 import React from 'react';
 import { ThemeProvider } from 'styled-components';
 
-const fontSizes: any = [14, 20, 48];
-fontSizes.body = fontSizes[0];
-fontSizes.bodyExtraLarge = fontSizes[1];
-fontSizes.displayExtraLarge = fontSizes[2];
+const sizes = [14, 20, 48];
+
+const fontSizes = {
+  body: sizes[0],
+  bodyExtraLarge: sizes[1],
+  displayExtraLarge: sizes[2],
+};
 
 const primary = 'white';
 const secundary = 'orange';
@@ -20,7 +22,7 @@ const theme = {
 
 export type ThemeType = typeof theme;
 
-export const Theme: React.FC = ({ children }) => {
+const Theme: React.FC = ({ children }) => {
   return <ThemeProvider theme={theme}>{children}</ThemeProvider>;
 };
 
