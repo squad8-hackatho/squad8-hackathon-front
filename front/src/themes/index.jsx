@@ -1,3 +1,5 @@
-/* eslint-disable */
-export * from './styles';
-export * from './theme';
+import GlobalStyle from './styles';
+import Theme from './theme';
+
+
+export { GlobalStyle, Theme }

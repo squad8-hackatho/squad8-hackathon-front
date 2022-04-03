@@ -3,6 +3,7 @@ import { MentorCard } from '../components/MentorCard';
 import { ProfileInfo } from './ProfileInfo';
 import { ProfilePicture } from './ProfilePicture';
 
+
 function Home() {
   return (
     <main>
@@ -10,6 +11,7 @@ function Home() {
         <ProfilePicture />
         <ProfileInfo />
       </MentorCard>
+
     </main>
   );
 }
