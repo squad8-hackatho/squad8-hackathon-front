@@ -12,7 +12,7 @@ const fontSizes = {
 const primary = 'white';
 const secundary = 'orange';
 
-const theme = {
+export const theme = {
   fontSizes,
   colors: {
     primary,
