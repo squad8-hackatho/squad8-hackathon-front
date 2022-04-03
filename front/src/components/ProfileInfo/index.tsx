@@ -1,10 +1,6 @@
 import React from 'react';
-import { theme } from '../../../themes/theme';
-import {
-  ProfileInfoStyle,
-  ProfileName,
-  ProfileOccupation,
-} from './styles';
+import { theme } from '../../themes/theme';
+import { ProfileInfoStyle, ProfileName, ProfileOccupation } from './styles';
 
 export const ProfileInfo = () => {
   return (

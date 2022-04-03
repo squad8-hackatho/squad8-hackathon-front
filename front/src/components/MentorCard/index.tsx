@@ -1,5 +1,6 @@
 import React from 'react';
-import { Card, Container } from './styles';
+import { Card, Container, ProfilePictureStyle } from './styles';
+import foto from '../../assets/foto.png';
 
 type Props = {
   children: any;
@@ -9,7 +10,7 @@ export const MentorCard = ({ children }: Props) => {
   return (
     <Container>
       <Card>
-        {children}
+        <ProfilePictureStyle src={foto} alt="Profile" />;{children}
       </Card>
     </Container>
   );
