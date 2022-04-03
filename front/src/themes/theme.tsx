@@ -10,13 +10,13 @@ const fontSizes = {
 };
 
 const primary = 'white';
-const secundary = 'orange';
+const secondary = 'orange';
 
 export const theme = {
   fontSizes,
   colors: {
     primary,
-    secundary,
+    secondary,
   },
 };
 
