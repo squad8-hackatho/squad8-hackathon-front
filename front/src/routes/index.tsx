@@ -1,7 +1,6 @@
 import React from 'react';
 import { Route, Routes } from 'react-router-dom';
-import { Home } from '../pages';
-import Profile from '../pages/Profile/Profile';
+import { Home, Profile } from '../pages';
 
 function OurRoutes() {
   return (
