@@ -1,7 +1,7 @@
 import styled from "styled-components";
 import { typography, TypographyProps } from "styled-system";
 
-export const ProfileInfoStyle = styled.section`
+export const ProfileInfoStyle = styled.div`
   margin: 20px;
 `
 
@@ -16,5 +16,6 @@ export const ProfileName = styled.h1<ProfileNameProps>`
 
 export const ProfileOccupation = styled.h4`
   font-weight: 500;
+  
   ${typography}
 `
