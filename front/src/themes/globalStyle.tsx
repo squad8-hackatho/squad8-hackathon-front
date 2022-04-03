@@ -10,9 +10,10 @@ const GlobalStyle = createGlobalStyle<{ theme: ThemeType }>`
    }
 
    body {
-     background-color: ${({ theme }) => {
-       return theme.colors.primary;
-     }};
+      font-size: 18px;
+      background-color: ${({ theme }) => {
+        return theme.colors.primary;
+      }};
    }
 `;
 

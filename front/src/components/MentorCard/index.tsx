@@ -1,16 +1,39 @@
 import React from 'react';
-import { Card, Container, ProfilePictureStyle } from './styles';
+import {
+  Card,
+  Container,
+  ProfilePicture,
+  ProfileInfo,
+  ProfileName,
+  ProfileOccupation,
+  Tag,
+  P,
+} from './styles';
 import foto from '../../assets/foto.png';
+import { theme } from '../../themes/theme';
 
 type Props = {
   children: any;
+  name: string;
+  Occupation: string;
 };
 
-export const MentorCard = ({ children }: Props) => {
+export const MentorCard = ({ children, name, Occupation }: Props) => {
   return (
     <Container>
       <Card>
-        <ProfilePictureStyle src={foto} alt="Profile" />;{children}
+        <ProfilePicture src={foto} alt="Profile" />
+        <ProfileInfo>
+          <ProfileName fontSize={theme.fontSizes.displayExtraLarge}>
+            {name}
+          </ProfileName>
+          <ProfileOccupation> {Occupation} </ProfileOccupation>
+          <P>Realiza mentorias sobre</P>
+          <Tag bg={theme.colors.secondary} color={theme.colors.primary}>
+            Carreira
+          </Tag>
+          {children}
+        </ProfileInfo>
       </Card>
     </Container>
   );

@@ -1,4 +1,4 @@
-import GlobalStyle from './styles';
+import GlobalStyle from './globalStyle';
 import Theme from './theme';
 
 
