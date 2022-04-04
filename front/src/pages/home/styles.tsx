@@ -1,7 +1,8 @@
 import styled from 'styled-components';
+import { theme } from '../../themes/theme';
 
 export const Section = styled.section`
-  height: 100vh;
+  height: 60vh;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -28,6 +29,7 @@ export const SpanRef = styled.span`
       opacity: 1;
       filter: blur(0);
     }
+  }
 `;
 
 export const Span = styled(SpanRef)`
@@ -57,5 +59,55 @@ export const SpanP = styled(SpanRef)`
   }
   &:nth-child(6) {
     animation: fade-in 0.8s 0.8s forwards cubic-bezier(0.11, 0, 0.5, 0);
+  }
+`;
+
+export const NameCard = styled.article`
+  display: flex;
+  flex-direction: column;
+  width: 100vw;
+  height: 40vh;
+  background-color: #ebebeb;
+
+  h2 {
+    margin-top: 83px;
+    margin-bottom: 40px;
+    margin-left: 100px;
+  }
+`;
+
+export const NameForm = styled.input`
+  margin-left: 100px;
+  margin-bottom: 50px;
+  margin-right: 100px;
+  padding: 20px;
+  background-color: transparent;
+
+  font-size: larger;
+
+  border: 0;
+  border-bottom: 1px solid black;
+
+  :focus {
+    border: 0;
+    outline: 0;
+    border-bottom: 1px solid black;
+  }
+`;
+
+export const Button = styled.button`
+  border-radius: 28px;
+  border: 1px solid;
+  padding: 16px 31px;
+  display: block;
+  width: 20vw;
+  margin-left: 100px;
+
+  text-decoration: none;
+  font-weight: bold;
+
+  :hover {
+    background-color: #2d7ff9;
+    color: ${theme.colors.primary};
   }
 `;
