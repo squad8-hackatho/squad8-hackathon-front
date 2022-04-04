@@ -1,24 +1,21 @@
-import { useEffect, useState } from 'react';
 import { api } from './api';
 
-export function getUsers<T = unknown>(url: string) {
-  const [data, setData] = useState<T | null>(null);
-  const [isFetching, setIsFetching] = useState(true);
-  const [error, setError] = useState<Error | null>(null);
+export async function getUsers<T = unknown>(url: string) {
+  let data: T | null = null;
+  let isFetching = true;
+  let error: Error | null = null;
 
-  useEffect(() => {
-    api
-      .get(url)
-      .then((response) => {
-        setData(response.data);
-      })
-      .catch((err) => {
-        setError(err);
-      })
-      .finally(() => {
-        setIsFetching(false);
-      });
-  }, []);
+  await api
+    .get(url)
+    .then((response) => {
+      data = response.data;
+    })
+    .catch((err) => {
+      error = err;
+    })
+    .finally(() => {
+      isFetching = false;
+    });
 
   return { data, isFetching, error };
 }
