@@ -2,8 +2,8 @@ import React, { useState } from 'react';
 import { TagStyle } from './styles';
 
 type Props = {
-  children: any,
-}
+  children: any;
+};
 
 function Tag({ children }: Props) {
   const [bg, setBg] = useState('black');
@@ -18,7 +18,7 @@ function Tag({ children }: Props) {
         setColor(color === 'white' ? 'white' : 'white');
       }}
     >
-      { children }
+      {children}
     </TagStyle>
   );
 }
