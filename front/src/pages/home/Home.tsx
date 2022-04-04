@@ -1,6 +1,10 @@
 import React from 'react';
 import { v4 as uuidv4 } from 'uuid';
-import { Section, Title, Span, SpanP, P } from './styles';
+import {
+  Button, NameCard,
+  NameForm, P, Section, Span,
+  SpanP, Title
+} from './styles';
 
 function Home() {
   const TextH1 = 'CONECTAR EXPERIÊNCIAS';
@@ -21,6 +25,11 @@ function Home() {
           })}
         </P>
       </Section>
+      <NameCard>
+        <h2>Como podemos te chamar?</h2>
+        <NameForm placeholder="Qual seu nome?"/>
+        <Button>Vamos lá</Button>
+      </NameCard>
     </main>
   );
 }
