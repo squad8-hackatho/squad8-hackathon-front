@@ -13,8 +13,14 @@ export const TagStyle = styled.button<TagProps>`
   transition-duration: 0.1s;
 
   margin-right: 20px;
+  margin-bottom: 20px;
 
   text-decoration: none;
+
+  width: 165px;
+  height: 45px;
+  white-space: nowrap;
+  overflow: hidden;
 
   cursor: pointer;
   background-color: ${(props) => {

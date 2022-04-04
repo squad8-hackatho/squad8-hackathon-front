@@ -23,8 +23,7 @@ export const Card = styled.article`
   align-items: flex-start;
   padding: 32px;
 
-  flex-flow: row wrap;
-  
+  max-width: 804px;
   
   ${customMedia.lessThan('tablet')`
     flex-direction: column;
@@ -38,4 +37,5 @@ export const Card = styled.article`
 export const TagContainer = styled.div`
   display: flex;
   flex-direction: row;
+  flex-wrap: wrap;
 `;
