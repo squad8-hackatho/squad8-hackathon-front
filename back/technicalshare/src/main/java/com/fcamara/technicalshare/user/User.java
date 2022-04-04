@@ -4,20 +4,23 @@ public class User {
     private long id;
     private String name;
     private String email;
+    private String bio;
 
 
     public User() {
     }
 
-    public User(long id, String name, String email) {
+    public User(long id, String name, String email, String bio) {
         this.id = id;
         this.name = name;
         this.email = email;
+        this.bio = bio;
     }
 
-    public User(String name, String email) {
+    public User(String name, String email, String bio) {
         this.name = name;
         this.email = email;
+        this.bio = bio;
     }
 
     public long getId() {
@@ -43,6 +46,14 @@ public class User {
     public void setEmail(String email) {
         this.email = email;
     }
+    
+    public String getBio() {
+        return bio;
+    }
+
+    public void setBio(String bio) {
+        this.bio = bio;
+    }
 
     @Override
     public String toString() {
@@ -50,6 +61,7 @@ public class User {
                 "id=" + id +
                 ", name='" + name + '\'' +
                 ", email='" + email + '\'' +
+                ", bio='" + bio + '\'' +
                 '}';
     }
 }
