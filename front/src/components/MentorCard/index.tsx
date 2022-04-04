@@ -5,7 +5,6 @@ import {
   ProfilePicture,
   ProfileInfo,
   ProfileName,
-  ProfileOccupation,
   Tag,
   P,
 } from './styles';
@@ -27,7 +26,7 @@ export const MentorCard = ({ children, name, Occupation }: Props) => {
           <ProfileName fontSize={theme.fontSizes.displayExtraLarge}>
             {name}
           </ProfileName>
-          <ProfileOccupation> {Occupation} </ProfileOccupation>
+          <p> {Occupation} </p>
           <P>Realiza mentorias sobre</P>
           <Tag bg={theme.colors.secondary} color={theme.colors.primary}>
             Carreira

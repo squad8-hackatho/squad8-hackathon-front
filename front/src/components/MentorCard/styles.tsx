@@ -58,12 +58,6 @@ export const ProfileName = styled.h1<ProfileNameProps>`
   ${typography}
 `;
 
-export const ProfileOccupation = styled.h4`
-  font-weight: 500;
-
-  ${typography}
-`;
-
 export const Tag = styled.button<ButtonProps>`
   border-radius: 28px;
   border: 1px solid;
