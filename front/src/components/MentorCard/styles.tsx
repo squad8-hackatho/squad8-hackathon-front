@@ -17,6 +17,7 @@ type ProfileNameProps = TypographyProps;
 
 const customMedia = generateMedia({
   desktop: '78em',
+  laptop: '64em',
   tablet: '60em',
   mobile: '46em',
 });
@@ -26,11 +27,15 @@ export const ProfilePicture = styled.img`
   border-radius: 200px;
   margin: 20px 60px 20px 40px;
   justify-content: center;
+
+  ${customMedia.lessThan('mobile')`
+    width: 200px;
+  `};
 `;
 
 export const Container = styled.section`
   display: flex;
-  min-width: auto;
+  min-width: auto;  
   justify-content: center;
   padding: 50px;
 `;
@@ -41,14 +46,21 @@ export const Card = styled.article`
   display: flex;
   align-items: center;
   padding: 32px;
+  max-width: 100%;
 
-  ${customMedia.lessThan('mobile')`
+  ${customMedia.lessThan('tablet')`
     flex-direction: column;
   `};
 `;
 
 export const ProfileInfo = styled.div`
   margin: 20px;
+`;
+
+export const TagContainer = styled.div`
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
 `;
 
 export const ProfileName = styled.h1<ProfileNameProps>`
@@ -62,7 +74,7 @@ export const Tag = styled.button<ButtonProps>`
   border-radius: 28px;
   border: 1px solid;
   padding: 12px 16px;
-  margin: 15px 0 75px 0;
+  margin: 15px 10px 10px 0;
   display: block;
 
   text-decoration: none;

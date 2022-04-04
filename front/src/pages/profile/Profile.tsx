@@ -1,6 +1,6 @@
 import React from 'react';
 import { MentorCard } from '../../components/MentorCard';
-import { A } from './styles';
+import { A, Nav } from './styles';
 
 function Profile() {
   const name = 'Name';
@@ -9,10 +9,10 @@ function Profile() {
   return (
     <main>
       <MentorCard name={name} Occupation={ocupation}>
-        <nav>
+        <Nav>
           <A href="/#">Abrir Perfil</A>
           <A href="/#">Marcar Mentoria</A>
-        </nav>
+        </Nav>
       </MentorCard>
     </main>
   );
