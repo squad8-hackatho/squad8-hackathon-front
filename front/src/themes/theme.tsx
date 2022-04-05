@@ -22,9 +22,14 @@ export const theme = {
 };
 
 export const customMedia = generateMedia({
-  desktop: '78em',
-  tablet: '60em',
-  mobile: '45em',
+  laptopL: '91em',
+  laptop: '64em',
+  laptopS: '60em', // usando
+  tablet: '48em', // usando
+  default: '32em', // usando
+  mobileL: '27em', // usando
+  mobileM: '23.5em',
+  mobileS: '20em',
 });
 
 export type ThemeType = typeof theme;

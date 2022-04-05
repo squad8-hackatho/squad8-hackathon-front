@@ -1,8 +1,10 @@
 import styled from 'styled-components';
+import { customMedia } from '../../themes/theme';
 
 type TagProps = {
   bgColor: string;
   textColor: string;
+  width: number;
 };
 
 export const TagStyle = styled.button<TagProps>`
@@ -37,4 +39,15 @@ export const TagStyle = styled.button<TagProps>`
     background-color: gray;
     color: black;
   }
+
+  ${customMedia.lessThan('tablet')`
+    width: 125px;
+  `}
+
+  ${customMedia.lessThan('mobileL')`
+    width: 155px;
+    padding: 0px;
+    margin: 0px;
+    margin-bottom: 20px;
+  `};
 `;

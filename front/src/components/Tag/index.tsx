@@ -13,6 +13,7 @@ function Tag({ children }: Props) {
     <TagStyle
       bgColor={bg}
       textColor={color}
+      width={200}
       onClick={() => {
         setBg(bg === 'black' ? '#ED7117' : 'black');
         setColor(color === 'white' ? 'white' : 'white');

@@ -1,31 +1,36 @@
 /* eslint-disable no-sequences */
 import React from 'react';
 import Tag from '../../components/Tag';
-import { Card, Container, TagContainer } from './styles';
+import { Card, Container, TagContainer, H2 } from './styles';
+import { ButtonBig } from '../../components/Button/styles';
 
 function AreasOfInterest() {
+  const areas = [
+    'Programação',
+    'Marketing',
+    'UX Design',
+    'UI Design',
+    'test',
+    'test',
+    'test',
+    'test',
+    'test',
+    'test',
+  ];
+
   return (
     <Container>
       <Card>
-        <h3>
-          Em qual ou quais áreas de tecnologia você possui interesse em
-          aprender?
-        </h3>
+        <H2>
+          Em qual ou quais <strong>áreas da tecnologia</strong> você possui
+          interesse em aprender?
+        </H2>
         <TagContainer>
-          <Tag>Teste</Tag>
-          <Tag>Boa sorte</Tag>
-          <Tag>Boa sorte</Tag>
-          <Tag>Boa sorte</Tag>
-          <Tag>Boa sorte</Tag>
-          <Tag>Boa sorte</Tag>
-          <Tag>Boa sorte</Tag>
-          <Tag>Boa sorte</Tag>
-          <Tag>Boa sorte</Tag>
-          <Tag>Boa sorte</Tag>
-          <Tag>Boa sorte</Tag>
-          <Tag>Boa sorte</Tag>
-          
+          {areas.map((area) => {
+            return <Tag>{area}</Tag>;
+          })}
         </TagContainer>
+        <ButtonBig>Encontrar combinações</ButtonBig>
       </Card>
     </Container>
   );

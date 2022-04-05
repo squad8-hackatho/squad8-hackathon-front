@@ -1,15 +1,5 @@
 import styled from 'styled-components';
-import { generateMedia } from 'styled-media-query';
-
-const customMedia = generateMedia({
-  laptopL: '91em',
-  laptop: '64em',
-  tablet: '48em',
-  default: '32em',
-  mobileL: '27em',
-  mobileM: '23.5em',
-  mobileS: '20em',
-});
+import { customMedia } from '../../themes/theme';
 
 export const Nav = styled.nav`
   margin-top: 25px;
