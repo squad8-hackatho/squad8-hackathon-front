@@ -4,6 +4,8 @@ import Tag from '../../components/Tag';
 import { Card, Container, TagContainer } from './styles';
 
 function AreasOfInterest() {
+  const width = 165;
+
   return (
     <Container>
       <Card>
@@ -12,19 +14,18 @@ function AreasOfInterest() {
           aprender?
         </h3>
         <TagContainer>
-          <Tag>Teste</Tag>
-          <Tag>Boa sorte</Tag>
-          <Tag>Boa sorte</Tag>
-          <Tag>Boa sorte</Tag>
-          <Tag>Boa sorte</Tag>
-          <Tag>Boa sorte</Tag>
-          <Tag>Boa sorte</Tag>
-          <Tag>Boa sorte</Tag>
-          <Tag>Boa sorte</Tag>
-          <Tag>Boa sorte</Tag>
-          <Tag>Boa sorte</Tag>
-          <Tag>Boa sorte</Tag>
-          
+          <Tag width={width}>Teste</Tag>
+          <Tag width={width}>Boa sorte</Tag>
+          <Tag width={width}>Boa sorte</Tag>
+          <Tag width={width}>Boa sorte</Tag>
+          <Tag width={width}>Boa sorte</Tag>
+          <Tag width={width}>Boa sorte</Tag>
+          <Tag width={width}>Boa sorte</Tag>
+          <Tag width={width}>Boa sorte</Tag>
+          <Tag width={width}>Boa sorte</Tag>
+          <Tag width={width}>Boa sorte</Tag>
+          <Tag width={width}>Boa sorte</Tag>
+          <Tag width={width}>Boa sorte</Tag>
         </TagContainer>
       </Card>
     </Container>

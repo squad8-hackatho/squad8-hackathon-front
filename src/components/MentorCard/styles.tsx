@@ -1,132 +1,143 @@
 import styled from 'styled-components';
-import { generateMedia } from 'styled-media-query';
-import {
-  border,
-  BorderProps,
-  color,
-  ColorProps,
-  space,
-  SpaceProps,
-  typography,
-  TypographyProps,
-} from 'styled-system';
-import { theme } from '../../themes/theme';
 
-type ButtonProps = TypographyProps & ColorProps & BorderProps & SpaceProps;
-type ProfileNameProps = TypographyProps;
+export const Card = styled.section`
+  width: 369px;
+  height: 469px;
 
-const customMedia = generateMedia({
-  laptopL: '91em',
-  laptop: '64em',
-  laptopS: '60em',
-  tablet: '48em',
-  default: '32em',
-  mobileL: '27em',
-  mobileM: '23.5em',
-  mobileS: '20em',
-});
-
-export const Container = styled.section`
   display: flex;
-  justify-content: center;
-  width: 100vw;
-  padding: 40px;
+  flex-direction: column;
+
+  box-shadow: 5px 5px 12px 3px #eee;
+
+  img {
+    width: 68px;
+    height: 68px;
+
+    border-radius: 50%;
+
+    margin: 21px 13px 0px 26px;
+  }
+
+  h1 {
+  }
 `;
 
-export const Card = styled.article`
-  background-color: ${theme.colors.primary};
-  box-shadow: 5px 5px 12px 3px #eee;
+export const Header = styled.div`
+  width: 369px;
+  height: 100px;
 
   display: flex;
   flex-direction: row;
-  align-items: center;
-  padding: 32px;
-  width: 60vw;
-
-  ${customMedia.lessThan('laptopL')`
-    width: 70%;
-    justify-content: space-around;
-  `};
-
-  ${customMedia.lessThan('laptop')`
-    width: 100%;
-    justify-content: space-around;
-  `};
-
-  ${customMedia.lessThan('laptopS')`
-    flex-direction: column;
-    align-items: center;
-  `};
-
-  ${customMedia.lessThan('default')`
-    padding: 3px;
-  `};
 `;
 
 export const ProfilePicture = styled.img`
-  width: 300px;
-  height: 300px;
-  border-radius: 200px;
+  width: 68px;
+  height: 68px;
 
-  ${customMedia.lessThan('mobileM')`
-    width: 200px;
-  `};
+  border-radius: 50%;
+
+  margin: 21px 13px 0px 26px;
 `;
 
-export const ProfileInfo = styled.div`
-  margin: 20px 10px 0px 50px;
-`;
-
-export const ProfileName = styled.h1<ProfileNameProps>`
-  line-height: 55px;
-  margin-bottom: 10px;
-
-  ${typography}
-`;
-
-export const OccupationDescription = styled.div`
+export const Description = styled.p`
   display: flex;
-  flex-direction: row;
-
-  p {
-    margin-right: 50px;
-  }
-
-  ${customMedia.lessThan('default')`
-    flex-direction: column;
-
-    p{
-      margin-top: 10px;
-    }
-  `};
+  flex-direction: column;
 `;
 
-export const TagContainer = styled.div`
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-`;
+export const Name = styled.p`
+  margin: 29px 0px 15px 0px;
 
-export const Tag = styled.button<ButtonProps>`
-  border-radius: 28px;
-  border: 1px solid;
-  padding: 12px 16px;
-  margin: 15px 10px 10px 0;
-  display: block;
-
-  text-decoration: none;
+  font-size: 16px;
   font-weight: bold;
-
-  ${color}
-  ${border}
-  ${space}
-
-  ${customMedia.lessThan('default')`
-    margin: 3px 3px 3px 3px;
-  `};
 `;
 
-export const P = styled.p`
-  font-weight: bolder;
-  margin-top: 25px;
+export const Occupation = styled.p`
+  display: flex;
+  flex-direction: row;
+`;
+
+export const OccupationItem = styled.p`
+  margin: 0px 20px 0px 0px;
+
+  font-size: 12px;
+  font-weight: medium;
+`;
+
+export const Bio = styled.div`
+  width: 369px;
+
+  margin: 29px 0px 0px 0px;
+
+  display: flex;
+  flex-direction: column;
+`;
+
+export const BioDescr = styled.p`
+  font-size: 14px;
+  font-weight: 400;
+  text-align: justify;
+
+  margin: 0px 62px 0px 26px;
+`;
+
+export const Expertises = styled.div`
+  display: flex;
+  justify-content: flex-start;
+  flex-wrap: wrap;
+
+  margin: 30px 0px 0px 26px;
+`;
+
+export const Tag = styled.button`
+  width: 81px;
+  height: 33px;
+
+  box-shadow: inset 0px -3px 7px 0px #333;
+  background-color: #000;
+  border-radius: 3px;
+  margin: 0px 9px 9px 0px;
+
+  display: inline-block;
+  color: #ffffff;
+  font-family: Arial;
+  font-size: 14px;
+`;
+
+export const Buttons = styled.div`
+  width: 369px;
+  height: 143px;
+
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+`;
+
+export const Button = styled.button`
+  display: inline-block;
+  width: 313px;
+
+  margin: 10px 0px 0px 26px;
+
+  background-color: #000;
+  color: #ffffff;
+  border: 1px solid #000;
+
+  border-radius: 8px;
+  padding: 11px 80px;
+  
+  cursor: pointer;
+  
+  font-family: Arial;
+  font-size: 17px;
+  text-decoration: none;
+
+  :hover {
+    background-color: #eee;
+    color: black;
+    border: 1px solid #000;
+  }
+  :active {
+    position: relative;
+    top: 1px;
+  }
 `;

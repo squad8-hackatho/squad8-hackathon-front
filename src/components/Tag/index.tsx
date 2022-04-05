@@ -3,14 +3,16 @@ import { TagStyle } from './styles';
 
 type Props = {
   children: any;
+  width: number;
 };
 
-function Tag({ children }: Props) {
+function Tag({ children, width }: Props) {
   const [bg, setBg] = useState('black');
   const [color, setColor] = useState('white');
 
   return (
     <TagStyle
+      width= {width}
       bgColor={bg}
       textColor={color}
       onClick={() => {

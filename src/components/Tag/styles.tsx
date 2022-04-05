@@ -1,9 +1,10 @@
 import styled from 'styled-components';
+import { layout, LayoutProps } from 'styled-system';
 
-type TagProps = {
-  bgColor: string;
-  textColor: string;
-};
+type TagProps = LayoutProps & {
+    bgColor: string;
+    textColor: string;
+  };
 
 export const TagStyle = styled.button<TagProps>`
   border-radius: 8px;
@@ -37,4 +38,6 @@ export const TagStyle = styled.button<TagProps>`
     background-color: gray;
     color: black;
   }
+
+  ${layout}
 `;
