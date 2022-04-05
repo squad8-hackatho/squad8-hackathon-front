@@ -51,11 +51,15 @@ Na Technical Share, pessoas com diferentes níveis de experiência poderão se e
   <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/figma/figma-original.svg"  width='100px'/>
   
 </p>
+
 <br/>
+
 <ul>
-        <li><strong><em>Front End: </em></strong>além de utilizar as tecnologias básicas para o desenvolvimento web, decidimos utilizar alguns frameworks que padronizaram e agilizaram o desenvolvimento da aplicação. O Bootstrap foi aplicado para padronizar as classes em todas as páginas e facilitar o desenvolvimento do layout responsivo. O ReactJS permitiu componentizar partes do layout, permitindo a reusabilidade do mesmo trecho de código em várias páginas. Foram utilizadas algumas bibliotecas para React, como <a href='https://react-hook-form.com'>React Hook Form</a>, <a href='https://react-icons.github.io/react-icons/'>React Icons</a> e a <a href='https://kiarash-z.github.io/react-modern-calendar-datepicker/'>React Modern Calendar</a>. Para as requisições, optou-se pelo uso do <a href='https://axios-http.com'>Axios</a>.</li>
+        <li><strong><em>Front End: </em></strong>"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."</li>
         <li><strong><em>Back End: </em></strong>para o desenvolvimento da API que realizaria a definição de rotas, processamento de requisições, validação de dados e comunicação com o Banco de Dados, foi utilizado o framework para NodeJS <a href='https://adonisjs.com'>AdonisJS</a>. Para armazenar os dados de acesso dos usuários, escritórios disponíveis para agendar a visita e os próprios agendamentos, optou-se pelo PostgreSQL.</li>
 </ul>
+
+<br>
 
 <h2 id='layout'>:iphone: Layout:</h2>
 <p>Todo o layout da aplicação foi projetado em mobile-first, mas todas as páginas se ajustam a vários tamanhos de tela.</p> 
@@ -64,15 +68,14 @@ Na Technical Share, pessoas com diferentes níveis de experiência poderão se e
 </p>
 
 <br/>
-<h3 align='center'>Acesse o layout completo do projeto pelo Figma: <a href='https://www.figma.com/proto/I4aIiNDYrABpeEbjVpujbY/Untitled?node-id=701%3A18737&scaling=min-zoom&page-id=700%3A11868&starting-point-node-id=700%3A11869'><strong>Orange Desk - Protótipo final</strong></a></h3>
+<h3 align='center'>Acesse o layout completo do projeto pelo Figma: <a href='#'><strong>Technical Share - Protótipo final</strong></a></h3>
 <br/>
-
 
 <h2 id="comorodaroprojeto">:gear:Como rodar o projeto?</h2>
 
 ``` bash
 #Clone este repositório
-$ git clone git@github.com:lilianmartinsfritzen/projeto-squad-8.git
+$ git clone https://github.com/squad8-hackatho/squad8-hackthon.git
 
 #Abra a pasta backend e no terminal execute o comando:
 $ npm install
@@ -83,6 +86,8 @@ $ yarn install
 $ npm start
 ou
 $ yarn start
+
+
 
 #A aplicação (backend) será aberta na porta:3333 - acesse http://localhost:3333. 
 
@@ -100,13 +105,7 @@ $ yarn start
 ```
 *OBS: Para que a aplicação funcione corretamente, você deve deixar o front e o back rodando ao mesmo tempo.*
 
-``` bash
-#Abaixo estão os dados fictícios de e-mail e senha para a navegação das telas:
-
-email: usuario@fcamara.com.br
-senha: 123456
-
-```
+<br>
 
 <h2 id="features">:wrench:Features</h2>
 
@@ -115,11 +114,15 @@ senha: 123456
     * **02** - ??
     * **03** - ??
 
+<br>
+
 <h2 id="conteudoxterno">:file_folder:Conteúdo Externo</h2> 
 
-* :wink: Ficou curioso e quer saber como foi a idealização do My Turn de maneira rápida? Se liga no nosso [vídeo de funcionalidades](https://youtu.be/v7VXScbpCMg)! 
-* :black_nib: Também foi escrito um [artigo](https://medium.com/@anapssouza/voltando-ao-escrit%C3%B3rio-em-seguran%C3%A7a-estudo-de-caso-fcamara-bbdf6de9a00e) relatando todo o processo de desenvolvimento feito pela nossa dupla de UX Design. 
+* :wink: Veja o nosso [vídeo de funcionalidades](https://youtu.be/v7VXScbpCMg)! 
+* :black_nib: Também nosso [artigo](https://medium.com/@anapssouza/voltando-ao-escrit%C3%B3rio-em-seguran%C3%A7a-estudo-de-caso-fcamara-bbdf6de9a00e) desenvolvido pelo nosso trio de UX Design, relatando todo o processo de desenvolvimento. 
 * :yellow_heart: Nosso [Pitch](https://drive.google.com/file/d/1BqQAbJBO9QZUIt8zK1JFG_LoLW7MZW79/view?usp=sharing).
+
+<br>
 
 <h2 id="nossaequipe">:busts_in_silhouette:Nossa Equipe</h2> 
 
@@ -133,6 +136,8 @@ senha: 123456
 | <img src="https://avatars.githubusercontent.com/u/102770650?v=4" width="300"><br>*UX Designer* | Franciele | *"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."* | [Linkedin](#) [Email](#) | 
 | <img src="https://avatars.githubusercontent.com/u/102770650?v=4" width="300"><br>*UX Designer* | Maria Eduarda | *"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."* | [Linkedin](#) [Email](#) | 
 | <img src="https://avatars.githubusercontent.com/u/102770650?v=4" width="300"><br>*UX Designer* | Yulli Rezende | *"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."* | [Linkedin](#) [Email](#) | 
+
+<br>
 
 <h2 id="licenca">Licença</h2>
 
