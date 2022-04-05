@@ -1,10 +1,10 @@
 import styled from 'styled-components';
-import { theme, customMedia } from '../../themes/theme';
+import { customMedia } from '../../themes/theme';
 
 export const Section = styled.section`
   width: 45vw;
 
-  ${customMedia.lessThan('mobile')`
+  ${customMedia.lessThan('laptopS')`
     width: 100vw;
   `}
 `;
@@ -12,8 +12,11 @@ export const Section = styled.section`
 export const Title = styled.h1`
   font-size: 40px;
 
-  ${customMedia.lessThan('mobile')`
+  ${customMedia.lessThan('laptopS')`
     margin-top: 50%;
+  `}
+  ${customMedia.lessThan('default')`
+    margin-top: 65%;
   `}
 `;
 
@@ -24,10 +27,14 @@ export const Article = styled.article`
   align-items: left;
   padding: 100px 50px;
 
-  ${customMedia.lessThan('mobile')`
+  ${customMedia.lessThan('laptopS')`
     justify-content: center;
     align-items: center;
     padding: 50px 25px;
+  `}
+  ${customMedia.lessThan('default')`
+    padding: 40px 20px;
+    height: 75vh;
   `}
 `;
 
@@ -45,8 +52,12 @@ export const SpanRef = styled.span`
     }
   }
 
-  ${customMedia.lessThan('mobile')`
+  ${customMedia.lessThan('laptopS')`
     font-size: 30px;
+  `}
+
+  ${customMedia.lessThan('default')`
+    font-size: 22px;
   `}
 `;
 
@@ -87,30 +98,43 @@ export const CardName = styled.form`
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
-  height: 35vh;
+  height: 25vh;
+  align-items: center;
+
+  button {
+    margin-top: -1%;
+  }
 
   h2 {
     justify-content: center;
     align-items: center;
     margin-top: 45px;
     margin-bottom: 20px;
-    margin-left: 100px;
   }
 
-  ${customMedia.lessThan('mobile')`
+  ${customMedia.lessThan('laptopS')`
     background-color: #ebebeb;
     h2 {
-      justify-content: center;
-      align-items: center;
       margin-top: 50px;
       margin-bottom: 20px;
       margin-left: 30px;
+    }
+  `}
+
+  ${customMedia.lessThan('default')`
+    h2 {
+      margin-left: 0px;
+      margin-top: 20px;
+      margin-bottom: 20px;
     }
   `}
 `;
 
 export const H2 = styled.h2`
   font-weight: normal;
+  ${customMedia.lessThan('default')`
+    font-size: 22px;
+  `}
 `;
 
 export const Input = styled.input`
@@ -127,29 +151,13 @@ export const Input = styled.input`
     border-bottom: 1px solid black;
   }
 
-  ${customMedia.lessThan('mobile')`
+  ${customMedia.lessThan('laptopS')`
       margin-left: 35px;
       width: 80%
   `}
-`;
 
-export const Button = styled.button`
-  border-radius: 28px;
-  border: 1px solid;
-  padding: 16px 31px;
-  width: 10vw;
-  margin-left: 70%;
-
-  text-decoration: none;
-  font-weight: bold;
-
-  :hover {
-    background-color: #2d7ff9;
-    color: ${theme.colors.primary};
-  }
-
-  ${customMedia.lessThan('mobile')`
-      margin-left: 60%;
-      width: 35vw;
+  ${customMedia.lessThan('default')`
+    margin: 0px;
+    margin-bottom: 20px;
   `}
 `;

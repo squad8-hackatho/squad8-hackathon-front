@@ -8,10 +8,9 @@ export const Section = styled.section`
   height: 100vh;
   background-color: #c4c4c4;
 
-  ${customMedia.lessThan('mobile')`
+  ${customMedia.lessThan('laptopS')`
     height: 0px;
-    width: 0px;
-    display: none;
+    width: 0vw;
   `}
 `;
 
@@ -26,6 +25,12 @@ export const Title = styled.p`
   ${customMedia.lessThan('tablet')`
     font-size: 50px;
   `}
+
+  ${customMedia.lessThan('laptopS')`
+    font-size: 24px;
+    margin-top: 5%;
+    margin-left: 65%;
+  `}
 `;
 
 export const Article = styled.article`
@@ -34,4 +39,8 @@ export const Article = styled.article`
   flex-direction: column;
   align-items: left;
   padding: 100px 50px;
+
+  ${customMedia.lessThan('laptopS')`
+    padding: 30px 0px;
+  `}
 `;

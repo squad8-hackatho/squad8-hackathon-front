@@ -1,8 +1,8 @@
 import React from 'react';
 import { v4 as uuidv4 } from 'uuid';
 import { Link } from 'react-router-dom';
+import { ButtonBig } from '../../components/Button/styles';
 import {
-  Button,
   CardName,
   Input,
   Article,
@@ -39,7 +39,7 @@ function Home() {
         </H2>
         <Input placeholder="Escreva o seu nome" autoFocus maxLength={50} />
         <Link to="/interest">
-          <Button>Vamos lá</Button>
+          <ButtonBig>Começar</ButtonBig>
         </Link>
       </CardName>
     </Section>

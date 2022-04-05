@@ -8,6 +8,7 @@ import {
   SpaceProps,
   typography,
   TypographyProps,
+  layout,
 } from 'styled-system';
 import { theme } from '../../themes/theme';
 
@@ -35,6 +36,25 @@ export const Button = styled.button<ButtonProps>`
   :active {
     position: relative;
     top: 1px;
+  }
+`;
+
+export const ButtonBig = styled.button`
+  border-radius: 8px;
+  border: 1px solid none;
+  padding: 16px 31px;
+  margin: 25px 10px 20px 10px;
+  background-color: black;
+  color: white;
+  width: 220px;
+  height: 45px;
+  cursor: pointer;
+
+  ${layout}
+
+  :hover {
+    background-color: #2d7ff9;
+    color: ${theme.colors.primary};
   }
 `;
 

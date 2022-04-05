@@ -1,5 +1,4 @@
 import styled from 'styled-components';
-import { generateMedia } from 'styled-media-query';
 import {
   border,
   BorderProps,
@@ -10,21 +9,10 @@ import {
   typography,
   TypographyProps,
 } from 'styled-system';
-import { theme } from '../../themes/theme';
+import { customMedia, theme } from '../../themes/theme';
 
 type ButtonProps = TypographyProps & ColorProps & BorderProps & SpaceProps;
 type ProfileNameProps = TypographyProps;
-
-const customMedia = generateMedia({
-  laptopL: '91em',
-  laptop: '64em',
-  laptopS: '60em',
-  tablet: '48em',
-  default: '32em',
-  mobileL: '27em',
-  mobileM: '23.5em',
-  mobileS: '20em',
-});
 
 export const Container = styled.section`
   display: flex;
