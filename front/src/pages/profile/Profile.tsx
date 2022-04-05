@@ -1,20 +1,19 @@
 import React from 'react';
 import { MentorCard } from '../../components/MentorCard';
-import { A, Nav } from './styles';
+import { Button, Nav } from './styles';
 
 function Profile() {
-  const name = 'Name';
-  const ocupation = 'Ocupation';
+  const name = 'Bruno Mundim';
+  const ocupation = 'Front End Dev';
+  const level = 'Senior';
 
   return (
-    <main>
-      <MentorCard name={name} Occupation={ocupation}>
-        <Nav>
-          <A href="/#">Abrir Perfil</A>
-          <A href="/#">Marcar Mentoria</A>
-        </Nav>
-      </MentorCard>
-    </main>
+    <MentorCard name={name} Occupation={ocupation} Level={level}>
+      <Nav>
+        <Button>Abrir Perfil</Button>
+        <Button>Marcar Mentoria</Button>
+      </Nav>
+    </MentorCard>
   );
 }
 

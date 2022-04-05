@@ -4,6 +4,7 @@ import {
   Container,
   ProfilePicture,
   ProfileInfo,
+  OccupationDescription,
   ProfileName,
   Tag,
   P,
@@ -16,20 +17,30 @@ type Props = {
   children: any;
   name: string;
   Occupation: string;
+  Level: string;
 };
 
-export const MentorCard = ({ children, name, Occupation }: Props) => {
+export const MentorCard = ({
+  children,
+  name,
+  Occupation,
+  Level,
+}: Props) => {
   const expertises = ['React', 'HTML', 'CSS', 'CSS', 'HTML', 'HTML'];
 
   return (
     <Container>
       <Card>
         <ProfilePicture src={foto} alt="Profile" />
+
         <ProfileInfo>
           <ProfileName fontSize={theme.fontSizes.displayExtraLarge}>
             {name}
           </ProfileName>
-          <p> {Occupation} </p>
+          <OccupationDescription>
+            <p> Ocupação: {Occupation} </p>
+            <p> Nível: {Level} </p>
+          </OccupationDescription>
           <P>Realiza mentorias sobre</P>
           <TagContainer>
             {expertises.map((expertise) => {
