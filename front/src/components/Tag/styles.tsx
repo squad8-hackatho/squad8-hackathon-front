@@ -9,18 +9,14 @@ export const TagStyle = styled.button<TagProps>`
   border-radius: 8px;
   border: 1px solid none;
   padding: 16px 31px;
-  display: block;
   transition-duration: 0.1s;
 
-  margin-right: 20px;
-  margin-bottom: 20px;
-
+  margin: 0px 10px 20px 10px;
   text-decoration: none;
 
   width: 165px;
   height: 45px;
   white-space: nowrap;
-  overflow: hidden;
 
   cursor: pointer;
   background-color: ${(props) => {
@@ -34,7 +30,6 @@ export const TagStyle = styled.button<TagProps>`
     background-color: ${(props) => {
       return props.bgColor === '#ED7117' ? '#ED820E' : '#222';
     }};
-    color: white;
   }
   :active {
     position: relative;

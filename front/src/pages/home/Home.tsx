@@ -1,14 +1,16 @@
 import React from 'react';
 import { v4 as uuidv4 } from 'uuid';
+import { Link } from 'react-router-dom';
 import {
   Button,
-  NameCard,
-  NameForm,
-  P,
-  Section,
+  CardName,
+  Input,
+  Article,
   Span,
   SpanP,
   Title,
+  Section,
+  H2,
 } from './styles';
 
 function Home() {
@@ -16,26 +18,31 @@ function Home() {
   const TextP = 'Texto Explicando a proposta da aplicação';
 
   return (
-    <main>
-      <Section>
+    <Section>
+      <Article>
         <Title>
           {TextH1.split(' ').map((word) => {
             return <Span key={uuidv4()}>{word}</Span>;
           })}
         </Title>
 
-        <P>
+        <p>
           {TextP.split(' ').map((word) => {
             return <SpanP key={uuidv4()}>{word}</SpanP>;
           })}
-        </P>
-      </Section>
-      <NameCard>
-        <h2>Como podemos te chamar?</h2>
-        <NameForm placeholder="Qual seu nome?" />
-        <Button>Vamos lá</Button>
-      </NameCard>
-    </main>
+        </p>
+      </Article>
+
+      <CardName>
+        <H2>
+          Como podemos <strong>te chamar?</strong>
+        </H2>
+        <Input placeholder="Escreva o seu nome" autoFocus maxLength={50} />
+        <Link to="/interest">
+          <Button>Vamos lá</Button>
+        </Link>
+      </CardName>
+    </Section>
   );
 }
 
