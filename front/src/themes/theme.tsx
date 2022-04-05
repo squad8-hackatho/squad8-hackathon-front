@@ -1,5 +1,6 @@
 import React from 'react';
 import { ThemeProvider } from 'styled-components';
+import { generateMedia } from 'styled-media-query';
 
 const sizes = [14, 20, 48];
 
@@ -19,6 +20,12 @@ export const theme = {
     secondary,
   },
 };
+
+export const customMedia = generateMedia({
+  desktop: '78em',
+  tablet: '60em',
+  mobile: '45em',
+});
 
 export type ThemeType = typeof theme;
 
