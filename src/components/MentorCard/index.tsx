@@ -12,46 +12,51 @@ import {
   Expertises,
   Tag,
   Buttons,
-  Button
+  Button,
 } from './styles';
 import foto from '../../assets/foto.png';
 
-export function MentorCard() {
+type Props = {
+  name: string;
+  occupation: string;
+  level: string;
+  bioDescription: string;
+  tags: any;
+};
+
+export function MentorCard({ name, occupation, level, bioDescription, tags }: Props) {
   return (
     <Card>
       <Header>
         <ProfilePicture src={foto} alt="Teste" />
         <Description>
-          <Name>Bruno</Name>
+          <Name>{name}</Name>
           <Occupation>
             <OccupationItem>
-              <strong>Area:</strong> Front End Developer
+              <strong>Area:</strong> {occupation}
             </OccupationItem>
             <OccupationItem>
-              <strong>Nível:</strong> Trainee
+              <strong>Nível:</strong> {level}
             </OccupationItem>
           </Occupation>
         </Description>
       </Header>
       <Bio>
         <BioDescr>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras lobortis
-          sed ante a suscipit. Duis porttitor libero ut quam fermentum congue
-          vitae vel dolor. Curabitur efficitur sit amet ligula luctus aliquam.
-          Nullam malesuada libero facilisis quam integer.
+          {bioDescription}
         </BioDescr>
         <Expertises>
-          <Tag>React</Tag>
-          <Tag>HTML</Tag>
-          <Tag>CSS</Tag>
-          <Tag>SQL</Tag>
-          <Tag>Scrum</Tag>
-          <Tag>Teste</Tag>
+          <Tag>{tags[0]}</Tag>
+          <Tag>{tags[1]}</Tag>
+          <Tag>{tags[2]}</Tag>
+          <Tag>{tags[3]}</Tag>
+          <Tag>{tags[4]}</Tag>
+          <Tag>Mais {tags.length - 5}</Tag>
         </Expertises>
       </Bio>
       <Buttons>
-        <Button>Teste</Button>
-        <Button>Teste</Button>
+        <Button>Quero me conectar</Button>
+        <Button>Ver perfil</Button>
       </Buttons>
     </Card>
   );
