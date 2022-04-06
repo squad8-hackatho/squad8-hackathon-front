@@ -31,10 +31,10 @@ export const Article = styled.article`
     justify-content: center;
     align-items: center;
     padding: 50px 25px;
+    height: 75vh;
   `}
   ${customMedia.lessThan('default')`
     padding: 40px 20px;
-    height: 75vh;
   `}
 `;
 
@@ -51,6 +51,11 @@ export const SpanRef = styled.span`
       filter: blur(0);
     }
   }
+
+  ${customMedia.between('tablet', 'laptopS')`
+    font-size: 30px;
+    
+  `}
 
   ${customMedia.lessThan('laptopS')`
     font-size: 30px;
@@ -121,6 +126,14 @@ export const CardName = styled.form`
     }
   `}
 
+  ${customMedia.lessThan('tablet')`
+    h2 {
+      margin-top: 20px;
+      margin-bottom: 20px;
+      margin-left: 0px;
+    }
+  `}
+
   ${customMedia.lessThan('default')`
     h2 {
       margin-left: 0px;
@@ -154,6 +167,12 @@ export const Input = styled.input`
   ${customMedia.lessThan('laptopS')`
       margin-left: 35px;
       width: 80%
+  `}
+
+  ${customMedia.lessThan('tablet')`
+    margin-left: 95px;
+    margin-bottom: 20px;
+    width: 65%
   `}
 
   ${customMedia.lessThan('default')`

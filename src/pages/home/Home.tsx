@@ -2,6 +2,7 @@ import React from 'react';
 import { v4 as uuidv4 } from 'uuid';
 import { Link } from 'react-router-dom';
 import { ButtonBig } from '../../components/Button/styles';
+import { Pattern } from '../index';
 import {
   CardName,
   Input,
@@ -18,31 +19,33 @@ function Home() {
   const TextP = 'Texto Explicando a proposta da aplicação';
 
   return (
-    <Section>
-      <Article>
-        <Title>
-          {TextH1.split(' ').map((word) => {
-            return <Span key={uuidv4()}>{word}</Span>;
-          })}
-        </Title>
+    <Pattern>
+      <Section>
+        <Article>
+          <Title>
+            {TextH1.split(' ').map((word) => {
+              return <Span key={uuidv4()}>{word}</Span>;
+            })}
+          </Title>
 
-        <p>
-          {TextP.split(' ').map((word) => {
-            return <SpanP key={uuidv4()}>{word}</SpanP>;
-          })}
-        </p>
-      </Article>
+          <p>
+            {TextP.split(' ').map((word) => {
+              return <SpanP key={uuidv4()}>{word}</SpanP>;
+            })}
+          </p>
+        </Article>
 
-      <CardName>
-        <H2>
-          Como podemos <strong>te chamar?</strong>
-        </H2>
-        <Input placeholder="Escreva o seu nome" autoFocus maxLength={50} />
-        <Link to="/interest">
-          <ButtonBig>Começar</ButtonBig>
-        </Link>
-      </CardName>
-    </Section>
+        <CardName>
+          <H2>
+            Como podemos <strong>te chamar?</strong>
+          </H2>
+          <Input placeholder="Escreva o seu nome" autoFocus maxLength={50} />
+          <Link to="/interest">
+            <ButtonBig>Começar</ButtonBig>
+          </Link>
+        </CardName>
+      </Section>
+    </Pattern>
   );
 }
 
