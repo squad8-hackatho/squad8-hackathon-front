@@ -73,6 +73,8 @@ export const Bio = styled.div`
 `;
 
 export const BioDescr = styled.p`
+  height: 100px;
+
   font-size: 14px;
   font-weight: 400;
   text-align: justify;
@@ -89,11 +91,10 @@ export const Expertises = styled.div`
 `;
 
 export const Tag = styled.button`
-  width: 81px;
-  height: 33px;
+  width: 98px;
+  height: 40px;
 
-  box-shadow: inset 0px -3px 7px 0px #333;
-  background-color: #000;
+  background-color: orange;
   border-radius: 3px;
   margin: 0px 9px 9px 0px;
 
