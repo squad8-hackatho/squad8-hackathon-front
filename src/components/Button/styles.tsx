@@ -9,10 +9,11 @@ import {
   typography,
   TypographyProps,
   layout,
+  LayoutProps,
 } from 'styled-system';
 import { customMedia, theme } from '../../themes/theme';
 
-type ButtonProps = TypographyProps & ColorProps & BorderProps & SpaceProps;
+type ButtonProps = TypographyProps & ColorProps & BorderProps & SpaceProps & LayoutProps;
 
 export const Button = styled.button<ButtonProps>`
   border-radius: 28px;
@@ -27,6 +28,7 @@ export const Button = styled.button<ButtonProps>`
   ${color}
   ${border}
   ${space}
+  ${layout}
   cursor: pointer;
 
   :hover {
