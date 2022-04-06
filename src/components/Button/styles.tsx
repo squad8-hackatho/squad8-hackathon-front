@@ -10,7 +10,7 @@ import {
   TypographyProps,
   layout,
 } from 'styled-system';
-import { theme } from '../../themes/theme';
+import { customMedia, theme } from '../../themes/theme';
 
 type ButtonProps = TypographyProps & ColorProps & BorderProps & SpaceProps;
 
@@ -49,6 +49,13 @@ export const ButtonBig = styled.button`
   width: 220px;
   height: 45px;
   cursor: pointer;
+
+  ${customMedia.between('tablet', 'laptopS')`
+    padding: 8px 15px;
+    width: 250px;
+    height: 55px;
+    font-size: 20px;
+  `};
 
   ${layout}
 

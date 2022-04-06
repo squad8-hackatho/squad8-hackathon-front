@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { TagStyle } from './styles';
+import { TagAnimated } from './styles';
 
 type Props = {
   children: any;
@@ -10,7 +10,7 @@ function Tag({ children }: Props) {
   const [color, setColor] = useState('white');
 
   return (
-    <TagStyle
+    <TagAnimated
       bgColor={bg}
       textColor={color}
       width={200}
@@ -20,7 +20,7 @@ function Tag({ children }: Props) {
       }}
     >
       {children}
-    </TagStyle>
+    </TagAnimated>
   );
 }
 

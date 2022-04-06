@@ -3,21 +3,28 @@ import { theme, customMedia } from '../../themes/theme';
 
 export const Container = styled.section`
   display: flex;
-  flex-direction: column;
   justify-content: center;
   align-items: center;
   height: 100vh;
-  padding: 50px;
-  width: 50vw;
+  padding: 20px 50px;
+  width: 45vw;
 
-  ${customMedia.lessThan('tablet')`
+  ${customMedia.lessThan('laptopS')`
+    width: 100vw;
+  `};
+
+  ${customMedia.between('tablet', 'laptopS')`
+    margin: 0px 50px;
   `};
 
   ${customMedia.lessThan('mobileL')`
-    width: 100vw;
     padding: 0px;
     padding-top: 80px;
   `};
+
+  ${customMedia.lessThan('mobileS')`
+    display: block;
+`};
 `;
 
 export const H2 = styled.h2`
@@ -33,15 +40,18 @@ export const Card = styled.article`
   display: flex;
   flex-direction: column;
   padding: 32px;
-  max-width: 804px;
   align-items: center;
 
   h2 {
     margin-bottom: 50px;
   }
 
-  ${customMedia.lessThan('tablet')`
+  ${customMedia.lessThan('laptop')`
     flex-direction: column;
+  `};
+
+  ${customMedia.between('default', 'tablet')`
+    margin-top: 55px;
   `};
 
   ${customMedia.lessThan('mobileL')`
@@ -56,5 +66,9 @@ export const TagContainer = styled.div`
 
   ${customMedia.lessThan('mobileL')`
     justify-content: space-between;
+  `};
+
+  ${customMedia.lessThan('mobileS')`
+    justify-content: center;
   `};
 `;
