@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import { customMedia } from '../../themes/theme';
 
 export const Card = styled.section`
   width: 369px;
@@ -9,7 +10,8 @@ export const Card = styled.section`
 
   margin: 0px 30px 30px 0px;
 
-  box-shadow: 12px 5px 12px 3px #EEE;
+  background-color: #c3c3c3;
+  box-shadow: 12px 5px 12px 3px #ededed;
 
   img {
     width: 68px;
@@ -22,6 +24,16 @@ export const Card = styled.section`
 
   h1 {
   }
+
+  ${customMedia.lessThan('laptop')`
+    margin: 0px 50px 50px 0px;
+  `}
+
+  ${customMedia.lessThan('tablet')`
+    width: 90%;
+    margin: 0px 100px 50px 0px;
+    align-items: center;
+  `}
 `;
 
 export const Header = styled.div`
@@ -30,6 +42,11 @@ export const Header = styled.div`
 
   display: flex;
   flex-direction: row;
+
+  ${customMedia.lessThan('tablet')`
+    width: 100%;
+    align-items: center;
+  `}
 `;
 
 export const ProfilePicture = styled.img`
@@ -51,6 +68,11 @@ export const Name = styled.p`
 
   font-size: 16px;
   font-weight: bold;
+
+  ${customMedia.lessThan('tablet')`
+    font-size: 22px;
+    margin: 20px 0px 12px 0px;
+  `}
 `;
 
 export const Occupation = styled.p`
@@ -63,6 +85,10 @@ export const OccupationItem = styled.p`
 
   font-size: 12px;
   font-weight: medium;
+
+  ${customMedia.lessThan('tablet')`
+    font-size: 16px;
+  `}
 `;
 
 export const Bio = styled.div`
@@ -72,6 +98,10 @@ export const Bio = styled.div`
 
   display: flex;
   flex-direction: column;
+
+  ${customMedia.lessThan('tablet')`
+    width: 100%;
+  `}
 `;
 
 export const BioDescr = styled.p`
@@ -82,6 +112,11 @@ export const BioDescr = styled.p`
   text-align: justify;
 
   margin: 0px 62px 0px 26px;
+
+  ${customMedia.lessThan('tablet')`
+    font-size: 19px;
+    margin: 0px 30px;
+  `}
 `;
 
 export const Expertises = styled.div`
@@ -90,6 +125,11 @@ export const Expertises = styled.div`
   flex-wrap: wrap;
 
   margin: 30px 0px 0px 26px;
+
+  ${customMedia.lessThan('tablet')`
+    justify-content: center;
+    margin: 15px 100px 0px 100px;
+  `}
 `;
 
 export const Tag = styled.button`
@@ -127,9 +167,9 @@ export const Button = styled.button`
 
   border-radius: 8px;
   padding: 11px 80px;
-  
+
   cursor: pointer;
-  
+
   font-family: Arial;
   font-size: 17px;
   text-decoration: none;

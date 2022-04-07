@@ -2,12 +2,11 @@ import styled from 'styled-components';
 import { layout, LayoutProps } from 'styled-system';
 
 export const DropdownWrapper = styled.section`
-  position: relative;
   display: inline-flex;
   flex-direction: column;
   padding: 10px;
   background-color: #CECECE;
-  margin: 0px 10px 0px 0px;
+  margin: 0px 15px 0px 0px;
 
   border: 1px solid black;
   border-radius: 8px;
@@ -33,14 +32,18 @@ export const DropdownContent = styled.div<DropdownContentProps>`
 type SelectedFiltersProps = LayoutProps;
 
 export const SelectedFilters = styled.div<SelectedFiltersProps>`
-  height: 50px;
+  min-height: 50px;
+  max-width: 70vw;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
 
   ${layout}
 `;
 
 export const FilterTag = styled.button`
   padding: 10px;
-  margin: 0px 10px 0px 0px;
+  margin: 0px 10px 10px 0px;
 
   border: 1px solid black;
   border-radius: 8px;
