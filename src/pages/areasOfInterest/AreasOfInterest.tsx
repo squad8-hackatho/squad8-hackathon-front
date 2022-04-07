@@ -31,7 +31,11 @@ function AreasOfInterest() {
           </H2>
           <TagContainer>
             {areas.map((area) => {
-              return <Tag key={uuidv4()}>{area}</Tag>;
+              return (
+                <Tag flagAnimated key={uuidv4()}>
+                  {area}
+                </Tag>
+              );
             })}
           </TagContainer>
           <Link to="/usersList">

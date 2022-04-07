@@ -21,10 +21,11 @@ type ButtonProps = TypographyProps &
 
 export const Button = styled.button<ButtonProps>`
   border-radius: 28px;
-  border: 1px solid;
-  padding: 16px 31px;
+  border: 1px solid none;
+  padding: 15px 30px;
   display: block;
-
+  width: 220px;
+  height: 45px;
   text-decoration: none;
   font-weight: bold;
 
@@ -35,27 +36,6 @@ export const Button = styled.button<ButtonProps>`
   ${layout}
   cursor: pointer;
 
-  :hover {
-    background-color: #2d7ff9;
-    color: ${theme.colors.primary};
-  }
-  :active {
-    position: relative;
-    top: 1px;
-  }
-`;
-
-export const ButtonBig = styled.button`
-  border-radius: 8px;
-  border: 1px solid none;
-  padding: 16px 31px;
-  margin: 25px 10px 20px 10px;
-  background-color: black;
-  color: white;
-  width: 220px;
-  height: 45px;
-  cursor: pointer;
-
   ${customMedia.between('tablet', 'laptopS')`
     padding: 8px 15px;
     width: 250px;
@@ -63,7 +43,22 @@ export const ButtonBig = styled.button`
     font-size: 20px;
   `};
 
-  ${layout}
+  :hover {
+    background-color: #2d7ff9;
+    color: ${theme.colors.primary};
+  }
+
+  :active {
+    position: relative;
+    top: 1px;
+  }
+`;
+
+export const ButtonBig = styled(Button)`
+  margin: 20px 10px 20px 10px;
+  border-radius: 8px;
+  background-color: black;
+  color: white;
 
   :hover {
     background-color: #2d7ff9;

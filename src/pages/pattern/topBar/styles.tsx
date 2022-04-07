@@ -10,7 +10,7 @@ const theme = {
 
 export const Header = styled.header`
   width: 80vw;
-  height: 10vh;
+  height: 8vh;
 
   margin: 0px 135px;
 
@@ -23,7 +23,7 @@ export const LogoAndUserLogin = styled.header`
   display: flex;
   flex-direction: row;
 
-  margin: 30px 0px 0px 0px;
+  margin: 20px 0px 0px 0px;
 
   h3 {
     font-weight: normal;
