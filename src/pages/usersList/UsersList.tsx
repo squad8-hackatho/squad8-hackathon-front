@@ -18,23 +18,24 @@ function UsersList() {
     'NodeJS',
     'MongoDB',
   ];
-  const dropdownItens = ['Desenvolvimento', 'Gestão de TI', 'UX e UI'];
-  /* const dropdownItens2 = [
-    'Engenharia de Dados',
-    'Linguagem de Códigos',
-    'Full Stack',
-  ]; */
-
-  
+  const dropdownName= ['Área', 'Tipo de Habilidade', 'Tecnologia']
+  const dropdownItens = [
+    ['Desenvolvimento', 'Gestão de TI', 'UX e UI'],
+    ['Hard Skills', 'Soft Skills'],
+    [
+      'Engenharia de Dados',
+      'Linguagem de Códigos',
+      'Sistemas Operacionais',
+      'Full Stack',
+      'Segurança de Rede',
+    ]
+  ];
 
   return (
     <main>
       <TopBarPattern flag />
       <Filter>
-        <Dropdown
-          dropdownName="Hard Skill"
-          dropdownItens={dropdownItens}
-        />
+        <Dropdown dropdownName={dropdownName} dropdownItens={dropdownItens} />
       </Filter>
       <Mentors>
         <MentorCard
