@@ -1,6 +1,7 @@
 import Home from './home/Home';
 import Profile from './profile/Profile';
-import Pattern from './pattern/Pattern';
+import { BannerPattern } from './pattern';
 import AreasOfInterest from './areasOfInterest/AreasOfInterest';
+import UsersList from './usersList/UsersList';
 
-export { Home, Profile, Pattern, AreasOfInterest };
+export { Home, Profile, BannerPattern, AreasOfInterest, UsersList };

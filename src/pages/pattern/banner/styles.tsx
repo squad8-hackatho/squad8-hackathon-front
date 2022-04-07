@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { customMedia } from '../../themes/theme';
+import { customMedia } from '../../../themes/theme';
 
 export const Section = styled.section`
   justify-content: center;

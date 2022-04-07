@@ -2,7 +2,7 @@ import React from 'react';
 import { v4 as uuidv4 } from 'uuid';
 import { Link } from 'react-router-dom';
 import { ButtonBig } from '../../components/Button/styles';
-import { Pattern } from '../index';
+import { BannerPattern } from '../index';
 import {
   CardName,
   Input,
@@ -19,7 +19,7 @@ function Home() {
   const TextP = 'Texto Explicando a proposta da aplicação';
 
   return (
-    <Pattern>
+    <BannerPattern>
       <Section>
         <Article>
           <Title>
@@ -45,7 +45,7 @@ function Home() {
           </Link>
         </CardName>
       </Section>
-    </Pattern>
+    </BannerPattern>
   );
 }
 

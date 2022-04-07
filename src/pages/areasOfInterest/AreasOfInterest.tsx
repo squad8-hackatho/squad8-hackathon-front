@@ -4,7 +4,7 @@ import { v4 as uuidv4 } from 'uuid';
 import Tag from '../../components/Tag';
 import { Card, Container, TagContainer, H2 } from './styles';
 import { ButtonBig } from '../../components/Button/styles';
-import { Pattern } from '../index';
+import { BannerPattern } from '../index';
 
 function AreasOfInterest() {
   const areas = [
@@ -21,7 +21,7 @@ function AreasOfInterest() {
   ];
 
   return (
-    <Pattern>
+    <BannerPattern>
       <Container>
         <Card>
           <H2>
@@ -36,7 +36,7 @@ function AreasOfInterest() {
           <ButtonBig>Encontrar combinações</ButtonBig>
         </Card>
       </Container>
-    </Pattern>
+    </BannerPattern>
   );
 }
 
