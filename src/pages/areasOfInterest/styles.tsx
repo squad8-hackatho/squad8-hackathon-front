@@ -46,6 +46,10 @@ export const Card = styled.article`
     margin-bottom: 50px;
   }
 
+  a {
+    text-decoration: none;
+  }
+
   ${customMedia.lessThan('laptop')`
     flex-direction: column;
   `};
