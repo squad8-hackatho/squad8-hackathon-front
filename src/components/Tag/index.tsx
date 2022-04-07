@@ -1,26 +1,41 @@
 import React, { useState } from 'react';
-import { TagAnimated } from './styles';
+import { TagAnimated, TagStyle } from './styles';
 
 type Props = {
   children: any;
+  flagAnimated: boolean;
 };
 
-function Tag({ children }: Props) {
+function Tag({ children, flagAnimated }: Props) {
   const [bg, setBg] = useState('black');
-  const [color, setColor] = useState('white');
+  const [color] = useState('white');
 
-  return (
+  const setColors = () => {
+    setBg(bg === 'black' ? '#ED7117' : 'black');
+  };
+
+  return flagAnimated ? (
     <TagAnimated
       bgColor={bg}
       textColor={color}
       width={200}
       onClick={() => {
-        setBg(bg === 'black' ? '#ED7117' : 'black');
-        setColor(color === 'white' ? 'white' : 'white');
+        setColors();
       }}
     >
       {children}
     </TagAnimated>
+  ) : (
+    <TagStyle
+      bgColor={bg}
+      textColor={color}
+      width={200}
+      onClick={() => {
+        setColors();
+      }}
+    >
+      {children}
+    </TagStyle>
   );
 }
 

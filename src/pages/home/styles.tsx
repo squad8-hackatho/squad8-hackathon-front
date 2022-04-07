@@ -110,6 +110,10 @@ export const CardName = styled.form`
     margin-top: -1%;
   }
 
+  a {
+    text-decoration: none;
+  }
+
   h2 {
     justify-content: center;
     align-items: center;

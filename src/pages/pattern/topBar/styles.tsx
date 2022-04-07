@@ -12,7 +12,6 @@ const theme = {
 export const Header = styled.header`
   width: 80vw;
   height: 10vh;
- 
   margin: 0px 135px;
  
   hr {
@@ -30,7 +29,7 @@ export const LogoAndUserLogin = styled.header`
   justify-content: space-between;
  
   margin: 30px 0px 0px 0px;
- 
+
   h3 {
     font-weight: normal;
     font-size: 24px;

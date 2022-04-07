@@ -3,7 +3,7 @@ import styled from 'styled-components';
 export const Section = styled.section`
   display: flex;
   width: 28vw;
-  height: 85vh;
+  height: 89vh;
 
   flex-direction: column;
   align-items: center;
@@ -11,6 +11,14 @@ export const Section = styled.section`
 
   button {
     margin-top: 50px;
+  }
+
+  button {
+    :hover {
+      background-color: #eee;
+      color: black;
+      border: 1px solid #000;
+    }
   }
 `;
 
@@ -23,6 +31,6 @@ export const ProfilePicture = styled.img`
 `;
 
 export const P = styled.p`
-  margin-top: 15px;
+  margin-top: 10px;
   font-size: 20px;
 `;
