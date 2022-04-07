@@ -1,5 +1,6 @@
 import React from 'react';
 import Button from '../../components/Button/styles';
+import { Dropdown, whatIsSelected } from '../../components/Dropdown';
 import { MentorCard } from '../../components/MentorCard';
 import { Header, LogoAndUserLogin, Search } from './styles';
 
@@ -17,6 +18,8 @@ function Profile() {
     'NodeJS',
     'MongoDB',
   ];
+  const dropdownItens = ['Desenvolvimento', 'Gestão de TI', 'UX e UI'];
+  const dropdownItens2 = ['Engenharia de Dados', 'Linguagem de Códigos', 'Full Stack'];
 
   return (
     <main>
@@ -39,6 +42,9 @@ function Profile() {
         <Search placeholder='Procure o seu mentor aqui'/>
         <hr />        
       </Header>
+      <p>{whatIsSelected}</p>
+      <Dropdown dropdownName='Hard Skill' dropdownItens={dropdownItens} />
+      <Dropdown dropdownName='Hard Skill' dropdownItens={dropdownItens2} />
       <MentorCard
         name={name}
         occupation={occupation}
