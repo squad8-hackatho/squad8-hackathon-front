@@ -1,6 +1,7 @@
 /* eslint-disable no-sequences */
 import React from 'react';
 import { v4 as uuidv4 } from 'uuid';
+import { Link } from 'react-router-dom';
 import Tag from '../../components/Tag';
 import { Card, Container, TagContainer, H2 } from './styles';
 import { ButtonBig } from '../../components/Button/styles';
@@ -33,7 +34,9 @@ function AreasOfInterest() {
               return <Tag key={uuidv4()}>{area}</Tag>;
             })}
           </TagContainer>
-          <ButtonBig>Encontrar combinações</ButtonBig>
+          <Link to="/usersList">
+            <ButtonBig>Encontrar combinações</ButtonBig>
+          </Link>
         </Card>
       </Container>
     </BannerPattern>

@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import {
   Card,
   Header,
@@ -24,7 +25,13 @@ type Props = {
   tags: any;
 };
 
-export function MentorCard({ name, occupation, level, bioDescription, tags }: Props) {
+export function MentorCard({
+  name,
+  occupation,
+  level,
+  bioDescription,
+  tags,
+}: Props) {
   return (
     <Card>
       <Header>
@@ -42,9 +49,7 @@ export function MentorCard({ name, occupation, level, bioDescription, tags }: Pr
         </Description>
       </Header>
       <Bio>
-        <BioDescr>
-          {bioDescription}
-        </BioDescr>
+        <BioDescr>{bioDescription}</BioDescr>
         <Expertises>
           <Tag>{tags[0]}</Tag>
           <Tag>{tags[1]}</Tag>
@@ -56,7 +61,9 @@ export function MentorCard({ name, occupation, level, bioDescription, tags }: Pr
       </Bio>
       <Buttons>
         <Button>Quero me conectar</Button>
-        <Button>Ver perfil</Button>
+        <Link to="/profile">
+          <Button>Ver perfil</Button>
+        </Link>
       </Buttons>
     </Card>
   );

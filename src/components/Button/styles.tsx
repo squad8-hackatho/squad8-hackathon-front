@@ -13,7 +13,11 @@ import {
 } from 'styled-system';
 import { customMedia, theme } from '../../themes/theme';
 
-type ButtonProps = TypographyProps & ColorProps & BorderProps & SpaceProps & LayoutProps;
+type ButtonProps = TypographyProps &
+  ColorProps &
+  BorderProps &
+  SpaceProps &
+  LayoutProps;
 
 export const Button = styled.button<ButtonProps>`
   border-radius: 28px;
