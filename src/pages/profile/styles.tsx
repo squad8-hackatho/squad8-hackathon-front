@@ -1,50 +1,49 @@
 import styled from 'styled-components';
 
-const gray = '#C4C4C4';
+export const Section = styled.section`
+  display: flex;
+`;
 
-const theme = {
-  colors: {
-    gray,
-  },
-};
+export const Article = styled.article`
+  width: 72vw;
+`;
 
-export const Header = styled.header`
-  width: 1173;
-  height: 324;
+export const Nav = styled.nav`
+  border-top: 2px solid #ebebeb;
+  padding: 20px 25px 70px 50px;
 
-  margin: 0px 135px 0px 135px;
+  a {
+    font-size: 14px;
+    padding: 0px 5px;
 
-  hr {
-    border: 1px solid ${theme.colors.gray};
-    width: 1173px;
+    &:nth-child(3) {
+      pointer-events: none;
+      text-decoration: none;
+      color: black;
+    }
   }
 `;
 
-export const LogoAndUserLogin = styled.header`
+export const P = styled.p`
+  margin: 30px 400px 0px 35px;
+  font-size: 20px;
+  line-height: 1.4;
+`;
+
+export const ButtonsBar = styled.article`
   display: flex;
   flex-direction: row;
+  padding: 20px 25px;
+  border-top: 2px solid #ebebeb;
+  border-bottom: 2px solid #ebebeb;
 
-  margin: 52px 0px 58px 0px;
-
-  h3 {
-    margin-right: 718px;
-    font-size: 24px;
-  }
-`;
-
-export const Search = styled.input`
-  width: 1169px;
-  height: 54px;
-  padding: 17px 44px;
-  margin: 0px 0px 38px 0px;
-
-  background-color: ${theme.colors.gray};
-  border: 1px solid ${theme.colors.gray};
-  border-radius: 8px;
-
-  font-size: 14px;
-
-  :focus {
-    outline: none;
+  button {
+    border-radius: 8px;
+    margin: 0px 25px;
+    height: 35px;
+    width: 150px;
+    padding-top: 8px;
+    font-size: 16px;
+    background-color: white;
   }
 `;

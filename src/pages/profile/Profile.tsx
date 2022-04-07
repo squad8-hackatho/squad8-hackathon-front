@@ -1,57 +1,38 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
+import { Section, ButtonsBar, Article, P, Nav } from './styles';
+import { TopBarPattern } from '../pattern';
+import ProfileCard from '../../components/ProfileCard/ProfileCard';
 import Button from '../../components/Button/styles';
-import { Dropdown, whatIsSelected } from '../../components/Dropdown';
-import { MentorCard } from '../../components/MentorCard';
-import { Header, LogoAndUserLogin, Search } from './styles';
 
 function Profile() {
-  const name = 'Nara Caroline';
-  const occupation = 'Front End Dev';
-  const level = 'Trainee';
-  const bioDescription =
-    'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean nec ex turpis. Morbi pretium diam sit amet lectus feugiat, mattis semper lorem laoreet. Nulla eget nunc ornare, finibus nunc at, bibendum ante. Suspendisse non facilisis erat. Etiam vel nisi.';
-  const tags = [
-    'HTML',
-    'CSS',
-    'JavaScript TESTE TESTE',
-    'React',
-    'NodeJS',
-    'MongoDB',
-  ];
-  const dropdownItens = ['Desenvolvimento', 'Gestão de TI', 'UX e UI'];
-  const dropdownItens2 = ['Engenharia de Dados', 'Linguagem de Códigos', 'Full Stack'];
+  const text =
+    'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.';
 
+  // const routesLink = [
+  //   interest: 'Áreas de interesse',
+  //   usersList: 'Lista de Usuários',
+  //   profile: 'Perfil do mentor',
+  // ]
   return (
     <main>
-      <Header>
-        <LogoAndUserLogin>
-          <h3>TechnicalShare</h3>
-          <Button
-            width={134}
-            height={44}
-            p={0}
-            borderRadius={8}
-            marginRight={11}
-          >
-            Cadastrar-se
-          </Button>
-          <Button width={134} height={44} p={0} borderRadius={8}>
-            Entrar
-          </Button>
-        </LogoAndUserLogin>
-        <Search placeholder='Procure o seu mentor aqui'/>
-        <hr />        
-      </Header>
-      <p>{whatIsSelected}</p>
-      <Dropdown dropdownName='Hard Skill' dropdownItens={dropdownItens} />
-      <Dropdown dropdownName='Hard Skill' dropdownItens={dropdownItens2} />
-      <MentorCard
-        name={name}
-        occupation={occupation}
-        level={level}
-        tags={tags}
-        bioDescription={bioDescription}
-      />
+      <TopBarPattern flag={false} />
+      <Section>
+        <ProfileCard />
+        <Article>
+          <Nav>
+            <Link to="/interest">Áreas de Interesse</Link>
+            <Link to="/profile">Lista de Usuários</Link>
+            <Link to="/">Perfil do Mentor</Link>
+          </Nav>
+          <ButtonsBar>
+            <Button>Descrição</Button>
+            <Button>Hard Skill</Button>
+            <Button>Soft Skill</Button>
+          </ButtonsBar>
+          <P>{text}</P>
+        </Article>
+      </Section>
     </main>
   );
 }

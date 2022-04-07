@@ -2,8 +2,8 @@ import styled from 'styled-components';
 
 export const Section = styled.section`
   display: flex;
-  width: 30vw;
-  height: 90vh;
+  width: 28vw;
+  height: 85vh;
 
   flex-direction: column;
   align-items: center;
