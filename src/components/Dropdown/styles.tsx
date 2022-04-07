@@ -25,3 +25,19 @@ export const DropdownContent = styled.div<DropdownContentProps>`
 
   ${layout}
 `;
+
+type SelectedFiltersProps = LayoutProps;
+
+export const SelectedFilters = styled.div<SelectedFiltersProps>`
+  height: 50px;
+
+  ${layout}
+`;
+
+export const FilterTag = styled.button`
+  padding: 10px;
+  margin: 0px 10px 0px 0px;
+
+  border: 1px solid black;
+  border-radius: 8px;
+`

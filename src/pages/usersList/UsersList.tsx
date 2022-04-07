@@ -1,7 +1,8 @@
 import React from 'react';
-import { Dropdown, whatIsSelected } from '../../components/Dropdown';
+import { Dropdown } from '../../components/Dropdown';
 import { TopBarPattern } from '../pattern';
 import { MentorCard } from '../../components/MentorCard';
+import { Filter, Mentors } from './styles';
 
 function UsersList() {
   const name = 'Nara Caroline';
@@ -18,25 +19,67 @@ function UsersList() {
     'MongoDB',
   ];
   const dropdownItens = ['Desenvolvimento', 'Gestão de TI', 'UX e UI'];
-  const dropdownItens2 = [
+  /* const dropdownItens2 = [
     'Engenharia de Dados',
     'Linguagem de Códigos',
     'Full Stack',
-  ];
+  ]; */
+
+  
 
   return (
     <main>
       <TopBarPattern flag />
-      <p>{whatIsSelected}</p>
-      <Dropdown dropdownName="Hard Skill" dropdownItens={dropdownItens} />
-      <Dropdown dropdownName="Hard Skill" dropdownItens={dropdownItens2} />
-      <MentorCard
-        name={name}
-        occupation={occupation}
-        level={level}
-        tags={tags}
-        bioDescription={bioDescription}
-      />
+      <Filter>
+        <Dropdown
+          dropdownName="Hard Skill"
+          dropdownItens={dropdownItens}
+        />
+      </Filter>
+      <Mentors>
+        <MentorCard
+          name={name}
+          occupation={occupation}
+          level={level}
+          tags={tags}
+          bioDescription={bioDescription}
+        />
+        <MentorCard
+          name={name}
+          occupation={occupation}
+          level={level}
+          tags={tags}
+          bioDescription={bioDescription}
+        />
+        <MentorCard
+          name={name}
+          occupation={occupation}
+          level={level}
+          tags={tags}
+          bioDescription={bioDescription}
+        />
+        <MentorCard
+          name={name}
+          occupation={occupation}
+          level={level}
+          tags={tags}
+          bioDescription={bioDescription}
+        />
+        <MentorCard
+          name={name}
+          occupation={occupation}
+          level={level}
+          tags={tags}
+          bioDescription={bioDescription}
+        />
+        <MentorCard
+          name={name}
+          occupation={occupation}
+          level={level}
+          tags={tags}
+          bioDescription={bioDescription}
+        />
+      </Mentors>
     </main>
   );
 }

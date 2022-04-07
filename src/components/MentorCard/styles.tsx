@@ -7,6 +7,8 @@ export const Card = styled.section`
   display: flex;
   flex-direction: column;
 
+  margin: 0px 30px 30px 0px;
+
   box-shadow: 12px 5px 12px 3px #EEE;
 
   img {

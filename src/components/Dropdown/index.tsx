@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { DropdownContent, DropdownWrapper } from './styles';
+import { DropdownContent, DropdownWrapper, FilterTag, SelectedFilters } from './styles';
 
 type Props = {
   dropdownName: string;
@@ -7,8 +7,6 @@ type Props = {
 };
 
 export const SelectedItens: any = [];
-// eslint-disable-next-line import/no-mutable-exports
-export let whatIsSelected = [];
 
 export function Dropdown({ dropdownName, dropdownItens }: Props) {
   const [dropdown, setDropdown] = useState('none');
@@ -16,22 +14,24 @@ export function Dropdown({ dropdownName, dropdownItens }: Props) {
 
   function handleClick(item: any) {
     if (SelectedItens.includes(item)) {
-      /* const x : any = item.target.getAttribute(selectedItens);
-      setSelectedItens(selectedItens.filter(items=>{return items !== x})) */
       const index = SelectedItens.indexOf(item);
       SelectedItens.splice(index, 1);
       setSelectedItens(SelectedItens);
-      whatIsSelected = selectedItens;
     } else {
       SelectedItens.push(item);
-      setSelectedItens(SelectedItens);      
-      whatIsSelected = selectedItens;
+      setSelectedItens(SelectedItens);
     }
   }
 
   return (
     <div>
-      <p>{selectedItens}</p>
+      <SelectedFilters>
+        {selectedItens.map((selected : any) => {
+          return (
+            <FilterTag>{selected}</FilterTag>
+          )
+        })}
+      </SelectedFilters>
       <DropdownWrapper
         onClick={() => {
           return dropdown === 'none'
