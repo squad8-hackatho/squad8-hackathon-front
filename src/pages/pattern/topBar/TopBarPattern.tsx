@@ -1,12 +1,12 @@
 import React from 'react';
 import Button from '../../../components/Button/styles';
-
-import { Header, LogoAndUserLogin, Search } from './styles';
-
+ 
+import { Buttons, Header, LogoAndUserLogin, Search } from './styles';
+ 
 type types = {
   flag: boolean;
 };
-
+ 
 function TopBarPattern(props: types) {
   const { flag } = props;
   return (
@@ -15,13 +15,22 @@ function TopBarPattern(props: types) {
         <h3>
           Technical<strong>Share</strong>
         </h3>
-        <Button width={134} height={44} p={0} borderRadius={8} marginRight={11}>
-          Cadastrar-se
-        </Button>
-        <Button width={134} height={44} p={0} borderRadius={8}>
-          Entrar
-        </Button>
+        <Buttons>
+          <Button
+            width={134}
+            height={44}
+            p={0}
+            borderRadius={8}
+            marginRight={11}
+          >
+            Cadastrar-se
+          </Button>
+          <Button width={134} height={44} p={0} borderRadius={8}>
+            Entrar
+          </Button>
+        </Buttons>
       </LogoAndUserLogin>
+ 
       {flag ? (
         <>
           <Search placeholder="Procure o seu mentor aqui" />
@@ -31,5 +40,5 @@ function TopBarPattern(props: types) {
     </Header>
   );
 }
-
+ 
 export default TopBarPattern;
