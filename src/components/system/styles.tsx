@@ -26,6 +26,11 @@ export const H2 = styled.h2`
   margin-bottom: 20px;
 `;
 
+export const Span = styled.span`
+  color: red;
+  font-size: 14px;
+`;
+
 export const P = styled.p`
   button {
     outline: none;

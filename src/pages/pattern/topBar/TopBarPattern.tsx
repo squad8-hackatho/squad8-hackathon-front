@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import Button from '../../../components/Button/styles';
-import Login from '../../../components/sistema/Login';
-import Register from '../../../components/sistema/Register';
+import Login from '../../../components/system/Login';
+import Register from '../../../components/system/Register';
 
 import { Buttons, Header, LogoAndUserLogin, Search } from './styles';
 

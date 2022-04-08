@@ -6,7 +6,7 @@ type Props = {
   setInfo: Function;
 };
 
-function Tag({ children, setInfo }: Props) {
+function ProfileInfo({ children, setInfo }: Props) {
   const [bg, setBg] = useState('white');
   const [color, setColor] = useState('#a3a3a3');
   const flag = true;
@@ -50,4 +50,4 @@ function Tag({ children, setInfo }: Props) {
   );
 }
 
-export default Tag;
+export default ProfileInfo;
