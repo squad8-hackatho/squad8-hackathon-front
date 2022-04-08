@@ -5,22 +5,23 @@ import DropdownTechnologies from './Forms/Technologies';
 import { Container, Form } from './styles';
 
 export function NewDropdown() {
-
   const [formValues, setFormValues] = useState({});
-  
-  const handleInputChange = (e : any) => {
+
+  const handleInputChange = (e: any) => {
     e.preventDefault();
     const { value, name } = e.target;
-    setFormValues({...formValues, [name]: value})
-  }
+    setFormValues({ ...formValues, [name]: value });
+  };
+
+  console.log(formValues);
 
   return (
     <Container>
       <Form>
         <label>Área:</label>
-        <DropdownArea onChange={handleInputChange}/>
+        <DropdownArea onChange={handleInputChange} />
         <label>Tecnologia:</label>
-        <DropdownTechnologies />
+        <DropdownTechnologies state={formValues} onChange={handleInputChange} />
       </Form>
     </Container>
   );

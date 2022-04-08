@@ -15,7 +15,7 @@ export const MochAreas = [
 
 export const MochTechnologies = [
   {
-    acronym: 'ED',
+    area: 'ED',
     name: 'Engenharia de Dados',
   },
   {
@@ -35,3 +35,28 @@ export const MochTechnologies = [
     name: 'Segurança de Rede',
   },
 ];
+
+export const MochTechnologiesFiltered = {
+  DEV: [
+    {
+      acronym: 'ED',
+      name: 'Engenharia de Dad',
+    },
+    {
+      acronym: 'LC',
+      name: 'Linguagem de Códigos',
+    },
+    {
+      acronym: 'SO',
+      name: 'Sistemas Operacionais',
+    },
+    {
+      acronym: 'FS',
+      name: 'Full Stack',
+    },
+    {
+      acronym: 'SR',
+      name: 'Segurança de Rede',
+    },
+  ],
+};

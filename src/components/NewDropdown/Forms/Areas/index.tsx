@@ -13,7 +13,7 @@ function DropdownArea({ onChange = () => {} }: Props) {
   }
 
   return (
-    <select onChange={onChange}>
+    <select name='area' onChange={onChange}>
       <option onClick={handleClick}>Selecione uma área:</option>
       {areas.map((area: any) => {
         const { acronym, name } = area;
