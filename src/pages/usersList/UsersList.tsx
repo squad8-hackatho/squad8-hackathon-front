@@ -1,8 +1,9 @@
 import React from 'react';
-import { Dropdown } from '../../components/Dropdown';
+// import { Dropdown } from '../../components/Dropdown';
 import { TopBarPattern } from '../pattern';
 import { MentorCard } from '../../components/MentorCard';
 import { Filter, Mentors } from './styles';
+import { NewDropdown } from '../../components/NewDropdown';
 
 function UsersList() {
   const name = 'Nara Caroline';
@@ -18,7 +19,7 @@ function UsersList() {
     'NodeJS',
     'MongoDB',
   ];
-  const dropdownName= ['Área', 'Tipo de Habilidade', 'Tecnologia']
+  /* const dropdownName= ['Área', 'Tipo de Habilidade', 'Tecnologia']
   const dropdownItens = [
     ['Desenvolvimento', 'Gestão de TI', 'UX e UI'],
     ['Hard Skills', 'Soft Skills'],
@@ -29,13 +30,13 @@ function UsersList() {
       'Full Stack',
       'Segurança de Rede',
     ]
-  ];
+  ]; */
 
   return (
     <main>
       <TopBarPattern flag />
       <Filter>
-        <Dropdown dropdownName={dropdownName} dropdownItens={dropdownItens} />
+        <NewDropdown />
       </Filter>
       <Mentors>
         <MentorCard
