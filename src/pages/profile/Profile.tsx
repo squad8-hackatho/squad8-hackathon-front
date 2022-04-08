@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import { Section, ButtonsBar, Article, Li, Nav, Ul } from './styles';
 import { TopBarPattern } from '../pattern';
 import ProfileCard from '../../components/ProfileCard/ProfileCard';
-import Button from '../../components/ProfileInfo/ProfileInfo';
+import ProfileInfo from '../../components/ProfileInfo/ProfileInfo';
 
 function Profile() {
   const [text, setText] = useState<string[]>([]);
@@ -38,14 +38,14 @@ function Profile() {
           <ButtonsBar>
             {infos.map((item) => {
               return (
-                <Button
+                <ProfileInfo
                   key={item}
                   setInfo={() => {
                     return setInfo(item);
                   }}
                 >
                   {item}
-                </Button>
+                </ProfileInfo>
               );
             })}
           </ButtonsBar>
