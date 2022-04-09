@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { customMedia } from '../../themes/theme';
+import { customMedia, theme } from '../../themes/theme';
 
 type TagProps = {
   bgColor: string;
@@ -36,8 +36,8 @@ export const TagStyle = styled.button<TagProps>`
   :active {
     position: relative;
     top: 1px;
-    background-color: gray;
-    color: black;
+    background-color: ${theme.colors.mediumGray};
+    color: ${theme.colors.black};
   }
 
   ${customMedia.between('laptopS', 'laptop')`

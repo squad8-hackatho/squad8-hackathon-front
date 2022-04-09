@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import { theme } from '../../themes/theme';
 
 export const Section = styled.section`
   display: flex;
@@ -9,7 +10,7 @@ export const Article = styled.article`
 `;
 
 export const Nav = styled.nav`
-  border-top: 2px solid #ebebeb;
+  border-top: 2px solid ${theme.colors.lightGray};
   padding: 20px 25px 70px 50px;
   display: flex;
 
@@ -24,7 +25,7 @@ export const Nav = styled.nav`
 
     &:nth-child(3) {
       pointer-events: none;
-      color: black;
+      color: ${theme.colors.black};
     }
   }
 `;
@@ -43,7 +44,7 @@ export const ButtonsBar = styled.article`
   display: flex;
   flex-direction: row;
   padding: 15px 25px;
-  border-top: 2px solid #ebebeb;
-  border-bottom: 2px solid #ebebeb;
+  border-top: 2px solid ${theme.colors.lightGray};
+  border-bottom: 2px solid ${theme.colors.lightGray};
   }
 `;

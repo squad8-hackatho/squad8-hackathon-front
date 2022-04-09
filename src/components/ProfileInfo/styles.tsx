@@ -1,5 +1,6 @@
 import styled from 'styled-components';
 import { TagStyle } from '../Tag/styles';
+import { theme } from '../../themes/theme';
 
 export const Button = styled(TagStyle)`
   outline: none;
@@ -12,8 +13,8 @@ export const Button = styled(TagStyle)`
   font-weight: bold;
 
   :hover {
-    background-color: #858585;
-    border-color: #858585;
-    color: black;
+    background-color: ${theme.colors.lightGray};
+    border-color: ${theme.colors.lightGray};
+    color: ${theme.colors.black};
   }
 `;

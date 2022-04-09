@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { customMedia } from '../../themes/theme';
+import { customMedia, theme } from '../../themes/theme';
 
 export const Section = styled.section`
   width: 45vw;
@@ -122,7 +122,7 @@ export const CardName = styled.form`
   }
 
   ${customMedia.lessThan('laptopS')`
-    background-color: #ebebeb;
+    background-color: ${theme.colors.lightGray};
     h2 {
       margin-top: 50px;
       margin-bottom: 20px;

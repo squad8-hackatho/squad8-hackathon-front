@@ -10,14 +10,26 @@ const fontSizes = {
   displayExtraLarge: sizes[2],
 };
 
-const primary = 'white';
-const secondary = 'orange';
+const white = 'white';
+const black = 'black';
+const red = 'red';
+const orange = 'orange';
+const lightGray = '#f1f1f1';
+const mediumGray = '#C4C4C4';
+const blue = '#2d7ff9';
+const blackGray = '#333333';
 
 export const theme = {
   fontSizes,
   colors: {
-    primary,
-    secondary,
+    white,
+    black,
+    orange,
+    lightGray,
+    mediumGray,
+    blackGray,
+    red,
+    blue,
   },
 };
 

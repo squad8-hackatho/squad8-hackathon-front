@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import { theme } from '../../themes/theme';
 
 export const Section = styled.section`
   display: flex;
@@ -7,7 +8,7 @@ export const Section = styled.section`
 
   flex-direction: column;
   align-items: center;
-  background-color: #ebebeb;
+  background-color: ${theme.colors.lightGray};
 
   button {
     margin-top: 50px;
@@ -15,8 +16,8 @@ export const Section = styled.section`
 
   button {
     :hover {
-      background-color: #eee;
-      color: black;
+      background-color: ${theme.colors.lightGray};
+      color: ${theme.colors.black};
       border: 1px solid #000;
     }
   }

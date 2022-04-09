@@ -1,12 +1,12 @@
 import styled from 'styled-components';
-import { customMedia } from '../../../themes/theme';
+import { customMedia, theme } from '../../../themes/theme';
 
 export const Section = styled.section`
   justify-content: center;
   display: flex;
   width: 55vw;
   height: 100vh;
-  background-color: #c4c4c4;
+  background-color: ${theme.colors.mediumGray};
 
   ${customMedia.lessThan('laptopS')`
     height: 0px;

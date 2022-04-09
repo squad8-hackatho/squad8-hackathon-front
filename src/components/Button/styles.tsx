@@ -44,8 +44,8 @@ export const Button = styled.button<ButtonProps>`
   `};
 
   :hover {
-    background-color: #2d7ff9;
-    color: ${theme.colors.primary};
+    background-color: ${theme.colors.blue};
+    color: ${theme.colors.white};
   }
 
   :active {
@@ -57,12 +57,12 @@ export const Button = styled.button<ButtonProps>`
 export const ButtonBig = styled(Button)`
   margin: 20px 10px 20px 10px;
   border-radius: 8px;
-  background-color: black;
-  color: white;
+  background-color: ${theme.colors.black};
+  color: ${theme.colors.white};
 
   :hover {
-    background-color: #2d7ff9;
-    color: ${theme.colors.primary};
+    background-color: ${theme.colors.blue};
+    color: ${theme.colors.white};
   }
 `;
 

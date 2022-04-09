@@ -35,7 +35,7 @@ export const H2 = styled.h2`
 `;
 
 export const Card = styled.article`
-  background-color: ${theme.colors.primary};
+  background-color: ${theme.colors.white};
   box-shadow: 5px 5px 12px 3px #eee;
   display: flex;
   flex-direction: column;

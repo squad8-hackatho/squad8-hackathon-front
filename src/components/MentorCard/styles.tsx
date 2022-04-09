@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { customMedia } from '../../themes/theme';
+import { customMedia, theme } from '../../themes/theme';
 
 export const Card = styled.section`
   width: 369px;
@@ -10,7 +10,7 @@ export const Card = styled.section`
 
   margin: 0px 30px 30px 0px;
 
-  background-color: #c3c3c3;
+  background-color: ${theme.colors.lightGray};
   box-shadow: 12px 5px 12px 3px #ededed;
 
   img {
@@ -136,12 +136,12 @@ export const Tag = styled.button`
   width: 98px;
   height: 40px;
 
-  background-color: orange;
+  background-color: ${theme.colors.orange};
   border-radius: 3px;
   margin: 0px 9px 9px 0px;
 
   display: inline-block;
-  color: #ffffff;
+  color: ${theme.colors.white};
   font-family: Arial;
   font-size: 14px;
 `;
@@ -162,7 +162,7 @@ export const Button = styled.button`
   margin: 10px 0px 0px 26px;
 
   background-color: #000;
-  color: #ffffff;
+  color: ${theme.colors.white};
   border: 1px solid #000;
 
   border-radius: 8px;
@@ -175,8 +175,8 @@ export const Button = styled.button`
   text-decoration: none;
 
   :hover {
-    background-color: #eee;
-    color: black;
+    background-color: ${theme.colors.lightGray};
+    color: ${theme.colors.black};
     border: 1px solid #000;
   }
   :active {
