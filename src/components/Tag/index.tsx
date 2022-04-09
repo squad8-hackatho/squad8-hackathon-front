@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { TagAnimated, TagStyle } from './styles';
+import { theme } from '../../themes/theme';
 
 type Props = {
   children: any;
@@ -7,8 +8,8 @@ type Props = {
 };
 
 function Tag({ children, flagAnimated }: Props) {
-  const [bg, setBg] = useState('black');
-  const [color] = useState('white');
+  const [bg, setBg] = useState(theme.colors.black);
+  const color = theme.colors.white;
 
   const setColors = () => {
     setBg(bg === 'black' ? '#ED7117' : 'black');

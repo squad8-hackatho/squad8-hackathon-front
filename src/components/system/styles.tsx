@@ -1,12 +1,18 @@
 import styled from 'styled-components';
 import Modal from 'styled-react-modal';
+import { customMedia, theme } from '../../themes/theme';
 
 export const StyledModal = Modal.styled`
   width: 89vw;
   height: 89vh;
-  background-color: white;
+  background-color: ${theme.colors.white};
   display: flex;
   justify-content: center;
+
+  ${customMedia.lessThan('default')`
+    width: 100vw;
+    overflow: auto;
+  `}
 `;
 
 export const Form = styled.form`
@@ -27,7 +33,7 @@ export const H2 = styled.h2`
 `;
 
 export const Span = styled.span`
-  color: red;
+  color: ${theme.colors.red};
   font-size: 14px;
 `;
 
@@ -35,7 +41,7 @@ export const P = styled.p`
   button {
     outline: none;
     width: 80px;
-    background-color: white;
+    background-color: ${theme.colors.white};
     font-weight: bold;
     cursor: pointer;
     text-decoration: underline;
@@ -57,7 +63,7 @@ export const Input = styled.input`
   padding: 15px 15px;
   text-decoration: none;
   outline: none;
-  background-color: #ebebeb;
+  background-color: ${theme.colors.lightGray};
   border-radius: 8px;
   margin: 10px 0px;
 `;

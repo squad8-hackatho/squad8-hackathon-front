@@ -1,11 +1,12 @@
 import styled from 'styled-components';
 import { layout, LayoutProps } from 'styled-system';
+import { theme } from '../../themes/theme';
 
 export const DropdownWrapper = styled.section`
   display: inline-flex;
   flex-direction: column;
   padding: 10px;
-  background-color: #CECECE;
+  background-color: ${theme.colors.mediumGray};
   margin: 0px 15px 0px 0px;
 
   border: 1px solid black;
@@ -19,7 +20,7 @@ type DropdownContentProps = LayoutProps;
 
 export const DropdownContent = styled.div<DropdownContentProps>`
   display: none;
-  background-color: gray;
+  background-color: ${theme.colors.mediumGray};
   min-width: 160px;
   box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
   padding: 12px 16px;
@@ -47,4 +48,4 @@ export const FilterTag = styled.button`
 
   border: 1px solid black;
   border-radius: 8px;
-`
+`;
