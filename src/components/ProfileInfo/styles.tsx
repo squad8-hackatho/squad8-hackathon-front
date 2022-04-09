@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 import { TagStyle } from '../Tag/styles';
-import { theme } from '../../themes/theme';
+import { theme, customMedia } from '../../themes/theme';
 
 export const Button = styled(TagStyle)`
   outline: none;
@@ -17,4 +17,9 @@ export const Button = styled(TagStyle)`
     border-color: ${theme.colors.lightGray};
     color: ${theme.colors.black};
   }
+
+  ${customMedia.lessThan('tablet')`
+    padding-top: 2px;
+    margin: 0px 10px;
+  `}
 `;

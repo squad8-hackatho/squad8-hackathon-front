@@ -12,6 +12,7 @@ export const Header = styled.header`
 
   ${customMedia.lessThan('tablet')`
     margin: 0px 80px;
+    height: 0px;
   `}
 `;
 

@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 import Modal from 'styled-react-modal';
-import { theme } from '../../themes/theme';
+import { customMedia, theme } from '../../themes/theme';
 
 export const StyledModal = Modal.styled`
   width: 89vw;
@@ -8,6 +8,11 @@ export const StyledModal = Modal.styled`
   background-color: ${theme.colors.white};
   display: flex;
   justify-content: center;
+
+  ${customMedia.lessThan('default')`
+    width: 100vw;
+    overflow: auto;
+  `}
 `;
 
 export const Form = styled.form`

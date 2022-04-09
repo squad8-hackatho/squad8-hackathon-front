@@ -1,40 +1,43 @@
 import React, { useEffect, useState } from 'react';
-import { theme } from '../../themes/theme';
+import { theme, screenSizes } from '../../themes/theme';
 import { Button } from './styles';
 
 type Props = {
   children: string;
+  widthScreen: number;
   setInfo: Function;
 };
 
-function ProfileInfo({ children, setInfo }: Props) {
-  const [bg, setBg] = useState(theme.colors.white);
-  const [color, setColor] = useState(theme.colors.mediumGray);
+function ProfileInfo({ children, setInfo, widthScreen }: Props) {
+  const [bg, setBg] = useState('transparent');
+  const [color, setColor] = useState(theme.colors.darkGray);
+
+  const colors = (value: string): void => {
+    if (children === value) {
+      setBg(theme.colors.lightGray);
+      setColor(theme.colors.black);
+    } else {
+      if (widthScreen > screenSizes.default) setBg(theme.colors.white);
+      else setBg('transparent');
+      setColor(theme.colors.darkGray);
+    }
+  };
 
   const setButtonColor = () => {
     const buttonsBar = document.getElementById('ButtonsBar');
     if (buttonsBar) {
       buttonsBar.querySelectorAll('button').forEach((button) => {
         button.addEventListener('click', () => {
-          if (children === button.value) {
-            setBg(theme.colors.lightGray);
-            setColor(theme.colors.black);
-          } else {
-            setBg(theme.colors.white);
-            setColor(theme.colors.mediumGray);
-          }
+          colors(button.value);
         });
       });
     }
   };
 
   useEffect(() => {
-    if (children === 'Descrição') {
-      setBg(theme.colors.lightGray);
-      setColor(theme.colors.black);
-    }
+    colors('Descrição');
     setButtonColor();
-  }, []);
+  }, [widthScreen]);
 
   return (
     <Button
