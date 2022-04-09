@@ -35,7 +35,7 @@ function Profile() {
             <p>/</p>
             <Link to="/">Perfil do Mentor</Link>
           </Nav>
-          <ButtonsBar>
+          <ButtonsBar id="ButtonsBar">
             {infos.map((item) => {
               return (
                 <ProfileInfo
