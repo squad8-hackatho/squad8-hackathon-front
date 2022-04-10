@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import Button from '../../../components/Button/styles';
 import { theme } from '../../../themes/theme';
 
-import { Buttons, Header, LogoAndUserLogin, Search } from './styles';
+import { Buttons, Container, Header, LogoAndUserLogin, Search, SearchHR } from './styles';
 
 const defaultProps = {
   setSortByName: null,
@@ -25,41 +25,43 @@ function TopBarPattern({ flag, setSortByName }: props) {
   });
 
   return (
-    <Header>
-      {widthScreen > theme.screenSizes.default ? (
-        <LogoAndUserLogin>
-          <h3>
-            Technical<strong>Share</strong>
-          </h3>
-          <Buttons>
-            <Button
-              width={134}
-              height={44}
-              p={0}
-              borderRadius={8}
-              marginRight={11}
-            >
-              Cadastrar-se
-            </Button>
-            <Button width={134} height={44} p={0} borderRadius={8}>
-              Entrar
-            </Button>
-          </Buttons>
-        </LogoAndUserLogin>
-      ) : null}
+    <Container>
+      <Header>
+        {widthScreen > theme.screenSizes.tablet ? (
+          <LogoAndUserLogin>
+            <h3>
+              Technical<strong>Share</strong>
+            </h3>
+            <Buttons>
+              <Button
+                width={134}
+                height={44}
+                p={0}
+                borderRadius={8}
+                marginRight={11}
+              >
+                Cadastrar-se
+              </Button>
+              <Button width={134} height={44} p={0} borderRadius={8}>
+                Entrar
+              </Button>
+            </Buttons>
+          </LogoAndUserLogin>
+        ) : null}
 
-      {flag ? (
-        <>
-          <Search
-            onChange={(e) => {
-              return setSortByName(e.target.value);
-            }}
-            placeholder="Procure o seu mentor aqui"
-          />
-          <hr />
-        </>
-      ) : null}
-    </Header>
+        {flag ? (
+          <SearchHR>
+            <Search
+              onChange={(e) => {
+                return setSortByName(e.target.value);
+              }}
+              placeholder="Procure o seu mentor aqui"
+            />
+            <hr />
+          </SearchHR>
+        ) : null}
+      </Header>
+    </Container>
   );
 }
 

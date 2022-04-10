@@ -6,7 +6,7 @@ export const Filter = styled.section`
   margin: 85px 0px 30px 134px;
 
   ${customMedia.lessThan('tablet')`
-    margin: 170px 0px 30px 80px;
+    margin: 0;
   `}
 `;
 
@@ -30,9 +30,9 @@ export const Pages = styled.article`
 `;
 
 export const Section = styled.section`
-  width: 80vw;
+  width: 90vw;
   display: flex;
-  margin-left: 10%;
+  justify-content: space-between;
 `;
 
 export const NumberPage = styled(Pages)`
