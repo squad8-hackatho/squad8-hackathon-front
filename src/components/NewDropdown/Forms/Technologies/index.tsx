@@ -21,14 +21,14 @@ function DropdownTechnologies({ state, onChange = () => {} }: Props) {
       const filteredTechnologies: any = [];
       dataOutside.forEach((tech : any) => {
         if (Object.values(tech).indexOf(`${state}`) > -1) {
-          filteredTechnologies.push(Capitalize(dataOutside.skill));
+          filteredTechnologies.push(Capitalize(tech.skill));
         }
       });      
       setTechnologies(filteredTechnologies);
     }
 
     getData();
-  }, []);
+  }, [state]);
 
   return (
     <select name="technologie" onChange={onChange}>
