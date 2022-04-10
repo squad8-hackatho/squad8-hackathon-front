@@ -16,7 +16,6 @@ function Register() {
     console.log(name, bio, email, password, cargo);
   };
 
-  console.log(next);
   return (
     <Main>
       <Form
