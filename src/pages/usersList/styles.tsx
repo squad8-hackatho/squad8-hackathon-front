@@ -23,7 +23,6 @@ export const Mentors = styled.section`
   flex-direction: row;
   flex-wrap: wrap;
   justify-content: center;
-  margin-left: 15px;
 
   ${customMedia.lessThan('laptop')`
     margin: 0px 0px 0px 110px;

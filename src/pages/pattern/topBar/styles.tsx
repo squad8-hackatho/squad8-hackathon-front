@@ -19,6 +19,24 @@ export const Header = styled.header`
       width: 90vw;
     }
   `}
+
+  ${customMedia.lessThan('mobileL')`
+    hr {      
+      width: 95vw;
+    }
+  `}
+
+  ${customMedia.lessThan('mobileM')`
+    hr {      
+      width: 98vw;
+    }
+  `}
+
+  ${customMedia.lessThan('mobileS')`
+    hr {      
+      width: 110vw;
+    }
+  `}
 `;
 
 export const LogoAndUserLogin = styled.header`
@@ -61,6 +79,18 @@ export const Search = styled.input`
 
   ${customMedia.lessThan('tablet')`
     width: 90vw;
+  `}
+
+  ${customMedia.lessThan('mobileL')`
+    width: 95vw;
+  `}
+
+  ${customMedia.lessThan('mobileM')`
+    width: 98vw;
+  `}
+
+  ${customMedia.lessThan('mobileS')`
+    width: 110vw;
   `}
 `;
 

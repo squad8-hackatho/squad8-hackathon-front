@@ -2,7 +2,7 @@ import styled from 'styled-components';
 import { customMedia, theme } from '../../themes/theme';
 
 export const Card = styled.section`
-  width: 345px;
+  width: 400px;
   height: 469px;
 
   display: flex;
@@ -32,23 +32,30 @@ export const Card = styled.section`
   `}
 
   ${customMedia.lessThan('tablet')`
-    width: 90%;
-    margin: 0px 100px 50px 0px;
-    align-items: center;
+    margin: 0px 70px 50px 0px;
+  `}
+
+  ${customMedia.lessThan('mobileL')`
+    width: 360px;
+  `}
+
+  ${customMedia.lessThan('mobileM')`
+    width: 360px;
+    margin-left: 0px;
+  `}
+
+  ${customMedia.lessThan('mobileS')`
+    width: 360px;
+    margin-left: 25px;
   `}
 `;
 
 export const Header = styled.header`
-  width: 369px;
+  width: 380px;
   height: 100px;
 
   display: flex;
   flex-direction: row;
-
-  ${customMedia.lessThan('tablet')`
-    width: 100%;
-    align-items: center;
-  `}
 `;
 
 export const ProfilePicture = styled.img`
@@ -71,7 +78,7 @@ export const Name = styled.h1`
   font-weight: bold;
 
   ${customMedia.lessThan('tablet')`
-    font-size: 22px;
+    font-size: 26px;
     margin: 20px 0px 12px 0px;
   `}
 `;
@@ -136,7 +143,7 @@ export const Tags = styled.article`
 
   ${customMedia.lessThan('tablet')`
     justify-content: center;
-    margin: 15px 100px 0px 100px;
+    margin: 15px 0px 0px 40px;
   `}
 `;
 
@@ -146,7 +153,7 @@ export const Tag = styled.button`
   font-weight: bold;
 
   background-color: ${theme.colors.blackGray};
-  border-radius: 6px;
+  border-radius: 8px;
   margin: 2px 2px;
 
   color: ${theme.colors.white};
@@ -156,7 +163,7 @@ export const Tag = styled.button`
 export const Buttons = styled.article`
   width: 310px;
   display: flex;
-  justify-content: center;
+  align-items: center;
 
   border-top: 1.5px solid ${theme.colors.mediumGray};
 
@@ -171,6 +178,10 @@ export const Buttons = styled.article`
       color: ${theme.colors.black};
     }
   }
+
+  ${customMedia.lessThan('mobileL')`
+    flex-direction: column;    
+  `}
 `;
 
 export const Button = styled.button`
@@ -186,7 +197,6 @@ export const Button = styled.button`
   border: 1px solid #000;
 
   border-radius: 8px;
-  padding: 10px 10px;
 
   cursor: pointer;
 
@@ -194,4 +204,8 @@ export const Button = styled.button`
     position: relative;
     top: 1px;
   }
+
+  ${customMedia.lessThan('mobileL')`
+    margin: 5px 5px 0px 5px;   
+  `}
 `;
