@@ -18,7 +18,7 @@ const lightGray = '#f1f1f1';
 const mediumGray = '#C4C4C4';
 const darkGray = '#8f8f8f';
 const blue = '#2d7ff9';
-const blackGray = '#333333';
+const blackGray = '#474747';
 
 export const screenSizes = {
   laptopL: 91,
