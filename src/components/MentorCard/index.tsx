@@ -1,12 +1,12 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { v4 as uuidv4 } from 'uuid';
 import {
   Card,
   Header,
   ProfilePicture,
   Description,
   Name,
-  Occupation,
   OccupationItem,
   Bio,
   BioDescr,
@@ -20,10 +20,10 @@ import foto from '../../assets/foto.png';
 
 type Props = {
   name: string;
-  occupation: string;
+  occupation: any[];
   level: string;
   bioDescription: string;
-  tags: any;
+  tags: any[];
 };
 
 export function MentorCard({
@@ -35,22 +35,27 @@ export function MentorCard({
 }: Props) {
   const getSubString = () => {
     const length = 100;
-    return `${bioDescription.substring(0, length)} ...`;
+    let subString = bioDescription.substring(0, length);
+    if (subString.length > 100) subString = `${subString} ...`;
+
+    return subString;
   };
+
+  const getTags = () => {
+    return tags.map((item) => {
+      return <Tag key={uuidv4()}>{item.skill}</Tag>;
+    });
+  };
+  console.log(occupation);
   return (
     <Card>
       <Header>
         <ProfilePicture src={foto} alt="Teste" />
         <Description>
           <Name>{name}</Name>
-          <Occupation>
-            <OccupationItem>
-              <strong>Area:</strong> {occupation}
-            </OccupationItem>
-            <OccupationItem>
-              <strong>Nível:</strong> {level}
-            </OccupationItem>
-          </Occupation>
+          <OccupationItem>
+            <strong>Nível:</strong> {level}
+          </OccupationItem>
         </Description>
       </Header>
       <Bio>
@@ -58,14 +63,7 @@ export function MentorCard({
       </Bio>
       <Expertises>
         <p>Habilidades</p>
-        <Tags>
-          <Tag>{tags[0]}</Tag>
-          <Tag>{tags[1]}</Tag>
-          <Tag>{tags[2]}</Tag>
-          <Tag>{tags[3]}</Tag>
-          <Tag>{tags[4]}</Tag>
-          <Tag>Mais {tags.length - 5}</Tag>
-        </Tags>
+        <Tags>{getTags()}</Tags>
       </Expertises>
       <Buttons>
         <Button>Marcar Horário</Button>

@@ -95,7 +95,6 @@ function Register({
         type="button"
         disabled={checkValues()}
         onClick={() => {
-          console.log('@@@@@@@@@@@@@');
           setNext(true);
         }}
       >

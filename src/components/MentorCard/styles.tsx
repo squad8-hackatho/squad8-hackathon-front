@@ -60,7 +60,7 @@ export const ProfilePicture = styled.img`
   margin: 21px 13px 0px 26px;
 `;
 
-export const Description = styled.p`
+export const Description = styled.article`
   display: flex;
   flex-direction: column;
 `;
@@ -74,11 +74,6 @@ export const Name = styled.h1`
     font-size: 22px;
     margin: 20px 0px 12px 0px;
   `}
-`;
-
-export const Occupation = styled.p`
-  display: flex;
-  flex-direction: row;
 `;
 
 export const OccupationItem = styled.p`
