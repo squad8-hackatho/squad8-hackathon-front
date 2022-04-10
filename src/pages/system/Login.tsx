@@ -1,28 +1,18 @@
 import React, { useState } from 'react';
-import { StyledModal, Button, H2, Input, Form, P, Article } from './styles';
-import { ButtonBig } from '../Button/styles';
+import { Link } from 'react-router-dom';
+import { Main, Button, H2, Input, Form, P } from './styles';
+import { ButtonBig } from '../../components/Button/styles';
 
-type Props = {
-  open: boolean;
-  toggleModalLogin: Function;
-  toggleModalRegister: Function;
-};
-
-function Login({ open, toggleModalLogin, toggleModalRegister }: Props) {
+function Login() {
   const [password, setPassword] = useState('');
   const [email, setEmail] = useState('');
-
-  const changeModal = (): void => {
-    toggleModalLogin();
-    toggleModalRegister();
-  };
 
   const onSubmit = (): void => {
     console.log(password, email);
   };
 
   return (
-    <StyledModal isOpen={open}>
+    <Main>
       <Form
         onSubmit={() => {
           return onSubmit();
@@ -50,27 +40,19 @@ function Login({ open, toggleModalLogin, toggleModalRegister }: Props) {
 
         <P>
           Não tem uma conta ?{' '}
-          <Button
-            type="button"
-            onClick={() => {
-              return changeModal();
-            }}
-          >
-            Cadastre-se
-          </Button>
+          <Link to="/register">
+            <Button
+              type="button"
+              onClick={() => {
+                // return changeModal();
+              }}
+            >
+              Cadastre-se
+            </Button>
+          </Link>
         </P>
       </Form>
-      <Article>
-        <Button
-          data-dismiss="modal"
-          onClick={() => {
-            return toggleModalLogin();
-          }}
-        >
-          Close me
-        </Button>
-      </Article>
-    </StyledModal>
+    </Main>
   );
 }
 
