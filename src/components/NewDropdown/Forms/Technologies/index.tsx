@@ -2,6 +2,7 @@
 import React, { useEffect, useState } from 'react';
 import { Capitalize } from '../../../../helpers/Capitalize';
 import { getUsers } from '../../../../services/services';
+import { Select } from '../../styles';
 
 type Props = {
   state: Object;
@@ -9,21 +10,24 @@ type Props = {
 };
 
 function DropdownTechnologies({ state, onChange = () => {} }: Props) {
-  const [technologies, setTechnologies] = useState(['Java', 'LELEU']);
+  const [technologies, setTechnologies] = useState([]);
 
-  useEffect(() => {    
+  useEffect(() => {
     let dataOutside: any = [];
 
     async function getData() {
       const data = await getUsers('/skill');
       dataOutside = data.data;
-
+      const sortedData = dataOutside.sort((a: any, b: any) =>
+        {return a.skill.localeCompare(b.skill)}
+      );
       const filteredTechnologies: any = [];
-      dataOutside.forEach((tech : any) => {
+
+      sortedData.forEach((tech: any) => {
         if (Object.values(tech).indexOf(`${state}`) > -1) {
           filteredTechnologies.push(Capitalize(tech.skill));
         }
-      });      
+      });
       setTechnologies(filteredTechnologies);
     }
 
@@ -31,8 +35,8 @@ function DropdownTechnologies({ state, onChange = () => {} }: Props) {
   }, [state]);
 
   return (
-    <select name="technologie" onChange={onChange}>
-      <option>Selecione uma tecnologia:</option>
+    <Select name="technologie" onChange={onChange}>
+      <option>Todas as tecnologias</option>
       {technologies.map((technologie: any) => {
         return (
           <option key={technologie} value={technologie}>
@@ -40,7 +44,7 @@ function DropdownTechnologies({ state, onChange = () => {} }: Props) {
           </option>
         );
       })}
-    </select>
+    </Select>
   );
 }
 

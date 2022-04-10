@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { Capitalize } from '../../../../helpers/Capitalize';
 import { getUsers } from '../../../../services/services';
+import { Select } from '../../styles';
 
 type Props = {
   onChange: any;
@@ -10,7 +11,7 @@ function DropdownArea({ onChange = () => {} }: Props) {
   const [areas, setAreas] = useState(['Frontend', 'Programação', 'Softskill']);
 
   useEffect(() => {
-    let dataOutside : any = [];
+    let dataOutside: any = [];
 
     async function getValues() {
       const data = await getUsers('/skill');
@@ -20,7 +21,7 @@ function DropdownArea({ onChange = () => {} }: Props) {
       dataOutside.forEach((area: any) => {
         if (!uniqueAreas.includes(Capitalize(area.area))) {
           uniqueAreas.push(Capitalize(area.area));
-        }        
+        }
       });
       setAreas(uniqueAreas);
     }
@@ -28,16 +29,16 @@ function DropdownArea({ onChange = () => {} }: Props) {
   }, []);
 
   return (
-    <select name="area" onChange={onChange}>
-      <option> Selecione uma área: </option>
+    <Select name="area" onChange={onChange}>
+      <option>Todas as áreas</option>
       {areas.map((area) => {
-        return(
+        return (
           <option key={area} value={area}>
             {area}
           </option>
-        )
+        );
       })}
-    </select>
+    </Select>
   );
 }
 
