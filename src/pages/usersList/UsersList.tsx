@@ -1,4 +1,3 @@
-/* eslint-disable no-unused-vars */
 import React, { useEffect, useState } from 'react';
 import { v4 as uuidv4 } from 'uuid';
 // import { Dropdown } from '../../components/Dropdown';
@@ -21,13 +20,14 @@ function UsersList() {
   const [page, setPage] = useState(0);
   const [totalPages, setTotalPages] = useState(0);
   const [sort, setSort] = useState('');
-  const [size, setSize] = useState(1);
+  const [size, setSize] = useState('6');
+  const [sortByName, setSortByName] = useState('');
   const [dataArr, setDataArr] = useState<any[]>([]);
 
   useEffect(() => {
     async function get() {
       const { data }: any = await getUsers(
-        `/profile/all?page=${page}&size=${size}&sort=${sort}`
+        `/profiles/findall?page=${page}&size=${size}&sort=${sort}`
       );
       // console.log(data);
       if (data) {
@@ -38,13 +38,28 @@ function UsersList() {
     get();
   }, [page, sort, size]);
 
+  useEffect(() => {
+    async function getByName() {
+      if (sortByName !== '') {
+        const { data }: any = await getUsers(
+          `/profiles/findbyname?name=${sortByName}`
+        );
+        if (data) {
+          setDataArr(data.content);
+          setTotalPages(data.totalPages);
+        }
+      }
+    }
+    getByName();
+  }, [sortByName]);
+
   const getCards = () => {
     return dataArr.map((user) => {
       return (
         <MentorCard
           key={uuidv4()}
           name={user.userName}
-          occupation={user.professionList}
+          // occupation={user.professionList}
           level={levels[0]}
           tags={user.expertiseList}
           bioDescription={user.bio}
@@ -54,18 +69,25 @@ function UsersList() {
   };
 
   const getOptions = () => {
-    const values = [1, 2, 3];
+    const values = [6, 12, 18];
     return values.map((item) => {
-      return <option value={item}>{item}</option>;
+      return (
+        <option key={item} value={item}>
+          {item}
+        </option>
+      );
     });
   };
 
   const getPages = () => {
-    const arr: any[] = [''];
+    const arr: any[] = [];
     for (let i = 0; i < totalPages; i += 1) {
       arr.push(
         <Button
+          key={uuidv4()}
           onClick={() => {
+            setSortByName('');
+            setSort('');
             setPage(i);
           }}
         >
@@ -78,7 +100,7 @@ function UsersList() {
 
   return (
     <main>
-      <TopBarPattern flag />
+      <TopBarPattern flag setSortByName={setSortByName} />
       <Filter>
         <NewDropdown />
       </Filter>
@@ -88,7 +110,9 @@ function UsersList() {
         <NumberPage>
           <Select
             onChange={(e) => {
-              setSize(parseInt(e.target.value, 10));
+              setSortByName('');
+              setSize(e.target.value);
+              setSort('');
             }}
           >
             {getOptions()}

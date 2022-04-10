@@ -30,9 +30,9 @@ export const Pages = styled.article`
 `;
 
 export const Section = styled.section`
-  width: 90vw;
+  width: 80vw;
   display: flex;
-  justify-content: space-between;
+  margin-left: 10%;
 `;
 
 export const NumberPage = styled(Pages)`

@@ -4,11 +4,16 @@ import { theme } from '../../../themes/theme';
 
 import { Buttons, Header, LogoAndUserLogin, Search } from './styles';
 
-type types = {
-  flag: boolean;
+const defaultProps = {
+  setSortByName: null,
 };
 
-function TopBarPattern(props: types) {
+type props = {
+  flag: boolean;
+  setSortByName?: any;
+} & typeof defaultProps;
+
+function TopBarPattern({ flag, setSortByName }: props) {
   const [widthScreen, setWidthScreen] = useState(window.screen.width / 16);
 
   useEffect(() => {
@@ -19,7 +24,6 @@ function TopBarPattern(props: types) {
     window.addEventListener('resize', handleResize);
   });
 
-  const { flag } = props;
   return (
     <Header>
       {widthScreen > theme.screenSizes.default ? (
@@ -46,7 +50,12 @@ function TopBarPattern(props: types) {
 
       {flag ? (
         <>
-          <Search placeholder="Procure o seu mentor aqui" />
+          <Search
+            onChange={(e) => {
+              return setSortByName(e.target.value);
+            }}
+            placeholder="Procure o seu mentor aqui"
+          />
           <hr />
         </>
       ) : null}
@@ -54,4 +63,5 @@ function TopBarPattern(props: types) {
   );
 }
 
+TopBarPattern.defaultProps = defaultProps;
 export default TopBarPattern;

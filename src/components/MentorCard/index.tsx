@@ -20,23 +20,16 @@ import foto from '../../assets/foto.png';
 
 type Props = {
   name: string;
-  occupation: any[];
   level: string;
   bioDescription: string;
   tags: any[];
 };
 
-export function MentorCard({
-  name,
-  occupation,
-  level,
-  bioDescription,
-  tags,
-}: Props) {
+export function MentorCard({ name, level, bioDescription, tags }: Props) {
   const getSubString = () => {
     const length = 100;
     let subString = bioDescription.substring(0, length);
-    if (subString.length > 100) subString = `${subString} ...`;
+    if (bioDescription.length > 100) subString = `${subString} ...`;
 
     return subString;
   };
@@ -46,7 +39,6 @@ export function MentorCard({
       return <Tag key={uuidv4()}>{item.skill}</Tag>;
     });
   };
-  console.log(occupation);
   return (
     <Card>
       <Header>
