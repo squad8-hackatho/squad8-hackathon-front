@@ -9,7 +9,6 @@ export const Container = styled.section`
 
 export const Header = styled.header`
   width: 90vw;
-  height: 200px;
 
   hr {
     border: 1px solid ${theme.colors.mediumGray};
@@ -17,7 +16,7 @@ export const Header = styled.header`
 
   ${customMedia.lessThan('tablet')`
     hr {      
-      width: 80vw;
+      width: 90vw;
     }
   `}
 `;
@@ -61,7 +60,7 @@ export const Search = styled.input`
   }
 
   ${customMedia.lessThan('tablet')`
-    width: 80vw;
+    width: 90vw;
   `}
 `;
 

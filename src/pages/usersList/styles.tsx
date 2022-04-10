@@ -3,10 +3,18 @@ import { customMedia, theme } from '../../themes/theme';
 
 export const Filter = styled.section`
   width: 100%;
-  margin: 85px 0px 30px 134px;
+  margin: 20px 0 30px 60px;
+
+  ${customMedia.lessThan('laptop')`
+    margin: 20px 0 30px 40px;
+  `}
 
   ${customMedia.lessThan('tablet')`
-    margin: 0;
+    margin: 20px 0 30px 30px;
+  `}
+
+  ${customMedia.lessThan('mobileL')`
+    margin: 20px 0 30px 20px;
   `}
 `;
 
