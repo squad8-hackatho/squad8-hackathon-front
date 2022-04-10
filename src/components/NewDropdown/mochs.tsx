@@ -60,3 +60,41 @@ export const MochTechnologiesFiltered = {
     },
   ],
 };
+
+export const MochApi = [
+  {
+    skill: 'java',
+    subcategory: 'programação',
+    category: 'hardskill',
+  },
+  {
+    skill: 'javascript',
+    subcategory: 'programação',
+    category: 'hardskill',
+  },
+  {
+    skill: 'angular',
+    subcategory: 'frontend',
+    category: 'hardskill',
+  },
+  {
+    skill: 'css',
+    subcategory: 'frontend',
+    category: 'hardskill',
+  },
+  {
+    skill: 'lideranca',
+    subcategory: 'softskill',
+    category: 'softskill',
+  },
+  {
+    skill: 'comunicação',
+    subcategory: 'softskill',
+    category: 'softskill',
+  },
+  {
+    skill: 'negociação',
+    subcategory: 'softskill',
+    category: 'softskill',
+  },
+];
