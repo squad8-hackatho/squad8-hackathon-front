@@ -13,8 +13,6 @@ export function NewDropdown() {
     setFormValues({ ...formValues, [name]: value });
   };
 
-  console.log(formValues);
-
   return (
     <Container>
       <Form>
