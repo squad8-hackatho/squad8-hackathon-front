@@ -13,6 +13,7 @@ import {
   Expertises,
   Tag,
   Buttons,
+  Tags,
   Button,
 } from './styles';
 import foto from '../../assets/foto.png';
@@ -32,6 +33,10 @@ export function MentorCard({
   bioDescription,
   tags,
 }: Props) {
+  const getSubString = () => {
+    const length = 100;
+    return `${bioDescription.substring(0, length)} ...`;
+  };
   return (
     <Card>
       <Header>
@@ -49,18 +54,21 @@ export function MentorCard({
         </Description>
       </Header>
       <Bio>
-        <BioDescr>{bioDescription}</BioDescr>
-        <Expertises>
+        <BioDescr>{getSubString()}</BioDescr>
+      </Bio>
+      <Expertises>
+        <p>Habilidades</p>
+        <Tags>
           <Tag>{tags[0]}</Tag>
           <Tag>{tags[1]}</Tag>
           <Tag>{tags[2]}</Tag>
           <Tag>{tags[3]}</Tag>
           <Tag>{tags[4]}</Tag>
           <Tag>Mais {tags.length - 5}</Tag>
-        </Expertises>
-      </Bio>
+        </Tags>
+      </Expertises>
       <Buttons>
-        <Button>Quero me conectar</Button>
+        <Button>Marcar Horário</Button>
         <Link to="/profile">
           <Button>Ver perfil</Button>
         </Link>

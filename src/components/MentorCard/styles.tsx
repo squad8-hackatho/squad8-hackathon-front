@@ -2,16 +2,18 @@ import styled from 'styled-components';
 import { customMedia, theme } from '../../themes/theme';
 
 export const Card = styled.section`
-  width: 369px;
+  width: 345px;
   height: 469px;
 
   display: flex;
   flex-direction: column;
+  align-items: center;
 
-  margin: 0px 30px 30px 0px;
+  margin: 15px 15px;
 
-  background-color: ${theme.colors.lightGray};
-  box-shadow: 12px 5px 12px 3px #ededed;
+  background-color: rgba(241, 241, 244, 0.3);
+  border-radius: 10px;
+  border: 1.5px solid ${theme.colors.mediumGray};
 
   img {
     width: 68px;
@@ -36,7 +38,7 @@ export const Card = styled.section`
   `}
 `;
 
-export const Header = styled.div`
+export const Header = styled.header`
   width: 369px;
   height: 100px;
 
@@ -63,10 +65,9 @@ export const Description = styled.p`
   flex-direction: column;
 `;
 
-export const Name = styled.p`
-  margin: 29px 0px 15px 0px;
+export const Name = styled.h1`
+  margin: 29px 0px 10px 0px;
 
-  font-size: 16px;
   font-weight: bold;
 
   ${customMedia.lessThan('tablet')`
@@ -83,7 +84,7 @@ export const Occupation = styled.p`
 export const OccupationItem = styled.p`
   margin: 0px 20px 0px 0px;
 
-  font-size: 12px;
+  font-size: 14px;
   font-weight: medium;
 
   ${customMedia.lessThan('tablet')`
@@ -91,21 +92,34 @@ export const OccupationItem = styled.p`
   `}
 `;
 
-export const Bio = styled.div`
-  width: 369px;
-
-  margin: 29px 0px 0px 0px;
+export const Bio = styled.article`
+  width: 310px;
+  margin: 10px 0px;
 
   display: flex;
   flex-direction: column;
+  align-items: start;
+
+  p {
+    margin-top: 5px;
+    font-size: 16px;
+  }
 
   ${customMedia.lessThan('tablet')`
     width: 100%;
   `}
 `;
 
+export const Expertises = styled(Bio)`
+  border-top: 1.5px solid ${theme.colors.mediumGray};
+  p {
+    margin-left: 10px;
+    margin-top: 10px;
+  }
+`;
+
 export const BioDescr = styled.p`
-  height: 100px;
+  height: 80px;
 
   font-size: 14px;
   font-weight: 400;
@@ -119,12 +133,11 @@ export const BioDescr = styled.p`
   `}
 `;
 
-export const Expertises = styled.div`
+export const Tags = styled.article`
+  margin: 20px 10px;
   display: flex;
-  justify-content: flex-start;
   flex-wrap: wrap;
-
-  margin: 30px 0px 0px 26px;
+  height: 70px;
 
   ${customMedia.lessThan('tablet')`
     justify-content: center;
@@ -133,52 +146,55 @@ export const Expertises = styled.div`
 `;
 
 export const Tag = styled.button`
-  width: 98px;
-  height: 40px;
+  width: 90px;
+  height: 30px;
+  font-weight: bold;
 
-  background-color: ${theme.colors.orange};
-  border-radius: 3px;
-  margin: 0px 9px 9px 0px;
+  background-color: ${theme.colors.blackGray};
+  border-radius: 6px;
+  margin: 2px 2px;
 
-  display: inline-block;
   color: ${theme.colors.white};
-  font-family: Arial;
   font-size: 14px;
 `;
 
-export const Buttons = styled.div`
-  width: 369px;
-  height: 143px;
-
+export const Buttons = styled.article`
+  width: 310px;
   display: flex;
-  flex-direction: column;
-  align-items: flex-start;
+  justify-content: center;
+
+  border-top: 1.5px solid ${theme.colors.mediumGray};
+
+  a {
+    display: flex;
+    text-decoration: none;
+    justify-content: center;
+    width: 150px;
+
+    button {
+      background-color: ${theme.colors.lightGray};
+      color: ${theme.colors.black};
+    }
+  }
 `;
 
 export const Button = styled.button`
   display: inline-block;
-  width: 313px;
+  width: 150px;
+  height: 50px;
+  margin: 20px 5px 0px 5px;
+  font-weight: bold;
+  font-size: 16px;
 
-  margin: 10px 0px 0px 26px;
-
-  background-color: #000;
+  background-color: ${theme.colors.black};
   color: ${theme.colors.white};
   border: 1px solid #000;
 
   border-radius: 8px;
-  padding: 11px 80px;
+  padding: 10px 10px;
 
   cursor: pointer;
 
-  font-family: Arial;
-  font-size: 17px;
-  text-decoration: none;
-
-  :hover {
-    background-color: ${theme.colors.lightGray};
-    color: ${theme.colors.black};
-    border: 1px solid #000;
-  }
   :active {
     position: relative;
     top: 1px;
