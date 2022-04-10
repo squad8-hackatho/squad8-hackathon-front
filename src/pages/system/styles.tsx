@@ -1,21 +1,23 @@
 import styled from 'styled-components';
-import Modal from 'styled-react-modal';
-import { customMedia, theme } from '../../themes/theme';
+// import Modal from 'styled-react-modal';
+import { theme } from '../../themes/theme';
 
-export const StyledModal = Modal.styled`
-  width: 89vw;
-  height: 89vh;
-  background-color: ${theme.colors.white};
+export const Main = styled.main`
   display: flex;
   justify-content: center;
-
-  ${customMedia.lessThan('default')`
-    width: 100vw;
-    overflow: auto;
-  `}
+  align-items: center;
+  background-color: ${theme.colors.white};
+  height: 100vh;
 `;
 
 export const Form = styled.form`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+`;
+
+export const Section = styled.fieldset`
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -49,13 +51,13 @@ export const P = styled.p`
   }
 `;
 
-export const Article = styled.article`
-  button {
-    padding: 10px;
-    position: absolute;
-    right: 0;
-    margin-right: 5.5vw;
-  }
+export const Select = styled.select`
+  width: 300px;
+  padding: 15px 15px;
+  outline: none;
+  border-radius: 8px;
+  margin: 10px 10px;
+  background-color: ${theme.colors.lightGray};
 `;
 
 export const Input = styled.input`
@@ -66,6 +68,17 @@ export const Input = styled.input`
   background-color: ${theme.colors.lightGray};
   border-radius: 8px;
   margin: 10px 0px;
+`;
+
+export const TextArea = styled.textarea`
+  width: 300px;
+  height: 100px;
+  margin-top: 10px;
+  padding: 15px 15px;
+  border-radius: 8px;
+  outline: none;
+  resize: none;
+  background-color: ${theme.colors.lightGray};
 `;
 
 export const Button = styled.button``;
