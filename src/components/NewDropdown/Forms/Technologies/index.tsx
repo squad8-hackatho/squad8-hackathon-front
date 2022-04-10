@@ -1,6 +1,7 @@
 /* eslint-disable no-prototype-builtins */
-import React, { useState } from 'react';
-import { MochTechnologies, MochTechnologiesFiltered } from '../../mochs';
+import React, { useEffect, useState } from 'react';
+import { Capitalize } from '../../../../helpers/Capitalize';
+import { getUsers } from '../../../../services/services';
 
 type Props = {
   state: Object;
@@ -8,24 +9,34 @@ type Props = {
 };
 
 function DropdownTechnologies({ state, onChange = () => {} }: Props) {
-  const [technologies, setTechnologies] = useState(MochTechnologies);
+  const [technologies, setTechnologies] = useState(['Java', 'LELEU']);
 
-  function handleClick() {
-    if (Object.values(state).indexOf('DEV') > -1) {
-      setTechnologies(MochTechnologiesFiltered.DEV);
-    } else {
-      setTechnologies(MochTechnologies);
+  useEffect(() => {    
+    let dataOutside: any = [];
+
+    async function getData() {
+      const data = await getUsers('/skill');
+      dataOutside = data.data;
+
+      const filteredTechnologies: any = [];
+      dataOutside.forEach((tech : any) => {
+        if (Object.values(tech).indexOf(`${state}`) > -1) {
+          filteredTechnologies.push(Capitalize(dataOutside.skill));
+        }
+      });      
+      setTechnologies(filteredTechnologies);
     }
-  }
+
+    getData();
+  }, []);
 
   return (
-    <select name="technologie" onChange={onChange} onClick={handleClick}>
+    <select name="technologie" onChange={onChange}>
       <option>Selecione uma tecnologia:</option>
       {technologies.map((technologie: any) => {
-        const { acronym, name } = technologie;
         return (
-          <option key={acronym || name} value={acronym}>
-            {name}
+          <option key={technologie} value={technologie}>
+            {technologie}
           </option>
         );
       })}

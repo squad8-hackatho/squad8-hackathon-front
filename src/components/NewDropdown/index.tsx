@@ -1,11 +1,12 @@
 /* eslint-disable jsx-a11y/label-has-associated-control */
 import React, { useState } from 'react';
+import { LowerCase } from '../../helpers/LowerCase';
 import DropdownArea from './Forms/Areas';
 import DropdownTechnologies from './Forms/Technologies';
 import { Container, Form } from './styles';
 
 export function NewDropdown() {
-  const [formValues, setFormValues] = useState({});
+  const [formValues, setFormValues] = useState({area: ''});
 
   const handleInputChange = (e: any) => {
     e.preventDefault();
@@ -19,7 +20,7 @@ export function NewDropdown() {
         <label>Área:</label>
         <DropdownArea onChange={handleInputChange} />
         <label>Tecnologia:</label>
-        <DropdownTechnologies state={formValues} onChange={handleInputChange} />
+        <DropdownTechnologies state={LowerCase(formValues.area)} onChange={handleInputChange} />
       </Form>
     </Container>
   );

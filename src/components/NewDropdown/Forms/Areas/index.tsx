@@ -1,6 +1,6 @@
-import React, { useState } from 'react';
-import { capitalizeFirstLetter } from '../../../../helpers/Capitalize';
-import { MochApi } from '../../mochs';
+import React, { useEffect, useState } from 'react';
+import { Capitalize } from '../../../../helpers/Capitalize';
+import { getUsers } from '../../../../services/services';
 
 type Props = {
   onChange: any;
@@ -9,27 +9,33 @@ type Props = {
 function DropdownArea({ onChange = () => {} }: Props) {
   const [areas, setAreas] = useState(['Frontend', 'Programação', 'Softskill']);
 
-  function handleClick() {
-    const areaBack = MochApi;
-    const uniqueAreas: any = [];
-    areaBack.forEach((area) => {
-      if (!uniqueAreas.includes(capitalizeFirstLetter(area.subcategory))) {
-        uniqueAreas.push(capitalizeFirstLetter(area.subcategory));
-      }
-    });
-    console.log('Direto', uniqueAreas);
-    setAreas(uniqueAreas);
-  }
+  useEffect(() => {
+    let dataOutside : any = [];
+
+    async function getValues() {
+      const data = await getUsers('/skill');
+      dataOutside = data.data;
+
+      const uniqueAreas: any = [];
+      dataOutside.forEach((area: any) => {
+        if (!uniqueAreas.includes(Capitalize(area.subcategory))) {
+          uniqueAreas.push(Capitalize(area.subcategory));
+        }
+      });
+      setAreas(uniqueAreas);
+    }
+    getValues();
+  }, []);
 
   return (
-    <select onClick={handleClick} name="area" onChange={onChange}>
+    <select name="area" onChange={onChange}>
       <option> Selecione uma área: </option>
-      {areas.map((area: any) => {
-        return (
+      {areas.map((area) => {
+        return(
           <option key={area} value={area}>
             {area}
           </option>
-        );
+        )
       })}
     </select>
   );
