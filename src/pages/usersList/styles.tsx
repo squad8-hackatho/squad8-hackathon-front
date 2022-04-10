@@ -2,10 +2,11 @@ import styled from 'styled-components';
 import { customMedia, theme } from '../../themes/theme';
 
 export const Filter = styled.section`
+  width: 100%;
   margin: 85px 0px 30px 134px;
 
   ${customMedia.lessThan('tablet')`
-    margin: 85px 0px 30px 80px;
+    margin: 170px 0px 30px 80px;
   `}
 `;
 
