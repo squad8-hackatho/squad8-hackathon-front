@@ -2,17 +2,10 @@ import styled from 'styled-components';
 import { customMedia, theme } from '../../themes/theme';
 
 export const Container = styled.div`
-  width: 50%;
+  width: 100vw;
+  
   font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande',
-    'Lucida Sans', Arial, sans-serif;
-
-  ${customMedia.lessThan('tablet')`
-    width: 80%;
-  `}
-
-  ${customMedia.lessThan('mobileL')`
-    width: 100%;
-  `}
+    'Lucida Sans', Arial, sans-serif;  
 `;
 
 export const Form = styled.form`
@@ -20,7 +13,12 @@ export const Form = styled.form`
   flex-direction: row;
   align-items: center;
 
-  width: 80%;
+  width: 60%;
+
+  ${customMedia.lessThan('mobileL')`
+    flex-direction: column;
+    width: 270px;
+  `}
 `;
 
 export const Select = styled.select`
@@ -44,4 +42,10 @@ export const Icon = styled.div`
   position: relative;
   left: -40px;
   top: 3px;
+
+  ${customMedia.lessThan('mobileL')`
+    position: relative;
+    left: 120px;
+    top: -30px;
+  `}
 `;

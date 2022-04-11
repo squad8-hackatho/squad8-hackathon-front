@@ -1,18 +1,41 @@
 import styled from 'styled-components';
 import { customMedia, theme } from '../../../themes/theme';
 
+export const Container = styled.section`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+`;
+
 export const Header = styled.header`
-  width: 80vw;
-  height: 10vh;
-  margin: 0px 135px;
+  width: 90vw;
 
   hr {
     border: 1px solid ${theme.colors.mediumGray};
   }
 
   ${customMedia.lessThan('tablet')`
-    margin: 0px 80px;
-    height: 0px;
+    hr {      
+      width: 90vw;
+    }
+  `}
+
+  ${customMedia.lessThan('mobileL')`
+    hr {      
+      width: 95vw;
+    }
+  `}
+
+  ${customMedia.lessThan('mobileM')`
+    hr {      
+      width: 98vw;
+    }
+  `}
+
+  ${customMedia.lessThan('mobileS')`
+    hr {      
+      width: 110vw;
+    }
   `}
 `;
 
@@ -39,7 +62,7 @@ export const Buttons = styled.div`
 `;
 
 export const Search = styled.input`
-  width: 80vw;
+  width: 90vw;
   height: 45px;
   padding: 17px 44px;
   margin: 40px 0px 38px 0px;
@@ -53,4 +76,22 @@ export const Search = styled.input`
   :focus {
     outline: none;
   }
+
+  ${customMedia.lessThan('tablet')`
+    width: 90vw;
+  `}
+
+  ${customMedia.lessThan('mobileL')`
+    width: 95vw;
+  `}
+
+  ${customMedia.lessThan('mobileM')`
+    width: 98vw;
+  `}
+
+  ${customMedia.lessThan('mobileS')`
+    width: 110vw;
+  `}
 `;
+
+export const SearchHR = styled.div``;
