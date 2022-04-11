@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from 'react';
+import Button from '../../../components/Button/styles';
+import { Buttons } from '../../../components/MentorCard/styles';
 import { theme } from '../../../themes/theme';
 
-
 import {
-  Buttons,
   Container,
   Header,
   LogoAndUserLogin,
@@ -32,6 +32,7 @@ function TopBarPattern({ flag, setSortByName }: props) {
   });
 
   return (
+    <div>
       {flag ? (
         <Container>
           <Header>
