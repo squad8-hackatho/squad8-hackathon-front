@@ -1,11 +1,23 @@
+/* eslint-disable no-unused-vars */
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
-import { Section, ButtonsBar, Article, Li, Nav, Ul } from './styles';
 import { screenSizes } from '../../themes/theme';
+import { ButtonBig } from '../../components/Button/styles';
+
+import {
+  Section,
+  Article,
+  Nav,
+  FooterButton,
+  Description,
+  H2,
+  Tags,
+  Tag,
+  Container,
+  Info,
+} from './styles';
 import { TopBarPattern } from '../pattern';
 import ProfileCard from '../../components/ProfileCard/ProfileCard';
-import ProfileInfo from '../../components/ProfileInfo/ProfileInfo';
-import ProfileMobile from './ProfileMobile';
 
 function Profile() {
   const [text, setText] = useState<string[]>([]);
@@ -29,53 +41,50 @@ function Profile() {
     window.addEventListener('resize', handleResize);
   });
 
-  const setInfo = (typeName: string): void => {
-    if (typeName === 'Descrição') setText(description);
-    else if (typeName === 'Hard Skill') setText(hardSkill);
-    else setText(softSkill);
-  };
-
   return (
     <main>
       <TopBarPattern flag={false} />
-      {widthScreen > screenSizes.default ? (
+      <Container>
         <Section>
           <ProfileCard widthScreen={widthScreen} />
-          <Article>
-            <Nav>
-              <Link to="/userslist">Lista de Usuários</Link>
-              <p>/</p>
-              <Link to="/">Perfil do Mentor</Link>
-            </Nav>
 
-            <ButtonsBar id="ButtonsBar">
-              {infos.map((item) => {
-                return (
-                  <ProfileInfo
-                    widthScreen={widthScreen}
-                    key={item}
-                    setInfo={() => {
-                      return setInfo(item);
-                    }}
-                  >
-                    {item}
-                  </ProfileInfo>
-                );
-              })}
-            </ButtonsBar>
-            <Ul>
-              {text.map((item) => {
-                return <Li key={item}>{item}</Li>;
-              })}
-            </Ul>
+          <Article>
+            {widthScreen > screenSizes.default ? (
+              <Nav>
+                <Link to="/userslist">Lista de Usuários</Link>
+                <p>/</p>
+                <Link to="/">Perfil do Mentor</Link>
+              </Nav>
+            ) : null}
+
+            <Description>
+              <H2>Descrição</H2>
+            </Description>
+            <Info>
+              <H2>Área</H2>
+              <Tags>
+                <Tag>HTML</Tag>
+                <Tag>HTML</Tag>
+                <Tag>HTML</Tag>
+              </Tags>
+            </Info>
+            <Info>
+              <H2>Tecnologias</H2>
+              <Tags>
+                <Tag>HTML</Tag>
+                <Tag>HTML</Tag>
+                <Tag>HTML</Tag>
+              </Tags>
+            </Info>
+
+            {widthScreen < screenSizes.default ? (
+              <FooterButton>
+                <ButtonBig>Marcar Horário</ButtonBig>
+              </FooterButton>
+            ) : null}
           </Article>
         </Section>
-      ) : (
-        <>
-          <ProfileCard widthScreen={widthScreen} />
-          <ProfileMobile />
-        </>
-      )}
+      </Container>
     </main>
   );
 }

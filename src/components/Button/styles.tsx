@@ -76,6 +76,11 @@ export const ButtonBig = styled(Button)`
     margin: 0;
     font-size: 16px;
   `}
+
+  ${customMedia.lessThan('mobileL')`
+    font-size: 18px;
+    padding: 0px;
+  `}
 `;
 
 export default Button;

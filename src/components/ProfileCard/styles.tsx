@@ -3,12 +3,14 @@ import { theme, customMedia } from '../../themes/theme';
 
 export const Section = styled.section`
   display: flex;
-  width: 28vw;
+  width: 25vw;
   height: 89vh;
 
   flex-direction: column;
   align-items: center;
   background-color: ${theme.colors.lightGray};
+  border-top: 1px solid ${theme.colors.lightGray};
+  margin-left: 8%;
 
   button {
     margin-top: 50px;
@@ -27,8 +29,8 @@ export const Section = styled.section`
     width: 100vw;
     height: 25vh;
     flex-direction: row;
-    padding-top: 10%;
-    padding-left: 6%;
+    padding: 10% 0% 0% 6%;
+    margin-left: 0px;
   `}
 
   ${customMedia.lessThan('mobileM')`
@@ -60,6 +62,13 @@ export const Article = styled.article`
     margin-left: 5%;
     align-items: start;
   `}
+`;
+
+export const Contact = styled(Article)`
+  p {
+    margin-top: 15%;
+    font-size: 16px;
+  }
 `;
 
 export const ProfilePicture = styled.img`

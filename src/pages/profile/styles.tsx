@@ -3,17 +3,27 @@ import { theme, customMedia } from '../../themes/theme';
 
 export const Section = styled.section`
   display: flex;
-`;
 
-export const Main = styled.main``;
+  ${customMedia.lessThan('tablet')`
+    flex-direction: column;
+    width: 100vw;
+    align-items: center;
+    background-color: ${theme.colors.lightGray};
+  `}
+`;
 
 export const Article = styled.article`
   width: 72vw;
+  flex-direction: column;
+
+  ${customMedia.lessThan('tablet')`
+    flex-direction: none;
+    width: 80vw;
+  `}
 `;
 
 export const Nav = styled.nav`
-  border-top: 2px solid ${theme.colors.lightGray};
-  padding: 20px 25px 70px 50px;
+  padding: 20px 50px;
   display: flex;
 
   p {
@@ -42,21 +52,6 @@ export const Nav = styled.nav`
   `}
 `;
 
-export const Li = styled.li`
-  font-size: 20px;
-  line-height: 1.4;
-`;
-
-export const Ul = styled.ul`
-  margin: 35px 400px 0px 50px;
-  list-style-type: none;
-
-  ${customMedia.lessThan('tablet')`
-    margin-right: 50px;
-    margin-bottom: 50px;
-  `}
-`;
-
 export const FooterButton = styled.footer`
   height: 12vh;
   display: flex;
@@ -75,39 +70,16 @@ export const FooterButton = styled.footer`
   `}
 `;
 
-export const ButtonsBar = styled.article`
-  display: flex;
-  flex-direction: row;
-  padding: 15px 25px;
-  border-top: 2px solid ${theme.colors.lightGray};
-  border-bottom: 2px solid ${theme.colors.lightGray};
-
-  ${customMedia.between('tablet', 'laptopS')`
-    justify-content: center;
-    align-items: center;
-  `}
+export const Description = styled.article`
+  width: 70vw;
+  height: 20vh;
+  padding: 0px 35px;
+  background-color: ${theme.colors.white};
 
   ${customMedia.lessThan('tablet')`
-    padding: 15px 0px;
-    background-color: ${theme.colors.mediumGray};
-    border-top: none;
-    border-top-left-radius: 10px 10px;
-    border-top-right-radius: 10px 10px;
+    padding: 0px;
+    width: 80vw;
   `}
-`;
-
-export const SectionMobile = styled.section`
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  height: 75vh;
-  background-color: ${theme.colors.lightGray};
-`;
-
-export const Description = styled.article`
-  width: 80vw;
-  height: 25vh;
-  background-color: ${theme.colors.white};
 
   &:nth-child(1) {
     border-radius: 8px;
@@ -122,6 +94,10 @@ export const Description = styled.article`
     border-bottom-left-radius: 8px;
     border-bottom-right-radius: 8px;
   }
+`;
+
+export const Info = styled(Description)`
+  height: 20vh;
 `;
 
 export const Tags = styled.article`
@@ -148,13 +124,15 @@ export const Tag = styled.button`
   `}
 `;
 
-export const Info = styled(Description)``;
-
-export const H1 = styled.h1`
-  margin: 10px 20px;
+export const H2 = styled.h2`
   font-size: 24px;
+  padding: 10px 20px;
 
   ${customMedia.lessThan('mobileM')`
     font-size: 20px;
   `}
+`;
+
+export const Container = styled.article`
+  border-top: 2px solid ${theme.colors.lightGray};
 `;
