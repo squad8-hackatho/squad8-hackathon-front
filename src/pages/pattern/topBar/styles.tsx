@@ -39,23 +39,6 @@ export const Header = styled.header`
   `}
 `;
 
-export const LogoAndUserLogin = styled.header`
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-
-  margin: 30px 0px 0px 0px;
-
-  h3 {
-    font-weight: normal;
-    font-size: 24px;
-  }
-
-  button {
-    height: 35px;
-  }
-`;
-
 export const Search = styled.input`
   width: 90vw;
   height: 45px;
@@ -90,3 +73,9 @@ export const Search = styled.input`
 `;
 
 export const SearchHR = styled.div``;
+
+export const TopBar = styled.article`
+  display: flex;
+  align-items: center;
+  height: 10vh;
+`;
