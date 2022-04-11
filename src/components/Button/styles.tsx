@@ -54,9 +54,10 @@ export const Button = styled.button<ButtonProps>`
   }
 `;
 
-export const ButtonBig = styled(Button)`
-  margin: 20px 10px 20px 10px;
+export const ButtonBig = styled.button`
+  margin: 0px 10px 20px 10px;
   border-radius: 8px;
+  padding: 15px 30px;
   background-color: ${theme.colors.black};
   color: ${theme.colors.white};
 
@@ -67,19 +68,15 @@ export const ButtonBig = styled(Button)`
 
   ${customMedia.between('tablet', 'laptopS')`
     width: 200px;
-    margin-bottom: 350px;
-    padding: 0px;
   `}
 
   ${customMedia.lessThan('tablet')`
     width: 80vw;
-    margin: 0;
     font-size: 16px;
   `}
 
   ${customMedia.lessThan('mobileL')`
     font-size: 18px;
-    padding: 0px;
   `}
 `;
 

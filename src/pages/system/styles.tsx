@@ -34,6 +34,13 @@ export const H2 = styled.h2`
   margin-bottom: 20px;
 `;
 
+export const H3 = styled.h3`
+  font-weight: 500;
+  font-size: 16px;
+  align-self: flex-start;
+  margin: 10px 0 -5px 20px;
+`
+
 export const Span = styled.span`
   color: ${theme.colors.red};
   font-size: 14px;
