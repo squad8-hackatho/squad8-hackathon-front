@@ -63,6 +63,7 @@ function UsersList() {
           level={levels[0]}
           tags={user.expertiseList}
           bioDescription={user.bio}
+          email={user.email}
         />
       );
     });
