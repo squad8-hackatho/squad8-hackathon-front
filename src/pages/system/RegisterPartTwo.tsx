@@ -1,5 +1,6 @@
+/* eslint-disable react/jsx-no-bind */
 import React, { useEffect, useState } from 'react';
-import { H3, Input, Section, Select } from './styles';
+import { H3, Input, Section, Select, Tag, Tags } from './styles';
 import { ButtonBig } from '../../components/Button/styles';
 import { getUsers } from '../../services/services';
 
@@ -20,7 +21,9 @@ function Register({ setCargo, setArea }: props) {
     return false;
   };
 
+  const emptyArray: any = [];
   const [skills, setSkills] = useState([]);
+  const [selectedSkills, setSelectedSkills] = useState(emptyArray);
 
   useEffect(() => {
     let dataOutside: any = [];
@@ -38,7 +41,18 @@ function Register({ setCargo, setArea }: props) {
       setSkills(uniqueSkills);
     }
     getValues();
-  }, []);
+  }, [selectedSkills]);
+
+  function handleChange(event: any) {
+    function filterSkill(skill: any) {
+      return skill !== event.target.value;
+    }
+    if (selectedSkills.includes(event.target.value)) {
+      setSelectedSkills(selectedSkills.filter(filterSkill));
+    } else {
+      setSelectedSkills([...selectedSkills, event.target.value]);
+    }
+  }
 
   return (
     <Section>
@@ -74,9 +88,27 @@ function Register({ setCargo, setArea }: props) {
         <option value="Senior">Senior</option>
       </Select>
 
+      <Tags>
+        {selectedSkills.map((skill: any) => {
+          return (
+            <Tag
+              key={skill}
+              onClick={() => {
+                function filterSkill(tag: any) {
+                  return tag !== skill;
+                }
+                return setSelectedSkills(selectedSkills.filter(filterSkill));
+              }}
+            >
+              {skill}
+            </Tag>
+          );
+        })}
+      </Tags>
+
       <H3>Selecione as suas habilidades</H3>
-      <Select>
-        <option value="valor1" selected>
+      <Select onChange={handleChange}>
+        <option value="default" selected>
           Suas habilidades
         </option>
         {skills.map((skill: any) => {

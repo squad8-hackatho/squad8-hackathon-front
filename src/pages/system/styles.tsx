@@ -89,3 +89,25 @@ export const TextArea = styled.textarea`
 `;
 
 export const Button = styled.button``;
+
+export const Tags = styled.div`
+  width: 300px;
+
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: left;
+`;
+
+export const Tag = styled.div`
+  background-color: ${theme.colors.mediumGray};
+
+  border: 1px solid ${theme.colors.mediumGray};
+  border-radius: 8px;  
+  padding: 5px;
+  margin: 10px 5px 0;
+
+  font-size: 14px;
+  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+  font-weight: 500;
+`;

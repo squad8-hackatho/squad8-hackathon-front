@@ -1,20 +1,20 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { Main, Button, Form, P, H2 } from './styles';
-/* import RegisterPartOne from './RegisterPartOne'; */
+import RegisterPartOne from './RegisterPartOne';
 import RegisterPartTwo from './RegisterPartTwo';
 
 function Register() {
-  /* const [name, setName] = useState('');
+  const [name, setName] = useState('');
   // const [bio, setBio] = useState('');
   const [password, setPassword] = useState('');
   const [email, setEmail] = useState('');
-  const [next, setNext] = useState(false); */
+  const [next, setNext] = useState(false);
   const [cargo, setCargo] = useState('');
   const [area, setArea] = useState('');
 
   const onSubmit = () => {
-    console.log( cargo, area);
+    console.log( name, password, email, cargo, area);
   };
 
   return (
@@ -28,7 +28,7 @@ function Register() {
         <H2>
           Technical<strong>Share</strong>
         </H2>
-        {/* {!next ? (
+        {!next ? (
           <RegisterPartOne
             name={name}
             setName={setName}
@@ -41,9 +41,7 @@ function Register() {
           />
         ) : (
           <RegisterPartTwo setCargo={setCargo} setArea={setArea} />
-        )} */}
-
-        <RegisterPartTwo setCargo={setCargo} setArea={setArea} />
+        )}
 
         <P>
           Já tem uma conta ?
