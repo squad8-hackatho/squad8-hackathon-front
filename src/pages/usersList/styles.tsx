@@ -3,19 +3,33 @@ import { customMedia, theme } from '../../themes/theme';
 
 export const Filter = styled.section`
   width: 100%;
-  margin: 85px 0px 30px 134px;
+  margin: 20px 0 30px 60px;
+
+  ${customMedia.lessThan('laptop')`
+    margin: 20px 0 30px 40px;
+  `}
 
   ${customMedia.lessThan('tablet')`
-    margin: 170px 0px 30px 80px;
+    margin: 20px 0 30px 30px;
+  `}
+
+  ${customMedia.lessThan('mobileL')`
+    margin: 20px 0 30px 20px;
   `}
 `;
 
 export const Mentors = styled.section`
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
+  display: grid;
+  grid-row-gap: 10px;
   justify-content: center;
-  margin-left: 15px;
+  grid: repeat(2, [line1 line2 line3] 500px) / auto-flow 500px;
+
+  ${customMedia.lessThan('laptopL')`
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+  `}
 
   ${customMedia.lessThan('laptop')`
     margin: 0px 0px 0px 110px;
@@ -30,9 +44,9 @@ export const Pages = styled.article`
 `;
 
 export const Section = styled.section`
-  width: 80vw;
+  width: 90vw;
   display: flex;
-  margin-left: 10%;
+  justify-content: space-between;
 `;
 
 export const NumberPage = styled(Pages)`
