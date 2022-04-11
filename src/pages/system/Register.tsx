@@ -6,14 +6,15 @@ import RegisterPartTwo from './RegisterPartTwo';
 
 function Register() {
   const [name, setName] = useState('');
-  const [bio, setBio] = useState('');
+  // const [bio, setBio] = useState('');
   const [password, setPassword] = useState('');
   const [email, setEmail] = useState('');
   const [next, setNext] = useState(false);
   const [cargo, setCargo] = useState('');
+  const [area, setArea] = useState('');
 
   const onSubmit = () => {
-    console.log(name, bio, email, password, cargo);
+    console.log( name, password, email, cargo, area);
   };
 
   return (
@@ -31,7 +32,7 @@ function Register() {
           <RegisterPartOne
             name={name}
             setName={setName}
-            setBio={setBio}
+            // setBio={setBio}
             setPassword={setPassword}
             setEmail={setEmail}
             password={password}
@@ -39,7 +40,7 @@ function Register() {
             setNext={setNext}
           />
         ) : (
-          <RegisterPartTwo setCargo={setCargo} />
+          <RegisterPartTwo setCargo={setCargo} setArea={setArea} />
         )}
 
         <P>

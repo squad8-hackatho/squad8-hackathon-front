@@ -20,7 +20,7 @@ function DropdownArea({ onChange = () => {} }: Props) {
       const uniqueAreas: any = [];
       dataOutside.forEach((area: any) => {
         if (!uniqueAreas.includes(Capitalize(area.area))) {
-          uniqueAreas.push(Capitalize(area.area));
+          uniqueAreas.push(area.area);
         }
       });
       setAreas(uniqueAreas);
