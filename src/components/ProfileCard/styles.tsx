@@ -24,18 +24,26 @@ export const Section = styled.section`
 
   ${customMedia.lessThan('tablet')`
     background-color: ${theme.colors.white};
-    flex-direction: row;
     width: 100vw;
-    justify-content: center;
-    height: 20vh;
-    margin-top: 10%;
-    margin-bottom: 5%;
+    height: 25vh;
+    flex-direction: row;
+    padding-top: 10%;
+    padding-left: 6%;
+  `}
+
+  ${customMedia.lessThan('mobileM')`
+    padding-top: 8%;
+    padding-left: 6%;
+  `}
+
+  ${customMedia.lessThan('mobileS')`
+    padding-left: 3%;
   `}
 `;
 
 export const H1 = styled.h1`
+  font-size: 30px;
   ${customMedia.lessThan('tablet')`
-    font-size: 25px;
   `}
 
   ${customMedia.between('tablet', 'laptopS')`
@@ -69,8 +77,6 @@ export const ProfilePicture = styled.img`
 
   ${customMedia.lessThan('mobileL')`
     margin: 0px;
-    width: 110px;
-    height: 110px;
   `}
 
   ${customMedia.between('tablet', 'laptopS')`
@@ -81,15 +87,5 @@ export const ProfilePicture = styled.img`
 
 export const P = styled.p`
   margin-top: 10px;
-  font-size: 20px;
-
-  ${customMedia.lessThan('tablet')`
-    font-size: 18px;
-  `}
-  ${customMedia.lessThan('mobileL')`
-    font-size: 16px;
-  `}
-  ${customMedia.between('tablet', 'laptopS')`
-    font-size: 25px;
-  `}
+  font-size: 18px;
 `;
