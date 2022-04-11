@@ -3,12 +3,14 @@ import { theme, customMedia } from '../../themes/theme';
 
 export const Section = styled.section`
   display: flex;
-  width: 28vw;
+  width: 25vw;
   height: 89vh;
 
   flex-direction: column;
   align-items: center;
   background-color: ${theme.colors.lightGray};
+  border-top: 1px solid ${theme.colors.lightGray};
+  margin-left: 8%;
 
   button {
     margin-top: 50px;
@@ -24,17 +26,30 @@ export const Section = styled.section`
 
   ${customMedia.lessThan('tablet')`
     background-color: ${theme.colors.white};
-    flex-direction: row;
     width: 100vw;
-    height: 20vh;
-    margin-top: 10%;
-    margin-bottom: 5%;
+    height: 25vh;
+    flex-direction: row;
+    padding: 10% 0% 0% 6%;
+    margin-left: 0px;
+  `}
+
+  ${customMedia.lessThan('mobileM')`
+    padding-top: 8%;
+    padding-left: 6%;
+  `}
+
+  ${customMedia.lessThan('mobileS')`
+    padding-left: 3%;
   `}
 `;
 
 export const H1 = styled.h1`
+  font-size: 30px;
   ${customMedia.lessThan('tablet')`
-    font-size: 25px;
+  `}
+
+  ${customMedia.between('tablet', 'laptopS')`
+    font-size: 30px;
   `}
 `;
 
@@ -49,6 +64,13 @@ export const Article = styled.article`
   `}
 `;
 
+export const Contact = styled(Article)`
+  p {
+    margin-top: 15%;
+    font-size: 16px;
+  }
+`;
+
 export const ProfilePicture = styled.img`
   width: 180px;
   height: 180px;
@@ -58,17 +80,21 @@ export const ProfilePicture = styled.img`
 
   ${customMedia.lessThan('tablet')`
     margin: 0px;
-    margin-left: 5%;
-    width: 106px;
-    height: 106px;
+    width: 120px;
+    height: 120px;
+  `}
+
+  ${customMedia.lessThan('mobileL')`
+    margin: 0px;
+  `}
+
+  ${customMedia.between('tablet', 'laptopS')`
+    width: 180px;
+    height: 180px;
   `}
 `;
 
 export const P = styled.p`
   margin-top: 10px;
-  font-size: 20px;
-
-  ${customMedia.lessThan('tablet')`
-    font-size: 14px;
-  `}
+  font-size: 18px;
 `;

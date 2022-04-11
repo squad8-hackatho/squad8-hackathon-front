@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
-import Button from '../../../components/Button/styles';
 import { theme } from '../../../themes/theme';
+
 
 import {
   Buttons,
@@ -32,7 +32,6 @@ function TopBarPattern({ flag, setSortByName }: props) {
   });
 
   return (
-    <div>
       {flag ? (
         <Container>
           <Header>

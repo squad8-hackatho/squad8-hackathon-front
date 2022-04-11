@@ -64,6 +64,23 @@ export const ButtonBig = styled(Button)`
     background-color: ${theme.colors.blue};
     color: ${theme.colors.white};
   }
+
+  ${customMedia.between('tablet', 'laptopS')`
+    width: 200px;
+    margin-bottom: 350px;
+    padding: 0px;
+  `}
+
+  ${customMedia.lessThan('tablet')`
+    width: 80vw;
+    margin: 0;
+    font-size: 16px;
+  `}
+
+  ${customMedia.lessThan('mobileL')`
+    font-size: 18px;
+    padding: 0px;
+  `}
 `;
 
 export default Button;

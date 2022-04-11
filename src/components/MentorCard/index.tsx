@@ -23,9 +23,16 @@ type Props = {
   level: string;
   bioDescription: string;
   tags: any[];
+  email: string;
 };
 
-export function MentorCard({ name, level, bioDescription, tags }: Props) {
+export function MentorCard({
+  name,
+  level,
+  bioDescription,
+  tags,
+  email,
+}: Props) {
   const getSubString = () => {
     const length = 100;
     let subString = bioDescription.substring(0, length);
@@ -59,7 +66,7 @@ export function MentorCard({ name, level, bioDescription, tags }: Props) {
       </Expertises>
       <Buttons>
         <Button>Marcar Horário</Button>
-        <Link to="/profile">
+        <Link to={`/profile/${email}`}>
           <Button>Ver perfil</Button>
         </Link>
       </Buttons>
