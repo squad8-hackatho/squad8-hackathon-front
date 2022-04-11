@@ -26,6 +26,7 @@ export const Section = styled.section`
     background-color: ${theme.colors.white};
     flex-direction: row;
     width: 100vw;
+    justify-content: center;
     height: 20vh;
     margin-top: 10%;
     margin-bottom: 5%;
@@ -35,6 +36,10 @@ export const Section = styled.section`
 export const H1 = styled.h1`
   ${customMedia.lessThan('tablet')`
     font-size: 25px;
+  `}
+
+  ${customMedia.between('tablet', 'laptopS')`
+    font-size: 30px;
   `}
 `;
 
@@ -58,9 +63,13 @@ export const ProfilePicture = styled.img`
 
   ${customMedia.lessThan('tablet')`
     margin: 0px;
-    margin-left: 5%;
-    width: 106px;
-    height: 106px;
+    width: 120px;
+    height: 120px;
+  `}
+
+  ${customMedia.between('tablet', 'laptopS')`
+    width: 180px;
+    height: 180px;
   `}
 `;
 
@@ -69,6 +78,9 @@ export const P = styled.p`
   font-size: 20px;
 
   ${customMedia.lessThan('tablet')`
-    font-size: 14px;
+    font-size: 18px;
+  `}
+  ${customMedia.between('tablet', 'laptopS')`
+    font-size: 25px;
   `}
 `;

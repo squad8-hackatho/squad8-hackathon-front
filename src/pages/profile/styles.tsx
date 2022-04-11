@@ -6,6 +6,7 @@ export const Section = styled.section`
 
   ${customMedia.lessThan('tablet')`
     flex-direction: column;
+    align-items: center;
   `}
 `;
 
@@ -13,8 +14,9 @@ export const Article = styled.article`
   width: 72vw;
 
   ${customMedia.lessThan('tablet')`
-    width: 100vw;
-    height: 62vh;
+    width: 80vw;
+    height: 30vh;
+    background-color: red;
   `}
 `;
 
@@ -37,6 +39,16 @@ export const Nav = styled.nav`
       color: ${theme.colors.black};
     }
   }
+
+  ${customMedia.between('tablet', 'laptopS')`
+    p {
+      font-size: 18px;
+    }
+
+    a {
+      font-size: 18px;
+    }
+  `}
 `;
 
 export const Li = styled.li`
@@ -57,7 +69,6 @@ export const Ul = styled.ul`
 export const FooterButton = styled.footer`
   height: 12vh;
   display: flex;
-  bottom: 0;
   justify-content: center;
   align-items: center;
   background-color: ${theme.colors.mediumGray};
@@ -74,6 +85,11 @@ export const ButtonsBar = styled.article`
   border-top: 2px solid ${theme.colors.lightGray};
   border-bottom: 2px solid ${theme.colors.lightGray};
 
+  ${customMedia.between('tablet', 'laptopS')`
+    justify-content: center;
+    align-items: center;
+  `}
+
   ${customMedia.lessThan('tablet')`
     padding: 15px 0px;
     background-color: ${theme.colors.mediumGray};
@@ -82,3 +98,13 @@ export const ButtonsBar = styled.article`
     border-top-right-radius: 10px 10px;
   `}
 `;
+
+export const SectionMobile = styled.section`
+  height: 80vh;
+  width: 100vw;
+  display: flex:
+  align-items: center;
+  justify-content: center;
+`;
+
+export const P = styled.p``;

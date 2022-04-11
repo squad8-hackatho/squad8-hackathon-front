@@ -18,6 +18,11 @@ export const Button = styled(TagStyle)`
     color: ${theme.colors.black};
   }
 
+  ${customMedia.between('tablet', 'laptopS')`
+    font-size: 20px;
+    padding: 0px;
+  `}
+
   ${customMedia.lessThan('tablet')`
     padding-top: 2px;
     margin: 0px 10px;

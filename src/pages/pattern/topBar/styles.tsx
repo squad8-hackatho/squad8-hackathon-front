@@ -33,11 +33,6 @@ export const LogoAndUserLogin = styled.header`
   }
 `;
 
-export const Buttons = styled.div`
-  display: flex;
-  flex-direction: row;
-`;
-
 export const Search = styled.input`
   width: 80vw;
   height: 45px;

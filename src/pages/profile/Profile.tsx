@@ -1,19 +1,11 @@
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
-import {
-  Section,
-  ButtonsBar,
-  Article,
-  Li,
-  Nav,
-  Ul,
-  FooterButton,
-} from './styles';
+import { Section, ButtonsBar, Article, Li, Nav, Ul } from './styles';
 import { screenSizes } from '../../themes/theme';
-import { ButtonBig } from '../../components/Button/styles';
 import { TopBarPattern } from '../pattern';
 import ProfileCard from '../../components/ProfileCard/ProfileCard';
 import ProfileInfo from '../../components/ProfileInfo/ProfileInfo';
+import ProfileMobile from './ProfileMobile';
 
 function Profile() {
   const [text, setText] = useState<string[]>([]);
@@ -48,41 +40,39 @@ function Profile() {
       <TopBarPattern flag={false} />
       <Section>
         <ProfileCard widthScreen={widthScreen} />
-        <Article>
-          {widthScreen > screenSizes.default ? (
+
+        {widthScreen > screenSizes.default ? (
+          <Article>
             <Nav>
               <Link to="/userslist">Lista de Usuários</Link>
               <p>/</p>
               <Link to="/">Perfil do Mentor</Link>
             </Nav>
-          ) : null}
 
-          <ButtonsBar id="ButtonsBar">
-            {infos.map((item) => {
-              return (
-                <ProfileInfo
-                  widthScreen={widthScreen}
-                  key={item}
-                  setInfo={() => {
-                    return setInfo(item);
-                  }}
-                >
-                  {item}
-                </ProfileInfo>
-              );
-            })}
-          </ButtonsBar>
-          <Ul>
-            {text.map((item) => {
-              return <Li key={item}>{item}</Li>;
-            })}
-          </Ul>
-        </Article>
-        {widthScreen < screenSizes.default ? (
-          <FooterButton>
-            <ButtonBig>Quero me conectar</ButtonBig>
-          </FooterButton>
-        ) : null}
+            <ButtonsBar id="ButtonsBar">
+              {infos.map((item) => {
+                return (
+                  <ProfileInfo
+                    widthScreen={widthScreen}
+                    key={item}
+                    setInfo={() => {
+                      return setInfo(item);
+                    }}
+                  >
+                    {item}
+                  </ProfileInfo>
+                );
+              })}
+            </ButtonsBar>
+            <Ul>
+              {text.map((item) => {
+                return <Li key={item}>{item}</Li>;
+              })}
+            </Ul>
+          </Article>
+        ) : (
+          <ProfileMobile />
+        )}
       </Section>
     </main>
   );

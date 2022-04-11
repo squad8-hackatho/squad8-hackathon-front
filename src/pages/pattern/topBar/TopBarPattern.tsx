@@ -1,8 +1,7 @@
 import React, { useEffect, useState } from 'react';
-import Button from '../../../components/Button/styles';
 import { theme } from '../../../themes/theme';
 
-import { Buttons, Header, LogoAndUserLogin, Search } from './styles';
+import { Header, LogoAndUserLogin, Search } from './styles';
 
 const defaultProps = {
   setSortByName: null,
@@ -31,20 +30,6 @@ function TopBarPattern({ flag, setSortByName }: props) {
           <h3>
             Technical<strong>Share</strong>
           </h3>
-          <Buttons>
-            <Button
-              width={134}
-              height={44}
-              p={0}
-              borderRadius={8}
-              marginRight={11}
-            >
-              Cadastrar-se
-            </Button>
-            <Button width={134} height={44} p={0} borderRadius={8}>
-              Entrar
-            </Button>
-          </Buttons>
         </LogoAndUserLogin>
       ) : null}
 

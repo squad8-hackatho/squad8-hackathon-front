@@ -10,16 +10,16 @@ type props = {
 
 function ProfileCard({ widthScreen }: props) {
   const nome = 'Fulano de tal';
-  const area = 'Área: Desenvolvedor';
-  const nivel = 'Nível: ';
+  const area = 'Desenvolvedor';
 
   return (
     <Section>
       <ProfilePicture src={foto} />
       <Article>
         <H1>{nome}</H1>
-        <P>{area}</P>
-        <P>{nivel}</P>
+        <P>
+          <strong>Cargo:</strong> {area}
+        </P>
       </Article>
       {widthScreen > screenSizes.default ? (
         <ButtonBig>Quero me conectar</ButtonBig>
