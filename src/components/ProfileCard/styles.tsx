@@ -25,7 +25,6 @@ export const Section = styled.section`
   }
 
   ${customMedia.lessThan('tablet')`
-    background-color: ${theme.colors.white};
     width: 100vw;
     height: 25vh;
     flex-direction: row;

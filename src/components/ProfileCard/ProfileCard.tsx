@@ -20,6 +20,7 @@ type props = {
       area: string;
     }
   ];
+  setConnectCard: Function;
 };
 
 function ProfileCard({
@@ -28,6 +29,7 @@ function ProfileCard({
   userName,
   linksListDTO,
   professionList,
+  setConnectCard,
 }: props) {
   const area = 'Dev';
   const [linkedin, setLinkedin] = useState('br.linkedin.com');
@@ -60,7 +62,13 @@ function ProfileCard({
       </Article>
       {widthScreen > screenSizes.default ? (
         <>
-          <ButtonBig>Quero me conectar</ButtonBig>
+          <ButtonBig
+            onClick={() => {
+              setConnectCard();
+            }}
+          >
+            Quero me conectar
+          </ButtonBig>
 
           <Contact>
             <P>
