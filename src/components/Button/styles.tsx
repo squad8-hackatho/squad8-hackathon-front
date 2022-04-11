@@ -70,6 +70,12 @@ export const ButtonBig = styled(Button)`
     margin-bottom: 350px;
     padding: 0px;
   `}
+
+  ${customMedia.lessThan('tablet')`
+    width: 80vw;
+    margin: 0;
+    font-size: 16px;
+  `}
 `;
 
 export default Button;

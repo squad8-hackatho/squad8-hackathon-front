@@ -67,6 +67,12 @@ export const ProfilePicture = styled.img`
     height: 120px;
   `}
 
+  ${customMedia.lessThan('mobileL')`
+    margin: 0px;
+    width: 110px;
+    height: 110px;
+  `}
+
   ${customMedia.between('tablet', 'laptopS')`
     width: 180px;
     height: 180px;
@@ -79,6 +85,9 @@ export const P = styled.p`
 
   ${customMedia.lessThan('tablet')`
     font-size: 18px;
+  `}
+  ${customMedia.lessThan('mobileL')`
+    font-size: 16px;
   `}
   ${customMedia.between('tablet', 'laptopS')`
     font-size: 25px;

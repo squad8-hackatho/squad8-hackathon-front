@@ -10,7 +10,7 @@ type props = {
 
 function ProfileCard({ widthScreen }: props) {
   const nome = 'Fulano de tal';
-  const area = 'Desenvolvedor';
+  const area = 'Dev';
 
   return (
     <Section>

@@ -3,21 +3,14 @@ import { theme, customMedia } from '../../themes/theme';
 
 export const Section = styled.section`
   display: flex;
+`;
 
-  ${customMedia.lessThan('tablet')`
-    flex-direction: column;
-    align-items: center;
-  `}
+export const Main = styled.main`
+  word-wrap: break-word;
 `;
 
 export const Article = styled.article`
   width: 72vw;
-
-  ${customMedia.lessThan('tablet')`
-    width: 80vw;
-    height: 30vh;
-    background-color: red;
-  `}
 `;
 
 export const Nav = styled.nav`
@@ -76,6 +69,12 @@ export const FooterButton = styled.footer`
   ${customMedia.lessThan('mobileM')`
     margin-top: 5%;
 `}
+
+  ${customMedia.lessThan('tablet')`
+    margin:0;
+    width: 80vw;
+    background-color: ${theme.colors.lightGray};
+  `}
 `;
 
 export const ButtonsBar = styled.article`
@@ -100,11 +99,32 @@ export const ButtonsBar = styled.article`
 `;
 
 export const SectionMobile = styled.section`
-  height: 80vh;
-  width: 100vw;
-  display: flex:
+  display: flex;
+  flex-direction: column;
   align-items: center;
-  justify-content: center;
+  height: 100vh;
+  background-color: ${theme.colors.lightGray};
 `;
 
-export const P = styled.p``;
+export const Description = styled.article`
+  width: 80vw;
+  height: 25vh;
+  background-color: ${theme.colors.white};
+  border-radius: 10px;
+
+  &:nth-child(1) {
+    margin-top: 10%;
+  }
+  &:nth-child(2) {
+    margin-top: 5%;
+  }
+`;
+
+export const Info = styled(Description)`
+  height: 30vh;
+`;
+
+export const H1 = styled.h1`
+  font-size: 20px;
+  margin: 10px 20px;
+`;

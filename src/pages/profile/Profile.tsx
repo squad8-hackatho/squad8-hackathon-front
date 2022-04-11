@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
-import { Section, ButtonsBar, Article, Li, Nav, Ul } from './styles';
+import { Section, ButtonsBar, Article, Li, Nav, Ul, Main } from './styles';
 import { screenSizes } from '../../themes/theme';
 import { TopBarPattern } from '../pattern';
 import ProfileCard from '../../components/ProfileCard/ProfileCard';
@@ -36,12 +36,11 @@ function Profile() {
   };
 
   return (
-    <main>
+    <Main>
       <TopBarPattern flag={false} />
-      <Section>
-        <ProfileCard widthScreen={widthScreen} />
-
-        {widthScreen > screenSizes.default ? (
+      <ProfileCard widthScreen={widthScreen} />
+      {widthScreen > screenSizes.default ? (
+        <Section>
           <Article>
             <Nav>
               <Link to="/userslist">Lista de Usuários</Link>
@@ -70,11 +69,11 @@ function Profile() {
               })}
             </Ul>
           </Article>
-        ) : (
-          <ProfileMobile />
-        )}
-      </Section>
-    </main>
+        </Section>
+      ) : (
+        <ProfileMobile />
+      )}
+    </Main>
   );
 }
 
