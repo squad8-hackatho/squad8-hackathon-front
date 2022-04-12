@@ -1,20 +1,30 @@
+/* eslint-disable no-unused-vars */
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
+import { useDispatch } from 'react-redux';
 import { Main, Button, H2, Input, Form, P } from './styles';
 import { ButtonBig } from '../../components/Button/styles';
+import { fetchUser } from '../../redux/userSlice';
 
 function Login() {
-  const [password, setPassword] = useState('');
+  const [, setPassword] = useState('');
   const [email, setEmail] = useState('');
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
 
-  const onSubmit = (): void => {
-    console.log(password, email);
+  const onSubmit = async () => {
+    const result: any = await dispatch(fetchUser(email));
+
+    if (result.payload) {
+      navigate('/usersList');
+    }
   };
 
   return (
     <Main>
       <Form
-        onSubmit={() => {
+        onSubmit={(e) => {
+          e.preventDefault();
           return onSubmit();
         }}
       >

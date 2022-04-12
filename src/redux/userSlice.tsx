@@ -1,22 +1,29 @@
-import { createSlice } from '@reduxjs/toolkit';
+/* eslint-disable no-param-reassign */
+import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
+import { getUsers } from '../services/services';
+
+export const fetchUser = createAsyncThunk('user', async (params: any) => {
+  const { data }: any = await getUsers(`/profiles/findprofile?email=${params}`);
+
+  if (data !== null) return data;
+  return false;
+});
 
 const userSlice = createSlice({
   name: 'user',
   initialState: {
-    user: {},
+    user: [{}],
     isLogged: false,
   },
-  reducers: {
-    getUser(state, { payload }) {
-      return { ...state, isLogged: true, user: payload };
-    },
+  reducers: {},
+  extraReducers: (builder) => {
+    builder.addCase(fetchUser.fulfilled, (state, action) => {
+      if (action.payload) {
+        state.user = action.payload;
+        state.isLogged = true;
+      }
+    });
   },
 });
-
-export const { getUser } = userSlice.actions;
-
-export const currentUser = (state: any) => {
-  return state.user;
-};
 
 export default userSlice.reducer;
