@@ -13,7 +13,8 @@ const fontSizes = {
 const white = 'white';
 const black = 'black';
 const red = 'red';
-const orange = 'orange';
+const orange = '#FE4400';
+const lightOrange = '#FFD580';
 const lightGray = '#F1F1F1';
 const mediumGray = '#C4C4C4';
 const darkGray = '#8f8f8f';
@@ -38,6 +39,7 @@ export const theme = {
     white,
     black,
     orange,
+    lightOrange,
     lightGray,
     mediumGray,
     darkGray,

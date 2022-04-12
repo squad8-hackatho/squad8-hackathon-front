@@ -3,9 +3,9 @@ import { customMedia, theme } from '../../themes/theme';
 
 export const Container = styled.div`
   width: 100vw;
-  
+
   font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande',
-    'Lucida Sans', Arial, sans-serif;  
+    'Lucida Sans', Arial, sans-serif;
 `;
 
 export const Form = styled.form`
@@ -23,16 +23,17 @@ export const Form = styled.form`
 
 export const Select = styled.select`
   font-family: 'Arial';
+  font-size: 16px;
   display: inline-block;
   width: 100%;
   cursor: pointer;
   padding: 12px 8px;
   margin: 0 10px;
   outline: 0;
-  border: 1px groove #000000;
+  border: 2px groove ${theme.colors.orange};
   border-radius: 8px;
-  background: ${theme.colors.blackGray};
-  color: ${theme.colors.lightGray};
+  background: ${theme.colors.white};
+  color: ${theme.colors.blackGray};
   appearance: none;
   -webkit-appearance: none;
   -moz-appearance: none;

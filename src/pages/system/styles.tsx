@@ -3,11 +3,12 @@ import styled from 'styled-components';
 import { theme } from '../../themes/theme';
 
 export const Main = styled.main`
+  min-height: 100vh;
+  max-height: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
   background-color: ${theme.colors.white};
-  height: 100vh;
 `;
 
 export const Form = styled.form`
@@ -15,6 +16,8 @@ export const Form = styled.form`
   flex-direction: column;
   align-items: center;
   justify-content: center;
+
+  margin: 50px 0 50px 0;
 `;
 
 export const Section = styled.fieldset`
@@ -32,6 +35,7 @@ export const Section = styled.fieldset`
 export const H2 = styled.h2`
   font-weight: normal;
   margin-bottom: 20px;
+  color: ${theme.colors.orange};
 `;
 
 export const H3 = styled.h3`
@@ -88,7 +92,9 @@ export const TextArea = styled.textarea`
   background-color: ${theme.colors.lightGray};
 `;
 
-export const Button = styled.button``;
+export const Button = styled.button`
+  color: ${theme.colors.orange};
+`;
 
 export const Tags = styled.div`
   width: 300px;
@@ -100,11 +106,11 @@ export const Tags = styled.div`
 `;
 
 export const Tag = styled.div`
-  background-color: ${theme.colors.mediumGray};
+  background-color: ${theme.colors.white};
 
-  border: 1px solid ${theme.colors.mediumGray};
+  border: 2px solid ${theme.colors.orange};
   border-radius: 8px;  
-  padding: 5px;
+  padding: 8px;
   margin: 10px 5px 0;
 
   font-size: 14px;
