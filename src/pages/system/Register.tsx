@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import { Main, Button, Form, P, H2 } from './styles';
 import RegisterPartOne from './RegisterPartOne';
 import RegisterPartTwo from './RegisterPartTwo';
+import { CreateAccount } from './CreateAccountPost';
 
 function Register() {
   const [name, setName] = useState('');
@@ -12,9 +13,19 @@ function Register() {
   const [next, setNext] = useState(false);
   const [cargo, setCargo] = useState('');
   const [area, setArea] = useState('');
+  const [expertise, setExpertise] = useState([]);
+  const [level, setLevel] = useState('');
 
   const onSubmit = () => {
-    console.log( name, password, email, cargo, area);
+    const submit = CreateAccount({
+      name,
+      email,
+      area,
+      level,
+      expertise,
+      cargo,
+    });
+    console.log(submit, password);
   };
 
   return (
@@ -33,14 +44,20 @@ function Register() {
             name={name}
             setName={setName}
             // setBio={setBio}
-            setPassword={setPassword}
-            setEmail={setEmail}
             password={password}
+            setPassword={setPassword}
             email={email}
+            setEmail={setEmail}
             setNext={setNext}
           />
         ) : (
-          <RegisterPartTwo setCargo={setCargo} setArea={setArea} />
+          <RegisterPartTwo
+            setCargo={setCargo}
+            setArea={setArea}
+            setSkills={setExpertise}
+            setLevel={setLevel}
+            onSubmit={onSubmit}
+          />
         )}
 
         <P>
