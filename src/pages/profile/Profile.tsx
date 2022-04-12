@@ -1,6 +1,6 @@
-/* eslint-disable no-unused-vars */
 import React, { useEffect, useState } from 'react';
 import { useParams, Link } from 'react-router-dom';
+import { useSelector } from 'react-redux';
 import { screenSizes } from '../../themes/theme';
 import { Section, Nav, Article } from './styles';
 import { TopBarPattern } from '../pattern';
@@ -15,6 +15,9 @@ function Profile() {
   const [loading, setLoading] = useState(true);
   const [connect, setConnect] = useState(false);
   const params = useParams();
+  const currentUser = useSelector((state: any) => {
+    return state.user;
+  });
 
   useEffect(() => {
     async function getByName() {
@@ -41,6 +44,7 @@ function Profile() {
     setConnect(!connect);
   };
 
+  console.log(currentUser);
   return (
     <main>
       {loading ? (

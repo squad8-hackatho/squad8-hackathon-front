@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import { v4 as uuidv4 } from 'uuid';
 // import { Dropdown } from '../../components/Dropdown';
+import { Navigate } from 'react-router-dom';
+import { useSelector } from 'react-redux';
 import { TopBarPattern } from '../pattern';
 import { MentorCard } from '../../components/MentorCard';
 import {
@@ -27,6 +29,9 @@ function UsersList() {
     { area: '', technologie: '' },
   ]);
   const [dataArr, setDataArr] = useState<any[]>([]);
+  const currentUser = useSelector((state: any) => {
+    return state.user;
+  });
 
   const [showFilterModal, setShowFilterModal] = useState(false);
 
@@ -41,7 +46,7 @@ function UsersList() {
       }
     }
     get();
-  }, [page, sort, size]);
+  }, [page, sort, size, sortByName === '']);
 
   useEffect(() => {
     async function getBySkills() {
@@ -130,7 +135,7 @@ function UsersList() {
     });
   }
 
-  return (
+  return currentUser.isLogged ? (
     <main>
       <SkillFilter
         showFilterModal={showFilterModal}
@@ -162,6 +167,8 @@ function UsersList() {
         <Pages>{getPages()}</Pages>
       </Section>
     </main>
+  ) : (
+    <Navigate to="/login" />
   );
 }
 
