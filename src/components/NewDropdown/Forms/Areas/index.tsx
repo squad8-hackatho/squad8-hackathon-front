@@ -5,9 +5,10 @@ import { Select } from '../../styles';
 
 type Props = {
   onChange: any;
+  AreaDefault: string;
 };
 
-function DropdownArea({ onChange = () => {} }: Props) {
+function DropdownArea({ AreaDefault, onChange = () => {} }: Props) {
   const [areas, setAreas] = useState(['Frontend', 'Programação', 'Softskill']);
 
   useEffect(() => {
@@ -30,7 +31,7 @@ function DropdownArea({ onChange = () => {} }: Props) {
 
   return (
     <Select name="area" onChange={onChange}>
-      <option>Todas as áreas</option>
+      <option>{AreaDefault}</option>
       {areas.map((area) => {
         return (
           <option key={area} value={area}>

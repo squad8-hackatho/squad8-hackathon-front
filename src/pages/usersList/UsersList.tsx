@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from 'react';
 import { v4 as uuidv4 } from 'uuid';
-// import { Dropdown } from '../../components/Dropdown';
 import { Navigate } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import { TopBarPattern } from '../pattern';
@@ -50,15 +49,32 @@ function UsersList() {
 
   useEffect(() => {
     async function getBySkills() {
-      if (
-        selectedSkillsToFilter !==
-        [
-          { area: '', technologie: '' },
-          { area: '', technologie: '' },
-        ]
-      ) {
+      const selectedSkill0 = selectedSkillsToFilter[0].technologie;
+      const selectedSkill1 = selectedSkillsToFilter[1].technologie;
+
+      if (selectedSkill0 !== '' && selectedSkill1 !== '') {
         const { data }: any = await getUsers(
-          `profiles/findbymultipleskills?firstSkill=${selectedSkillsToFilter[0].technologie}&secondSkill=${selectedSkillsToFilter[1].technologie}&page=${page}&size=${size}&sort=${sort}`
+          `profiles/findbymultipleskills?firstSkill=${selectedSkill0}&secondSkill=${selectedSkill1}&page=${page}&size=${size}&sort=${sort}`
+        );
+
+        if (data) {
+          setDataArr(data.content);
+          setTotalPages(data.totalPages);
+        }
+      }
+      if (selectedSkill0 !== '') {
+        const { data }: any = await getUsers(
+          `profiles/findbyskill?skill=${selectedSkill0}&page=${page}&size=${size}&sort=${sort}`
+        );
+
+        if (data) {
+          setDataArr(data.content);
+          setTotalPages(data.totalPages);
+        }
+      }
+      if (selectedSkill1 !== '') {
+        const { data }: any = await getUsers(
+          `profiles/findbyskill?skill=${selectedSkill1}&page=${page}&size=${size}&sort=${sort}`
         );
         if (data) {
           setDataArr(data.content);

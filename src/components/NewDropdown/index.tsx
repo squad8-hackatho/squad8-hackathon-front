@@ -9,27 +9,38 @@ import { Container, Form, Icon } from './styles';
 type Props = {
   techFilter: any;
   setTechFilter: any;
-}
+};
 
 export function NewDropdown({ techFilter, setTechFilter }: Props) {
-  // const [formValues, setFormValues] = useState({ area: '' });
+  const AreaDefault = 'Todas as áreas';
+  const TechDefault = 'Todas as tecnologias';
 
   const handleInputChange = (e: any) => {
-    e.preventDefault();
-    const { value, name } = e.target;
-    setTechFilter({ ...techFilter, [name]: value });
+    if (e.target.value === AreaDefault || e.target.value === TechDefault) {
+      setTechFilter({ area: '', technologie: '' });
+    } else {
+      e.preventDefault();
+      const { value, name } = e.target;
+      setTechFilter({ ...techFilter, [name]: value });
+    }
   };
 
   return (
     <Container>
       <Form>
-        <DropdownArea onChange={handleInputChange} />
-        <Icon> <RiArrowDownSLine color={theme.colors.blackGray} /> </Icon>
+        <DropdownArea AreaDefault={AreaDefault} onChange={handleInputChange} />
+        <Icon>
+          <RiArrowDownSLine color={theme.colors.blackGray} />
+        </Icon>
         <DropdownTechnologies
+          TechDefault={TechDefault}
           state={techFilter.area}
           onChange={handleInputChange}
         />
-        <Icon> <RiArrowDownSLine color={theme.colors.blackGray} /> </Icon>
+        <Icon>
+          {' '}
+          <RiArrowDownSLine color={theme.colors.blackGray} />{' '}
+        </Icon>
       </Form>
     </Container>
   );
