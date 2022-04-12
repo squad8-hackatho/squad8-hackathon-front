@@ -1,6 +1,10 @@
 import styled from 'styled-components';
 import { customMedia, theme } from '../../themes/theme';
 
+export const Main = styled.main`
+  background-color: ${theme.colors.gray03};
+`
+
 export const Filter = styled.section`
   width: 100%;
   margin: 20px 0 30px 60px;

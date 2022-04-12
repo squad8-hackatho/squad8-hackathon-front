@@ -4,11 +4,12 @@ import { getUsers } from '../../../../services/services';
 import { Select } from '../../styles';
 
 type Props = {
+  TechDefault: string;
   state: Object;
   onChange: any;
 };
 
-function DropdownTechnologies({ state, onChange = () => {} }: Props) {
+function DropdownTechnologies({ TechDefault, state, onChange = () => {} }: Props) {
   const [technologies, setTechnologies] = useState([]);
 
   useEffect(() => {
@@ -35,7 +36,7 @@ function DropdownTechnologies({ state, onChange = () => {} }: Props) {
 
   return (
     <Select name="technologie" onChange={onChange}>
-      <option>Todas as tecnologias</option>
+      <option>{TechDefault}</option>
       {technologies.map((technologie: any) => {
         return (
           <option key={technologie} value={technologie}>

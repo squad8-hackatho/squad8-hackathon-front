@@ -9,7 +9,7 @@ export const Card = styled.section`
   flex-direction: column;
   align-items: center;
 
-  margin: 15px 25px;
+  margin: 26px;
 
   background-color: rgba(241, 241, 244, 0.3);
   border-radius: 10px;
