@@ -57,11 +57,15 @@ export const H1 = styled.h1`
   ${customMedia.lessThan('tablet')`
     font-size: 28px;
   `}
+  ${customMedia.lessThan('mobileM')`
+    font-size: 26px;
+  `}
 `;
 
 export const Midia = styled.div`
   p {
-    font-size: 16px;
+    font-size: 15px;
+    word-break: break-all;
   }
 `;
 
@@ -114,5 +118,8 @@ export const P = styled.p`
 
   ${customMedia.lessThan('tablet')`
     font-size: 19px;
+  `}
+  ${customMedia.lessThan('mobileM')`
+    font-size: 17px;
   `}
 `;

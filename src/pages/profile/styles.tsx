@@ -1,10 +1,12 @@
 import styled from 'styled-components';
+import Modal from 'styled-react-modal';
 import { theme, customMedia } from '../../themes/theme';
 
 export const Article = styled.article`
   width: 65vw;
   padding: 0 30px;
   flex-direction: column;
+  overflow: scroll;
 
   ${customMedia.lessThan('tablet')`
     padding: 0px;
@@ -62,18 +64,11 @@ export const FooterButton = styled.footer`
 `;
 
 export const ResquestButton = styled(FooterButton)`
-  margin-top: 10%;
-
+  button {
+    margin-left: 0px;
+  }
   ${customMedia.lessThan('tablet')`
-    margin-top: 40%;
-  `}
-
-  ${customMedia.lessThan('mobileM')`
-    margin-top: 30%;
-  `}
-
-  ${customMedia.lessThan('mobileS')`
-    margin-top: 40%;
+    margin-top: 10%;
   `}
 `;
 
@@ -111,20 +106,30 @@ export const Description = styled.article`
 `;
 
 export const Info = styled(Description)`
+  margin-top: 0%;
+  height: 17vh;
   ${customMedia.lessThan('tablet')`
     background-color: ${theme.colors.lightGray};
-    margin-top: 0%;
     height: 15vh;
   `}
 
+  h2 {
+    padding: 10px 0px;
+  }
+
   &:nth-child(3) {
     display: flex;
-    height: 5vh;
+    height: 3vh;
     flex-direction: row;
 
     p {
-      padding: 1px 10px;
+      padding: 2px 10px;
+      font-size: 16px;
     }
+  }
+
+  &:nth-child(4) {
+    height: 25vh;
   }
 `;
 
@@ -223,5 +228,42 @@ export const Textarea = styled.textarea`
 
   ${customMedia.lessThan('mobileM')`
     margin: 0;
+  `}
+`;
+
+export const StyledModal = Modal.styled`
+  width: 20rem;
+  height: 10rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 5px;
+  background-color: ${theme.colors.white};
+`;
+
+export const Contact = styled.article`
+  display: flex;
+  justify-content: space-between;
+  margin-top: 5%;
+  width: 55vw;
+
+  article {
+    width: 25vw;
+  }
+
+  input {
+    width: 25vw;
+  }
+
+  ${customMedia.lessThan('tablet')`
+    display: inline;
+
+    article {
+      width: 80vw;
+    }
+    
+    input {
+      width: 80vw;
+    }
   `}
 `;

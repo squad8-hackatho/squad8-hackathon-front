@@ -45,7 +45,7 @@ export const SearchHR = styled.div``;
 export const TopBar = styled.article`
   display: flex;
   align-items: center;
-  width: 100vw;
+  width: 85vw;
   justify-content: space-between;
   height: 10vh;
 `;

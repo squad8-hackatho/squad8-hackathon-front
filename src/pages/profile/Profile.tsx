@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from 'react';
 import { useParams, Link } from 'react-router-dom';
-import { useSelector } from 'react-redux';
 import { screenSizes } from '../../themes/theme';
 import { Section, Nav, Article } from './styles';
 import { TopBarPattern } from '../pattern';
@@ -15,9 +14,6 @@ function Profile() {
   const [loading, setLoading] = useState(true);
   const [connect, setConnect] = useState(false);
   const params = useParams();
-  const currentUser = useSelector((state: any) => {
-    return state.user;
-  });
 
   useEffect(() => {
     async function getByName() {
@@ -44,7 +40,6 @@ function Profile() {
     setConnect(!connect);
   };
 
-  console.log(currentUser);
   return (
     <main>
       {loading ? (
@@ -58,9 +53,13 @@ function Profile() {
               email={dataArr.email}
               userName={dataArr.userName}
               linksListDTO={dataArr.linksListDTO}
-              professionList={dataArr.professionList}
               setConnectCard={setConnectCard}
               connect={connect}
+              occupation={
+                dataArr.professionList.length > 0
+                  ? dataArr.professionList[0].description
+                  : ''
+              }
             />
             <Article>
               {widthScreen > screenSizes.default ? (
@@ -72,7 +71,7 @@ function Profile() {
               ) : null}
 
               {connect ? (
-                <Request widthScreen={widthScreen} dataArr={dataArr} />
+                <Request dataArr={dataArr} />
               ) : (
                 <InfoProfile widthScreen={widthScreen} dataArr={dataArr} />
               )}

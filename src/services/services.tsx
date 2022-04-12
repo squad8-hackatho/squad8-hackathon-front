@@ -19,3 +19,20 @@ export async function getUsers<T = unknown>(url: string) {
 
   return { data, isFetching, error };
 }
+
+export async function request(values: any) {
+  console.log(values);
+  let error: Error | null = null;
+  await api
+    .post('/requisitions', {
+      ...values,
+    })
+    .then((response) => {
+      console.log(response);
+    })
+    .catch((err) => {
+      error = err;
+    });
+
+  return { error };
+}
