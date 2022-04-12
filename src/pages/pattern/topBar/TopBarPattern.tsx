@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { theme } from '../../../themes/theme';
+import ProfileButton from '../../../components/ProfileButton/ProfileButton';
 
 import { Container, Header, Search, SearchHR, TopBar } from './styles';
 
@@ -31,6 +32,7 @@ function TopBarPattern({ flag, setSortByName }: props) {
             <h3>
               Technical<strong>Share</strong>
             </h3>
+            {flag ? <ProfileButton /> : null}
           </TopBar>
         ) : null}
 

@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import { v4 as uuidv4 } from 'uuid';
 // import { Dropdown } from '../../components/Dropdown';
+import { Navigate } from 'react-router-dom';
+import { useSelector } from 'react-redux';
 import { TopBarPattern } from '../pattern';
 import { MentorCard } from '../../components/MentorCard';
 import {
@@ -23,20 +25,22 @@ function UsersList() {
   const [size, setSize] = useState('6');
   const [sortByName, setSortByName] = useState('');
   const [dataArr, setDataArr] = useState<any[]>([]);
+  const currentUser = useSelector((state: any) => {
+    return state.user;
+  });
 
   useEffect(() => {
     async function get() {
       const { data }: any = await getUsers(
         `/profiles/findall?page=${page}&size=${size}&sort=${sort}`
       );
-      // console.log(data);
       if (data) {
         setDataArr(data.content);
         setTotalPages(data.totalPages);
       }
     }
     get();
-  }, [page, sort, size]);
+  }, [page, sort, size, sortByName === '']);
 
   useEffect(() => {
     async function getByName() {
@@ -99,7 +103,7 @@ function UsersList() {
     return arr;
   };
 
-  return (
+  return currentUser.isLogged ? (
     <main>
       <TopBarPattern flag setSortByName={setSortByName} />
       <Filter>
@@ -122,6 +126,8 @@ function UsersList() {
         <Pages>{getPages()}</Pages>
       </Section>
     </main>
+  ) : (
+    <Navigate to="/login" />
   );
 }
 

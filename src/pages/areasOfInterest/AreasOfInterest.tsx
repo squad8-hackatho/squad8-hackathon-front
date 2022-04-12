@@ -38,7 +38,7 @@ function AreasOfInterest() {
               );
             })}
           </TagContainer>
-          <Link to="/usersList">
+          <Link to="/login">
             <ButtonBig>Encontrar combinações</ButtonBig>
           </Link>
         </Card>
