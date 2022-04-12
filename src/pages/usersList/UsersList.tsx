@@ -14,20 +14,26 @@ import {
   Select,
   Section,
 } from './styles';
-import { NewDropdown } from '../../components/NewDropdown';
 import { getUsers } from '../../services/services';
+import { SkillFilter } from '../../components/SkillFilter';
 
 function UsersList() {
-  const levels = ['Trainee', 'Júnior', 'Pleno', 'Sênior'];
+  // const levels = ['Trainee', 'Júnior', 'Pleno', 'Sênior'];
   const [page, setPage] = useState(0);
   const [totalPages, setTotalPages] = useState(0);
   const [sort, setSort] = useState('');
   const [size, setSize] = useState('6');
   const [sortByName, setSortByName] = useState('');
+  const [selectedSkillsToFilter, setSelectedSkillsToFilter] = useState([
+    { area: '', technologie: '' },
+    { area: '', technologie: '' },
+  ]);
   const [dataArr, setDataArr] = useState<any[]>([]);
   const currentUser = useSelector((state: any) => {
     return state.user;
   });
+
+  const [showFilterModal, setShowFilterModal] = useState(false);
 
   useEffect(() => {
     async function get() {
@@ -41,6 +47,27 @@ function UsersList() {
     }
     get();
   }, [page, sort, size, sortByName === '']);
+
+  useEffect(() => {
+    async function getBySkills() {
+      if (
+        selectedSkillsToFilter !==
+        [
+          { area: '', technologie: '' },
+          { area: '', technologie: '' },
+        ]
+      ) {
+        const { data }: any = await getUsers(
+          `profiles/findbymultipleskills?firstSkill=${selectedSkillsToFilter[0].technologie}&secondSkill=${selectedSkillsToFilter[1].technologie}&page=${page}&size=${size}&sort=${sort}`
+        );
+        if (data) {
+          setDataArr(data.content);
+          setTotalPages(data.totalPages);
+        }
+      }
+    }
+    getBySkills();
+  }, [selectedSkillsToFilter]);
 
   useEffect(() => {
     async function getByName() {
@@ -63,8 +90,7 @@ function UsersList() {
         <MentorCard
           key={uuidv4()}
           name={user.userName}
-          // occupation={user.professionList}
-          level={levels[0]}
+          occupation={user.professionList[0].occupation}
           tags={user.expertiseList}
           bioDescription={user.bio}
           email={user.email}
@@ -103,12 +129,27 @@ function UsersList() {
     return arr;
   };
 
+  function handleSkillFilter() {
+    setShowFilterModal((prev) => {
+      return !prev;
+    });
+  }
+
   return currentUser.isLogged ? (
     <main>
+      <SkillFilter
+        showFilterModal={showFilterModal}
+        setShowFilterModal={setShowFilterModal}
+        setSelectedSkillsToFilter={setSelectedSkillsToFilter}
+      />
       <TopBarPattern flag setSortByName={setSortByName} />
+
       <Filter>
-        <NewDropdown />
+        <button type="button" onClick={handleSkillFilter}>
+          Filtrar por habilidades
+        </button>
       </Filter>
+
       <Mentors>{getCards()}</Mentors>
 
       <Section>

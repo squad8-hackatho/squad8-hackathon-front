@@ -19,20 +19,16 @@ export const Filter = styled.section`
 `;
 
 export const Mentors = styled.section`
-  display: grid;
-  grid-row-gap: 10px;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
   justify-content: center;
-  grid: repeat(2, [line1 line2 line3] 500px) / auto-flow 500px;
 
   ${customMedia.lessThan('laptopL')`
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
     justify-content: center;
-  `}
-
-  ${customMedia.lessThan('laptop')`
-    margin: 0px 0px 0px 110px;
   `}
 `;
 

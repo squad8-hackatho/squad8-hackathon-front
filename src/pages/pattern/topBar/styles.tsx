@@ -24,7 +24,7 @@ export const Header = styled.header`
 `;
 
 export const Search = styled.input`
-  width: 100vw;
+  width: 100%;
   height: 45px;
   padding: 17px 44px;
   margin: 40px 0px 38px 0px;
@@ -38,22 +38,6 @@ export const Search = styled.input`
   :focus {
     outline: none;
   }
-
-  ${customMedia.lessThan('tablet')`
-    width: 90vw;
-  `}
-
-  ${customMedia.lessThan('mobileL')`
-    width: 95vw;
-  `}
-
-  ${customMedia.lessThan('mobileM')`
-    width: 98vw;
-  `}
-
-  ${customMedia.lessThan('mobileS')`
-    width: 100vw;
-  `}
 `;
 
 export const SearchHR = styled.div``;
