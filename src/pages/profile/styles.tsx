@@ -1,29 +1,21 @@
 import styled from 'styled-components';
 import { theme, customMedia } from '../../themes/theme';
 
-export const Section = styled.section`
-  display: flex;
-
-  ${customMedia.lessThan('tablet')`
-    flex-direction: column;
-    width: 100vw;
-    align-items: center;
-    background-color: ${theme.colors.lightGray};
-  `}
-`;
-
 export const Article = styled.article`
-  width: 72vw;
+  width: 65vw;
+  padding: 0 30px;
   flex-direction: column;
 
   ${customMedia.lessThan('tablet')`
+    padding: 0px;
+    height: 74.5vh;
     flex-direction: none;
     width: 80vw;
   `}
 `;
 
 export const Nav = styled.nav`
-  padding: 20px 50px;
+  padding: 20px 27px;
   display: flex;
 
   p {
@@ -53,51 +45,87 @@ export const Nav = styled.nav`
 `;
 
 export const FooterButton = styled.footer`
-  height: 12vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  background-color: ${theme.colors.mediumGray};
-
-  ${customMedia.lessThan('mobileM')`
-    margin-top: 5%;
-`}
-
   ${customMedia.lessThan('tablet')`
     margin:0;
     width: 80vw;
-    background-color: ${theme.colors.lightGray};
+    bottom: 0px;
+    margin-top: 10%;
+  `}
+
+  ${customMedia.lessThan('mobileM')`
+    margin-top: 5%;
+  `}
+
+  ${customMedia.lessThan('mobileS')`
+    margin-top: 11%;
+  `}
+`;
+
+export const ResquestButton = styled(FooterButton)`
+  margin-top: 10%;
+
+  ${customMedia.lessThan('tablet')`
+    margin-top: 40%;
+  `}
+
+  ${customMedia.lessThan('mobileM')`
+    margin-top: 30%;
+  `}
+
+  ${customMedia.lessThan('mobileS')`
+    margin-top: 40%;
   `}
 `;
 
 export const Description = styled.article`
-  width: 70vw;
+  width: 60vw;
   height: 20vh;
-  padding: 0px 35px;
   background-color: ${theme.colors.white};
+  margin-top: 5%;
 
   ${customMedia.lessThan('tablet')`
-    padding: 0px;
+    justify-content: center;
+    align-items: center;
     width: 80vw;
-  `}
+    &:nth-child(1) {
+      border-radius: 8px;
+    }
+    &:nth-child(2) {
+      border-top-left-radius: 8px;
+      border-top-right-radius: 8px;
+    }
+    &:nth-child(3) {
+      margin-top: 0;
+      border-bottom-left-radius: 8px;
+      border-bottom-right-radius: 8px;
+    }
+    `}
 
-  &:nth-child(1) {
-    border-radius: 8px;
-    margin-top: 8%;
+  h2 {
+    padding: 10px 20px;
   }
-  &:nth-child(2) {
-    border-top-left-radius: 8px;
-    border-top-right-radius: 8px;
+
+  ${customMedia.lessThan('mobileM')`
     margin-top: 4%;
-  }
-  &:nth-child(3) {
-    border-bottom-left-radius: 8px;
-    border-bottom-right-radius: 8px;
-  }
+  `}
 `;
 
 export const Info = styled(Description)`
-  height: 20vh;
+  ${customMedia.lessThan('tablet')`
+    background-color: ${theme.colors.lightGray};
+    margin-top: 0%;
+    height: 15vh;
+  `}
+
+  &:nth-child(3) {
+    display: flex;
+    height: 5vh;
+    flex-direction: row;
+
+    p {
+      padding: 1px 10px;
+    }
+  }
 `;
 
 export const Tags = styled.article`
@@ -108,9 +136,14 @@ export const Tags = styled.article`
 `;
 
 export const Tag = styled.button`
-  width: 90px;
-  height: 30px;
+  width: 105px;
+  height: 36px;
   font-weight: bold;
+
+  ${customMedia.lessThan('tablet')`
+    width: 90px;
+    height: 30px;
+  `}
 
   background-color: ${theme.colors.blackGray};
   border-radius: 6px;
@@ -126,6 +159,15 @@ export const Tag = styled.button`
 
 export const H2 = styled.h2`
   font-size: 24px;
+  padding: 10px 0px;
+
+  ${customMedia.lessThan('mobileM')`
+    font-size: 20px;
+  `}
+`;
+
+export const P = styled.p`
+  font-size: 18px;
   padding: 10px 20px;
 
   ${customMedia.lessThan('mobileM')`
@@ -133,6 +175,53 @@ export const H2 = styled.h2`
   `}
 `;
 
-export const Container = styled.article`
+export const Section = styled.section`
   border-top: 2px solid ${theme.colors.lightGray};
+  display: flex;
+  flex-direction: row;
+
+  ${customMedia.lessThan('tablet')`
+    align-items: center;
+    flex-direction: column;
+    background-color: ${theme.colors.lightGray};
+  `}
+`;
+
+export const Input = styled.input`
+  background-color: ${theme.colors.mediumGray};
+  width: 55vw;
+  height: 6vh;
+  padding: 15px;
+  margin-top: 10px;
+  border-radius: 5px;
+
+  ${customMedia.lessThan('tablet')`
+    width: 80vw;
+  `}
+
+  ${customMedia.lessThan('mobileM')`
+    margin: 0;
+  `}
+`;
+
+export const CheckBox = styled.input`
+  height: 25px;
+`;
+
+export const Textarea = styled.textarea`
+  background-color: ${theme.colors.mediumGray};
+  width: 55vw;
+  height: 18vh;
+  padding: 15px;
+  margin: 10px 0;
+  border-radius: 5px;
+  resize: none;
+
+  ${customMedia.lessThan('tablet')`
+    width: 80vw;
+  `}
+
+  ${customMedia.lessThan('mobileM')`
+    margin: 0;
+  `}
 `;

@@ -1,37 +1,29 @@
+/* eslint-disable no-unused-vars */
 import React, { useEffect, useState } from 'react';
-import { Link, useParams } from 'react-router-dom';
-import { v4 as uuidv4 } from 'uuid';
+import { useParams, Link } from 'react-router-dom';
 import { screenSizes } from '../../themes/theme';
-import { ButtonBig } from '../../components/Button/styles';
-
-import {
-  Section,
-  Article,
-  Nav,
-  FooterButton,
-  Description,
-  H2,
-  Tags,
-  Tag,
-  Container,
-  Info,
-} from './styles';
+import { Section, Nav, Article } from './styles';
 import { TopBarPattern } from '../pattern';
 import ProfileCard from '../../components/ProfileCard/ProfileCard';
 import { getUsers } from '../../services/services';
+import InfoProfile from './Info';
+import Request from './Request';
 
 function Profile() {
   const [widthScreen, setWidthScreen] = useState(window.screen.width / 16);
   const [dataArr, setDataArr] = useState<any>();
+  const [loading, setLoading] = useState(true);
+  const [connect, setConnect] = useState(false);
   const params = useParams();
 
   useEffect(() => {
     async function getByName() {
-      const { data }: any = await getUsers(
+      const { data, isFetching }: any = await getUsers(
         `/profiles/findprofile?email=${params.email}`
       );
       if (data) {
         setDataArr(data);
+        setLoading(isFetching);
       }
     }
     getByName();
@@ -45,59 +37,45 @@ function Profile() {
     window.addEventListener('resize', handleResize);
   });
 
-  const getTags = (value: string) => {
-    return dataArr.expertiseList.map((item: any) => {
-      if (value === 'area') return <Tag key={uuidv4()}>{item.area}</Tag>;
-
-      return <Tag key={uuidv4()}>{item.skill}</Tag>;
-    });
+  const setConnectCard = () => {
+    setConnect(!connect);
   };
 
   return (
     <main>
-      <TopBarPattern flag={false} />
-      <Container>
-        <Section>
-          <ProfileCard
-            widthScreen={widthScreen}
-            email={dataArr.email}
-            userName={dataArr.userName}
-            linksListDTO={dataArr.linksListDTO}
-            professionList={dataArr.professionList}
-          />
+      {loading ? (
+        <p>Carregando</p>
+      ) : (
+        <>
+          <TopBarPattern flag={false} />
+          <Section>
+            <ProfileCard
+              widthScreen={widthScreen}
+              email={dataArr.email}
+              userName={dataArr.userName}
+              linksListDTO={dataArr.linksListDTO}
+              professionList={dataArr.professionList}
+              setConnectCard={setConnectCard}
+              connect={connect}
+            />
+            <Article>
+              {widthScreen > screenSizes.default ? (
+                <Nav>
+                  <Link to="/userslist">Lista de Usuários</Link>
+                  <p>/</p>
+                  <Link to="/">Perfil do Mentor</Link>
+                </Nav>
+              ) : null}
 
-          <Article>
-            {widthScreen > screenSizes.default ? (
-              <Nav>
-                <Link to="/userslist">Lista de Usuários</Link>
-                <p>/</p>
-                <Link to="/">Perfil do Mentor</Link>
-              </Nav>
-            ) : null}
-
-            <Description>
-              <H2>Descrição</H2>
-              {dataArr.bio}
-            </Description>
-            <Info>
-              <H2>Área</H2>
-              <Tags>{getTags('area')}</Tags>
-            </Info>
-            <Info>
-              <H2>Tecnologias</H2>
-              <Tags>
-                <Tags>{getTags('skill')}</Tags>
-              </Tags>
-            </Info>
-
-            {widthScreen < screenSizes.default ? (
-              <FooterButton>
-                <ButtonBig>Marcar Horário</ButtonBig>
-              </FooterButton>
-            ) : null}
-          </Article>
-        </Section>
-      </Container>
+              {connect ? (
+                <Request widthScreen={widthScreen} dataArr={dataArr} />
+              ) : (
+                <InfoProfile widthScreen={widthScreen} dataArr={dataArr} />
+              )}
+            </Article>
+          </Section>
+        </>
+      )}
     </main>
   );
 }

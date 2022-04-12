@@ -1,15 +1,7 @@
 import React, { useEffect, useState } from 'react';
-import Button from '../../../components/Button/styles';
-import { Buttons } from '../../../components/MentorCard/styles';
 import { theme } from '../../../themes/theme';
 
-import {
-  Container,
-  Header,
-  LogoAndUserLogin,
-  Search,
-  SearchHR,
-} from './styles';
+import { Container, Header, Search, SearchHR, TopBar } from './styles';
 
 const defaultProps = {
   setSortByName: null,
@@ -24,7 +16,7 @@ function TopBarPattern({ flag, setSortByName }: props) {
   const [widthScreen, setWidthScreen] = useState(window.screen.width / 16);
 
   useEffect(() => {
-    function handleResize() { 
+    function handleResize() {
       setWidthScreen(window.screen.width / 16);
     }
 
@@ -32,44 +24,29 @@ function TopBarPattern({ flag, setSortByName }: props) {
   });
 
   return (
-    <div>
-      {flag ? (
-        <Container>
-          <Header>
-            {widthScreen > theme.screenSizes.tablet ? (
-              <LogoAndUserLogin>
-                <h3>
-                  Technical<strong>Share</strong>
-                </h3>
-                <Buttons>
-                  <Button
-                    width={134}
-                    height={44}
-                    p={0}
-                    borderRadius={8}
-                    marginRight={11}
-                  >
-                    Cadastrar-se
-                  </Button>
-                  <Button width={134} height={44} p={0} borderRadius={8}>
-                    Entrar
-                  </Button>
-                </Buttons>
-              </LogoAndUserLogin>
-            ) : null}
-            <SearchHR>
-              <Search
-                onChange={(e) => {
-                  return setSortByName(e.target.value);
-                }}
-                placeholder="Procure o seu mentor aqui"
-              />
-              <hr />
-            </SearchHR>
-          </Header>
-        </Container>
-      ) : null}
-    </div>
+    <Container>
+      <Header>
+        {widthScreen > theme.screenSizes.tablet ? (
+          <TopBar>
+            <h3>
+              Technical<strong>Share</strong>
+            </h3>
+          </TopBar>
+        ) : null}
+
+        {flag ? (
+          <SearchHR>
+            <Search
+              onChange={(e) => {
+                return setSortByName(e.target.value);
+              }}
+              placeholder="Procure o seu mentor aqui"
+            />
+            <hr />
+          </SearchHR>
+        ) : null}
+      </Header>
+    </Container>
   );
 }
 
