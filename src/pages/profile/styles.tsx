@@ -6,6 +6,7 @@ export const Article = styled.article`
   width: 65vw;
   padding: 0 30px;
   flex-direction: column;
+  overflow: scroll;
 
   ${customMedia.lessThan('tablet')`
     padding: 0px;
@@ -67,15 +68,7 @@ export const ResquestButton = styled(FooterButton)`
     margin-left: 0px;
   }
   ${customMedia.lessThan('tablet')`
-    margin-top: 40%;
-  `}
-
-  ${customMedia.lessThan('mobileM')`
-    margin-top: 30%;
-  `}
-
-  ${customMedia.lessThan('mobileS')`
-    margin-top: 40%;
+    margin-top: 10%;
   `}
 `;
 
@@ -133,6 +126,10 @@ export const Info = styled(Description)`
       padding: 2px 10px;
       font-size: 16px;
     }
+  }
+
+  &:nth-child(4) {
+    height: 25vh;
   }
 `;
 
@@ -247,7 +244,7 @@ export const StyledModal = Modal.styled`
 export const Contact = styled.article`
   display: flex;
   justify-content: space-between;
-  margin-top: 9%;
+  margin-top: 5%;
   width: 55vw;
 
   article {
@@ -257,4 +254,16 @@ export const Contact = styled.article`
   input {
     width: 25vw;
   }
+
+  ${customMedia.lessThan('tablet')`
+    display: inline;
+
+    article {
+      width: 80vw;
+    }
+    
+    input {
+      width: 80vw;
+    }
+  `}
 `;
