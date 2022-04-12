@@ -86,7 +86,11 @@ function UsersList() {
         <MentorCard
           key={uuidv4()}
           name={user.userName}
-          occupation={user.professionList[0].occupation}
+          occupation={
+            user.professionList.length > 0
+              ? user.professionList[0].description
+              : ''
+          }
           tags={user.expertiseList}
           bioDescription={user.bio}
           email={user.email}
