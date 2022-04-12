@@ -12,6 +12,7 @@ import {
   NumberPage,
   Select,
   Section,
+  Main,
 } from './styles';
 import { getUsers } from '../../services/services';
 import { SkillFilter } from '../../components/SkillFilter';
@@ -24,11 +25,11 @@ function UsersList() {
   const [size, setSize] = useState('6');
   const [sortByName, setSortByName] = useState('');
   const [selectedSkillsToFilter, setSelectedSkillsToFilter] = useState([
-    { area: null, technologie: null },
-    { area: null, technologie: null },
+    { area: 'null', technologie: 'null' },
+    { area: 'null', technologie: 'null' },
   ]);
-  const [skill1, setSkill1] = useState({ area: null, technologie: null });
-  const [skill2, setSkill2] = useState({ area: null, technologie: null });
+  const [skill1, setSkill1] = useState({ area: 'null', technologie: 'null' });
+  const [skill2, setSkill2] = useState({ area: 'null', technologie: 'null' });
   const [dataArr, setDataArr] = useState<any[]>([]);
   const currentUser = useSelector((state: any) => {
     return state.user;
@@ -52,12 +53,14 @@ function UsersList() {
   useEffect(() => {
     async function getBySkills() {
       const { data }: any = await getUsers(
-        `profiles/findbyskill?firstSkill=${selectedSkillsToFilter[0].technologie}&secondSkill=${selectedSkillsToFilter[1].technologie}&page=${page}&size=${size}&sort=${sort}`
+        `/profiles/findbyskill?firstSkill=${selectedSkillsToFilter[0].technologie}&secondSkill=${selectedSkillsToFilter[1].technologie}&page=${page}&size=${size}&sort=${sort}`
       );
       if (data) {
         setDataArr(data.content);
         setTotalPages(data.totalPages);
       }
+      console.log('firstSkill', selectedSkillsToFilter[0].technologie);
+      console.log('secondSkill', selectedSkillsToFilter[1].technologie);
     }
     getBySkills();
   }, [selectedSkillsToFilter]);
@@ -126,12 +129,12 @@ function UsersList() {
     setShowFilterModal((prev) => {
       return !prev;
     });
-    setSkill1({ area: null, technologie: null });
-    setSkill2({ area: null, technologie: null })
+    setSkill1({ area: 'null', technologie: 'null' });
+    setSkill2({ area: 'null', technologie: 'null' })
   }
 
   return currentUser.isLogged ? (
-    <main>
+    <Main>
       <SkillFilter
         showFilterModal={showFilterModal}
         setShowFilterModal={setShowFilterModal}
@@ -165,7 +168,7 @@ function UsersList() {
         </NumberPage>
         <Pages>{getPages()}</Pages>
       </Section>
-    </main>
+    </Main>
   ) : (
     <Navigate to="/login" />
   );

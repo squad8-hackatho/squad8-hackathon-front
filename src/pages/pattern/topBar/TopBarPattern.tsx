@@ -2,7 +2,13 @@ import React, { useEffect, useState } from 'react';
 import { theme } from '../../../themes/theme';
 import ProfileButton from '../../../components/ProfileButton/ProfileButton';
 
-import { Container, Header, Search, SearchHR, TopBar } from './styles';
+import {
+  Container,
+  Header,
+  Search,
+  SearchHR,
+  TopBar,
+} from './styles';
 
 const defaultProps = {
   setSortByName: null,
@@ -41,7 +47,7 @@ function TopBarPattern({ flag, setSortByName }: props) {
             <Search
               onChange={(e) => {
                 return setSortByName(e.target.value);
-              }}
+              }}              
               placeholder="Procure o seu mentor aqui"
             />
             <hr />
