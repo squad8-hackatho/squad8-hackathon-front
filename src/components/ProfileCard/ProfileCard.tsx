@@ -1,5 +1,13 @@
 import React, { useState, useEffect } from 'react';
-import { Section, Article, ProfilePicture, P, H1, Contact } from './styles';
+import {
+  Section,
+  Article,
+  ProfilePicture,
+  P,
+  H1,
+  Contact,
+  Midia,
+} from './styles';
 import { ButtonBig } from '../Button/styles';
 import { screenSizes } from '../../themes/theme';
 import foto from '../../assets/foto.png';
@@ -21,6 +29,7 @@ type props = {
     }
   ];
   setConnectCard: Function;
+  connect: boolean;
 };
 
 function ProfileCard({
@@ -30,6 +39,7 @@ function ProfileCard({
   linksListDTO,
   professionList,
   setConnectCard,
+  connect,
 }: props) {
   const area = 'Dev';
   const [linkedin, setLinkedin] = useState('br.linkedin.com');
@@ -52,13 +62,19 @@ function ProfileCard({
 
   console.log(linksListDTO, professionList);
   return (
-    <Section>
+    <Section flag={connect}>
       <ProfilePicture src={foto} />
       <Article>
         <H1>{userName}</H1>
         <P>
           <strong>Cargo:</strong> {area}
         </P>
+
+        {widthScreen < screenSizes.default ? (
+          <Midia>
+            <P>{linkedin}</P>
+          </Midia>
+        ) : null}
       </Article>
       {widthScreen > screenSizes.default ? (
         <>

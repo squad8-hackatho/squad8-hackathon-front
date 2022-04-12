@@ -2,16 +2,15 @@ import styled from 'styled-components';
 import { theme, customMedia } from '../../themes/theme';
 
 export const Article = styled.article`
-  width: 70vw;
+  width: 65vw;
   padding: 0 30px;
   flex-direction: column;
 
   ${customMedia.lessThan('tablet')`
     padding: 0px;
-    height: 75vh;
+    height: 74.5vh;
     flex-direction: none;
     width: 80vw;
-    backgoru
   `}
 `;
 
@@ -46,31 +45,47 @@ export const Nav = styled.nav`
 `;
 
 export const FooterButton = styled.footer`
-  height: 10vh;
-
-  ${customMedia.lessThan('mobileM')`
-    margin-top: 5%;
-`}
-
   ${customMedia.lessThan('tablet')`
     margin:0;
     width: 80vw;
-    position: fixed;
     bottom: 0px;
-    margin-bottom: 0px;
+    margin-top: 10%;
+  `}
+
+  ${customMedia.lessThan('mobileM')`
+    margin-top: 5%;
+  `}
+
+  ${customMedia.lessThan('mobileS')`
+    margin-top: 11%;
+  `}
+`;
+
+export const ResquestButton = styled(FooterButton)`
+  margin-top: 10%;
+
+  ${customMedia.lessThan('tablet')`
+    margin-top: 40%;
+  `}
+
+  ${customMedia.lessThan('mobileM')`
+    margin-top: 30%;
+  `}
+
+  ${customMedia.lessThan('mobileS')`
+    margin-top: 40%;
   `}
 `;
 
 export const Description = styled.article`
-  width: 70vw;
+  width: 60vw;
   height: 20vh;
   background-color: ${theme.colors.white};
-  margin-top: 2%;
+  margin-top: 5%;
 
   ${customMedia.lessThan('tablet')`
     justify-content: center;
     align-items: center;
-    margin-top: 4%;
     width: 80vw;
     &:nth-child(1) {
       border-radius: 8px;
@@ -84,12 +99,18 @@ export const Description = styled.article`
       border-bottom-left-radius: 8px;
       border-bottom-right-radius: 8px;
     }
+    `}
+
+  h2 {
+    padding: 10px 20px;
+  }
+
+  ${customMedia.lessThan('mobileM')`
+    margin-top: 4%;
   `}
 `;
 
 export const Info = styled(Description)`
-  height: 20vh;
-
   ${customMedia.lessThan('tablet')`
     background-color: ${theme.colors.lightGray};
     margin-top: 0%;
@@ -100,6 +121,10 @@ export const Info = styled(Description)`
     display: flex;
     height: 5vh;
     flex-direction: row;
+
+    p {
+      padding: 1px 10px;
+    }
   }
 `;
 
@@ -134,7 +159,7 @@ export const Tag = styled.button`
 
 export const H2 = styled.h2`
   font-size: 24px;
-  padding: 10px 20px;
+  padding: 10px 0px;
 
   ${customMedia.lessThan('mobileM')`
     font-size: 20px;
@@ -152,7 +177,6 @@ export const P = styled.p`
 
 export const Section = styled.section`
   border-top: 2px solid ${theme.colors.lightGray};
-  width: 100vw;
   display: flex;
   flex-direction: row;
 
@@ -174,10 +198,14 @@ export const Input = styled.input`
   ${customMedia.lessThan('tablet')`
     width: 80vw;
   `}
+
+  ${customMedia.lessThan('mobileM')`
+    margin: 0;
+  `}
 `;
 
 export const CheckBox = styled.input`
-  height: 50px;
+  height: 25px;
 `;
 
 export const Textarea = styled.textarea`
@@ -185,11 +213,15 @@ export const Textarea = styled.textarea`
   width: 55vw;
   height: 18vh;
   padding: 15px;
-  margin-top: 10px;
+  margin: 10px 0;
   border-radius: 5px;
   resize: none;
 
   ${customMedia.lessThan('tablet')`
     width: 80vw;
+  `}
+
+  ${customMedia.lessThan('mobileM')`
+    margin: 0;
   `}
 `;

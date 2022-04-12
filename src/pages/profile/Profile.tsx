@@ -56,6 +56,7 @@ function Profile() {
               linksListDTO={dataArr.linksListDTO}
               professionList={dataArr.professionList}
               setConnectCard={setConnectCard}
+              connect={connect}
             />
             <Article>
               {widthScreen > screenSizes.default ? (

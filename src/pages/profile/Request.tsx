@@ -7,7 +7,7 @@ import {
   Info,
   Input,
   Textarea,
-  FooterButton,
+  ResquestButton,
   CheckBox,
   P,
 } from './styles';
@@ -38,9 +38,9 @@ function Profile({ dataArr, widthScreen }: props) {
         <Textarea placeholder="Digite uma mensagem para o mentor" />
       </Info>
 
-      <FooterButton>
+      <ResquestButton>
         <ButtonBig>Enviar</ButtonBig>
-      </FooterButton>
+      </ResquestButton>
     </Article>
   );
 }

@@ -1,10 +1,14 @@
 import styled from 'styled-components';
 import { theme, customMedia } from '../../themes/theme';
 
-export const Section = styled.section`
+type Props = {
+  flag: boolean;
+};
+
+export const Section = styled.section<Props>`
   display: flex;
-  width: 25vw;
-  height: 89vh;
+  width: 22vw;
+  height: 100vh;
 
   flex-direction: column;
   align-items: center;
@@ -24,13 +28,18 @@ export const Section = styled.section`
     }
   }
 
-  ${customMedia.lessThan('tablet')`
+  ${(props) => {
+    return customMedia.lessThan('tablet')`
     width: 100vw;
     height: 25vh;
     flex-direction: row;
     padding: 10% 0% 0% 6%;
     margin-left: 0px;
-  `}
+    background-color: ${
+      props.flag ? theme.colors.lightGray : theme.colors.white
+    }};
+  `;
+  }}
 
   ${customMedia.lessThan('mobileM')`
     padding-top: 8%;
@@ -39,25 +48,31 @@ export const Section = styled.section`
 
   ${customMedia.lessThan('mobileS')`
     padding-left: 3%;
+    word-break: break-word;
   `}
 `;
 
 export const H1 = styled.h1`
   font-size: 30px;
   ${customMedia.lessThan('tablet')`
-  `}
-
-  ${customMedia.between('tablet', 'laptopS')`
-    font-size: 30px;
+    font-size: 28px;
   `}
 `;
 
+export const Midia = styled.div`
+  p {
+    font-size: 16px;
+  }
+`;
+
 export const Article = styled.article`
+  width: 22vw;
   display: flex;
   flex-direction: column;
   align-items: center;
 
   ${customMedia.lessThan('tablet')`
+    width: 60vw;
     margin-left: 5%;
     align-items: start;
   `}
@@ -65,7 +80,7 @@ export const Article = styled.article`
 
 export const Contact = styled(Article)`
   p {
-    margin-top: 15%;
+    margin-top: 8%;
     font-size: 16px;
   }
 `;
@@ -96,4 +111,8 @@ export const ProfilePicture = styled.img`
 export const P = styled.p`
   margin-top: 10px;
   font-size: 18px;
+
+  ${customMedia.lessThan('tablet')`
+    font-size: 19px;
+  `}
 `;

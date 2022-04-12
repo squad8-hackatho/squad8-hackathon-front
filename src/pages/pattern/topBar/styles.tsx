@@ -40,7 +40,7 @@ export const Header = styled.header`
 `;
 
 export const Search = styled.input`
-  width: 90vw;
+  width: 100vw;
   height: 45px;
   padding: 17px 44px;
   margin: 40px 0px 38px 0px;
@@ -68,7 +68,7 @@ export const Search = styled.input`
   `}
 
   ${customMedia.lessThan('mobileS')`
-    width: 110vw;
+    width: 100vw;
   `}
 `;
 
