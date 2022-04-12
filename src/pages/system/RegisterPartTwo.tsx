@@ -3,13 +3,17 @@ import React, { useEffect, useState } from 'react';
 import { H3, Input, Section, Select, Tag, Tags } from './styles';
 import { ButtonBig } from '../../components/Button/styles';
 import { getUsers } from '../../services/services';
+import { setSelectedSkillToPost } from '../../helpers/setSelectedSkillsToPost';
 
 type props = {
   setCargo: Function;
   setArea: Function;
+  onSubmit: Function;
+  setSkills: Function;
+  setLevel: Function;
 };
 
-function Register({ setCargo, setArea }: props) {
+function Register({ setCargo, setArea, onSubmit, setSkills, setLevel }: props) {
   const checkValues = (): boolean => {
     // return (
     //   name === '' ||
@@ -22,7 +26,7 @@ function Register({ setCargo, setArea }: props) {
   };
 
   const emptyArray: any = [];
-  const [skills, setSkills] = useState([]);
+  const [skillsList, setSkillsList] = useState([]);
   const [selectedSkills, setSelectedSkills] = useState(emptyArray);
 
   useEffect(() => {
@@ -38,7 +42,11 @@ function Register({ setCargo, setArea }: props) {
           uniqueSkills.push(skill.skill);
         }
       });
-      setSkills(uniqueSkills);
+      setSkillsList(uniqueSkills);
+      
+      setSkills(
+        setSelectedSkillToPost({ skillsList: selectedSkills, dataOutside })
+      );
     }
     getValues();
   }, [selectedSkills]);
@@ -77,7 +85,11 @@ function Register({ setCargo, setArea }: props) {
       />
 
       <H3>Selecione o nível do seu cargo</H3>
-      <Select>
+      <Select
+        onChange={(e) => {
+          setLevel(e.target.value);
+        }}
+      >
         <option value="valor1" selected>
           Nível do cargo
         </option>
@@ -111,7 +123,7 @@ function Register({ setCargo, setArea }: props) {
         <option value="default" selected>
           Suas habilidades
         </option>
-        {skills.map((skill: any) => {
+        {skillsList.map((skill: any) => {
           return (
             <option value={skill} key={skill}>
               {skill}
@@ -120,7 +132,13 @@ function Register({ setCargo, setArea }: props) {
         })}
       </Select>
 
-      <ButtonBig type="submit" disabled={checkValues()}>
+      <ButtonBig
+        type="submit"
+        onClick={() => {
+          onSubmit();
+        }}
+        disabled={checkValues()}
+      >
         Criar a minha conta
       </ButtonBig>
     </Section>
