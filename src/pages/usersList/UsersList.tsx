@@ -12,8 +12,8 @@ import {
   Select,
   Section,
 } from './styles';
-import { NewDropdown } from '../../components/NewDropdown';
 import { getUsers } from '../../services/services';
+import { SkillFilter } from '../../components/SkillFilter';
 
 function UsersList() {
   // const levels = ['Trainee', 'Júnior', 'Pleno', 'Sênior'];
@@ -22,14 +22,19 @@ function UsersList() {
   const [sort, setSort] = useState('');
   const [size, setSize] = useState('6');
   const [sortByName, setSortByName] = useState('');
+  const [selectedSkillsToFilter, setSelectedSkillsToFilter] = useState([
+    { area: '', technologie: '' },
+    { area: '', technologie: '' },
+  ]);
   const [dataArr, setDataArr] = useState<any[]>([]);
+
+  const [showFilterModal, setShowFilterModal] = useState(false);
 
   useEffect(() => {
     async function get() {
       const { data }: any = await getUsers(
         `/profiles/findall?page=${page}&size=${size}&sort=${sort}`
       );
-      console.log(data);
       if (data) {
         setDataArr(data.content);
         setTotalPages(data.totalPages);
@@ -37,6 +42,27 @@ function UsersList() {
     }
     get();
   }, [page, sort, size]);
+
+  useEffect(() => {
+    async function getBySkills() {
+      if (
+        selectedSkillsToFilter !==
+        [
+          { area: '', technologie: '' },
+          { area: '', technologie: '' },
+        ]
+      ) {
+        const { data }: any = await getUsers(
+          `profiles/findbymultipleskills?firstSkill=${selectedSkillsToFilter[0].technologie}&secondSkill=${selectedSkillsToFilter[1].technologie}&page=${page}&size=${size}&sort=${sort}`
+        );
+        if (data) {
+          setDataArr(data.content);
+          setTotalPages(data.totalPages);
+        }
+      }
+    }
+    getBySkills();
+  }, [selectedSkillsToFilter]);
 
   useEffect(() => {
     async function getByName() {
@@ -98,12 +124,27 @@ function UsersList() {
     return arr;
   };
 
+  function handleSkillFilter() {
+    setShowFilterModal((prev) => {
+      return !prev;
+    });
+  }
+
   return (
     <main>
+      <SkillFilter
+        showFilterModal={showFilterModal}
+        setShowFilterModal={setShowFilterModal}
+        setSelectedSkillsToFilter={setSelectedSkillsToFilter}
+      />
       <TopBarPattern flag setSortByName={setSortByName} />
+
       <Filter>
-        <NewDropdown />
+        <button type="button" onClick={handleSkillFilter}>
+          Filtrar por habilidades
+        </button>
       </Filter>
+
       <Mentors>{getCards()}</Mentors>
 
       <Section>

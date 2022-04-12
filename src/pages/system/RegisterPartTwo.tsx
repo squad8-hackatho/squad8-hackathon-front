@@ -93,6 +93,7 @@ function Register({ setCargo, setArea, onSubmit, setSkills, setLevel }: props) {
         <option value="valor1" selected>
           Nível do cargo
         </option>
+        <option value="Não se aplica">Não se aplica</option>
         <option value="Estagiário">Estagiário</option>
         <option value="Trainee">Trainee</option>
         <option value="Júnior">Júnior</option>
