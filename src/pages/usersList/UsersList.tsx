@@ -16,7 +16,7 @@ import { NewDropdown } from '../../components/NewDropdown';
 import { getUsers } from '../../services/services';
 
 function UsersList() {
-  const levels = ['Trainee', 'Júnior', 'Pleno', 'Sênior'];
+  // const levels = ['Trainee', 'Júnior', 'Pleno', 'Sênior'];
   const [page, setPage] = useState(0);
   const [totalPages, setTotalPages] = useState(0);
   const [sort, setSort] = useState('');
@@ -29,7 +29,7 @@ function UsersList() {
       const { data }: any = await getUsers(
         `/profiles/findall?page=${page}&size=${size}&sort=${sort}`
       );
-      // console.log(data);
+      console.log(data);
       if (data) {
         setDataArr(data.content);
         setTotalPages(data.totalPages);
@@ -59,8 +59,7 @@ function UsersList() {
         <MentorCard
           key={uuidv4()}
           name={user.userName}
-          // occupation={user.professionList}
-          level={levels[0]}
+          occupation={user.professionList[0].occupation}
           tags={user.expertiseList}
           bioDescription={user.bio}
           email={user.email}

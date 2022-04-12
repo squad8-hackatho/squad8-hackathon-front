@@ -112,6 +112,7 @@ export const Tag = styled.div`
   border-radius: 8px;  
   padding: 8px;
   margin: 10px 5px 0;
+  cursor: pointer;
 
   font-size: 14px;
   font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;

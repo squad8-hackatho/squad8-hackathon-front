@@ -16,10 +16,12 @@ const red = 'red';
 const orange = '#FE4400';
 const lightOrange = '#FFD580';
 const lightGray = '#F1F1F1';
+const gray01 = '#DEE2E6'
 const mediumGray = '#C4C4C4';
 const darkGray = '#8f8f8f';
 const blue = '#2d7ff9';
 const blackGray = '#474747';
+const mainBlue = '#36357E';
 
 export const screenSizes = {
   laptopL: 91,
@@ -41,11 +43,13 @@ export const theme = {
     orange,
     lightOrange,
     lightGray,
+    gray01,
     mediumGray,
     darkGray,
     blackGray,
     red,
     blue,
+    mainBlue,
   },
 };
 
