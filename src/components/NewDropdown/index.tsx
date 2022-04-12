@@ -15,7 +15,7 @@ export function NewDropdown({ techFilter, setTechFilter }: Props) {
   const AreaDefault = 'Todas as áreas';
   const TechDefault = 'Todas as tecnologias';
 
-  const handleInputChange = (e: any) => {
+  const handleInputChange = (e: any) => {    
     if (e.target.value === AreaDefault || e.target.value === TechDefault) {
       setTechFilter({ area: '', technologie: '' });
     } else {

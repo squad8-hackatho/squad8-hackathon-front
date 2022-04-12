@@ -4,7 +4,7 @@ import { theme } from '../../themes/theme';
 export const Background = styled.div`
   width: 100%;
   height: 100%;
-  background: rgba(0, 0, 0, 0.8);
+  background: rgba(196, 196, 196, 0.5);
   position: fixed;
   display: flex;
   justify-content: center;

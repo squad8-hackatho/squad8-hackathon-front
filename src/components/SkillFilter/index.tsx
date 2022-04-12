@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { NewDropdown } from '../NewDropdown';
 import { Background, ModalContent, ModalWrapper } from './styles';
 
@@ -6,16 +6,21 @@ type Props = {
   showFilterModal: boolean;
   setShowFilterModal: Function;
   setSelectedSkillsToFilter: Function;
+  skill1: any;
+  setSkill1: Function;
+  skill2: any;
+  setSkill2: Function;
 };
 
 export function SkillFilter({
   showFilterModal,
   setShowFilterModal,
   setSelectedSkillsToFilter,
+  skill1,
+  setSkill1,
+  skill2,
+  setSkill2,
 }: Props) {
-  const [skill1, setSkill1] = useState({ area: '' });
-  const [skill2, setSkill2] = useState({ area: '' });
-
   function handleFilterClick() {
     setSelectedSkillsToFilter([skill1, skill2]);
     setShowFilterModal(false);

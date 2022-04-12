@@ -24,9 +24,11 @@ function UsersList() {
   const [size, setSize] = useState('6');
   const [sortByName, setSortByName] = useState('');
   const [selectedSkillsToFilter, setSelectedSkillsToFilter] = useState([
-    { area: '', technologie: '' },
-    { area: '', technologie: '' },
+    { area: null, technologie: null },
+    { area: null, technologie: null },
   ]);
+  const [skill1, setSkill1] = useState({ area: null, technologie: null });
+  const [skill2, setSkill2] = useState({ area: null, technologie: null });
   const [dataArr, setDataArr] = useState<any[]>([]);
   const currentUser = useSelector((state: any) => {
     return state.user;
@@ -49,37 +51,12 @@ function UsersList() {
 
   useEffect(() => {
     async function getBySkills() {
-      const selectedSkill0 = selectedSkillsToFilter[0].technologie;
-      const selectedSkill1 = selectedSkillsToFilter[1].technologie;
-
-      if (selectedSkill0 !== '' && selectedSkill1 !== '') {
-        const { data }: any = await getUsers(
-          `profiles/findbymultipleskills?firstSkill=${selectedSkill0}&secondSkill=${selectedSkill1}&page=${page}&size=${size}&sort=${sort}`
-        );
-
-        if (data) {
-          setDataArr(data.content);
-          setTotalPages(data.totalPages);
-        }
-      }
-      if (selectedSkill0 !== '') {
-        const { data }: any = await getUsers(
-          `profiles/findbyskill?skill=${selectedSkill0}&page=${page}&size=${size}&sort=${sort}`
-        );
-
-        if (data) {
-          setDataArr(data.content);
-          setTotalPages(data.totalPages);
-        }
-      }
-      if (selectedSkill1 !== '') {
-        const { data }: any = await getUsers(
-          `profiles/findbyskill?skill=${selectedSkill1}&page=${page}&size=${size}&sort=${sort}`
-        );
-        if (data) {
-          setDataArr(data.content);
-          setTotalPages(data.totalPages);
-        }
+      const { data }: any = await getUsers(
+        `profiles/findbyskill?firstSkill=${selectedSkillsToFilter[0].technologie}&secondSkill=${selectedSkillsToFilter[1].technologie}&page=${page}&size=${size}&sort=${sort}`
+      );
+      if (data) {
+        setDataArr(data.content);
+        setTotalPages(data.totalPages);
       }
     }
     getBySkills();
@@ -149,6 +126,8 @@ function UsersList() {
     setShowFilterModal((prev) => {
       return !prev;
     });
+    setSkill1({ area: null, technologie: null });
+    setSkill2({ area: null, technologie: null })
   }
 
   return currentUser.isLogged ? (
@@ -157,6 +136,10 @@ function UsersList() {
         showFilterModal={showFilterModal}
         setShowFilterModal={setShowFilterModal}
         setSelectedSkillsToFilter={setSelectedSkillsToFilter}
+        skill1={skill1}
+        setSkill1={setSkill1}
+        skill2={skill2}
+        setSkill2={setSkill2}
       />
       <TopBarPattern flag setSortByName={setSortByName} />
 
