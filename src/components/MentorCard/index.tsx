@@ -15,12 +15,13 @@ import {
   Buttons,
   Tags,
   Button,
+  PictureAndName,
 } from './styles';
 import foto from '../../assets/foto.png';
 
 type Props = {
   name: string;
-  level: string;
+  occupation: string;
   bioDescription: string;
   tags: any[];
   email: string;
@@ -28,19 +29,11 @@ type Props = {
 
 export function MentorCard({
   name,
-  level,
+  occupation,
   bioDescription,
   tags,
   email,
 }: Props) {
-  const getSubString = () => {
-    const length = 100;
-    let subString = bioDescription.substring(0, length);
-    if (bioDescription.length > 100) subString = `${subString} ...`;
-
-    return subString;
-  };
-
   const getTags = () => {
     return tags.map((item) => {
       return <Tag key={uuidv4()}>{item.skill}</Tag>;
@@ -49,21 +42,25 @@ export function MentorCard({
   return (
     <Card>
       <Header>
-        <ProfilePicture src={foto} alt="Teste" />
-        <Description>
-          <Name>{name}</Name>
-          <OccupationItem>
-            <strong>Nível:</strong> {level}
-          </OccupationItem>
-        </Description>
+        <PictureAndName>
+          <ProfilePicture src={foto} alt="Teste" />
+          <Description>
+            <Name>{name}</Name>
+            <OccupationItem>
+              <strong>Cargo:</strong> {occupation}
+            </OccupationItem>
+          </Description>
+        </PictureAndName>
+        <Bio>
+          <BioDescr>{bioDescription}</BioDescr>
+        </Bio>
+        <hr />
       </Header>
-      <Bio>
-        <BioDescr>{getSubString()}</BioDescr>
-      </Bio>
       <Expertises>
-        <p>Habilidades</p>
+        <p>Tecnologias</p>
         <Tags>{getTags()}</Tags>
       </Expertises>
+      <hr />
       <Buttons>
         <Button>Marcar Horário</Button>
         <Link to={`/profile/${email}`}>

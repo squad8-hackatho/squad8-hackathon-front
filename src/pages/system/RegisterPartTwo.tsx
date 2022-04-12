@@ -99,7 +99,7 @@ function Register({ setCargo, setArea, onSubmit, setSkills, setLevel }: props) {
         <option value="Pleno">Pleno</option>
         <option value="Senior">Senior</option>
       </Select>
-
+        
       <Tags>
         {selectedSkills.map((skill: any) => {
           return (
