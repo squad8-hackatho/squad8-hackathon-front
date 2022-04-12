@@ -1,6 +1,12 @@
 import React from 'react';
 import { NewDropdown } from '../NewDropdown';
-import { Background, ModalContent, ModalWrapper } from './styles';
+import {
+  Background,
+  CloseModalFilter,
+  HeaderModalFilter,
+  ModalContent,
+  ModalWrapper,
+} from './styles';
 
 type Props = {
   showFilterModal: boolean;
@@ -32,7 +38,11 @@ export function SkillFilter({
         <Background>
           <ModalWrapper>
             <ModalContent>
-              <h2>Filtrar por:</h2>
+              <HeaderModalFilter>
+                <CloseModalFilter />
+                <h2>Filtrar por:</h2>
+              </HeaderModalFilter>
+
               <h3>Escolha a primeira habilidade:</h3>
               <NewDropdown techFilter={skill1} setTechFilter={setSkill1} />
 

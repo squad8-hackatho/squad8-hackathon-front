@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import { MdClose } from 'react-icons/md';
 import { theme } from '../../themes/theme';
 
 export const Background = styled.div`
@@ -10,7 +11,7 @@ export const Background = styled.div`
   justify-content: center;
   align-items: center;
   z-index: 100;
-`
+`;
 
 export const ModalWrapper = styled.div`
   width: 70%;
@@ -30,4 +31,17 @@ export const ModalContent = styled.div`
   flex-direction: column;
   justify-content: flex-start;
   align-items: flex-start;
+`;
+
+export const HeaderModalFilter = styled.div`
+  display: flex;
+  justify-content: space-between;
+`;
+
+export const TitleModalFilter = styled.div`
+  
+`;
+
+export const CloseModalFilter = styled(MdClose)`
+
 `;

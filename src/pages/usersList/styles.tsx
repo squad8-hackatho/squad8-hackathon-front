@@ -2,24 +2,50 @@ import styled from 'styled-components';
 import { customMedia, theme } from '../../themes/theme';
 
 export const Main = styled.main`
+  width: 100vw;
   background-color: ${theme.colors.gray03};
-`
+`;
+
+export const FilterWrapper = styled.section`
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+`;
 
 export const Filter = styled.section`
-  width: 100%;
-  margin: 20px 0 30px 60px;
-
-  ${customMedia.lessThan('laptop')`
-    margin: 20px 0 30px 40px;
-  `}
+  width: 81%;
+  margin: 20px 0 0 0;
 
   ${customMedia.lessThan('tablet')`
-    margin: 20px 0 30px 30px;
+    width: 92%;
+    margin: 0;
   `}
+`;
 
-  ${customMedia.lessThan('mobileL')`
-    margin: 20px 0 30px 20px;
-  `}
+export const ButtonFilter = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  padding: 10px;
+
+  width: 99px;
+  height: 44px;
+
+  background-color: white;
+  border: 1px solid #dee2e6;
+  border-radius: 8px;
+
+  cursor: pointer;
+
+  button {
+    font-size: 14px;
+    line-height: 20px;
+    font-weight: bold;
+    background-color: white;
+
+    cursor: pointer;
+  }
 `;
 
 export const Mentors = styled.section`
