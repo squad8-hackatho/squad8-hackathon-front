@@ -1,10 +1,10 @@
 import React, { useEffect, useState } from 'react';
-import { Input, Section, Span, TextArea } from './styles';
+import { H3, Input, Section, Span, /* TextArea */ } from './styles';
 import { ButtonBig } from '../../components/Button/styles';
 
 type props = {
   setName: Function;
-  setBio: Function;
+  // setBio: Function;
   setPassword: Function;
   setEmail: Function;
   setNext: Function;
@@ -15,7 +15,6 @@ type props = {
 
 function Register({
   setName,
-  setBio,
   setPassword,
   setEmail,
   password,
@@ -49,6 +48,7 @@ function Register({
 
   return (
     <Section>
+      <H3>Nome</H3>
       <Input
         autoFocus
         type="text"
@@ -57,6 +57,8 @@ function Register({
         }}
         placeholder="Nome"
       />
+
+      <H3>E-mail</H3>
       <Input
         type="text"
         onChange={(e) => {
@@ -68,6 +70,8 @@ function Register({
         placeholder="E-mail"
       />
       {checkEmail ? <Span>Por favor, digite um e-mail válido.</Span> : null}
+
+      <H3>Senha</H3>
       <Input
         type="password"
         onChange={(e) => {
@@ -75,6 +79,8 @@ function Register({
         }}
         placeholder="Senha"
       />
+
+      <H3>Confirme sua senha</H3>
       <Input
         type="password"
         onChange={(e) => {
@@ -84,15 +90,14 @@ function Register({
       />
       {password !== checkPassword ? <Span>Senhas diferentes</Span> : null}
 
-      <TextArea
+      {/* <TextArea
         onChange={(e) => {
           return setBio(e.target.value);
         }}
         placeholder="Bio"
-      />
+      /> */}
 
       <ButtonBig
-        type="button"
         disabled={checkValues()}
         onClick={() => {
           setNext(true);

@@ -1,6 +1,5 @@
 /* eslint-disable no-prototype-builtins */
 import React, { useEffect, useState } from 'react';
-import { Capitalize } from '../../../../helpers/Capitalize';
 import { getUsers } from '../../../../services/services';
 import { Select } from '../../styles';
 
@@ -21,16 +20,16 @@ function DropdownTechnologies({ state, onChange = () => {} }: Props) {
       const sortedData = dataOutside.sort((a: any, b: any) =>
         {return a.skill.localeCompare(b.skill)}
       );
-      const filteredTechnologies: any = [];
+      const filteredTechnologies: any = [];     
 
       sortedData.forEach((tech: any) => {
         if (Object.values(tech).indexOf(`${state}`) > -1) {
-          filteredTechnologies.push(Capitalize(tech.skill));
+          filteredTechnologies.push(tech.skill);
         }
       });
       setTechnologies(filteredTechnologies);
     }
-
+    
     getData();
   }, [state]);
 

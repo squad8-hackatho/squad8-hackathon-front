@@ -2,13 +2,15 @@ import styled from 'styled-components';
 import { customMedia, theme } from '../../../themes/theme';
 
 export const Container = styled.section`
+  width: 100vw;
+
   display: flex;
   flex-direction: column;
   align-items: center;
 `;
 
 export const Header = styled.header`
-  width: 90vw;
+  width: 90%;
 
   hr {
     border: 1px solid ${theme.colors.mediumGray};
@@ -16,25 +18,7 @@ export const Header = styled.header`
 
   ${customMedia.lessThan('tablet')`
     hr {      
-      width: 90vw;
-    }
-  `}
-
-  ${customMedia.lessThan('mobileL')`
-    hr {      
-      width: 95vw;
-    }
-  `}
-
-  ${customMedia.lessThan('mobileM')`
-    hr {      
-      width: 98vw;
-    }
-  `}
-
-  ${customMedia.lessThan('mobileS')`
-    hr {      
-      width: 110vw;
+      width: 100%;
     }
   `}
 `;
