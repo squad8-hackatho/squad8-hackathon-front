@@ -22,12 +22,7 @@ type props = {
       link: string;
     }
   ];
-  professionList: [
-    {
-      skill: string;
-      area: string;
-    }
-  ];
+  occupation: string;
   setConnectCard: Function;
   connect: boolean;
 };
@@ -37,11 +32,10 @@ function ProfileCard({
   email,
   userName,
   linksListDTO,
-  professionList,
+  occupation,
   setConnectCard,
   connect,
 }: props) {
-  const area = 'Dev';
   const [linkedin, setLinkedin] = useState('br.linkedin.com');
   const [whatsapp, setWhatsapp] = useState('(XX) XXXXX - XXXX');
 
@@ -60,14 +54,13 @@ function ProfileCard({
     getContact();
   }, []);
 
-  console.log(linksListDTO, professionList);
   return (
     <Section flag={connect}>
       <ProfilePicture src={foto} />
       <Article>
         <H1>{userName}</H1>
         <P>
-          <strong>Cargo:</strong> {area}
+          <strong>Cargo:</strong> {occupation}
         </P>
 
         {widthScreen < screenSizes.default ? (

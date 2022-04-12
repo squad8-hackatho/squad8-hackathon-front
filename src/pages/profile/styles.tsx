@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import Modal from 'styled-react-modal';
 import { theme, customMedia } from '../../themes/theme';
 
 export const Article = styled.article`
@@ -62,8 +63,9 @@ export const FooterButton = styled.footer`
 `;
 
 export const ResquestButton = styled(FooterButton)`
-  margin-top: 10%;
-
+  button {
+    margin-left: 0px;
+  }
   ${customMedia.lessThan('tablet')`
     margin-top: 40%;
   `}
@@ -111,19 +113,25 @@ export const Description = styled.article`
 `;
 
 export const Info = styled(Description)`
+  margin-top: 0%;
+  height: 17vh;
   ${customMedia.lessThan('tablet')`
     background-color: ${theme.colors.lightGray};
-    margin-top: 0%;
     height: 15vh;
   `}
 
+  h2 {
+    padding: 10px 0px;
+  }
+
   &:nth-child(3) {
     display: flex;
-    height: 5vh;
+    height: 3vh;
     flex-direction: row;
 
     p {
-      padding: 1px 10px;
+      padding: 2px 10px;
+      font-size: 16px;
     }
   }
 `;
@@ -224,4 +232,29 @@ export const Textarea = styled.textarea`
   ${customMedia.lessThan('mobileM')`
     margin: 0;
   `}
+`;
+
+export const StyledModal = Modal.styled`
+  width: 20rem;
+  height: 10rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 5px;
+  background-color: ${theme.colors.white};
+`;
+
+export const Contact = styled.article`
+  display: flex;
+  justify-content: space-between;
+  margin-top: 9%;
+  width: 55vw;
+
+  article {
+    width: 25vw;
+  }
+
+  input {
+    width: 25vw;
+  }
 `;
