@@ -2,7 +2,7 @@ import React from 'react';
 import { useSelector } from 'react-redux';
 import { v4 as uuidv4 } from 'uuid';
 import { ScheduleItem } from '../../components/ScheduleItem/ScheduleItem';
-import { TopBarPattern } from '../pattern';
+import TopBarPattern from '../../components/topBar/profile/TopBarProfile';
 import {
   Main,
   RequestFromOthers,
@@ -18,7 +18,7 @@ export function Schedule() {
 
   return (
     <Main>
-      <TopBarPattern flag={false} />
+      <TopBarPattern />
       <RequestsWrapper>
         <UserRequest>
           <h2>Meus agendamentos</h2>
@@ -50,3 +50,5 @@ export function Schedule() {
     </Main>
   );
 }
+
+export default Schedule;

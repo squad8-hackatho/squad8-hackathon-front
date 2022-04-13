@@ -12,11 +12,10 @@ export const RequestsWrapper = styled.section`
   width: 100%;
   display: flex;
   flex-direction: row;
-  margin-top: -122px;
+  margin-top: 50px;
 
   ${customMedia.lessThan('mobileL')`
     flex-direction: column;
-    margin-top: -80px;
     justify-content: center;
   `}
 `;
