@@ -29,11 +29,15 @@ function TopBarPattern({ flag, setSortByName }: props) {
       <Header>
         <TopBar>
           {flag ? <ProfileButton /> : null}
-          {widthScreen > theme.screenSizes.tablet ? (
+          {widthScreen > theme.screenSizes.mobileL ? (
             <h3>
               Technical<strong>Share</strong>
             </h3>
-          ) : null}
+          ) : (
+            <h3>
+              Tech<strong>Share</strong>
+            </h3>
+          )}
         </TopBar>
 
         {flag ? (

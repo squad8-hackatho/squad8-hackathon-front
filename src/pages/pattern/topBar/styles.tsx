@@ -8,6 +8,10 @@ export const Container = styled.section`
   display: flex;
   flex-direction: column;
   align-items: center;
+
+  ${customMedia.lessThan('mobileL')`
+    height: 192px;
+  `}
 `;
 
 export const Header = styled.header`
@@ -27,7 +31,7 @@ export const Header = styled.header`
 export const TopBar = styled.article`
   display: flex;
   align-items: center;
-  width: 100%;
+  width: 95%;
   justify-content: space-between;
   height: 146px;
 
