@@ -15,7 +15,11 @@ const userSlice = createSlice({
     user: [{}],
     isLogged: false,
   },
-  reducers: {},
+  reducers: {
+    logout(state) {
+      return { ...state, isLogged: false, user: [''] };
+    },
+  },
   extraReducers: (builder) => {
     builder.addCase(fetchUser.fulfilled, (state, action) => {
       if (action.payload) {
@@ -26,4 +30,5 @@ const userSlice = createSlice({
   },
 });
 
+export const { logout } = userSlice.actions;
 export default userSlice.reducer;

@@ -101,9 +101,6 @@ export const MidiaLinkedin = styled(Midia)`
 
   ${customMedia.lessThan('default')`
     margin-top: 0%;
-  `}
-
-  ${customMedia.lessThan('mobileS')`
     svg {
       margin: 2px 4px 0px 0px;
     }

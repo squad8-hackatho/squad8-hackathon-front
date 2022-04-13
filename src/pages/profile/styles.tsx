@@ -20,6 +20,14 @@ export const Article = styled.article`
   `}
 `;
 
+export const Form = styled.form`
+  margin-left: -50px;
+
+  ${customMedia.lessThan('tablet')`
+    margin-left: 0px;
+  `}
+`;
+
 export const Nav = styled.nav`
   padding: 35px 15px;
   display: flex;
@@ -128,7 +136,7 @@ export const Description = styled.article`
     margin-top: 4%;
 
     &:nth-child(2) {
-      height 15vh;
+      height: 15vh;
     }
     &:nth-child(3) {
       height: 18vh;
@@ -138,11 +146,13 @@ export const Description = styled.article`
 
 export const Info = styled(Description)`
   margin-top: 0%;
-  height: 16vh;
-  ${customMedia.lessThan('tablet')`
-    background-color: ${theme.colors.lightGray};
+  height: 12vh;
+
+  &:nth-child(2) {
     height: 15vh;
-  `}
+  }
+  background-color: transparent;
+  box-shadow: none;
 
   h2 {
     padding: 10px 0px;
@@ -162,6 +172,18 @@ export const Info = styled(Description)`
   &:nth-child(4) {
     height: 25vh;
   }
+
+  ${customMedia.lessThan('tablet')`
+    height: 10vh;
+
+    &:nth-child(1) {
+      height: 10vh;
+    }
+
+    &:nth-child(4) {
+      height: 23vh;
+    }
+  `}
 `;
 
 export const Tags = styled.article`
@@ -236,14 +258,14 @@ export const Section = styled.section`
 `;
 
 export const Input = styled.input`
-  background-color: ${theme.colors.mediumGray};
+  background-color: ${theme.colors.white};
   width: 55vw;
   height: 6vh;
   padding: 15px;
   border-radius: 5px;
 
   ${customMedia.lessThan('tablet')`
-    width: 80vw;
+    width: 90vw;
   `}
 
   ${customMedia.lessThan('mobileM')`
@@ -256,7 +278,7 @@ export const CheckBox = styled.input`
 `;
 
 export const Textarea = styled.textarea`
-  background-color: ${theme.colors.mediumGray};
+  background-color: ${theme.colors.white};
   width: 55vw;
   height: 18vh;
   padding: 15px;
@@ -264,7 +286,7 @@ export const Textarea = styled.textarea`
   resize: none;
 
   ${customMedia.lessThan('tablet')`
-    width: 80vw;
+    width: 90vw;
   `}
 
   ${customMedia.lessThan('mobileM')`
@@ -312,7 +334,7 @@ export const Contact = styled.article`
     }
     
     input {
-      width: 80vw;
+      width: 90vw;
     }
   `}
 `;

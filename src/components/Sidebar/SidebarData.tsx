@@ -1,4 +1,4 @@
-import React from "react";
+import React from 'react';
 import * as AiIcons from 'react-icons/ai';
 import * as BsIcons from 'react-icons/bs';
 import * as ImIcons from 'react-icons/im';
@@ -19,4 +19,4 @@ export const SidebarData = [
     path: '/',
     icon: <ImIcons.ImExit />,
   },
-]
+];
