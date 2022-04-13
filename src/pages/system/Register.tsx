@@ -49,7 +49,7 @@ function Register() {
 
     const flag = await register(values);
 
-    if (flag) navigate('/login');
+    if (flag) navigate('/landing');
   };
 
   return (
