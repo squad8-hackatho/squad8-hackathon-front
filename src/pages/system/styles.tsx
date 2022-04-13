@@ -28,7 +28,7 @@ export const Section = styled.fieldset`
 
   button {
     width: 300px;
-    margin-top: 40px;
+    margin-top: 30px;
   }
 `;
 
@@ -43,7 +43,7 @@ export const H3 = styled.h3`
   font-size: 16px;
   align-self: flex-start;
   margin: 10px 0 -5px 20px;
-`
+`;
 
 export const Span = styled.span`
   color: ${theme.colors.red};
@@ -109,12 +109,13 @@ export const Tag = styled.div`
   background-color: ${theme.colors.white};
 
   border: 2px solid ${theme.colors.orange};
-  border-radius: 8px;  
+  border-radius: 8px;
   padding: 8px;
   margin: 10px 5px 0;
   cursor: pointer;
 
   font-size: 14px;
-  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande',
+    'Lucida Sans', Arial, sans-serif;
   font-weight: 500;
 `;

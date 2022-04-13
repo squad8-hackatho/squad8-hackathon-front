@@ -11,7 +11,6 @@ export const Container = styled.section`
 
 export const Header = styled.header`
   width: 81%;
-  height: 224px;
 
   hr {
     border: 1px solid ${theme.colors.mediumGray};
