@@ -40,7 +40,7 @@ function Home() {
             Como podemos <strong>te chamar?</strong>
           </H2>
           <Input placeholder="Escreva o seu nome" autoFocus maxLength={50} />
-          <Link to="/interest">
+          <Link to="/login">
             <ButtonBig>Começar</ButtonBig>
           </Link>
         </CardName>

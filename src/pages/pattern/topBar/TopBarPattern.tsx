@@ -2,13 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { theme } from '../../../themes/theme';
 import ProfileButton from '../../../components/ProfileButton/ProfileButton';
 
-import {
-  Container,
-  Header,
-  Search,
-  SearchHR,
-  TopBar,
-} from './styles';
+import { Container, Header, Search, SearchHR, TopBar } from './styles';
 
 const defaultProps = {
   setSortByName: null,
@@ -33,21 +27,25 @@ function TopBarPattern({ flag, setSortByName }: props) {
   return (
     <Container>
       <Header>
-        {widthScreen > theme.screenSizes.tablet ? (
-          <TopBar>
+        <TopBar>
+          {flag ? <ProfileButton /> : null}
+          {widthScreen > theme.screenSizes.mobileL ? (
             <h3>
               Technical<strong>Share</strong>
             </h3>
-            {flag ? <ProfileButton /> : null}
-          </TopBar>
-        ) : null}
+          ) : (
+            <h3>
+              Tech<strong>Share</strong>
+            </h3>
+          )}
+        </TopBar>
 
         {flag ? (
           <SearchHR>
             <Search
               onChange={(e) => {
                 return setSortByName(e.target.value);
-              }}              
+              }}
               placeholder="Procure o seu mentor aqui"
             />
             <hr />
