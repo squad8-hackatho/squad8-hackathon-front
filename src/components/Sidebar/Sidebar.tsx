@@ -11,13 +11,18 @@ import {
   Text,
 } from './styles';
 
-type Props = {
-  currentUser: any;
+const defaultProps = {
+  size: 40,
 };
 
-export function Sidebar({ currentUser }: Props) {
+type Props = {
+  currentUser: any;
+  size?: number;
+} & typeof defaultProps;
+
+export function Sidebar({ currentUser, size }: Props) {
   const [showMenu, setShowMenu] = useState('none');
-  const profileLink = `/profile/${currentUser.user.email}`
+  const profileLink = `/profile/${currentUser.user.email}`;
 
   function handleClick() {
     if (showMenu === 'none') {
@@ -31,7 +36,7 @@ export function Sidebar({ currentUser }: Props) {
     <Dropdown>
       <NavIcon>
         <FaIcons.FaBars
-          size={40}
+          size={size}
           onClick={() => {
             handleClick();
           }}
@@ -65,3 +70,5 @@ export function Sidebar({ currentUser }: Props) {
     </Dropdown>
   );
 }
+
+Sidebar.defaultProps = defaultProps;

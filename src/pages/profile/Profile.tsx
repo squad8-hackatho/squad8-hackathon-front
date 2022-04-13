@@ -54,7 +54,6 @@ function Profile() {
               userName={dataArr.userName}
               linksListDTO={dataArr.linksListDTO}
               setConnectCard={setConnectCard}
-              connect={connect}
               occupation={
                 dataArr.professionList.length > 0
                   ? dataArr.professionList[0].description

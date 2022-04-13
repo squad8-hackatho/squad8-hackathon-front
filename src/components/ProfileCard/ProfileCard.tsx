@@ -10,6 +10,7 @@ import {
   MidiaLinkedin,
   MidiaWhatsapp,
   MidiaEmail,
+  Desktop,
 } from './styles';
 import { ButtonBig } from '../Button/styles';
 import { screenSizes } from '../../themes/theme';
@@ -27,7 +28,6 @@ type props = {
   ];
   occupation: string;
   setConnectCard: Function;
-  connect: boolean;
 };
 
 function ProfileCard({
@@ -37,7 +37,6 @@ function ProfileCard({
   linksListDTO,
   occupation,
   setConnectCard,
-  connect,
 }: props) {
   const [linkedin, setLinkedin] = useState('br.linkedin.com');
   const [whatsapp, setWhatsapp] = useState('(XX) XXXXX - XXXX');
@@ -58,7 +57,7 @@ function ProfileCard({
   }, []);
 
   return (
-    <Section flag={connect}>
+    <Section>
       <ProfilePicture src={foto} />
       <Article>
         <H1>{userName}</H1>
@@ -71,7 +70,7 @@ function ProfileCard({
         </MidiaLinkedin>
       </Article>
       {widthScreen > screenSizes.default ? (
-        <>
+        <Desktop>
           <ButtonBig
             onClick={() => {
               setConnectCard();
@@ -97,7 +96,7 @@ function ProfileCard({
               </P>
             </MidiaEmail>
           </Contact>
-        </>
+        </Desktop>
       ) : null}
     </Section>
   );

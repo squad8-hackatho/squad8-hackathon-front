@@ -7,14 +7,22 @@ import { useSelector } from 'react-redux';
 /* import foto from '../../assets/foto.png'; */
 import { Sidebar } from '../Sidebar/Sidebar';
 
-function ProfileButton() {
+const defaultProps = {
+  size: 40,
+};
+
+type Props = {
+  size?: number;
+} & typeof defaultProps;
+
+function ProfileButton({ size }: Props) {
   const currentUser = useSelector((state: any) => {
     return state.user;
   });
 
-  return (
-    <Sidebar currentUser={currentUser} />
-  );
+  return <Sidebar currentUser={currentUser} size={size} />;
 }
+
+ProfileButton.defaultProps = defaultProps;
 
 export default ProfileButton;

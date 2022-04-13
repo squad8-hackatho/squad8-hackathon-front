@@ -1,13 +1,9 @@
 import styled from 'styled-components';
 import { theme, customMedia } from '../../themes/theme';
 
-type Props = {
-  flag: boolean;
-};
-
-export const Section = styled.section<Props>`
+export const Section = styled.section`
   display: flex;
-  width: 24vw;
+  width: 23vw;
   height: 100vh;
 
   flex-direction: column;
@@ -15,13 +11,15 @@ export const Section = styled.section<Props>`
   background-color: ${theme.colors.white};
   margin-left: 8%;
   border-radius: 5px;
+  margin-top: -3px;
 
   button {
-    margin-top: 22px;
-    width: 250px;
-    height: 55px;
+    margin: 7% 0;
+    width: 19vw;
+    height: 6.5vh;
     border-radius: 5px;
-    font-size: 20px;
+    line-height: 24px;
+    font-size: 24px;
   }
 
   button {
@@ -32,22 +30,19 @@ export const Section = styled.section<Props>`
     }
   }
 
-  ${(props) => {
-    return customMedia.lessThan('tablet')`
+  ${customMedia.lessThan('tablet')`
     width: 100vw;
-    height: 25vh;
+    height: 18vh;
+    border-radius: 0px;
     flex-direction: row;
-    padding: 10% 0% 0% 6%;
+    padding: 0% 0% 0% 6%;
     margin-left: 0px;
-    background-color: ${
-      props.flag ? theme.colors.lightGray : theme.colors.white
-    }};
-  `;
-  }}
+  `}
 
   ${customMedia.lessThan('mobileM')`
     padding-top: 8%;
     padding-left: 6%;
+    padding-top: 0px;
   `}
 
   ${customMedia.lessThan('mobileS')`
@@ -62,10 +57,12 @@ export const H1 = styled.h1`
   font-weight: 700;
 
   ${customMedia.lessThan('tablet')`
-    font-size: 28px;
+    font-size: 22px;
+    line-height: 35px;
   `}
-  ${customMedia.lessThan('mobileM')`
-    font-size: 26px;
+  ${customMedia.lessThan('mobileS')`
+    font-size: 18px;
+    line-height: 10px;
   `}
 `;
 
@@ -76,23 +73,52 @@ export const Midia = styled.div`
     color: ${theme.colors.gray02};
     word-break: break-all;
   }
+
+  ${customMedia.lessThan('default')`
+    p {
+      font-size: 12px;
+    }
+    svg {
+      width: 20px;
+    }
+  `}
+
+  ${customMedia.lessThan('mobileS')`
+    p {
+      font-size: 10px;
+    }
+    svg {
+      width: 18px;
+    }
+  `}
 `;
 
 export const MidiaLinkedin = styled(Midia)`
+  margin-top: 4%;
   svg {
     margin: 5px;
   }
+
+  ${customMedia.lessThan('default')`
+    margin-top: 0%;
+  `}
+
+  ${customMedia.lessThan('mobileS')`
+    svg {
+      margin: 2px 4px 0px 0px;
+    }
+  `}
 `;
 
 export const MidiaWhatsapp = styled(Midia)`
   svg {
-    margin: 12px 15px 0px 0px;
+    margin: 19px 15px 0px 0px;
   }
 `;
 
 export const MidiaEmail = styled(Midia)`
   svg {
-    margin: 18px 15px 0px 0px;
+    margin: 28px 15px 0px 0px;
   }
 `;
 
@@ -112,43 +138,49 @@ export const Article = styled.article`
     width: 60vw;
     margin-left: 5%;
     align-items: start;
+    p {
+      line-height: 30px;
+    }
+  `}
+
+  ${customMedia.lessThan('mobileS')`
+    margin-top: 10px;
+    h1 {
+      margin-bottom: 5px;
+    }
   `}
 `;
 
-export const Contact = styled(Article)`
+export const Desktop = styled(Article)`
+  margin-top: 2%;
   p {
     color: ${theme.colors.gray02};
-    margin-top: 5%;
+    margin-top: 8%;
     font-size: 16px;
   }
 
   h3 {
     font-size: 22px;
-    margin-top: 10px;
+    margin: 12px 0;
     color: ${theme.colors.orange};
   }
 `;
 
+export const Contact = styled(Article)``;
+
 export const ProfilePicture = styled.img`
-  width: 200px;
-  height: 200px;
+  width: 16vw;
 
   border-radius: 50%;
-  margin: 70px 50px 20px 50px;
+  margin: 25% 5% 6% 5%;
 
   ${customMedia.lessThan('tablet')`
     margin: 0px;
-    width: 120px;
-    height: 120px;
+    width: 28vw;
   `}
 
   ${customMedia.lessThan('mobileL')`
     margin: 0px;
-  `}
-
-  ${customMedia.between('tablet', 'laptopS')`
-    width: 180px;
-    height: 180px;
   `}
 `;
 
@@ -156,9 +188,13 @@ export const P = styled.p`
   font-size: 18px;
 
   ${customMedia.lessThan('tablet')`
-    font-size: 19px;
+    font-size: 15px;
   `}
-  ${customMedia.lessThan('mobileM')`
-    font-size: 17px;
+
+  ${customMedia.lessThan('default')`
+    font-size: 13px;
+  `}
+  ${customMedia.lessThan('mobileS')`
+    font-size: 11px;
   `}
 `;

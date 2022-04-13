@@ -3,7 +3,7 @@ import Modal from 'styled-react-modal';
 import { theme, customMedia } from '../../themes/theme';
 
 export const Main = styled.main`
-  background-color: ${theme.colors.lightGray};
+  background-color: ${theme.colors.background};
 `;
 
 export const Article = styled.article`
@@ -16,12 +16,12 @@ export const Article = styled.article`
     margin: 0px;
     height: 74.5vh;
     flex-direction: none;
-    width: 80vw;
+    width: 90vw;
   `}
 `;
 
 export const Nav = styled.nav`
-  padding: 20px 15px;
+  padding: 35px 15px;
   display: flex;
 
   p {
@@ -53,9 +53,14 @@ export const Nav = styled.nav`
 export const FooterButton = styled.footer`
   ${customMedia.lessThan('tablet')`
     margin:0;
-    width: 80vw;
+    width: 90vw;
     bottom: 0px;
-    margin-top: 10%;
+    margin-top: 5%;
+
+    button {
+      margin: 0;
+      width: 90vw;
+    }
   `}
 
   ${customMedia.lessThan('mobileM')`
@@ -78,42 +83,56 @@ export const ResquestButton = styled(FooterButton)`
 
 export const Description = styled.article`
   width: 55vw;
-  height: 20vh;
+  height: 18vh;
   background-color: ${theme.colors.white};
-  border-radius: 5px;
+  border-radius: 8px;
+  word-break: break-all;
 
-  margin-top: 5%;
+  margin-top: 3%;
 
   &:nth-child(2) {
-    margin-top: 0;
-    height: 30vh;
+    height: 25vh;
+  }
+
+  &:nth-child(3) {
+    height: 13vh;
   }
 
   ${customMedia.lessThan('tablet')`
     justify-content: center;
     align-items: center;
-    width: 80vw;
+    
+    box-shadow: 0px 5px 0.3em -5px rgba(0, 0, 0, 0.2);
+    width: 90vw;
+    border-radius: 0;
     &:nth-child(1) {
-      border-radius: 8px;
+      margin-top: 5%;
+      height: 25vh;
+      border-radius: 5px;
     }
     &:nth-child(2) {
-
-      border-top-left-radius: 8px;
-      border-top-right-radius: 8px;
+      height 14vh;
+      margin-top: 5%;
+      border-top-left-radius: 5px;
+      border-top-right-radius: 5px;
     }
     &:nth-child(3) {
-      margin-top: 0;
+      height: 18vh;
+      margin-top: -1px;
       border-bottom-left-radius: 8px;
       border-bottom-right-radius: 8px;
     }
-    `}
-
-  h2 {
-    padding: 10px 20px;
-  }
+  `}
 
   ${customMedia.lessThan('mobileM')`
     margin-top: 4%;
+
+    &:nth-child(2) {
+      height 15vh;
+    }
+    &:nth-child(3) {
+      height: 18vh;
+    }
   `}
 `;
 
@@ -146,20 +165,23 @@ export const Info = styled(Description)`
 `;
 
 export const Tags = styled.article`
-  margin: 15px 15px;
+  margin: 0px 15px;
   display: flex;
   flex-wrap: wrap;
   justify-content: start;
 `;
 
 export const Tag = styled.button`
-  width: 105px;
-  height: 36px;
+  width: 10vw;
+  min-width: 95px;
+  height: 40px;
   font-weight: bold;
 
   ${customMedia.lessThan('tablet')`
     width: 90px;
     height: 30px;
+    font-size: 13px;
+
   `}
 
   background-color: ${theme.colors.mainBlue};
@@ -176,10 +198,15 @@ export const Tag = styled.button`
 
 export const H2 = styled.h2`
   font-size: 22px;
-  padding: 10px 0px;
+  padding: 10px 20px;
+
+  ${customMedia.lessThan('tablet')`
+    font-size: 18px;
+  `}
 
   ${customMedia.lessThan('mobileM')`
-    font-size: 20px;
+    font-size: 17px;
+    padding: 10px 20px 5px 20px;
   `}
 `;
 
@@ -187,8 +214,12 @@ export const P = styled.p`
   font-size: 18px;
   padding: 10px 20px;
 
+  ${customMedia.lessThan('tablet')`
+    font-size: 16px;
+  `}
+
   ${customMedia.lessThan('mobileM')`
-    font-size: 20px;
+    font-size: 14px;
   `}
 `;
 
