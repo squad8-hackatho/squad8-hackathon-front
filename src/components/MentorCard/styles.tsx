@@ -11,7 +11,7 @@ export const Card = styled.section`
 
   margin: 26px;
 
-  background-color: rgba(241, 241, 244, 0.3);
+  background-color: white;
   border-radius: 10px;
   border: 1.5px solid ${theme.colors.mediumGray};  
 
@@ -24,6 +24,10 @@ export const Card = styled.section`
 
   ${customMedia.lessThan('tablet')`
     margin: 15px 5px;
+  `}
+
+  ${customMedia.lessThan('mobileS')`
+    margin: 10px 7px 5px 7px;
   `}
 `;
 

@@ -1,6 +1,16 @@
 import React from 'react';
-import { NewDropdown } from '../NewDropdown';
-import { Background, ModalContent, ModalWrapper } from './styles';
+import { RiEqualizerFill } from 'react-icons/ri';
+import { NewDropdown } from '../Dropdown';
+import {
+  Background,
+  ButtonModalFilter,
+  ButtonWrapper,
+  CloseModalFilter,
+  HeaderModalFilter,
+  ModalContent,
+  ModalWrapper,
+  TitleModalFilter,
+} from './styles';
 
 type Props = {
   showFilterModal: boolean;
@@ -32,15 +42,33 @@ export function SkillFilter({
         <Background>
           <ModalWrapper>
             <ModalContent>
-              <h2>Filtrar por:</h2>
+              <HeaderModalFilter>
+                <TitleModalFilter>
+                  <RiEqualizerFill size={32} />
+                  <h2>Filtrar por:</h2>
+                </TitleModalFilter>
+                <CloseModalFilter
+                  size={40}
+                  onClick={() => {
+                    return setShowFilterModal(false);
+                  }}
+                />
+              </HeaderModalFilter>
+
               <h3>Escolha a primeira habilidade:</h3>
               <NewDropdown techFilter={skill1} setTechFilter={setSkill1} />
 
               <h3>Escolha a segunda habilidade:</h3>
               <NewDropdown techFilter={skill2} setTechFilter={setSkill2} />
-              <button type="button" onClick={handleFilterClick}>
-                Filtrar
-              </button>
+              <ButtonWrapper>
+                <ButtonModalFilter
+                  onClick={() => {
+                    handleFilterClick();
+                  }}
+                >
+                  Filtrar
+                </ButtonModalFilter>
+              </ButtonWrapper>
             </ModalContent>
           </ModalWrapper>
         </Background>

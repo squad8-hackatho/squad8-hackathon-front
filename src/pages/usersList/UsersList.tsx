@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import { RiEqualizerFill } from 'react-icons/ri';
 import { v4 as uuidv4 } from 'uuid';
 import { Navigate } from 'react-router-dom';
 import { useSelector } from 'react-redux';
@@ -13,6 +14,9 @@ import {
   Select,
   Section,
   Main,
+  ButtonFilter,
+  FilterWrapper,
+  PaginationWrapper,
 } from './styles';
 import { getUsers } from '../../services/services';
 import { SkillFilter } from '../../components/SkillFilter';
@@ -59,8 +63,6 @@ function UsersList() {
         setDataArr(data.content);
         setTotalPages(data.totalPages);
       }
-      console.log('firstSkill', selectedSkillsToFilter[0].technologie);
-      console.log('secondSkill', selectedSkillsToFilter[1].technologie);
     }
     getBySkills();
   }, [selectedSkillsToFilter]);
@@ -86,11 +88,7 @@ function UsersList() {
         <MentorCard
           key={uuidv4()}
           name={user.userName}
-          occupation={
-            user.professionList.length > 0
-              ? user.professionList[0].description
-              : ''
-          }
+          occupation={user.professionList[0].occupation}
           tags={user.expertiseList}
           bioDescription={user.bio}
           email={user.email}
@@ -134,7 +132,7 @@ function UsersList() {
       return !prev;
     });
     setSkill1({ area: 'null', technologie: 'null' });
-    setSkill2({ area: 'null', technologie: 'null' })
+    setSkill2({ area: 'null', technologie: 'null' });
   }
 
   return currentUser.isLogged ? (
@@ -150,28 +148,39 @@ function UsersList() {
       />
       <TopBarPattern flag setSortByName={setSortByName} />
 
-      <Filter>
-        <button type="button" onClick={handleSkillFilter}>
-          Filtrar por habilidades
-        </button>
-      </Filter>
+      <FilterWrapper>
+        <Filter>
+          <ButtonFilter>
+            <RiEqualizerFill
+              onClick={() => {
+                handleSkillFilter();
+              }}
+            />
+            <button type="button" onClick={handleSkillFilter}>
+              Filtrar
+            </button>
+          </ButtonFilter>
+        </Filter>
+      </FilterWrapper>
 
       <Mentors>{getCards()}</Mentors>
 
-      <Section>
-        <NumberPage>
-          <Select
-            onChange={(e) => {
-              setSortByName('');
-              setSize(e.target.value);
-              setSort('');
-            }}
-          >
-            {getOptions()}
-          </Select>
-        </NumberPage>
-        <Pages>{getPages()}</Pages>
-      </Section>
+      <PaginationWrapper>
+        <Section>
+          <NumberPage>
+            <Select
+              onChange={(e) => {
+                setSortByName('');
+                setSize(e.target.value);
+                setSort('');
+              }}
+            >
+              {getOptions()}
+            </Select>
+          </NumberPage>
+          <Pages>{getPages()}</Pages>
+        </Section>
+      </PaginationWrapper>
     </Main>
   ) : (
     <Navigate to="/login" />
