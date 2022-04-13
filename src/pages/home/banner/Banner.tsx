@@ -1,17 +1,19 @@
 import React from 'react';
-import { Section, Title, Main } from './styles';
+import { theme } from '../../../themes/theme';
+import { Section, Title } from './styles';
 
-const Pattern: React.FC = ({ children }) => {
-  return (
-    <Main>
-      <Section>
-        <Title>
-          Technical<strong>Share</strong>
-        </Title>
-      </Section>
-      {children}
-    </Main>
-  );
+type Props = {
+  widthScreen: number;
+};
+
+const Pattern = ({ widthScreen }: Props) => {
+  return widthScreen > theme.screenSizes.laptopS ? (
+    <Section>
+      <Title>
+        Technical<strong>Share</strong>
+      </Title>
+    </Section>
+  ) : null;
 };
 
 export default Pattern;
