@@ -2,17 +2,21 @@ import styled from 'styled-components';
 import Modal from 'styled-react-modal';
 import { theme, customMedia } from '../../themes/theme';
 
+export const Main = styled.main`
+  background-color: ${theme.colors.lightGray};
+`;
+
 export const Article = styled.article`
-  width: 65vw;
+  width: 60vw;
   padding: 0 30px;
   flex-direction: column;
-  overflow: scroll;
 
   ${customMedia.lessThan('tablet')`
-    padding: 0px;
-    height: 74.5vh;
-    flex-direction: none;
-    width: 80vw;
+  overflow: scroll;
+  padding: 0px;
+  height: 74.5vh;
+  flex-direction: none;
+  width: 80vw;
   `}
 `;
 
@@ -107,7 +111,7 @@ export const Description = styled.article`
 
 export const Info = styled(Description)`
   margin-top: 0%;
-  height: 17vh;
+  height: 16vh;
   ${customMedia.lessThan('tablet')`
     background-color: ${theme.colors.lightGray};
     height: 15vh;
@@ -163,7 +167,7 @@ export const Tag = styled.button`
 `;
 
 export const H2 = styled.h2`
-  font-size: 24px;
+  font-size: 22px;
   padding: 10px 0px;
 
   ${customMedia.lessThan('mobileM')`
@@ -197,7 +201,6 @@ export const Input = styled.input`
   width: 55vw;
   height: 6vh;
   padding: 15px;
-  margin-top: 10px;
   border-radius: 5px;
 
   ${customMedia.lessThan('tablet')`
@@ -218,7 +221,6 @@ export const Textarea = styled.textarea`
   width: 55vw;
   height: 18vh;
   padding: 15px;
-  margin: 10px 0;
   border-radius: 5px;
   resize: none;
 
@@ -232,19 +234,27 @@ export const Textarea = styled.textarea`
 `;
 
 export const StyledModal = Modal.styled`
-  width: 20rem;
-  height: 10rem;
+  width: 25vw;
+  height: 15vh;
   display: flex;
+  flex-direction: column;
   align-items: center;
-  justify-content: center;
   border-radius: 5px;
   background-color: ${theme.colors.white};
+  
+  article {
+    display: flex;
+    justify-content: center;
+    width: 25vw;
+    height: 30%;
+    border-bottom: 1px solid black;
+  }
 `;
 
 export const Contact = styled.article`
   display: flex;
   justify-content: space-between;
-  margin-top: 5%;
+  margin-top: 2%;
   width: 55vw;
 
   article {

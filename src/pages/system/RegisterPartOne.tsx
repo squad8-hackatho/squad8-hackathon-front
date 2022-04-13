@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { H3, Input, Section, Span, /* TextArea */ } from './styles';
+import { H3, Input, Section, Span /* TextArea */ } from './styles';
 import { ButtonBig } from '../../components/Button/styles';
 
 type props = {
@@ -48,7 +48,7 @@ function Register({
 
   return (
     <Section>
-      <H3>Nome</H3>
+      <H3>Nome*</H3>
       <Input
         autoFocus
         type="text"
@@ -58,7 +58,7 @@ function Register({
         placeholder="Nome"
       />
 
-      <H3>E-mail</H3>
+      <H3>E-mail*</H3>
       <Input
         type="text"
         onChange={(e) => {
@@ -71,7 +71,7 @@ function Register({
       />
       {checkEmail ? <Span>Por favor, digite um e-mail válido.</Span> : null}
 
-      <H3>Senha</H3>
+      <H3>Senha*</H3>
       <Input
         type="password"
         onChange={(e) => {
@@ -80,7 +80,7 @@ function Register({
         placeholder="Senha"
       />
 
-      <H3>Confirme sua senha</H3>
+      <H3>Confirme sua senha*</H3>
       <Input
         type="password"
         onChange={(e) => {
@@ -89,13 +89,6 @@ function Register({
         placeholder="Repita a senha"
       />
       {password !== checkPassword ? <Span>Senhas diferentes</Span> : null}
-
-      {/* <TextArea
-        onChange={(e) => {
-          return setBio(e.target.value);
-        }}
-        placeholder="Bio"
-      /> */}
 
       <ButtonBig
         disabled={checkValues()}

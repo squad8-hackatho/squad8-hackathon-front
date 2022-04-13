@@ -3,7 +3,7 @@ import { RiEqualizerFill } from 'react-icons/ri';
 import { v4 as uuidv4 } from 'uuid';
 import { Navigate } from 'react-router-dom';
 import { useSelector } from 'react-redux';
-import { TopBarPattern } from '../pattern';
+import { TopBarUserList } from '../../components/topBar';
 import { MentorCard } from '../../components/MentorCard';
 import {
   Filter,
@@ -88,7 +88,11 @@ function UsersList() {
         <MentorCard
           key={uuidv4()}
           name={user.userName}
-          occupation={user.professionList[0].occupation}
+          occupation={
+            user.professionList.length > 0
+              ? user.professionList[0].occupation
+              : ''
+          }
           tags={user.expertiseList}
           bioDescription={user.bio}
           email={user.email}
@@ -146,7 +150,7 @@ function UsersList() {
         skill2={skill2}
         setSkill2={setSkill2}
       />
-      <TopBarPattern flag setSortByName={setSortByName} />
+      <TopBarUserList setSortByName={setSortByName} />
 
       <FilterWrapper>
         <Filter>
