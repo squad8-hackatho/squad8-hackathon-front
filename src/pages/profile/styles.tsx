@@ -2,6 +2,10 @@ import styled from 'styled-components';
 import Modal from 'styled-react-modal';
 import { theme, customMedia } from '../../themes/theme';
 
+export const Main = styled.main`
+  background-color: ${theme.colors.lightGray};
+`;
+
 export const Article = styled.article`
   width: 60vw;
   padding: 0 30px;

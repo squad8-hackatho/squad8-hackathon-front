@@ -2,9 +2,6 @@ import styled from 'styled-components';
 import { customMedia, theme } from '../../../themes/theme';
 
 export const Container = styled.section`
-  width: 100vw;
-  height: 268px;
-
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -16,6 +13,7 @@ export const Container = styled.section`
 
 export const Header = styled.header`
   width: 81%;
+  height: 268px;
 
   hr {
     border: 1px solid ${theme.colors.mediumGray};
@@ -36,8 +34,8 @@ export const TopBar = styled.article`
 
   h3 {
     color: ${theme.colors.orange};
-    font-size: 28px;
     font-weight: 400;
+    font-size: 28px;
   }
 
   ${customMedia.lessThan('mobileL')`
@@ -74,13 +72,3 @@ export const Search = styled.input`
 `;
 
 export const SearchHR = styled.div``;
-
-export const SearchIcon = styled.div`
-  position: absolute;
-  top: 163px;
-  left: 150px;
-
-  ${customMedia.lessThan('laptop')`
-    left: 110px;
-  `}
-`;

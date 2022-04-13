@@ -13,13 +13,13 @@ export const Card = styled.section`
 
   background-color: white;
   border-radius: 10px;
-  border: 1.5px solid ${theme.colors.mediumGray};  
+  border: 1.5px solid ${theme.colors.mediumGray};
 
   hr {
     border: 1px solid ${theme.colors.gray01};
     width: 85%;
     position: relative;
-    bottom: -10px
+    bottom: -10px;
   }
 
   ${customMedia.lessThan('tablet')`
@@ -88,6 +88,7 @@ export const Bio = styled.article`
 
   display: flex;
   flex-direction: column;
+  word-break: break-all;
   align-items: start;
 `;
 
