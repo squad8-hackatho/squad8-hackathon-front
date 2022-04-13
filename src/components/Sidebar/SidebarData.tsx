@@ -11,7 +11,7 @@ export const SidebarData = [
   },
   {
     title: 'Meus agendamentos',
-    path: '/',
+    path: '/schedule',
     icon: <BsIcons.BsCalendarCheck />,
   },
   {

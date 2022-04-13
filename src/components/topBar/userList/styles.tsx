@@ -71,4 +71,6 @@ export const Search = styled.input`
   `}
 `;
 
-export const SearchHR = styled.div``;
+export const SearchHR = styled.div`
+  height: 0px;
+`;

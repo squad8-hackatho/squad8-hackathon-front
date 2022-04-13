@@ -12,7 +12,7 @@ const GlobalStyle = createGlobalStyle<{ theme: ThemeType }>`
    body {
       font-size: 18px;
       background-color: ${({ theme }) => {
-        return theme.colors.white;
+        return theme.colors.background;
       }};
    }
 `;

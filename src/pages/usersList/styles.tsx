@@ -3,7 +3,7 @@ import { customMedia, theme } from '../../themes/theme';
 
 export const Main = styled.main`
   width: 100vw;
-  background-color: ${theme.colors.gray03};
+  background-color: ${theme.colors.background};
 `;
 
 export const FilterWrapper = styled.section`
