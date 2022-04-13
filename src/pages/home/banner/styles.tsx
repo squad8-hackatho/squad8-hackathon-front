@@ -2,15 +2,16 @@ import styled from 'styled-components';
 import { customMedia, theme } from '../../../themes/theme';
 
 export const Section = styled.section`
-  justify-content: center;
   display: flex;
+  justify-content: center;
+  align-items: center;
   width: 55vw;
   height: 100vh;
-  background-color: ${theme.colors.mediumGray};
+  background-color: ${theme.colors.white};
 
-  ${customMedia.lessThan('laptopS')`
-    height: 0px;
-    width: 0vw;
+  ${customMedia.lessThan('tablet')`
+    width: 0;
+    height: 0vh;
   `}
 `;
 
@@ -19,8 +20,8 @@ export const Main = styled.main`
 `;
 
 export const Title = styled.p`
-  font-size: 60px;
-  margin-top: 50%;
+  font-size: 80px;
+  color: ${theme.colors.orange};
 
   ${customMedia.lessThan('tablet')`
     font-size: 50px;
@@ -30,17 +31,5 @@ export const Title = styled.p`
     font-size: 24px;
     margin-top: 5%;
     margin-left: 65%;
-  `}
-`;
-
-export const Article = styled.article`
-  height: 65vh;
-  display: flex;
-  flex-direction: column;
-  align-items: left;
-  padding: 100px 50px;
-
-  ${customMedia.lessThan('laptopS')`
-    padding: 30px 0px;
-  `}
+  `};
 `;
