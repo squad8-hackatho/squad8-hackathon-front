@@ -3,8 +3,8 @@ import { MdClose } from 'react-icons/md';
 import { customMedia, theme } from '../../themes/theme';
 
 export const Background = styled.div`
-  width: 100%;
-  height: 100%;
+  width: 100vw;
+  height: 100vh;
   background: rgba(196, 196, 196, 0.5);
   position: fixed;
   display: flex;
@@ -16,9 +16,9 @@ export const Background = styled.div`
 export const ModalWrapper = styled.div`
   display: flex;
   width: 70vw;
-  height: 60vh;
+  height: 70vh;
   box-shadow: 0 5px 16px rgba(0, 0, 0, 0.2);
-  background: ${theme.colors.gray03};
+  background: ${theme.colors.background};
   color: ${theme.colors.orange};
   position: relative;
   z-index: 10;
@@ -26,9 +26,19 @@ export const ModalWrapper = styled.div`
 
   padding: 23px 30px 23px 30px;
 
+  ${customMedia.lessThan('laptop')`
+    width: 70vw;
+    height: 90vh;
+  `}
+
+  ${customMedia.lessThan('tablet')`
+    width: 80vw;
+    height: 90vh;
+  `}
+
   ${customMedia.lessThan('mobileL')`
     width: 100vw;
-    height: 100vh;
+    min-height: 100vh;
   `}
 `;
 
@@ -45,6 +55,14 @@ export const ModalContent = styled.div`
     font-weight: bold;
     margin: 15px 0 15px 0;
   }
+
+  ${customMedia.lessThan('mobileL')`
+    h3 {
+      font-size: 15px;
+      font-weight: bold;
+      margin: 0;
+    }
+  `}
 `;
 
 export const HeaderModalFilter = styled.div`
@@ -87,7 +105,7 @@ export const ButtonWrapper = styled.div`
 
   display: flex;
   justify-content: center;
-  align-items: flex-end;
+  align-items: center;
 
   ${customMedia.lessThan('mobileL')`
     align-items: center;
@@ -97,8 +115,6 @@ export const ButtonWrapper = styled.div`
 export const ButtonModalFilter = styled.button`
   width: 25%;
   height: 60px;
-
-  margin: 0 0 40px 0;  
   border: 1px solid ${theme.colors.orange};
   border-radius: 12px;
 

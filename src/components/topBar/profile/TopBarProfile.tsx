@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import { Link } from 'react-router-dom';
 import { theme } from '../../../themes/theme';
 // import ProfileButton from '../../../components/ProfileButton/ProfileButton';
 
@@ -19,10 +20,18 @@ function TopBarPattern() {
     <Container>
       <TopBar>
         {widthScreen > theme.screenSizes.mobileL ? (
-          <h3>
-            Technical<strong>Share</strong>
-          </h3>
-        ) : null}
+          <Link to="/usersList" style={{ textDecoration: 'none' }}>
+            <h3>
+              Technical<strong>Share</strong>
+            </h3>
+          </Link>
+        ) : (
+          <Link to="/usersList" style={{ textDecoration: 'none' }}>
+            <h3>
+              Tech<strong>Share</strong>
+            </h3>
+          </Link>
+        )}
       </TopBar>
     </Container>
   );

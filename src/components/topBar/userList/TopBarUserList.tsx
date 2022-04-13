@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
+import { Link } from 'react-router-dom';
+import ProfileButton from "../../ProfileButton/ProfileButton";
 import { theme } from '../../../themes/theme';
-import ProfileButton from '../../ProfileButton/ProfileButton';
 
 import { Container, Header, Search, SearchHR, TopBar } from './styles';
 
@@ -25,13 +26,17 @@ function TopBarPattern({ setSortByName }: props) {
         <TopBar>
           <ProfileButton />
           {widthScreen > theme.screenSizes.mobileL ? (
-            <h3>
-              Technical<strong>Share</strong>
-            </h3>
+            <Link to="/usersList" style={{ textDecoration: 'none' }}>
+              <h3>
+                Technical<strong>Share</strong>
+              </h3>
+            </Link>
           ) : (
-            <h3>
-              Tech<strong>Share</strong>
-            </h3>
+            <Link to="/usersList" style={{ textDecoration: 'none' }}>
+              <h3>
+                Tech<strong>Share</strong>
+              </h3>
+            </Link>
           )}
         </TopBar>
         <SearchHR>
