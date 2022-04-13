@@ -1,8 +1,8 @@
-/* eslint-disable no-unused-vars */
-import React, { useEffect, useState } from 'react';
-import { useSelector } from 'react-redux';
+import React, { useState } from 'react';
+import { useSelector, useDispatch } from 'react-redux';
 // import { screenSizes } from '../../themes/theme';
 import { ButtonBig } from '../../components/Button/styles';
+import { fetchUser } from '../../redux/userSlice';
 import { request } from '../../services/services';
 import {
   Article,
@@ -37,6 +37,7 @@ function Request({ dataArr }: props) {
   });
   const element = document.getElementById('urgency') as HTMLInputElement;
   const form = document.getElementById('formRequest') as HTMLFormElement;
+  const dispatch = useDispatch();
   const currentUser = useSelector((state: any) => {
     return state.user;
   });
@@ -48,11 +49,15 @@ function Request({ dataArr }: props) {
     form.reset();
   };
 
+  const reload = async () => {
+    await dispatch(fetchUser(currentUser.user.email));
+  };
+
   const toggleModal = () => {
     setIsOpen(!isOpen);
   };
 
-  const onSubmit = () => {
+  const onSubmit = async () => {
     const isChecked = element.checked;
 
     const contactList = [];
@@ -76,9 +81,12 @@ function Request({ dataArr }: props) {
       contactList,
     };
 
-    request(obj);
-    toggleModal();
-    reset();
+    const flag = await request(obj);
+    if (flag) {
+      toggleModal();
+      reset();
+      reload();
+    }
   };
 
   const modal = () => {

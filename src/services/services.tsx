@@ -21,9 +21,15 @@ export async function getUsers<T = unknown>(url: string) {
 }
 
 export async function request(values: any) {
-  await api.post('/requisitions', {
-    ...values,
-  });
+  let createFlag = false;
+  await api
+    .post('/requisitions', {
+      ...values,
+    })
+    .then(() => {
+      createFlag = true;
+    });
+  return { createFlag };
 }
 
 export async function register(values: any) {
