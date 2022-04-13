@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { LinkedinIcon, WhatsappIcon, EmailIcon } from '../../assets/icons';
 import {
   Section,
   Article,
@@ -6,7 +7,9 @@ import {
   P,
   H1,
   Contact,
-  Midia,
+  MidiaLinkedin,
+  MidiaWhatsapp,
+  MidiaEmail,
 } from './styles';
 import { ButtonBig } from '../Button/styles';
 import { screenSizes } from '../../themes/theme';
@@ -41,7 +44,6 @@ function ProfileCard({
 
   const getContact = () => {
     linksListDTO.forEach((item) => {
-      console.log(item);
       if (item.domain === 'linkedin') {
         setLinkedin(item.link);
       }
@@ -60,15 +62,13 @@ function ProfileCard({
       <ProfilePicture src={foto} />
       <Article>
         <H1>{userName}</H1>
-        <P>
-          <strong>Cargo:</strong> {occupation}
-        </P>
+        <P>Cargo: {occupation}</P>
 
-        {widthScreen < screenSizes.default ? (
-          <Midia>
-            <P>{linkedin}</P>
-          </Midia>
-        ) : null}
+        <MidiaLinkedin>
+          <LinkedinIcon />
+
+          <P>{linkedin}</P>
+        </MidiaLinkedin>
       </Article>
       {widthScreen > screenSizes.default ? (
         <>
@@ -77,19 +77,25 @@ function ProfileCard({
               setConnectCard();
             }}
           >
-            Quero me conectar
+            Marcar Horário
           </ButtonBig>
 
           <Contact>
-            <P>
-              <strong>{whatsapp}</strong>
-            </P>
-            <P>
-              <strong>{email}</strong>
-            </P>
-            <P>
-              <strong>{linkedin}</strong>
-            </P>
+            <h3>Contatos:</h3>
+            <MidiaWhatsapp>
+              <WhatsappIcon />
+
+              <P>
+                <strong>{whatsapp}</strong>
+              </P>
+            </MidiaWhatsapp>
+            <MidiaEmail>
+              <EmailIcon />
+
+              <P>
+                <strong>{email}</strong>
+              </P>
+            </MidiaEmail>
           </Contact>
         </>
       ) : null}

@@ -8,20 +8,20 @@ export const Main = styled.main`
 
 export const Article = styled.article`
   width: 60vw;
-  padding: 0 30px;
   flex-direction: column;
+  margin-left: 50px;
 
   ${customMedia.lessThan('tablet')`
-  overflow: scroll;
-  padding: 0px;
-  height: 74.5vh;
-  flex-direction: none;
-  width: 80vw;
+    overflow: scroll;
+    margin: 0px;
+    height: 74.5vh;
+    flex-direction: none;
+    width: 80vw;
   `}
 `;
 
 export const Nav = styled.nav`
-  padding: 20px 27px;
+  padding: 20px 15px;
   display: flex;
 
   p {
@@ -77,10 +77,17 @@ export const ResquestButton = styled(FooterButton)`
 `;
 
 export const Description = styled.article`
-  width: 60vw;
+  width: 55vw;
   height: 20vh;
   background-color: ${theme.colors.white};
+  border-radius: 5px;
+
   margin-top: 5%;
+
+  &:nth-child(2) {
+    margin-top: 0;
+    height: 30vh;
+  }
 
   ${customMedia.lessThan('tablet')`
     justify-content: center;
@@ -90,6 +97,7 @@ export const Description = styled.article`
       border-radius: 8px;
     }
     &:nth-child(2) {
+
       border-top-left-radius: 8px;
       border-top-right-radius: 8px;
     }
@@ -154,7 +162,7 @@ export const Tag = styled.button`
     height: 30px;
   `}
 
-  background-color: ${theme.colors.blackGray};
+  background-color: ${theme.colors.mainBlue};
   border-radius: 6px;
   margin: 4px 4px;
 

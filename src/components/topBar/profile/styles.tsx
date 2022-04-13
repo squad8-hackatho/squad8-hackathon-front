@@ -16,7 +16,7 @@ export const Container = styled.section`
   h3 {
     color: ${theme.colors.orange};
     font-weight: 400;
-    font-size: 28px;
+    font-size: 24px;
 
     ${customMedia.lessThan('mobileL')`
     font-size: 0px;
@@ -25,5 +25,5 @@ export const Container = styled.section`
 `;
 
 export const TopBar = styled.article`
-  margin-left: 10%;
+  margin-left: 8%;
 `;
