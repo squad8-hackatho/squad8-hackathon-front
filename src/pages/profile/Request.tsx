@@ -15,6 +15,7 @@ import {
   StyledModal,
   Contact,
   P,
+  Form,
 } from './styles';
 
 type props = {
@@ -93,7 +94,7 @@ function Request({ dataArr }: props) {
 
   // console.log(currentUser);
   return (
-    <form
+    <Form
       id="formRequest"
       onSubmit={(e) => {
         e.preventDefault();
@@ -165,7 +166,7 @@ function Request({ dataArr }: props) {
           <ButtonBig>Enviar</ButtonBig>
         </ResquestButton>
       </Article>
-    </form>
+    </Form>
   );
 }
 

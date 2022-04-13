@@ -1,8 +1,11 @@
 import React, { useState } from 'react';
+import { useDispatch } from 'react-redux';
 import * as FaIcons from 'react-icons/fa';
 import * as AiIcons from 'react-icons/ai';
 import { Link } from 'react-router-dom';
 import { SidebarData } from './SidebarData';
+import { logout } from '../../redux/userSlice';
+
 import {
   Dropdown,
   DropdownContent,
@@ -11,13 +14,19 @@ import {
   Text,
 } from './styles';
 
-type Props = {
-  currentUser: any;
+const defaultProps = {
+  size: 40,
 };
 
-export function Sidebar({ currentUser }: Props) {
+type Props = {
+  currentUser: any;
+  size?: number;
+} & typeof defaultProps;
+
+export function Sidebar({ currentUser, size }: Props) {
   const [showMenu, setShowMenu] = useState('none');
-  const profileLink = `/profile/${currentUser.user.email}`
+  const profileLink = `/profile/${currentUser.user.email}`;
+  const dispatch = useDispatch();
 
   function handleClick() {
     if (showMenu === 'none') {
@@ -31,7 +40,7 @@ export function Sidebar({ currentUser }: Props) {
     <Dropdown>
       <NavIcon>
         <FaIcons.FaBars
-          size={40}
+          size={size}
           onClick={() => {
             handleClick();
           }}
@@ -47,7 +56,16 @@ export function Sidebar({ currentUser }: Props) {
             </DropdownItem>
           </Link>
           {SidebarData.map((item: any) => {
-            return (
+            return item.title === 'Sair' ? (
+              <DropdownItem
+                onClick={() => {
+                  dispatch(logout());
+                }}
+              >
+                {item.icon}
+                <Text>{item.title}</Text>
+              </DropdownItem>
+            ) : (
               <Link
                 to={item.path}
                 style={{ textDecoration: 'none', color: 'black' }}
@@ -65,3 +83,5 @@ export function Sidebar({ currentUser }: Props) {
     </Dropdown>
   );
 }
+
+Sidebar.defaultProps = defaultProps;

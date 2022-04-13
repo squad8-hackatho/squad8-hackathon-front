@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { LinkedinIcon, WhatsappIcon, EmailIcon } from '../../assets/icons';
 import {
   Section,
   Article,
@@ -6,7 +7,10 @@ import {
   P,
   H1,
   Contact,
-  Midia,
+  MidiaLinkedin,
+  MidiaWhatsapp,
+  MidiaEmail,
+  Desktop,
 } from './styles';
 import { ButtonBig } from '../Button/styles';
 import { screenSizes } from '../../themes/theme';
@@ -24,7 +28,6 @@ type props = {
   ];
   occupation: string;
   setConnectCard: Function;
-  connect: boolean;
 };
 
 function ProfileCard({
@@ -34,14 +37,12 @@ function ProfileCard({
   linksListDTO,
   occupation,
   setConnectCard,
-  connect,
 }: props) {
   const [linkedin, setLinkedin] = useState('br.linkedin.com');
   const [whatsapp, setWhatsapp] = useState('(XX) XXXXX - XXXX');
 
   const getContact = () => {
     linksListDTO.forEach((item) => {
-      console.log(item);
       if (item.domain === 'linkedin') {
         setLinkedin(item.link);
       }
@@ -56,42 +57,46 @@ function ProfileCard({
   }, []);
 
   return (
-    <Section flag={connect}>
+    <Section>
       <ProfilePicture src={foto} />
       <Article>
         <H1>{userName}</H1>
-        <P>
-          <strong>Cargo:</strong> {occupation}
-        </P>
+        <P>Cargo: {occupation}</P>
 
-        {widthScreen < screenSizes.default ? (
-          <Midia>
-            <P>{linkedin}</P>
-          </Midia>
-        ) : null}
+        <MidiaLinkedin>
+          <LinkedinIcon />
+
+          <P>{linkedin}</P>
+        </MidiaLinkedin>
       </Article>
       {widthScreen > screenSizes.default ? (
-        <>
+        <Desktop>
           <ButtonBig
             onClick={() => {
               setConnectCard();
             }}
           >
-            Quero me conectar
+            Marcar Horário
           </ButtonBig>
 
           <Contact>
-            <P>
-              <strong>{whatsapp}</strong>
-            </P>
-            <P>
-              <strong>{email}</strong>
-            </P>
-            <P>
-              <strong>{linkedin}</strong>
-            </P>
+            <h3>Contatos:</h3>
+            <MidiaWhatsapp>
+              <WhatsappIcon />
+
+              <P>
+                <strong>{whatsapp}</strong>
+              </P>
+            </MidiaWhatsapp>
+            <MidiaEmail>
+              <EmailIcon />
+
+              <P>
+                <strong>{email}</strong>
+              </P>
+            </MidiaEmail>
           </Contact>
-        </>
+        </Desktop>
       ) : null}
     </Section>
   );

@@ -60,3 +60,15 @@ export async function register(values: any) {
 
   return { createFlag };
 }
+
+export async function deleteRequisition(id: number, email: string) {
+  let createFlag = false;
+
+  await api
+    .delete(`requisitions?idRequisition=${id}&emailRemoveRequest=${email}`)
+    .then(() => {
+      createFlag = true;
+    });
+
+  return { createFlag };
+}

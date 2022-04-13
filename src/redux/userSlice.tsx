@@ -5,6 +5,7 @@ import { getUsers } from '../services/services';
 export const fetchUser = createAsyncThunk('user', async (params: any) => {
   const { data }: any = await getUsers(`/profiles/findprofile?email=${params}`);
 
+  console.log('noo', data);
   if (data !== null) return data;
   return false;
 });
@@ -15,7 +16,11 @@ const userSlice = createSlice({
     user: [{}],
     isLogged: false,
   },
-  reducers: {},
+  reducers: {
+    logout(state) {
+      return { ...state, isLogged: false, user: [''] };
+    },
+  },
   extraReducers: (builder) => {
     builder.addCase(fetchUser.fulfilled, (state, action) => {
       if (action.payload) {
@@ -26,4 +31,5 @@ const userSlice = createSlice({
   },
 });
 
+export const { logout } = userSlice.actions;
 export default userSlice.reducer;

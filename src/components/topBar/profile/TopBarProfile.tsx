@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { theme } from '../../../themes/theme';
-// import ProfileButton from '../../../components/ProfileButton/ProfileButton';
+import ProfileButton from '../../ProfileButton/ProfileButton';
 
-import { Container, TopBar } from './styles';
+import { Container, TopBar, Button } from './styles';
 
 function TopBarPattern() {
   const [widthScreen, setWidthScreen] = useState(window.screen.width / 16);
@@ -20,17 +20,16 @@ function TopBarPattern() {
     <Container>
       <TopBar>
         {widthScreen > theme.screenSizes.mobileL ? (
-          <Link to="/usersList" style={{ textDecoration: 'none' }}>
-            <h3>
-              Technical<strong>Share</strong>
-            </h3>
-          </Link>
+          <h3>
+            Technical<strong>Share</strong>
+          </h3>
         ) : (
-          <Link to="/usersList" style={{ textDecoration: 'none' }}>
-            <h3>
-              Tech<strong>Share</strong>
-            </h3>
-          </Link>
+          <>
+            <ProfileButton size={25} />
+            <Link to="/userslist">
+              <Button>Voltar</Button>
+            </Link>
+          </>
         )}
       </TopBar>
     </Container>

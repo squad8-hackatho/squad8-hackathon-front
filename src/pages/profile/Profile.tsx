@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
-import { useParams, Link } from 'react-router-dom';
+import { useParams, Link, Navigate } from 'react-router-dom';
+import { useSelector } from 'react-redux';
 import { screenSizes } from '../../themes/theme';
 import { Section, Nav, Article, Main } from './styles';
 import { TopBarProfile } from '../../components/topBar';
@@ -13,6 +14,9 @@ function Profile() {
   const [dataArr, setDataArr] = useState<any>();
   const [loading, setLoading] = useState(true);
   const [connect, setConnect] = useState(false);
+  const currentUser = useSelector((state: any) => {
+    return state.user;
+  });
   const params = useParams();
 
   useEffect(() => {
@@ -40,7 +44,7 @@ function Profile() {
     setConnect(!connect);
   };
 
-  return (
+  return currentUser.isLogged ? (
     <Main>
       {loading ? (
         <p>Carregando</p>
@@ -54,7 +58,6 @@ function Profile() {
               userName={dataArr.userName}
               linksListDTO={dataArr.linksListDTO}
               setConnectCard={setConnectCard}
-              connect={connect}
               occupation={
                 dataArr.professionList.length > 0
                   ? dataArr.professionList[0].description
@@ -80,6 +83,8 @@ function Profile() {
         </>
       )}
     </Main>
+  ) : (
+    <Navigate to="/login" />
   );
 }
 
