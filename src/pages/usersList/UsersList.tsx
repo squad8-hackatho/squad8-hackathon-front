@@ -17,6 +17,7 @@ import {
   ButtonFilter,
   FilterWrapper,
   PaginationWrapper,
+  MentorsWrapper,
 } from './styles';
 import { getUsers } from '../../services/services';
 import { SkillFilter } from '../../components/SkillFilter';
@@ -166,8 +167,11 @@ function UsersList() {
           </ButtonFilter>
         </Filter>
       </FilterWrapper>
-
-      <Mentors>{getCards()}</Mentors>
+      
+      <MentorsWrapper>
+        <Mentors>{getCards()}</Mentors>
+      </MentorsWrapper>
+      
 
       <PaginationWrapper>
         <Section>
