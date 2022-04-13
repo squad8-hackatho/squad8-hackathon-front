@@ -40,7 +40,6 @@ function Profile() {
     setConnect(!connect);
   };
 
-  console.log(dataArr);
   return (
     <main>
       {loading ? (

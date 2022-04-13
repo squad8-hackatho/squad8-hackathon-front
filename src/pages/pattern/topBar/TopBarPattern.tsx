@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { theme } from '../../../themes/theme';
 import ProfileButton from '../../../components/ProfileButton/ProfileButton';
 
-import { Container, Header, Search, SearchHR, TopBar } from './styles';
+import { Container, Header, Search, SearchHR, TopBar, H3 } from './styles';
 
 const defaultProps = {
   setSortByName: null,
@@ -25,18 +25,18 @@ function TopBarPattern({ flag, setSortByName }: props) {
   });
 
   return (
-    <Container>
+    <Container flag={flag}>
       <Header>
         <TopBar>
           {flag ? <ProfileButton /> : null}
           {widthScreen > theme.screenSizes.mobileL ? (
-            <h3>
+            <H3 flag={widthScreen > theme.screenSizes.mobileL}>
               Technical<strong>Share</strong>
-            </h3>
+            </H3>
           ) : (
-            <h3>
+            <H3 flag={widthScreen > theme.screenSizes.mobileL}>
               Tech<strong>Share</strong>
-            </h3>
+            </H3>
           )}
         </TopBar>
 

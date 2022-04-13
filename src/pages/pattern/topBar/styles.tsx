@@ -1,17 +1,28 @@
 import styled from 'styled-components';
 import { customMedia, theme } from '../../../themes/theme';
 
-export const Container = styled.section`
+type Props = {
+  flag: boolean;
+};
+
+export const Container = styled.section<Props>`
   width: 100vw;
-  height: 268px;
+  height: ${(props) => {
+    return props.flag ? '268px' : '100px';
+  }};
 
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: ${(props) => {
+    return props.flag ? 'none' : 'center';
+  }};
 
-  ${customMedia.lessThan('mobileL')`
-    height: 192px;
-  `}
+  ${(props) => {
+    return customMedia.lessThan('mobileL')`
+    height: ${props.flag ? '192px;' : '0'};
+  `;
+  }}
 `;
 
 export const Header = styled.header`
@@ -36,7 +47,6 @@ export const TopBar = styled.article`
 
   h3 {
     color: ${theme.colors.orange};
-    font-size: 28px;
     font-weight: 400;
   }
 
@@ -44,6 +54,12 @@ export const TopBar = styled.article`
     padding-top: 20px;
     height: 70px;
   `}
+`;
+
+export const H3 = styled.h3<Props>`
+  font-size: ${(props) => {
+    return props.flag ? '28px' : '0px';
+  }};
 `;
 
 export const Search = styled.input`
