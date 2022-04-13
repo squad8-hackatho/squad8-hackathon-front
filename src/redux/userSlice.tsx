@@ -5,6 +5,7 @@ import { getUsers } from '../services/services';
 export const fetchUser = createAsyncThunk('user', async (params: any) => {
   const { data }: any = await getUsers(`/profiles/findprofile?email=${params}`);
 
+  console.log('noo', data);
   if (data !== null) return data;
   return false;
 });

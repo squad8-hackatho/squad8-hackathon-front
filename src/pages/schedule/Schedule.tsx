@@ -1,6 +1,9 @@
 import React from 'react';
-import { useSelector } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
 import { v4 as uuidv4 } from 'uuid';
+import * as BsIcons from 'react-icons/bs';
+import { fetchUser } from '../../redux/userSlice';
+import { deleteRequisition } from '../../services/services';
 import { ScheduleItem } from '../../components/ScheduleItem/ScheduleItem';
 import TopBarPattern from '../../components/topBar/profile/TopBarProfile';
 import {
@@ -8,6 +11,7 @@ import {
   RequestFromOthers,
   RequestsWrapper,
   UserRequest,
+  Article,
 } from './styles';
 
 export function Schedule() {
@@ -15,6 +19,11 @@ export function Schedule() {
     return state.user;
   });
   const { mentoringListGiven, mentoringListReceived } = currentUser.user;
+  const dispatch = useDispatch();
+
+  const reload = async () => {
+    await dispatch(fetchUser(currentUser.user.email));
+  };
 
   return (
     <Main>
@@ -24,12 +33,25 @@ export function Schedule() {
           <h2>Meus agendamentos</h2>
           {mentoringListReceived.map((item: any) => {
             return (
-              <ScheduleItem
-                key={uuidv4()}
-                name={item.requiredUserName}
-                subject={item.subject}
-                urgency={item.urgency}
-              />
+              <Article>
+                <ScheduleItem
+                  key={uuidv4()}
+                  name={item.userName}
+                  subject={item.subject}
+                  urgency={item.urgency}
+                />
+                <BsIcons.BsTrash
+                  size={40}
+                  color="red"
+                  onClick={async () => {
+                    const flag = await deleteRequisition(
+                      item.id,
+                      item.userEmail
+                    );
+                    if (flag) reload();
+                  }}
+                />
+              </Article>
             );
           })}
         </UserRequest>
@@ -37,12 +59,25 @@ export function Schedule() {
           <h2>Solicitações</h2>
           {mentoringListGiven.map((item: any) => {
             return (
-              <ScheduleItem
-                key={uuidv4()}
-                name={item.userName}
-                subject={item.subject}
-                urgency={item.urgency}
-              />
+              <Article>
+                <ScheduleItem
+                  key={uuidv4()}
+                  name={item.userName}
+                  subject={item.subject}
+                  urgency={item.urgency}
+                />
+                <BsIcons.BsTrash
+                  size={40}
+                  color="red"
+                  onClick={async () => {
+                    const flag = await deleteRequisition(
+                      item.id,
+                      item.requiredUserEmail
+                    );
+                    if (flag) reload();
+                  }}
+                />
+              </Article>
             );
           })}
         </RequestFromOthers>

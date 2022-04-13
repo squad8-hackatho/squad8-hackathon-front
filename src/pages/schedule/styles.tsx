@@ -51,3 +51,13 @@ export const RequestFromOthers = styled.section`
     margin-top: 40px;
   `}
 `;
+
+export const Article = styled.article`
+  display: flex;
+  align-items: center;
+
+  svg {
+    margin-left: 20px;
+    cursor: pointer;
+  }
+`;
