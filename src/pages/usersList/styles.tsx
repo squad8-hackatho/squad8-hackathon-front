@@ -15,7 +15,6 @@ export const FilterWrapper = styled.section`
 
 export const Filter = styled.section`
   width: 81%;
-  margin: 20px 0 0 0;
 
   ${customMedia.lessThan('tablet')`
     width: 92%;

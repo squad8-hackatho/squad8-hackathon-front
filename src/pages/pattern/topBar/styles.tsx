@@ -3,6 +3,7 @@ import { customMedia, theme } from '../../../themes/theme';
 
 export const Container = styled.section`
   width: 100vw;
+  height: 268px;
 
   display: flex;
   flex-direction: column;
@@ -35,6 +36,11 @@ export const TopBar = styled.article`
     font-size: 28px;
     font-weight: 400;
   }
+
+  ${customMedia.lessThan('mobileL')`
+    padding-top: 20px;
+    height: 70px;
+  `}
 `;
 
 export const Search = styled.input`
@@ -60,9 +66,6 @@ export const Search = styled.input`
 
   ${customMedia.lessThan('tablet')`
     margin-top: 22px;
-  `}
-
-  ${customMedia.lessThan('tablet')`
     padding: 0 0 0 27px;
   `}
 `;
