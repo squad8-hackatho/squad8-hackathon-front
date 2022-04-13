@@ -28,7 +28,7 @@ function TopBarPattern({ flag, setSortByName }: props) {
     <Container>
       <Header>
         <TopBar>
-          {flag ? <ProfileButton /> : null}
+          <ProfileButton />
           {widthScreen > theme.screenSizes.mobileL ? (
             <h3>
               Technical<strong>Share</strong>

@@ -18,7 +18,7 @@ export const ModalWrapper = styled.div`
   width: 70vw;
   height: 60vh;
   box-shadow: 0 5px 16px rgba(0, 0, 0, 0.2);
-  background: ${theme.colors.gray03};
+  background: ${theme.colors.background};
   color: ${theme.colors.orange};
   position: relative;
   z-index: 10;
