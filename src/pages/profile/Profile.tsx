@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import { useParams, Link } from 'react-router-dom';
 import { screenSizes } from '../../themes/theme';
-import { Section, Nav, Article } from './styles';
-import { TopBarPattern } from '../pattern';
+import { Section, Nav, Article, Main } from './styles';
+import { TopBarProfile } from '../../components/topBar';
 import ProfileCard from '../../components/ProfileCard/ProfileCard';
 import { getUsers } from '../../services/services';
 import InfoProfile from './Info';
@@ -41,12 +41,12 @@ function Profile() {
   };
 
   return (
-    <main>
+    <Main>
       {loading ? (
         <p>Carregando</p>
       ) : (
         <>
-          <TopBarPattern flag={false} />
+          <TopBarProfile />
           <Section>
             <ProfileCard
               widthScreen={widthScreen}
@@ -79,7 +79,7 @@ function Profile() {
           </Section>
         </>
       )}
-    </main>
+    </Main>
   );
 }
 

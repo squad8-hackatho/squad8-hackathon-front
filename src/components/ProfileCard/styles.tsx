@@ -12,8 +12,7 @@ export const Section = styled.section<Props>`
 
   flex-direction: column;
   align-items: center;
-  background-color: ${theme.colors.lightGray};
-  border-top: 1px solid ${theme.colors.lightGray};
+  background-color: ${theme.colors.white};
   margin-left: 8%;
 
   button {

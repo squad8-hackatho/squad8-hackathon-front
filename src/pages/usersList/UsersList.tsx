@@ -3,7 +3,7 @@ import { RiEqualizerFill } from 'react-icons/ri';
 import { v4 as uuidv4 } from 'uuid';
 import { Navigate } from 'react-router-dom';
 import { useSelector } from 'react-redux';
-import { TopBarPattern } from '../pattern';
+import { TopBarUserList } from '../../components/topBar';
 import { MentorCard } from '../../components/MentorCard';
 import {
   Filter,
@@ -150,7 +150,7 @@ function UsersList() {
         skill2={skill2}
         setSkill2={setSkill2}
       />
-      <TopBarPattern flag setSortByName={setSortByName} />
+      <TopBarUserList setSortByName={setSortByName} />
 
       <FilterWrapper>
         <Filter>

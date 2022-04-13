@@ -1,32 +1,19 @@
 import styled from 'styled-components';
 import { customMedia, theme } from '../../../themes/theme';
 
-type Props = {
-  flag: boolean;
-};
-
-export const Container = styled.section<Props>`
-  width: 100vw;
-  height: ${(props) => {
-    return props.flag ? '268px' : '100px';
-  }};
-
+export const Container = styled.section`
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: ${(props) => {
-    return props.flag ? 'none' : 'center';
-  }};
 
-  ${(props) => {
-    return customMedia.lessThan('mobileL')`
-    height: ${props.flag ? '192px;' : '0'};
-  `;
-  }}
+  ${customMedia.lessThan('mobileL')`
+    height: 192px;
+  `}
 `;
 
 export const Header = styled.header`
   width: 81%;
+  height: 268px;
 
   hr {
     border: 1px solid ${theme.colors.mediumGray};
@@ -48,18 +35,13 @@ export const TopBar = styled.article`
   h3 {
     color: ${theme.colors.orange};
     font-weight: 400;
+    font-size: 28px;
   }
 
   ${customMedia.lessThan('mobileL')`
     padding-top: 20px;
     height: 70px;
   `}
-`;
-
-export const H3 = styled.h3<Props>`
-  font-size: ${(props) => {
-    return props.flag ? '28px' : '0px';
-  }};
 `;
 
 export const Search = styled.input`
@@ -90,13 +72,3 @@ export const Search = styled.input`
 `;
 
 export const SearchHR = styled.div``;
-
-export const SearchIcon = styled.div`
-  position: absolute;
-  top: 163px;
-  left: 150px;
-
-  ${customMedia.lessThan('laptop')`
-    left: 110px;
-  `}
-`;
