@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { RiEqualizerFill } from "react-icons/ri";
+import { RiEqualizerFill } from 'react-icons/ri';
 import { v4 as uuidv4 } from 'uuid';
 import { Navigate } from 'react-router-dom';
 import { useSelector } from 'react-redux';
@@ -16,6 +16,7 @@ import {
   Main,
   ButtonFilter,
   FilterWrapper,
+  PaginationWrapper,
 } from './styles';
 import { getUsers } from '../../services/services';
 import { SkillFilter } from '../../components/SkillFilter';
@@ -62,8 +63,6 @@ function UsersList() {
         setDataArr(data.content);
         setTotalPages(data.totalPages);
       }
-      console.log('firstSkill', selectedSkillsToFilter[0].technologie);
-      console.log('secondSkill', selectedSkillsToFilter[1].technologie);
     }
     getBySkills();
   }, [selectedSkillsToFilter]);
@@ -152,7 +151,11 @@ function UsersList() {
       <FilterWrapper>
         <Filter>
           <ButtonFilter>
-            <RiEqualizerFill onClick={() => {handleSkillFilter()}} />
+            <RiEqualizerFill
+              onClick={() => {
+                handleSkillFilter();
+              }}
+            />
             <button type="button" onClick={handleSkillFilter}>
               Filtrar
             </button>
@@ -162,20 +165,22 @@ function UsersList() {
 
       <Mentors>{getCards()}</Mentors>
 
-      <Section>
-        <NumberPage>
-          <Select
-            onChange={(e) => {
-              setSortByName('');
-              setSize(e.target.value);
-              setSort('');
-            }}
-          >
-            {getOptions()}
-          </Select>
-        </NumberPage>
-        <Pages>{getPages()}</Pages>
-      </Section>
+      <PaginationWrapper>
+        <Section>
+          <NumberPage>
+            <Select
+              onChange={(e) => {
+                setSortByName('');
+                setSize(e.target.value);
+                setSort('');
+              }}
+            >
+              {getOptions()}
+            </Select>
+          </NumberPage>
+          <Pages>{getPages()}</Pages>
+        </Section>
+      </PaginationWrapper>
     </Main>
   ) : (
     <Navigate to="/login" />

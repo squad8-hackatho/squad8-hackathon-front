@@ -69,26 +69,44 @@ export const Pages = styled.article`
   justify-content: end;
 `;
 
+export const PaginationWrapper = styled.section`
+  width: 100vw;
+  display: flex;
+  justify-content: center;
+`;
+
 export const Section = styled.section`
-  width: 90vw;
+  width: 81%;
   display: flex;
   justify-content: space-between;
 `;
 
 export const NumberPage = styled(Pages)`
   justify-content: start;
+  font-size: 16px;
 `;
 
 export const Select = styled.select`
   width: 40px;
   height: 40px;
-  border: 1px solid ${theme.colors.darkGray};
+  border: 2px solid ${theme.colors.mediumGray};
+  font-size: 20px;
+  text-align: center;
 `;
 
 export const Button = styled.button`
   width: 40px;
   height: 40px;
-  border: 1px solid ${theme.colors.darkGray};
+  border: 1px solid ${theme.colors.mediumGray};
+  border-radius: 8px;
+  margin-left: 5px;
+  font-size: 16px;
+  background-color: ${theme.colors.white};
+
+  :hover {
+    background-color: ${theme.colors.orange};
+    color: ${theme.colors.white};
+  }
 
   :active {
     position: relative;

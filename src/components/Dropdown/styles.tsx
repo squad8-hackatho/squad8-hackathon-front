@@ -13,11 +13,11 @@ export const Form = styled.form`
   flex-direction: row;
   align-items: center;
 
-  width: 60%;
+  width: 67%;
 
   ${customMedia.lessThan('mobileL')`
     flex-direction: column;
-    width: 270px;
+    width: 85%;
   `}
 `;
 
@@ -30,13 +30,14 @@ export const Select = styled.select`
   padding: 12px 8px;
   margin: 0 10px;
   outline: 0;
-  border: 2px groove ${theme.colors.orange};
+  border: 2px groove ${theme.colors.white};
   border-radius: 8px;
   background: ${theme.colors.white};
   color: ${theme.colors.blackGray};
   appearance: none;
   -webkit-appearance: none;
   -moz-appearance: none;
+  outline: none;
 `;
 
 export const Icon = styled.div`
@@ -46,7 +47,19 @@ export const Icon = styled.div`
 
   ${customMedia.lessThan('mobileL')`
     position: relative;
-    left: 120px;
+    left: 150px;
+    top: -30px;
+  `}
+
+  ${customMedia.lessThan('mobileM')`
+    position: relative;
+    left: 140px;
+    top: -30px;
+  `}
+
+  ${customMedia.lessThan('mobileS')`
+    position: relative;
+    left: 115px;
     top: -30px;
   `}
 `;
