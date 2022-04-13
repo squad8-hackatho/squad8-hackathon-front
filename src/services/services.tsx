@@ -21,18 +21,42 @@ export async function getUsers<T = unknown>(url: string) {
 }
 
 export async function request(values: any) {
-  console.log(values);
-  let error: Error | null = null;
+  await api.post('/requisitions', {
+    ...values,
+  });
+}
+
+export async function register(values: any) {
+  let createFlag = false;
+
   await api
-    .post('/requisitions', {
-      ...values,
+    .post('/profiles/register', {
+      userName: values.name,
+      email: values.email,
+      bio: values.bio,
+      linksListDTO: values.links,
+      expertiseList: values.expertise,
+      professionList: [
+        {
+          occupation: values.area,
+          description: values.description,
+          experienceLevel: values.level,
+          startDate: null,
+          finalDate: null,
+        },
+      ],
+      academicEducationList: [
+        {
+          course: null,
+          startDate: null,
+          finalDate: null,
+          institution: null,
+        },
+      ],
     })
-    .then((response) => {
-      console.log(response);
-    })
-    .catch((err) => {
-      error = err;
+    .then(() => {
+      createFlag = true;
     });
 
-  return { error };
+  return { createFlag };
 }

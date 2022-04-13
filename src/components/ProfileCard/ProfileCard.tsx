@@ -41,10 +41,11 @@ function ProfileCard({
 
   const getContact = () => {
     linksListDTO.forEach((item) => {
+      console.log(item);
       if (item.domain === 'linkedin') {
         setLinkedin(item.link);
       }
-      if (item.domain === 'whatsapp') {
+      if (item.domain === 'telefone') {
         setWhatsapp(item.link);
       }
     });

@@ -83,7 +83,10 @@ function Request({ dataArr }: props) {
   const modal = () => {
     return (
       <StyledModal isOpen={isOpen} onBackgroundClick={toggleModal}>
-        <span>Requisição enviada com sucesso!</span>
+        <article>
+          <h3>Confirmação</h3>
+        </article>
+        <P>Requisição enviada para {dataArr.userName}! </P>
       </StyledModal>
     );
   };

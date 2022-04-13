@@ -60,7 +60,7 @@ export const ButtonBig = styled.button`
   padding: 15px 30px;
   background-color: ${theme.colors.orange};
   color: ${theme.colors.white};
-  cursor: pointer;  
+  cursor: pointer;
 
   :hover {
     border: 1px solid ${theme.colors.orange};

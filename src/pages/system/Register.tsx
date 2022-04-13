@@ -1,31 +1,55 @@
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { Main, Button, Form, P, H2 } from './styles';
 import RegisterPartOne from './RegisterPartOne';
 import RegisterPartTwo from './RegisterPartTwo';
-import { CreateAccount } from './CreateAccountPost';
+import { register } from '../../services/services';
 
 function Register() {
   const [name, setName] = useState('');
-  // const [bio, setBio] = useState('');
+  const [bio, setBio] = useState('');
   const [password, setPassword] = useState('');
   const [email, setEmail] = useState('');
   const [next, setNext] = useState(false);
-  const [cargo, setCargo] = useState('');
+  const [description, setDescription] = useState('');
   const [area, setArea] = useState('');
+  const [numero, setNumero] = useState('');
+  const [linkedin, setLinkedin] = useState('');
   const [expertise, setExpertise] = useState([]);
   const [level, setLevel] = useState('');
+  const navigate = useNavigate();
 
-  const onSubmit = () => {
-    const submit = CreateAccount({
+  const onSubmit = async () => {
+    const links = [];
+    if (numero !== '') {
+      links.push({
+        link: numero,
+        domain: 'telefone',
+      });
+    }
+
+    if (linkedin !== '') {
+      links.push({
+        link: linkedin,
+        domain: 'linkedin',
+      });
+    }
+
+    const values = {
       name,
       email,
+      password,
       area,
       level,
       expertise,
-      cargo,
-    });
-    console.log(submit, password);
+      description,
+      links,
+      bio,
+    };
+
+    const flag = await register(values);
+
+    if (flag) navigate('/login');
   };
 
   return (
@@ -52,11 +76,16 @@ function Register() {
           />
         ) : (
           <RegisterPartTwo
-            setCargo={setCargo}
+            setDescription={setDescription}
             setArea={setArea}
             setSkills={setExpertise}
             setLevel={setLevel}
-            onSubmit={onSubmit}
+            setLinkedin={setLinkedin}
+            setNumero={setNumero}
+            area={area}
+            description={description}
+            level={level}
+            setBio={setBio}
           />
         )}
 

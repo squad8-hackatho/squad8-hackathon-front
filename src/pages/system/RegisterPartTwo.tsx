@@ -1,33 +1,51 @@
 /* eslint-disable react/jsx-no-bind */
 import React, { useEffect, useState } from 'react';
-import { H3, Input, Section, Select, Tag, Tags } from './styles';
+import {
+  H3,
+  Input,
+  Section,
+  Select,
+  Tag,
+  Tags,
+  Span,
+  TextArea,
+} from './styles';
 import { ButtonBig } from '../../components/Button/styles';
 import { getUsers } from '../../services/services';
 import { setSelectedSkillToPost } from '../../helpers/setSelectedSkillsToPost';
 
 type props = {
-  setCargo: Function;
+  setDescription: Function;
   setArea: Function;
-  onSubmit: Function;
   setSkills: Function;
   setLevel: Function;
+  setLinkedin: Function;
+  setNumero: Function;
+  setBio: Function;
+  area: string;
+  level: string;
+  description: string;
 };
 
-function Register({ setCargo, setArea, onSubmit, setSkills, setLevel }: props) {
-  const checkValues = (): boolean => {
-    // return (
-    //   name === '' ||
-    //   password === '' ||
-    //   email === '' ||
-    //   password !== checkPassword ||
-    //   checkEmail
-    // );
-    return false;
-  };
-
+function Register({
+  setDescription,
+  setArea,
+  setSkills,
+  setLevel,
+  setLinkedin,
+  setNumero,
+  description,
+  level,
+  area,
+  setBio,
+}: props) {
   const emptyArray: any = [];
   const [skillsList, setSkillsList] = useState([]);
   const [selectedSkills, setSelectedSkills] = useState(emptyArray);
+
+  const checkValues = (): boolean => {
+    return description === '' || level === '' || area === '';
+  };
 
   useEffect(() => {
     let dataOutside: any = [];
@@ -43,7 +61,7 @@ function Register({ setCargo, setArea, onSubmit, setSkills, setLevel }: props) {
         }
       });
       setSkillsList(uniqueSkills);
-      
+
       setSkills(
         setSelectedSkillToPost({ skillsList: selectedSkills, dataOutside })
       );
@@ -55,26 +73,18 @@ function Register({ setCargo, setArea, onSubmit, setSkills, setLevel }: props) {
     function filterSkill(skill: any) {
       return skill !== event.target.value;
     }
-    if (selectedSkills.includes(event.target.value)) {
-      setSelectedSkills(selectedSkills.filter(filterSkill));
-    } else {
-      setSelectedSkills([...selectedSkills, event.target.value]);
+    if (selectedSkills.length <= 5) {
+      if (selectedSkills.includes(event.target.value)) {
+        setSelectedSkills(selectedSkills.filter(filterSkill));
+      } else {
+        setSelectedSkills([...selectedSkills, event.target.value]);
+      }
     }
   }
 
   return (
     <Section>
-      <H3>Selecione a sua área de atuação</H3>
-      <Input
-        autoFocus
-        type="text"
-        onChange={(e) => {
-          setCargo(e.target.value);
-        }}
-        placeholder="Área de atuação"
-      />
-
-      <H3>Cargo na FCamara</H3>
+      <H3>Cargo na FCamara*</H3>
       <Input
         autoFocus
         type="text"
@@ -84,15 +94,22 @@ function Register({ setCargo, setArea, onSubmit, setSkills, setLevel }: props) {
         placeholder="Cargo na FCamera"
       />
 
-      <H3>Selecione o nível do seu cargo</H3>
+      <H3>Descreva seu cargo*</H3>
+      <Input
+        type="text"
+        onChange={(e) => {
+          setDescription(e.target.value);
+        }}
+        placeholder="Adicione a descrição"
+      />
+
+      <H3>Selecione o nível do seu cargo*</H3>
       <Select
         onChange={(e) => {
           setLevel(e.target.value);
         }}
       >
-        <option value="valor1" selected>
-          Nível do cargo
-        </option>
+        <option defaultValue="valor1">Nível do cargo</option>
         <option value="Não se aplica">Não se aplica</option>
         <option value="Estagiário">Estagiário</option>
         <option value="Trainee">Trainee</option>
@@ -100,7 +117,7 @@ function Register({ setCargo, setArea, onSubmit, setSkills, setLevel }: props) {
         <option value="Pleno">Pleno</option>
         <option value="Senior">Senior</option>
       </Select>
-        
+
       <Tags>
         {selectedSkills.map((skill: any) => {
           return (
@@ -120,10 +137,8 @@ function Register({ setCargo, setArea, onSubmit, setSkills, setLevel }: props) {
       </Tags>
 
       <H3>Selecione as suas habilidades</H3>
-      <Select onChange={handleChange}>
-        <option value="default" selected>
-          Suas habilidades
-        </option>
+      <Select onChange={handleChange} disabled={selectedSkills.length === 5}>
+        <option defaultValue="default">Suas habilidades</option>
         {skillsList.map((skill: any) => {
           return (
             <option value={skill} key={skill}>
@@ -132,14 +147,37 @@ function Register({ setCargo, setArea, onSubmit, setSkills, setLevel }: props) {
           );
         })}
       </Select>
+      {selectedSkills.length === 5 ? (
+        <Span>Quantidade máxima atingida</Span>
+      ) : null}
 
-      <ButtonBig
-        type="submit"
-        onClick={() => {
-          onSubmit();
+      <H3>Biografia</H3>
+      <TextArea
+        onChange={(e) => {
+          return setBio(e.target.value);
         }}
-        disabled={checkValues()}
-      >
+        placeholder="Bio"
+      />
+
+      <H3>Número*</H3>
+      <Input
+        type="text"
+        onChange={(e) => {
+          setNumero(e.target.value);
+        }}
+        placeholder="(XX) XXXXX-XXXX"
+      />
+
+      <H3>Linkedin*</H3>
+      <Input
+        type="text"
+        onChange={(e) => {
+          setLinkedin(e.target.value);
+        }}
+        placeholder="Linkedin"
+      />
+
+      <ButtonBig type="submit" disabled={checkValues()}>
         Criar a minha conta
       </ButtonBig>
     </Section>
