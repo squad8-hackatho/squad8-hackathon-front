@@ -1,15 +1,13 @@
 import React from 'react';
-import { Article, Section, Title, Main } from './styles';
+import { Section, Title, Main } from './styles';
 
 const Pattern: React.FC = ({ children }) => {
   return (
     <Main>
       <Section>
-        <Article>
-          <Title>
-            Technical<strong>Share</strong>
-          </Title>
-        </Article>
+        <Title>
+          Technical<strong>Share</strong>
+        </Title>
       </Section>
       {children}
     </Main>
