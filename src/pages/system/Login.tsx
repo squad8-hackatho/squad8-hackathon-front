@@ -3,7 +3,7 @@ import React, { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import { Main, Button, H2, Input, Form, P } from './styles';
-import { ButtonBig } from '../../components/Button/styles';
+import { LoginButton } from '../../components/Button/styles';
 import { fetchUser } from '../../redux/userSlice';
 
 function Login() {
@@ -46,7 +46,7 @@ function Login() {
           placeholder="Senha"
         />
 
-        <ButtonBig type="submit">Entrar</ButtonBig>
+        <LoginButton type="submit">Entrar</LoginButton>
 
         <P>
           Não tem uma conta ?{' '}

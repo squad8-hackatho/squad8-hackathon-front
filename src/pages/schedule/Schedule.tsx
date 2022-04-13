@@ -16,9 +16,6 @@ export function Schedule() {
   });
   const { mentoringListGiven, mentoringListReceived } = currentUser.user;
 
-  console.log(mentoringListGiven);
-  console.log(currentUser.user.mentoringListReceived);
-
   return (
     <Main>
       <TopBarPattern flag={false} />

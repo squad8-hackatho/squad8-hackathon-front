@@ -60,7 +60,7 @@ export const ButtonBig = styled.button`
   padding: 15px 30px;
   background-color: ${theme.colors.orange};
   color: ${theme.colors.white};
-  cursor: pointer;  
+  cursor: pointer;
 
   :hover {
     border: 1px solid ${theme.colors.orange};
@@ -80,6 +80,22 @@ export const ButtonBig = styled.button`
   ${customMedia.lessThan('mobileL')`
     font-size: 18px;
   `}
+`;
+
+export const LoginButton = styled.button`
+  margin: 20px 10px 20px 10px;
+  border-radius: 8px;
+  padding: 15px 30px;
+  background-color: ${theme.colors.orange};
+  color: ${theme.colors.white};
+  cursor: pointer;
+  width: 290px;
+
+  :hover {
+    border: 1px solid ${theme.colors.orange};
+    background-color: ${theme.colors.white};
+    color: ${theme.colors.black};
+  }
 `;
 
 export default Button;
