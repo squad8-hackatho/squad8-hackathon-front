@@ -65,7 +65,7 @@ export async function deleteRequisition(id: number, email: string) {
   let createFlag = false;
 
   await api
-    .delete(`requisitions?idRequisition=${id}&emailRemoveRequest=${email}`)
+    .delete(`requisitions?uuidRequisition=${id}&emailRemoveRequest=${email}`)
     .then(() => {
       createFlag = true;
     });

@@ -25,6 +25,7 @@ export function Schedule() {
     await dispatch(fetchUser(currentUser.user.email));
   };
 
+  console.log(currentUser);
   return (
     <Main>
       <TopBarPattern />
@@ -45,7 +46,7 @@ export function Schedule() {
                   color="red"
                   onClick={async () => {
                     const flag = await deleteRequisition(
-                      item.id,
+                      item.uuidRequisition,
                       item.userEmail
                     );
                     if (flag) reload();
@@ -71,7 +72,7 @@ export function Schedule() {
                   color="red"
                   onClick={async () => {
                     const flag = await deleteRequisition(
-                      item.id,
+                      item.uuidRequisition,
                       item.requiredUserEmail
                     );
                     if (flag) reload();
