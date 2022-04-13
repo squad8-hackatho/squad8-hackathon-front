@@ -20,9 +20,11 @@ function TopBarPattern() {
     <Container>
       <TopBar>
         {widthScreen > theme.screenSizes.mobileL ? (
-          <h3>
-            Technical<strong>Share</strong>
-          </h3>
+          <Link to="/usersList" style={{ textDecoration: 'none' }}>
+            <h3>
+              Technical<strong>Share</strong>
+            </h3>
+          </Link>
         ) : (
           <>
             <ProfileButton size={25} />

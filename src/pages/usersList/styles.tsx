@@ -47,13 +47,26 @@ export const ButtonFilter = styled.div`
   }
 `;
 
+export const MentorsWrapper = styled.section`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  width: 100%;
+`;
+
 export const Mentors = styled.section`
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
   justify-content: center;
+  align-items: center;
+
+  max-width: 1599px;
 
   ${customMedia.lessThan('laptopL')`
+    width: 100%;
+
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
