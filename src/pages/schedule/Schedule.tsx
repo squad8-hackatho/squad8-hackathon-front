@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { v4 as uuidv4 } from 'uuid';
 import * as BsIcons from 'react-icons/bs';
@@ -13,6 +13,7 @@ import {
   UserRequest,
   Article,
 } from './styles';
+import { ConfirmDelete } from '../../components/ConfirmDelete';
 
 export function Schedule() {
   const currentUser = useSelector((state: any) => {
@@ -25,18 +26,20 @@ export function Schedule() {
     await dispatch(fetchUser(currentUser.user.email));
   };
 
-  console.log(currentUser);
+  const [showConfirmDelete, setShowConfirmDelete] = useState(false);
+  const [deleteData, setDeleteData] = useState({ uuid: '', email: '' });
+
   return (
     <Main>
+      <ConfirmDelete showConfirmDelete={showConfirmDelete} setShowConfirmDelete={setShowConfirmDelete} deleteData={deleteData} />
       <TopBarPattern />
       <RequestsWrapper>
         <UserRequest>
           <h2>Meus agendamentos</h2>
           {mentoringListReceived.map((item: any) => {
             return (
-              <Article>
+              <Article key={uuidv4()}>
                 <ScheduleItem
-                  key={uuidv4()}
                   name={item.userName}
                   subject={item.subject}
                   urgency={item.urgency}
@@ -45,11 +48,8 @@ export function Schedule() {
                   size={40}
                   color="red"
                   onClick={async () => {
-                    const flag = await deleteRequisition(
-                      item.uuidRequisition,
-                      item.userEmail
-                    );
-                    if (flag) reload();
+                    setDeleteData({ uuid: item.uuidRequisition, email: item.userEmail })
+                    setShowConfirmDelete(true);
                   }}
                 />
               </Article>
