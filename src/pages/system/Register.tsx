@@ -6,6 +6,7 @@ import RegisterPartOne from './RegisterPartOne';
 import RegisterPartTwo from './RegisterPartTwo';
 import { register } from '../../services/services';
 import { fetchUser } from '../../redux/userSlice';
+import BannerPattern from '../../components/banner/Banner';
 
 function Register() {
   const [name, setName] = useState('');
@@ -61,6 +62,7 @@ function Register() {
 
   return (
     <Main>
+      <BannerPattern />
       <Form
         onSubmit={(e) => {
           e.preventDefault();

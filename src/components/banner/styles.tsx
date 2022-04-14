@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { customMedia, theme } from '../../../themes/theme';
+import { customMedia, theme } from '../../themes/theme';
 
 export const Section = styled.section`
   display: flex;

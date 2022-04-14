@@ -401,6 +401,11 @@ export const StyledModal = Modal.styled`
     width: 25vw;
     height: 30%;
     border-bottom: 1px solid black;
+    margin-top: 10px;
+  }
+  button {
+    width: 8vw;
+    margin-top: 10px;
   }
 `;
 

@@ -8,11 +8,12 @@ export const Main = styled.main`
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: ${theme.colors.white};
+  background-color: ${theme.colors.background};
 `;
 
 export const Form = styled.form`
   display: flex;
+  width: 45vw;
   flex-direction: column;
   align-items: center;
   justify-content: center;
@@ -51,10 +52,11 @@ export const Span = styled.span`
 `;
 
 export const P = styled.p`
+  font-size: 14px;
   button {
     outline: none;
     width: 80px;
-    background-color: ${theme.colors.white};
+    background-color: ${theme.colors.background};
     font-weight: bold;
     cursor: pointer;
     text-decoration: underline;
@@ -68,7 +70,7 @@ export const Select = styled.select`
   outline: none;
   border-radius: 8px;
   margin: 10px 10px;
-  background-color: ${theme.colors.lightGray};
+  background-color: ${theme.colors.white};
 `;
 
 export const Input = styled.input`
@@ -76,7 +78,7 @@ export const Input = styled.input`
   padding: 15px 15px;
   text-decoration: none;
   outline: none;
-  background-color: ${theme.colors.lightGray};
+  background-color: ${theme.colors.white};
   border-radius: 8px;
   margin: 10px 0px;
 `;
