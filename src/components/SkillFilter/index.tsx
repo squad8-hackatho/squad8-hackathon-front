@@ -10,6 +10,7 @@ import {
   ModalContent,
   ModalWrapper,
   TitleModalFilter,
+  WrapperForm,
 } from './styles';
 
 type Props = {
@@ -55,20 +56,22 @@ export function SkillFilter({
                 />
               </HeaderModalFilter>
 
-              <h3>Escolha a primeira habilidade:</h3>
-              <NewDropdown techFilter={skill1} setTechFilter={setSkill1} />
+              <WrapperForm>
+                <h3>Escolha a primeira habilidade:</h3>
+                <NewDropdown techFilter={skill1} setTechFilter={setSkill1} />
 
-              <h3>Escolha a segunda habilidade:</h3>
-              <NewDropdown techFilter={skill2} setTechFilter={setSkill2} />
-              <ButtonWrapper>
-                <ButtonModalFilter
-                  onClick={() => {
-                    handleFilterClick();
-                  }}
-                >
-                  Filtrar
-                </ButtonModalFilter>
-              </ButtonWrapper>
+                <h3>Escolha a segunda habilidade:</h3>
+                <NewDropdown techFilter={skill2} setTechFilter={setSkill2} />
+                <ButtonWrapper>
+                  <ButtonModalFilter
+                    onClick={() => {
+                      handleFilterClick();
+                    }}
+                  >
+                    Filtrar
+                  </ButtonModalFilter>
+                </ButtonWrapper>
+              </WrapperForm>
             </ModalContent>
           </ModalWrapper>
         </Background>
