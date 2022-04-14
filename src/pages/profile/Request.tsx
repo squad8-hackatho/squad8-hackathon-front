@@ -167,7 +167,7 @@ function Request({ dataArr }: props) {
           <Info>
             <H2>Email</H2>
             <Input
-              placeholder="@gmail"
+              placeholder="Digite seu e-mail"
               onChange={(e) => {
                 return setEmail({
                   contact: e.target.value,

@@ -23,7 +23,7 @@ export function Schedule() {
   const dispatch = useDispatch();
 
   const reload = async () => {
-    await dispatch(fetchUser(currentUser.user.email));
+    await dispatch(fetchUser(currentUser.email));
   };
 
   const [showConfirmDelete, setShowConfirmDelete] = useState(false);
@@ -31,7 +31,11 @@ export function Schedule() {
 
   return (
     <Main>
-      <ConfirmDelete showConfirmDelete={showConfirmDelete} setShowConfirmDelete={setShowConfirmDelete} deleteData={deleteData} />
+      <ConfirmDelete
+        showConfirmDelete={showConfirmDelete}
+        setShowConfirmDelete={setShowConfirmDelete}
+        deleteData={deleteData}
+      />
       <TopBarPattern />
       <RequestsWrapper>
         <UserRequest>
@@ -48,7 +52,10 @@ export function Schedule() {
                   size={40}
                   color="red"
                   onClick={async () => {
-                    setDeleteData({ uuid: item.uuidRequisition, email: item.userEmail })
+                    setDeleteData({
+                      uuid: item.uuidRequisition,
+                      email: item.userEmail,
+                    });
                     setShowConfirmDelete(true);
                   }}
                 />

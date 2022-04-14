@@ -46,8 +46,6 @@ function ProfileCard({
   const currentUser = useSelector((state: any) => {
     return state.user;
   });
-  console.log(currentUser);
-  console.log(email);
 
   const getContact = () => {
     linksListDTO.forEach((item) => {
@@ -77,7 +75,7 @@ function ProfileCard({
           <P>{linkedin}</P>
         </MidiaLinkedin>
       </Article>
-      {widthScreen > screenSizes.default ? (
+      {widthScreen > screenSizes.ipadMini ? (
         <Desktop>
           {currentUser.email !== email ? (
             <ButtonBig

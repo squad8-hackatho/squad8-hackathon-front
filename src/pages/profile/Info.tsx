@@ -7,9 +7,10 @@ import { Description, H2, Tags, Tag, P, FooterButton } from './styles';
 type props = {
   dataArr: any;
   widthScreen: number;
+  setConnectCard: Function;
 };
 
-function Profile({ dataArr, widthScreen }: props) {
+function Profile({ dataArr, widthScreen, setConnectCard }: props) {
   const getTags = (value: string) => {
     return dataArr.expertiseList.map((item: any) => {
       if (value === 'area') return <Tag key={uuidv4()}>{item.area}</Tag>;
@@ -33,9 +34,15 @@ function Profile({ dataArr, widthScreen }: props) {
         <Tags>{getTags('skill')}</Tags>
       </Description>
 
-      {widthScreen < screenSizes.default ? (
+      {widthScreen < screenSizes.tablet ? (
         <FooterButton>
-          <ButtonBig>Marcar Horário</ButtonBig>
+          <ButtonBig
+            onClick={() => {
+              setConnectCard();
+            }}
+          >
+            Marcar Horário
+          </ButtonBig>
         </FooterButton>
       ) : null}
     </>
