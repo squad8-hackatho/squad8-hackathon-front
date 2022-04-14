@@ -26,7 +26,6 @@ function UsersList() {
   // const levels = ['Trainee', 'Júnior', 'Pleno', 'Sênior'];
   const [page, setPage] = useState(0);
   const [totalPages, setTotalPages] = useState(0);
-  const [sort, setSort] = useState('');
   const [size, setSize] = useState('6');
   const [sortByName, setSortByName] = useState('');
   const [selectedSkillsToFilter, setSelectedSkillsToFilter] = useState([
@@ -44,21 +43,23 @@ function UsersList() {
 
   useEffect(() => {
     async function get() {
-      const { data }: any = await getUsers(
-        `/profiles/findall?page=${page}&size=${size}&sort=${sort}`
-      );
-      if (data) {
-        setDataArr(data.content);
-        setTotalPages(data.totalPages);
+      if (sortByName === '') {
+        const { data }: any = await getUsers(
+          `/profiles/findall?toExcludeProfileEmail=${currentUser.user.email}&page=${page}&size=${size}`
+        );
+        if (data) {
+          setDataArr(data.content);
+          setTotalPages(data.totalPages);
+        }
       }
     }
     get();
-  }, [page, sort, size, sortByName === '']);
+  }, [page, size, sortByName === '']);
 
   useEffect(() => {
     async function getBySkills() {
       const { data }: any = await getUsers(
-        `/profiles/findbyskill?firstSkill=${selectedSkillsToFilter[0].technologie}&secondSkill=${selectedSkillsToFilter[1].technologie}&page=${page}&size=${size}&sort=${sort}`
+        `/profiles/findbyskill?firstSkill=${selectedSkillsToFilter[0].technologie}&secondSkill=${selectedSkillsToFilter[1].technologie}&filterXP=null&toExcludeProfileEmail=${currentUser.user.email}&page=${page}&size=${size}`
       );
       if (data) {
         setDataArr(data.content);
@@ -72,7 +73,7 @@ function UsersList() {
     async function getByName() {
       if (sortByName !== '') {
         const { data }: any = await getUsers(
-          `/profiles/findbyname?name=${sortByName}`
+          `/profiles/findbyname?name=${sortByName}&toExcludeProfileEmail=${currentUser.user.email}&page=${page}&size=${size}`
         );
         if (data) {
           setDataArr(data.content);
@@ -84,15 +85,7 @@ function UsersList() {
   }, [sortByName]);
 
   const getCards = () => {
-    function filterByEmail(item: any) {
-      if (item.email !== currentUser.user.email) {
-        return true;
-      }
-      return false;
-    }
-    const dataToShow = dataArr.filter(filterByEmail);
-
-    return dataToShow.map((user) => {
+    return dataArr.map((user) => {
       return (
         <MentorCard
           key={uuidv4()}
@@ -129,7 +122,6 @@ function UsersList() {
           key={uuidv4()}
           onClick={() => {
             setSortByName('');
-            setSort('');
             setPage(i);
           }}
         >
@@ -187,7 +179,6 @@ function UsersList() {
               onChange={(e) => {
                 setSortByName('');
                 setSize(e.target.value);
-                setSort('');
               }}
             >
               {getOptions()}
