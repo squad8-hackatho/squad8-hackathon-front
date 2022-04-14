@@ -50,7 +50,7 @@ function Login() {
         <LoginButton type="submit">Entrar</LoginButton>
 
         <P>
-          Não tem uma conta ?{' '}
+          Não tem uma conta ?
           <Link to="/register">
             <Button
               type="button"
