@@ -31,14 +31,9 @@ export const ModalWrapper = styled.div`
     height: 70vh;
   `}
 
-  ${customMedia.lessThan('laptop')`
-    width: 70vw;
-    height: 90vh;
-  `}
-
   ${customMedia.lessThan('tablet')`
     width: 80vw;
-    height: 90vh;
+    height: 75vh;
   `}
 
   ${customMedia.lessThan('mobileL')`

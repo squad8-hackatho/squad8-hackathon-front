@@ -1,10 +1,9 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
-import { theme } from '../../themes/theme';
 import {
   BackgroundWithImage,
   Button,
   Buttons,
+  LinkStyled,
   Main,
   Skip,
   Text,
@@ -59,9 +58,9 @@ export function LandingPage({
           />
         </Buttons>
         <Skip>
-          <Link to="/usersList" style={{ color: `${theme.colors.orange}` }}>
-            Explorar
-          </Link>
+          <LinkStyled to="/usersList">
+            Pular
+          </LinkStyled>
         </Skip>
       </Tutorial>
     </Main>

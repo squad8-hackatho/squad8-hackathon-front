@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 // import Modal from 'styled-react-modal';
-import { theme } from '../../themes/theme';
+import { customMedia, theme } from '../../themes/theme';
 
 export const Main = styled.main`
   min-height: 100vh;
@@ -62,6 +62,10 @@ export const P = styled.p`
     text-decoration: underline;
     margin-top: 20px;
   }
+
+  ${customMedia.lessThan('mobileS')`
+    font-size: 13px;
+  `}
 `;
 
 export const Select = styled.select`
