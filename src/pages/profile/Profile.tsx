@@ -44,14 +44,13 @@ function Profile() {
     setConnect(!connect);
   };
 
-  // console.log(currentUser);
   return currentUser.isLogged ? (
     <Main>
       {loading ? (
         <p>Carregando</p>
       ) : (
         <>
-          <TopBarProfile />
+          <TopBarProfile email={params.email} />
           <Section>
             <ProfileCard
               widthScreen={widthScreen}
@@ -67,7 +66,7 @@ function Profile() {
               }
             />
             <Article>
-              {widthScreen > screenSizes.default ? (
+              {widthScreen > screenSizes.ipadMini ? (
                 <Nav>
                   <Link to="/userslist">Lista de Usuários</Link>
                   <p>/</p>
@@ -78,7 +77,11 @@ function Profile() {
               {connect ? (
                 <Request dataArr={dataArr} />
               ) : (
-                <InfoProfile widthScreen={widthScreen} dataArr={dataArr} />
+                <InfoProfile
+                  setConnectCard={setConnectCard}
+                  widthScreen={widthScreen}
+                  dataArr={dataArr}
+                />
               )}
             </Article>
           </Section>

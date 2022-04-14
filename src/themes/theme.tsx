@@ -25,13 +25,14 @@ const blue = '#2d7ff9';
 const blackGray = '#474747';
 const mainBlue = '#36357e';
 const grayLetter = '#343a40';
-const buttonLightGray = '#868E964D'
+const buttonLightGray = '#868E964D';
 
 export const screenSizes = {
   laptopL: 90,
   laptop: 64,
   laptopS: 60,
   tablet: 48,
+  ipadMini: 46,
   default: 32,
   mobileL: 27,
   mobileM: 23.5,
@@ -64,10 +65,11 @@ export const theme = {
 export const customMedia = generateMedia({
   laptopL: '91em',
   laptop: '64em',
-  laptopS: '60em', // usando
-  tablet: '48em', // usando
-  default: '32em', // usando
-  mobileL: '27em', // usando
+  laptopS: '60em',
+  tablet: '48em',
+  ipadMini: '46em',
+  default: '32em',
+  mobileL: '27em',
   mobileM: '23.5em',
   mobileS: '20em',
 });
