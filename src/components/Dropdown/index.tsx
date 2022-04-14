@@ -1,4 +1,3 @@
-/* eslint-disable jsx-a11y/label-has-associated-control */
 import React from 'react';
 import { RiArrowDownSLine } from 'react-icons/ri';
 import { theme } from '../../themes/theme';
@@ -15,7 +14,7 @@ export function NewDropdown({ techFilter, setTechFilter }: Props) {
   const AreaDefault = 'Todas as áreas';
   const TechDefault = 'Todas as tecnologias';
 
-  const handleInputChange = (e: any) => {    
+  const handleInputChange = (e: any) => {
     if (e.target.value === AreaDefault || e.target.value === TechDefault) {
       setTechFilter({ area: '', technologie: '' });
     } else {
