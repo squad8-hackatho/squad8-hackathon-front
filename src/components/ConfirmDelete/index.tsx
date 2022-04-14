@@ -20,7 +20,7 @@ export function ConfirmDelete({
   });
   const dispatch = useDispatch();
   const reload = async () => {
-    await dispatch(fetchUser(currentUser.user.email));
+    await dispatch(fetchUser(currentUser.email));
   };
 
   return (

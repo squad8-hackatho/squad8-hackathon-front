@@ -20,18 +20,22 @@ export function Schedule() {
   const currentUser = useSelector((state: any) => {
     return state.user;
   });
-  const { mentoringListGiven, mentoringListReceived } = currentUser.user;
+  const { mentoringListGiven, mentoringListReceived } = currentUser;
   const dispatch = useDispatch();
 
   const reload = async () => {
-    await dispatch(fetchUser(currentUser.user.email));
+    await dispatch(fetchUser(currentUser.email));
   };
 
   const [showConfirmDelete, setShowConfirmDelete] = useState(false);
   const [deleteData, setDeleteData] = useState({ uuid: '', email: '' });
   return currentUser.isLogged ? (
     <Main>
-      <ConfirmDelete showConfirmDelete={showConfirmDelete} setShowConfirmDelete={setShowConfirmDelete} deleteData={deleteData} />
+      <ConfirmDelete
+        showConfirmDelete={showConfirmDelete}
+        setShowConfirmDelete={setShowConfirmDelete}
+        deleteData={deleteData}
+      />
       <TopBarPattern />
       <RequestsWrapper>
         <UserRequest>
@@ -48,7 +52,10 @@ export function Schedule() {
                   size={40}
                   color="red"
                   onClick={async () => {
-                    setDeleteData({ uuid: item.uuidRequisition, email: item.userEmail })
+                    setDeleteData({
+                      uuid: item.uuidRequisition,
+                      email: item.userEmail,
+                    });
                     setShowConfirmDelete(true);
                   }}
                 />

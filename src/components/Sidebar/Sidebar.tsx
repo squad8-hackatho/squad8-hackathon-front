@@ -25,7 +25,7 @@ type Props = {
 
 export function Sidebar({ currentUser, size }: Props) {
   const [showMenu, setShowMenu] = useState('none');
-  const profileLink = `/profile/${currentUser.user.email}`;
+  const profileLink = `/profile/${currentUser.email}`;
   const dispatch = useDispatch();
 
   function handleClick() {

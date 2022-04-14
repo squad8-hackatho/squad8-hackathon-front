@@ -57,7 +57,7 @@ function Request({ dataArr }: props) {
   }, []);
 
   const reload = async () => {
-    await dispatch(fetchUser(currentUser.user.email));
+    await dispatch(fetchUser(currentUser.email));
   };
 
   const toggleModal = () => {
@@ -79,8 +79,8 @@ function Request({ dataArr }: props) {
     const obj = {
       requiredUserName: dataArr.userName,
       requiredUserEmail: dataArr.email,
-      userName: currentUser.user.userName,
-      userEmail: currentUser.user.email,
+      userName: currentUser.userName,
+      userEmail: currentUser.email,
       subject,
       keyWords: keyConcepts,
       urgency: isChecked,

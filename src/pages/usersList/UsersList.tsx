@@ -45,7 +45,7 @@ function UsersList() {
     async function get() {
       if (sortByName === '') {
         const { data }: any = await getUsers(
-          `/profiles/findall?toExcludeProfileEmail=${currentUser.user.email}&page=${page}&size=${size}`
+          `/profiles/findall?toExcludeProfileEmail=${currentUser.email}&page=${page}&size=${size}`
         );
         if (data) {
           setDataArr(data.content);
@@ -59,7 +59,7 @@ function UsersList() {
   useEffect(() => {
     async function getBySkills() {
       const { data }: any = await getUsers(
-        `/profiles/findbyskill?firstSkill=${selectedSkillsToFilter[0].technologie}&secondSkill=${selectedSkillsToFilter[1].technologie}&filterXP=null&toExcludeProfileEmail=${currentUser.user.email}&page=${page}&size=${size}`
+        `/profiles/findbyskill?firstSkill=${selectedSkillsToFilter[0].technologie}&secondSkill=${selectedSkillsToFilter[1].technologie}&filterXP=null&toExcludeProfileEmail=${currentUser.email}&page=${page}&size=${size}`
       );
       if (data) {
         setDataArr(data.content);
@@ -73,7 +73,7 @@ function UsersList() {
     async function getByName() {
       if (sortByName !== '') {
         const { data }: any = await getUsers(
-          `/profiles/findbyname?name=${sortByName}&toExcludeProfileEmail=${currentUser.user.email}&page=${page}&size=${size}`
+          `/profiles/findbyname?name=${sortByName}&toExcludeProfileEmail=${currentUser.email}&page=${page}&size=${size}`
         );
         if (data) {
           setDataArr(data.content);
