@@ -85,15 +85,26 @@ export const Pages = styled.article`
 `;
 
 export const PaginationWrapper = styled.section`
+  width: 1350px;
+
   width: 100vw;
   display: flex;
   justify-content: center;
+
+  ${customMedia.lessThan('laptopL')`
+    width: 100%;
+  `}
 `;
 
 export const Section = styled.section`
-  width: 81%;
+  width: 1350px;
+  
   display: flex;
   justify-content: space-between;
+
+  ${customMedia.lessThan('laptopL')`
+    width: 81%;
+  `}
 `;
 
 export const NumberPage = styled(Pages)`

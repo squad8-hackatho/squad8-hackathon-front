@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { Navigate } from 'react-router-dom';
 import { v4 as uuidv4 } from 'uuid';
 import * as BsIcons from 'react-icons/bs';
 import { fetchUser } from '../../redux/userSlice';
@@ -24,18 +23,15 @@ export function Schedule() {
   const dispatch = useDispatch();
 
   const reload = async () => {
-    await dispatch(fetchUser(currentUser.email));
+    await dispatch(fetchUser(currentUser.user.email));
   };
 
   const [showConfirmDelete, setShowConfirmDelete] = useState(false);
   const [deleteData, setDeleteData] = useState({ uuid: '', email: '' });
-  return currentUser.isLogged ? (
+
+  return (
     <Main>
-      <ConfirmDelete
-        showConfirmDelete={showConfirmDelete}
-        setShowConfirmDelete={setShowConfirmDelete}
-        deleteData={deleteData}
-      />
+      <ConfirmDelete showConfirmDelete={showConfirmDelete} setShowConfirmDelete={setShowConfirmDelete} deleteData={deleteData} />
       <TopBarPattern />
       <RequestsWrapper>
         <UserRequest>
@@ -52,10 +48,7 @@ export function Schedule() {
                   size={40}
                   color="red"
                   onClick={async () => {
-                    setDeleteData({
-                      uuid: item.uuidRequisition,
-                      email: item.userEmail,
-                    });
+                    setDeleteData({ uuid: item.uuidRequisition, email: item.userEmail })
                     setShowConfirmDelete(true);
                   }}
                 />
@@ -67,9 +60,8 @@ export function Schedule() {
           <h2>Solicitações</h2>
           {mentoringListGiven.map((item: any) => {
             return (
-              <Article>
+              <Article key={uuidv4()}>
                 <ScheduleItem
-                  key={uuidv4()}
                   name={item.userName}
                   subject={item.subject}
                   urgency={item.urgency}
@@ -91,8 +83,6 @@ export function Schedule() {
         </RequestFromOthers>
       </RequestsWrapper>
     </Main>
-  ) : (
-    <Navigate to="/login" />
   );
 }
 
