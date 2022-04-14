@@ -1,8 +1,8 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 // import { screenSizes } from '../../themes/theme';
 import { ButtonBig } from '../../components/Button/styles';
-import { fetchUser } from '../../redux/userSlice';
+import { fetchUser, setRequest } from '../../redux/userSlice';
 import { request } from '../../services/services';
 import {
   Article,
@@ -48,6 +48,13 @@ function Request({ dataArr }: props) {
     setMessage('');
     form.reset();
   };
+
+  useEffect(() => {
+    const disableRequest = async () => {
+      await dispatch(setRequest(false));
+    };
+    disableRequest();
+  }, []);
 
   const reload = async () => {
     await dispatch(fetchUser(currentUser.user.email));

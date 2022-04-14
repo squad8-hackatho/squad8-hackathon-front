@@ -1,6 +1,8 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { useDispatch } from 'react-redux';
 import { v4 as uuidv4 } from 'uuid';
+import { setRequest } from '../../redux/userSlice';
 import {
   Card,
   Header,
@@ -34,6 +36,7 @@ export function MentorCard({
   tags,
   email,
 }: Props) {
+  const dispatch = useDispatch();
   const getTags = () => {
     return tags.map((item) => {
       return <Tag key={uuidv4()}>{item.skill}</Tag>;
@@ -63,7 +66,14 @@ export function MentorCard({
       </Expertises>
       <hr />
       <Buttons>
-        <Button>Marcar Horário</Button>
+        <Link
+          onClick={async () => {
+            await dispatch(setRequest(true));
+          }}
+          to={`/profile/${email}`}
+        >
+          <Button>Marcar Horário</Button>
+        </Link>
         <Link to={`/profile/${email}`}>
           <Button>Ver perfil</Button>
         </Link>

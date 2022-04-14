@@ -1,5 +1,6 @@
 import React from 'react';
 import { useSelector, useDispatch } from 'react-redux';
+import { Navigate } from 'react-router-dom';
 import { v4 as uuidv4 } from 'uuid';
 import * as BsIcons from 'react-icons/bs';
 import { fetchUser } from '../../redux/userSlice';
@@ -25,8 +26,7 @@ export function Schedule() {
     await dispatch(fetchUser(currentUser.user.email));
   };
 
-  console.log(currentUser);
-  return (
+  return currentUser.isLogged ? (
     <Main>
       <TopBarPattern />
       <RequestsWrapper>
@@ -84,6 +84,8 @@ export function Schedule() {
         </RequestFromOthers>
       </RequestsWrapper>
     </Main>
+  ) : (
+    <Navigate to="/login" />
   );
 }
 

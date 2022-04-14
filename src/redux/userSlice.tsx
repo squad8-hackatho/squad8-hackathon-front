@@ -13,11 +13,15 @@ const userSlice = createSlice({
   name: 'user',
   initialState: {
     user: [{}],
+    request: false,
     isLogged: false,
   },
   reducers: {
     logout(state) {
-      return { ...state, isLogged: false, user: [''] };
+      return { ...state, isLogged: false, request: false, user: [''] };
+    },
+    setRequest(state, flag: any) {
+      return { ...state, request: flag.payload };
     },
   },
   extraReducers: (builder) => {
@@ -25,10 +29,11 @@ const userSlice = createSlice({
       if (action.payload) {
         state.user = action.payload;
         state.isLogged = true;
+        state.request = false;
       }
     });
   },
 });
 
-export const { logout } = userSlice.actions;
+export const { logout, setRequest } = userSlice.actions;
 export default userSlice.reducer;
