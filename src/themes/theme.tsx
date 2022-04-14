@@ -28,7 +28,7 @@ const grayLetter = '#343a40';
 const buttonLightGray = '#868E964D'
 
 export const screenSizes = {
-  laptopL: 91,
+  laptopL: 90,
   laptop: 64,
   laptopS: 60,
   tablet: 48,

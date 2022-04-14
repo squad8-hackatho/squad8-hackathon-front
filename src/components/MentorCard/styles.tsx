@@ -99,6 +99,7 @@ export const BioDescr = styled.p`
   font-weight: 400;
   line-height: 20px;
   text-align: justify;
+  word-break: normal;
 `;
 
 export const Expertises = styled.div`

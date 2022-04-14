@@ -15,8 +15,8 @@ export const Background = styled.div`
 
 export const ModalWrapper = styled.div`
   display: flex;
-  width: 70vw;
-  height: 70vh;
+  width: 1190px;
+  height: 700px;
   box-shadow: 0 5px 16px rgba(0, 0, 0, 0.2);
   background: ${theme.colors.background};
   color: ${theme.colors.orange};
@@ -25,6 +25,11 @@ export const ModalWrapper = styled.div`
   border-radius: 10px;
 
   padding: 23px 30px 23px 30px;
+
+  ${customMedia.lessThan('laptopL')`
+    width: 70vw;
+    height: 70vh;
+  `}
 
   ${customMedia.lessThan('laptop')`
     width: 70vw;
@@ -55,14 +60,6 @@ export const ModalContent = styled.div`
     font-weight: bold;
     margin: 15px 0 15px 0;
   }
-
-  ${customMedia.lessThan('mobileL')`
-    h3 {
-      font-size: 15px;
-      font-weight: bold;
-      margin: 0;
-    }
-  `}
 `;
 
 export const HeaderModalFilter = styled.div`
@@ -73,6 +70,31 @@ export const HeaderModalFilter = styled.div`
   display: flex;
   flex-direction: row;
   justify-content: space-between;
+`;
+
+export const WrapperForm = styled.div`
+  width: 100%;
+
+  height: 70%;
+
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+
+  h3 {
+    margin-left: 20px;
+  }
+
+  ${customMedia.lessThan('laptop')`
+    height: 80%;
+  `}
+
+  ${customMedia.lessThan('mobileL')`
+    h3 {
+      margin-left: 0;
+    }
+  `}
 `;
 
 export const TitleModalFilter = styled.div`
@@ -101,11 +123,11 @@ export const CloseModalFilter = styled(MdClose)`
 
 export const ButtonWrapper = styled.div`
   width: 100%;
-  height: 100%;
 
   display: flex;
   justify-content: center;
   align-items: center;
+  margin-top: 30px;
 
   ${customMedia.lessThan('mobileL')`
     align-items: center;

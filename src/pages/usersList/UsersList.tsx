@@ -84,7 +84,15 @@ function UsersList() {
   }, [sortByName]);
 
   const getCards = () => {
-    return dataArr.map((user) => {
+    function filterByEmail(item: any) {
+      if (item.email !== currentUser.user.email) {
+        return true;
+      }
+      return false;
+    }
+    const dataToShow = dataArr.filter(filterByEmail);
+
+    return dataToShow.map((user) => {
       return (
         <MentorCard
           key={uuidv4()}
@@ -167,11 +175,10 @@ function UsersList() {
           </ButtonFilter>
         </Filter>
       </FilterWrapper>
-      
+
       <MentorsWrapper>
         <Mentors>{getCards()}</Mentors>
       </MentorsWrapper>
-      
 
       <PaginationWrapper>
         <Section>
