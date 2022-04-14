@@ -44,6 +44,7 @@ function Profile() {
     setConnect(!connect);
   };
 
+  // console.log(currentUser);
   return currentUser.isLogged ? (
     <Main>
       {loading ? (

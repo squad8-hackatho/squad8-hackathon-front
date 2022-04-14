@@ -16,7 +16,7 @@ function Login() {
     const result: any = await dispatch(fetchUser(email));
 
     if (result.payload) {
-      navigate('/usersList');
+      navigate(`/profile/carlos_eduardo@email.com`);
     }
   };
 

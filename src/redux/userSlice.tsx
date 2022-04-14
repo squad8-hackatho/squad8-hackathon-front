@@ -12,24 +12,28 @@ export const fetchUser = createAsyncThunk('user', async (params: any) => {
 const userSlice = createSlice({
   name: 'user',
   initialState: {
-    user: [{}],
-    request: false,
-    isLogged: false,
+    user: {
+      request: false,
+      isLogged: false,
+    },
   },
   reducers: {
     logout(state) {
-      return { ...state, isLogged: false, request: false, user: [''] };
+      return { ...state, user: { request: false, isLogged: false } };
     },
     setRequest(state, flag: any) {
-      return { ...state, request: flag.payload };
+      state.user.request = flag.payload;
+      return { ...state };
     },
   },
   extraReducers: (builder) => {
     builder.addCase(fetchUser.fulfilled, (state, action) => {
       if (action.payload) {
-        state.user = action.payload;
-        state.isLogged = true;
-        state.request = false;
+        state.user = {
+          ...action.payload,
+          isLogged: true,
+          request: false,
+        };
       }
     });
   },
