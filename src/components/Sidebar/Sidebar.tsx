@@ -1,11 +1,11 @@
 import React, { useState } from 'react';
-import { useDispatch } from 'react-redux';
-import * as FaIcons from 'react-icons/fa';
 import * as AiIcons from 'react-icons/ai';
+import * as FaIcons from 'react-icons/fa';
+import { useDispatch } from 'react-redux';
 import { Link } from 'react-router-dom';
-import { SidebarData } from './SidebarData';
+import { v4 as uuidv4 } from 'uuid';
 import { logout } from '../../redux/userSlice';
-
+import { SidebarData } from './SidebarData';
 import {
   Dropdown,
   DropdownContent,
@@ -61,6 +61,7 @@ export function Sidebar({ currentUser, size }: Props) {
                 onClick={() => {
                   dispatch(logout());
                 }}
+                key={uuidv4()}
               >
                 {item.icon}
                 <Text>{item.title}</Text>
