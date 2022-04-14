@@ -2,7 +2,7 @@ import styled from 'styled-components';
 import { customMedia, theme } from '../../themes/theme';
 
 export const Container = styled.div`
-  width: 100vw;
+  width: 100%;
 
   font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande',
     'Lucida Sans', Arial, sans-serif;
@@ -13,11 +13,11 @@ export const Form = styled.form`
   flex-direction: row;
   align-items: center;
 
-  width: 67%;
+  width: 100%;
+  margin-bottom: 30px;
 
   ${customMedia.lessThan('mobileL')`
     flex-direction: column;
-    width: 85%;
   `}
 `;
 

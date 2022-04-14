@@ -17,6 +17,7 @@ import {
   ButtonFilter,
   FilterWrapper,
   PaginationWrapper,
+  MentorsWrapper,
 } from './styles';
 import { getUsers } from '../../services/services';
 import { SkillFilter } from '../../components/SkillFilter';
@@ -83,7 +84,15 @@ function UsersList() {
   }, [sortByName]);
 
   const getCards = () => {
-    return dataArr.map((user) => {
+    function filterByEmail(item: any) {
+      if (item.email !== currentUser.user.email) {
+        return true;
+      }
+      return false;
+    }
+    const dataToShow = dataArr.filter(filterByEmail);
+
+    return dataToShow.map((user) => {
       return (
         <MentorCard
           key={uuidv4()}
@@ -167,7 +176,9 @@ function UsersList() {
         </Filter>
       </FilterWrapper>
 
-      <Mentors>{getCards()}</Mentors>
+      <MentorsWrapper>
+        <Mentors>{getCards()}</Mentors>
+      </MentorsWrapper>
 
       <PaginationWrapper>
         <Section>

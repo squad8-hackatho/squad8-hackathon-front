@@ -14,7 +14,7 @@ const white = 'white';
 const black = 'black';
 const red = 'red';
 const orange = '#FE4400';
-const lightOrange = '#FFD580';
+const lightOrange = '#FF652C';
 const lightGray = '#F1F1F1';
 const gray01 = '#DEE2E6';
 const gray02 = '#343a4066';
@@ -24,9 +24,11 @@ const darkGray = '#8f8f8f';
 const blue = '#2d7ff9';
 const blackGray = '#474747';
 const mainBlue = '#36357e';
+const grayLetter = '#343a40';
+const buttonLightGray = '#868E964D'
 
 export const screenSizes = {
-  laptopL: 91,
+  laptopL: 90,
   laptop: 64,
   laptopS: 60,
   tablet: 48,
@@ -54,6 +56,8 @@ export const theme = {
     red,
     blue,
     mainBlue,
+    grayLetter,
+    buttonLightGray,
   },
 };
 
