@@ -19,7 +19,7 @@ function TopBarPattern() {
   return (
     <Container>
       <TopBar>
-        {widthScreen > theme.screenSizes.mobileL ? (
+        {widthScreen > theme.screenSizes.ipadMini ? (
           <Link to="/usersList" style={{ textDecoration: 'none' }}>
             <h3>
               Technical<strong>Share</strong>

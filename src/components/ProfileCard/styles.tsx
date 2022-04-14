@@ -48,6 +48,7 @@ export const Section = styled.section`
 
   ${customMedia.lessThan('mobileS')`
     padding-left: 3%;
+    padding-right: 0px;
   `}
 
   ${customMedia.between('laptopS', 'laptop')`
@@ -59,6 +60,20 @@ export const Section = styled.section`
     width: 45vw;
     margin-left: 4%;
     padding: 0;
+  `}
+
+  ${customMedia.between('default', 'tablet')`
+    height: 17vh;
+  `}
+
+  ${customMedia.between('ipadMini', 'tablet')`
+    height: 100vh;
+    margin: 0;
+    margin-left: 6%;
+    padding-top: 8%;
+    margin-top: -2px;
+    flex-direction: column;
+    align-items: center;
   `}
 `;
 
@@ -72,7 +87,7 @@ export const H1 = styled.h1`
     line-height: 35px;
   `}
   ${customMedia.lessThan('mobileS')`
-    font-size: 18px;
+    font-size: 16px;
     line-height: 10px;
   `}
   ${customMedia.between('tablet', 'laptopS')`
@@ -117,6 +132,15 @@ export const MidiaLinkedin = styled(Midia)`
     margin-top: 0%;
     svg {
       margin: 2px 4px 0px 0px;
+    }
+  `}
+
+  ${customMedia.between('default', 'tablet')`
+    svg {
+      margin: 2px 4px 0px 0px;
+    }
+    p {
+      font-size: 13px;
     }
   `}
 `;
@@ -166,6 +190,10 @@ export const Article = styled.article`
 
   ${customMedia.lessThan('mobileS')`
     margin-top: 10px;
+    margin-left: 2%;
+    p {
+      line-height: 20px;
+    }
     h1 {
       margin-bottom: 5px;
     }
@@ -176,6 +204,11 @@ export const Article = styled.article`
     p {
       font-size: 15px;
     }
+  `}
+
+  ${customMedia.between('ipadMini', 'tablet')`
+    align-items: center;
+    margin: 0;
   `}
 `;
 
@@ -230,6 +263,15 @@ export const ProfilePicture = styled.img`
   ${customMedia.between('tablet', 'laptopS')`
     width: 23vw;
   `}
+
+  ${customMedia.between('default', 'tablet')`
+    margin-left: 10%;
+    margin-top: -2%;
+    width: 22vw;
+  `}
+  ${customMedia.between('ipadMini', 'tablet')`
+    margin: 0;
+  `}
 `;
 
 export const P = styled.p`
@@ -246,5 +288,9 @@ export const P = styled.p`
   `}
   ${customMedia.between('laptopS', 'laptop')`
     font-size: 14px;
+  `}
+
+  ${customMedia.between('default', 'tablet')`
+    font-size: 13px;
   `}
 `;

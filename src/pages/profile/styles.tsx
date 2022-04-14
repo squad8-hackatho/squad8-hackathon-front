@@ -23,6 +23,10 @@ export const Article = styled.article`
     width: 50vw;
     margin-left: 25px;
   `}
+
+  ${customMedia.between('ipadMini', 'tablet')`
+    height: 100vh;
+  `}
 `;
 
 export const Form = styled.form`
@@ -30,6 +34,9 @@ export const Form = styled.form`
 
   ${customMedia.lessThan('tablet')`
     margin-left: 0px;
+  `}
+  ${customMedia.between('ipadMini', 'tablet')`
+    margin-left: -50px;
   `}
 `;
 
@@ -64,6 +71,10 @@ export const Nav = styled.nav`
 `;
 
 export const FooterButton = styled.footer`
+  button {
+    margin: 0;
+    width: 10vw;
+  }
   ${customMedia.lessThan('tablet')`
     margin:0;
     width: 90vw;
@@ -73,6 +84,13 @@ export const FooterButton = styled.footer`
     button {
       margin: 0;
       width: 90vw;
+    }
+  `}
+
+  ${customMedia.between('ipadMini', 'tablet')`
+    button {
+      margin: 0;
+      width: 25vw;
     }
   `}
 
@@ -246,6 +264,15 @@ export const Info = styled(Description)`
       height: 23vh;
     }
   `}
+
+  ${customMedia.lessThan('mobileS')`
+  &:nth-child(3) {
+    p {
+      font-size: 11px;
+
+    }
+  }
+`}
 `;
 
 export const Tags = styled.article`
@@ -321,6 +348,10 @@ export const P = styled.p`
   ${customMedia.lessThan('mobileM')`
     font-size: 14px;
   `}
+  
+  ${customMedia.between('default', 'tablet')`
+    font-size: 13px;
+  `}
 `;
 
 export const Section = styled.section`
@@ -332,6 +363,11 @@ export const Section = styled.section`
     align-items: center;
     flex-direction: column;
     background-color: ${theme.colors.lightGray};
+  `}
+
+  ${customMedia.between('ipadMini', 'tablet')`
+    align-items: start;
+    flex-direction: row;
   `}
 `;
 

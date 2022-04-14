@@ -44,7 +44,6 @@ function Profile() {
     setConnect(!connect);
   };
 
-  // console.log(currentUser);
   return currentUser.isLogged ? (
     <Main>
       {loading ? (
@@ -67,7 +66,7 @@ function Profile() {
               }
             />
             <Article>
-              {widthScreen > screenSizes.default ? (
+              {widthScreen > screenSizes.ipadMini ? (
                 <Nav>
                   <Link to="/userslist">Lista de Usuários</Link>
                   <p>/</p>

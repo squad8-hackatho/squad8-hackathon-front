@@ -8,7 +8,7 @@ export const Container = styled.section`
   align-items: center;
   border-bottom: 2px solid rgba(196, 196, 196, 0.6);
 
-  ${customMedia.lessThan('tablet')`
+  ${customMedia.lessThan('ipadMini')`
     height: 60px;
     border-bottom: none;
     padding: 0px;
@@ -17,7 +17,7 @@ export const Container = styled.section`
   `};
 
   ${customMedia.lessThan('mobileM')`
-    height: 50px;
+  height: 50px;
   `};
 
   h3 {

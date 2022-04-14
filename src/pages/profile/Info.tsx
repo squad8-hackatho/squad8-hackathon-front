@@ -33,7 +33,7 @@ function Profile({ dataArr, widthScreen }: props) {
         <Tags>{getTags('skill')}</Tags>
       </Description>
 
-      {widthScreen < screenSizes.default ? (
+      {widthScreen < screenSizes.tablet ? (
         <FooterButton>
           <ButtonBig>Marcar Horário</ButtonBig>
         </FooterButton>
