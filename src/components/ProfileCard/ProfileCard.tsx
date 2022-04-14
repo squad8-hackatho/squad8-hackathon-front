@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { useSelector } from 'react-redux';
 import { LinkedinIcon, WhatsappIcon, EmailIcon } from '../../assets/icons';
 import {
   Section,
@@ -42,6 +43,11 @@ function ProfileCard({
 }: props) {
   const [linkedin, setLinkedin] = useState('br.linkedin.com');
   const [whatsapp, setWhatsapp] = useState('(XX) XXXXX - XXXX');
+  const currentUser = useSelector((state: any) => {
+    return state.user;
+  });
+  console.log(currentUser);
+  console.log(email);
 
   const getContact = () => {
     linksListDTO.forEach((item) => {
@@ -73,14 +79,15 @@ function ProfileCard({
       </Article>
       {widthScreen > screenSizes.default ? (
         <Desktop>
-          <ButtonBig
-            onClick={() => {
-              setConnectCard();
-            }}
-          >
-            {connect ? 'Ver Perfil' : 'Marcar Horário'}
-          </ButtonBig>
-
+          {currentUser.email !== email ? (
+            <ButtonBig
+              onClick={() => {
+                setConnectCard();
+              }}
+            >
+              {connect ? 'Ver Perfil' : 'Marcar Horário'}
+            </ButtonBig>
+          ) : null}
           <Contact>
             <h3>Contatos:</h3>
             <MidiaWhatsapp>
