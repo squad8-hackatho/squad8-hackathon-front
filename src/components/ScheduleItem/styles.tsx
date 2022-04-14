@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { theme } from "../../themes/theme";
+import { customMedia, theme } from "../../themes/theme";
 
 export const Container = styled.div`
   width: 310px;
@@ -16,6 +16,10 @@ export const Container = styled.div`
   border-radius: 8px;
 
   background-color: ${theme.colors.white};
+
+  ${customMedia.lessThan('mobileS')`
+    width: 260px;
+  `}
 `;
 
 export const NameSubject = styled.div`
