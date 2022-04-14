@@ -83,6 +83,13 @@ export const ArticleButton = styled.article`
   bottom: 0;
 
   a {
+    &:nth-child(1) {
+      button {
+        :hover {
+          color: ${theme.colors.orange};
+        }
+      }
+    }
     &:nth-child(2) {
       button {
         background-color: ${theme.colors.white};
@@ -101,6 +108,7 @@ export const ArticleButton = styled.article`
 
 export const Button = styled(ButtonBig)`
   border-radius: 2px;
+  font-size: 20px;
   width: 20vw;
   height: 6vh;
   padding: 0;

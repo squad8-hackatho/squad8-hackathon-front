@@ -18,6 +18,11 @@ export const Article = styled.article`
     flex-direction: none;
     width: 90vw;
   `}
+
+  ${customMedia.between('tablet', 'laptopS')`
+    width: 50vw;
+    margin-left: 25px;
+  `}
 `;
 
 export const Form = styled.form`
@@ -49,11 +54,11 @@ export const Nav = styled.nav`
 
   ${customMedia.between('tablet', 'laptopS')`
     p {
-      font-size: 18px;
+      font-size: 16px;
     }
 
     a {
-      font-size: 18px;
+      font-size: 16px;
     }
   `}
 `;
@@ -86,6 +91,11 @@ export const ResquestButton = styled(FooterButton)`
   }
   ${customMedia.lessThan('tablet')`
     margin-top: 10%;
+  `}
+
+  ${customMedia.between('tablet', 'laptopS')`
+    margin-left: 25px;
+    margin-top: 20px;
   `}
 `;
 
@@ -142,6 +152,45 @@ export const Description = styled.article`
       height: 18vh;
     }
   `}
+
+  ${customMedia.between('laptopS', 'laptop')`
+    &:nth-child(3) {
+      height: 20vh;
+    }
+    &:nth-child(4) {
+      height: 24vh;
+    }
+
+    p {
+      font-size: 14px;
+    }
+  `}
+
+  ${customMedia.between('laptop', 'laptopL')`
+    &:nth-child(3) {
+      height: 16vh;
+    }
+    &:nth-child(4) {
+      height: 20vh;
+    }
+
+    p {
+      font-size: 16px;
+    }
+  `}
+
+  ${customMedia.between('tablet', 'laptopS')`
+    width: 45vw;
+    &:nth-child(2) {
+      height: 20vh;
+    }
+    &:nth-child(3) {
+      height: 14vh;
+    }
+    &:nth-child(4) {
+      height: 16vh;
+    }
+  `}
 `;
 
 export const Info = styled(Description)`
@@ -184,6 +233,19 @@ export const Info = styled(Description)`
       height: 23vh;
     }
   `}
+  ${customMedia.between('tablet', 'laptopS')`
+    &:nth-child(1) {
+      height: 10vh;
+    }
+
+    &:nth-child(2) {
+      height: 10vh;
+    }
+
+    &:nth-child(4) {
+      height: 23vh;
+    }
+  `}
 `;
 
 export const Tags = styled.article`
@@ -216,6 +278,18 @@ export const Tag = styled.button`
   ${customMedia.lessThan('mobileM')`
     width: 80px;
   `}
+
+  ${customMedia.between('laptopS', 'laptop')`
+    width: 120px;
+    height: 30px;
+    font-size: 13px;
+  `}
+
+  ${customMedia.between('laptop', 'laptopL')`
+    width: 120px;
+    height: 30px;
+    font-size: 13px;
+  `}
 `;
 
 export const H2 = styled.h2`
@@ -229,6 +303,10 @@ export const H2 = styled.h2`
   ${customMedia.lessThan('mobileM')`
     font-size: 17px;
     padding: 10px 20px 5px 20px;
+  `}
+
+  ${customMedia.between('tablet', 'laptopS')`
+    margin-left: 25px;
   `}
 `;
 
@@ -271,10 +349,19 @@ export const Input = styled.input`
   ${customMedia.lessThan('mobileM')`
     margin: 0;
   `}
+
+  ${customMedia.between('tablet', 'laptopS')`
+    margin-left: 25px;
+    width: 45vw;
+    height: 5vh;
+  `}
 `;
 
 export const CheckBox = styled.input`
   height: 25px;
+  ${customMedia.between('tablet', 'laptopS')`
+    margin-left: 25px;
+  `}
 `;
 
 export const Textarea = styled.textarea`
@@ -291,6 +378,11 @@ export const Textarea = styled.textarea`
 
   ${customMedia.lessThan('mobileM')`
     margin: 0;
+  `}
+
+  ${customMedia.between('tablet', 'laptopS')`
+    margin-left: 25px;
+    width: 45vw;
   `}
 `;
 
@@ -335,6 +427,13 @@ export const Contact = styled.article`
     
     input {
       width: 90vw;
+    }
+  `}
+
+  ${customMedia.between('tablet', 'laptopS')`
+    flex-direction: column;
+    input {
+      width: 45vw;
     }
   `}
 `;
