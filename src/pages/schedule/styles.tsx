@@ -60,4 +60,10 @@ export const Article = styled.article`
     margin-left: 20px;
     cursor: pointer;
   }
+
+  ${customMedia.lessThan('mobileS')`
+    svg {
+      margin-left: 0;
+    }
+  `}
 `;

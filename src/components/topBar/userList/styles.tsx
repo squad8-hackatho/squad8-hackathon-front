@@ -12,16 +12,19 @@ export const Container = styled.section`
 `;
 
 export const Header = styled.header`
-  width: 81%;
+  width: 1350px;
   height: 268px;
 
   hr {
     border: 1px solid ${theme.colors.mediumGray};
   }
 
+  ${customMedia.lessThan('laptopL')`
+    width: 81%;
+  `}
+
   ${customMedia.lessThan('tablet')`
     width: 92%;
-    height: 116px;
   `}
 `;
 

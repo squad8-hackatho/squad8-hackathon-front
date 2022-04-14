@@ -14,8 +14,11 @@ export const FilterWrapper = styled.section`
 `;
 
 export const Filter = styled.section`
-  width: 81%;
+  width: 1350px;
 
+  ${customMedia.lessThan('laptopL')`
+    width: 81%;
+  `}
   ${customMedia.lessThan('tablet')`
     width: 92%;
     margin: 0;
