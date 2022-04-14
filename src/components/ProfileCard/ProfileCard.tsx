@@ -20,6 +20,7 @@ type props = {
   widthScreen: number;
   email: string;
   userName: string;
+  connect: boolean;
   linksListDTO: [
     {
       domain: string;
@@ -37,6 +38,7 @@ function ProfileCard({
   linksListDTO,
   occupation,
   setConnectCard,
+  connect,
 }: props) {
   const [linkedin, setLinkedin] = useState('br.linkedin.com');
   const [whatsapp, setWhatsapp] = useState('(XX) XXXXX - XXXX');
@@ -76,7 +78,7 @@ function ProfileCard({
               setConnectCard();
             }}
           >
-            Marcar Horário
+            {connect ? 'Ver Perfil' : 'Marcar Horário'}
           </ButtonBig>
 
           <Contact>

@@ -10,13 +10,13 @@ import InfoProfile from './Info';
 import Request from './Request';
 
 function Profile() {
-  const [widthScreen, setWidthScreen] = useState(window.screen.width / 16);
-  const [dataArr, setDataArr] = useState<any>();
-  const [loading, setLoading] = useState(true);
-  const [connect, setConnect] = useState(false);
   const currentUser = useSelector((state: any) => {
     return state.user;
   });
+  const [widthScreen, setWidthScreen] = useState(window.screen.width / 16);
+  const [dataArr, setDataArr] = useState<any>();
+  const [loading, setLoading] = useState(true);
+  const [connect, setConnect] = useState(currentUser.request);
   const params = useParams();
 
   useEffect(() => {
@@ -58,6 +58,7 @@ function Profile() {
               userName={dataArr.userName}
               linksListDTO={dataArr.linksListDTO}
               setConnectCard={setConnectCard}
+              connect={connect}
               occupation={
                 dataArr.professionList.length > 0
                   ? dataArr.professionList[0].description

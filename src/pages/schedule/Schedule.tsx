@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
+import { Navigate } from 'react-router-dom';
 import { v4 as uuidv4 } from 'uuid';
 import * as BsIcons from 'react-icons/bs';
 import { fetchUser } from '../../redux/userSlice';
@@ -28,8 +29,7 @@ export function Schedule() {
 
   const [showConfirmDelete, setShowConfirmDelete] = useState(false);
   const [deleteData, setDeleteData] = useState({ uuid: '', email: '' });
-
-  return (
+  return currentUser.isLogged ? (
     <Main>
       <ConfirmDelete showConfirmDelete={showConfirmDelete} setShowConfirmDelete={setShowConfirmDelete} deleteData={deleteData} />
       <TopBarPattern />
@@ -84,6 +84,8 @@ export function Schedule() {
         </RequestFromOthers>
       </RequestsWrapper>
     </Main>
+  ) : (
+    <Navigate to="/login" />
   );
 }
 
