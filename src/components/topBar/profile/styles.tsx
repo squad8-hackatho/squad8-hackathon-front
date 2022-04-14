@@ -44,3 +44,32 @@ export const TopBar = styled.article`
 export const Button = styled.button`
   background-color: transparent;
 `;
+
+export const NavBar = styled.article`
+  display: flex;
+  width: 80vw;
+  justify-content: space-between;
+
+  ${customMedia.lessThan('laptopS')`
+    width: 85vw;
+  `};
+
+  ${customMedia.lessThan('tablet')`
+    width: 90vw;
+  `};
+`;
+
+export const Article = styled.article`
+  display: flex;
+  justify-content: space-between;
+  p {
+    margin-top: 10px;
+    margin-right: 10px;
+    font-size: 15px;
+    font-weight: bold;
+    color: ${theme.colors.lightOrange};
+  }
+  svg {
+    cursor: pointer;
+  }
+`;

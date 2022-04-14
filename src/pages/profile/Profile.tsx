@@ -50,7 +50,7 @@ function Profile() {
         <p>Carregando</p>
       ) : (
         <>
-          <TopBarProfile />
+          <TopBarProfile email={params.email} />
           <Section>
             <ProfileCard
               widthScreen={widthScreen}
@@ -77,7 +77,11 @@ function Profile() {
               {connect ? (
                 <Request dataArr={dataArr} />
               ) : (
-                <InfoProfile widthScreen={widthScreen} dataArr={dataArr} />
+                <InfoProfile
+                  setConnectCard={setConnectCard}
+                  widthScreen={widthScreen}
+                  dataArr={dataArr}
+                />
               )}
             </Article>
           </Section>

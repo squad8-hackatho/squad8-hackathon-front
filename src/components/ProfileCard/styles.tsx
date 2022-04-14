@@ -52,7 +52,7 @@ export const Section = styled.section`
   `}
 
   ${customMedia.between('laptopS', 'laptop')`
-    height: 100vh;
+    height: 102vh;
     width: 25vw;
   `}
 
