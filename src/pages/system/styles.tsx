@@ -95,7 +95,7 @@ export const TextArea = styled.textarea`
   border-radius: 8px;
   outline: none;
   resize: none;
-  background-color: ${theme.colors.lightGray};
+  background-color: ${theme.colors.white};
 `;
 
 export const Button = styled.button`
