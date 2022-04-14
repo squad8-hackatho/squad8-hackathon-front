@@ -1,9 +1,9 @@
-/* eslint-disable no-unused-vars */
 import React, { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import { Main, Button, H2, Input, Form, P } from './styles';
 import { LoginButton } from '../../components/Button/styles';
+import BannerPattern from '../../components/banner/Banner';
 import { fetchUser } from '../../redux/userSlice';
 
 function Login() {
@@ -22,6 +22,7 @@ function Login() {
 
   return (
     <Main>
+      <BannerPattern />
       <Form
         onSubmit={(e) => {
           e.preventDefault();

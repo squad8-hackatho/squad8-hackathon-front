@@ -1,9 +1,12 @@
 import React, { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
+import { useDispatch } from 'react-redux';
 import { Main, Button, Form, P, H2 } from './styles';
 import RegisterPartOne from './RegisterPartOne';
 import RegisterPartTwo from './RegisterPartTwo';
 import { register } from '../../services/services';
+import { fetchUser } from '../../redux/userSlice';
+import BannerPattern from '../../components/banner/Banner';
 
 function Register() {
   const [name, setName] = useState('');
@@ -18,6 +21,7 @@ function Register() {
   const [expertise, setExpertise] = useState([]);
   const [level, setLevel] = useState('');
   const navigate = useNavigate();
+  const dispatch = useDispatch();
 
   const onSubmit = async () => {
     const links = [];
@@ -49,11 +53,16 @@ function Register() {
 
     const flag = await register(values);
 
-    if (flag) navigate('/landing');
+    if (flag) {
+      const result: any = await dispatch(fetchUser(email));
+
+      if (result) navigate('/landing');
+    }
   };
 
   return (
     <Main>
+      <BannerPattern />
       <Form
         onSubmit={(e) => {
           e.preventDefault();

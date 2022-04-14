@@ -1,4 +1,3 @@
-/* eslint-disable no-prototype-builtins */
 import React, { useEffect, useState } from 'react';
 import { getUsers } from '../../../../services/services';
 import { Select } from '../../styles';
@@ -9,7 +8,11 @@ type Props = {
   onChange: any;
 };
 
-function DropdownTechnologies({ TechDefault, state, onChange = () => {} }: Props) {
+function DropdownTechnologies({
+  TechDefault,
+  state,
+  onChange = () => {},
+}: Props) {
   const [technologies, setTechnologies] = useState([]);
 
   useEffect(() => {
@@ -18,10 +21,10 @@ function DropdownTechnologies({ TechDefault, state, onChange = () => {} }: Props
     async function getData() {
       const data = await getUsers('/skill');
       dataOutside = data.data;
-      const sortedData = dataOutside.sort((a: any, b: any) =>
-        {return a.skill.localeCompare(b.skill)}
-      );
-      const filteredTechnologies: any = [];     
+      const sortedData = dataOutside.sort((a: any, b: any) => {
+        return a.skill.localeCompare(b.skill);
+      });
+      const filteredTechnologies: any = [];
 
       sortedData.forEach((tech: any) => {
         if (Object.values(tech).indexOf(`${state}`) > -1) {
@@ -30,7 +33,7 @@ function DropdownTechnologies({ TechDefault, state, onChange = () => {} }: Props
       });
       setTechnologies(filteredTechnologies);
     }
-    
+
     getData();
   }, [state]);
 

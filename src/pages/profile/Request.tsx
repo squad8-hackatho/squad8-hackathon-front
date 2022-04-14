@@ -96,6 +96,7 @@ function Request({ dataArr }: props) {
           <h3>Confirmação</h3>
         </article>
         <P>Requisição enviada para {dataArr.userName}! </P>
+        <ButtonBig onClick={toggleModal}>Ok</ButtonBig>
       </StyledModal>
     );
   };

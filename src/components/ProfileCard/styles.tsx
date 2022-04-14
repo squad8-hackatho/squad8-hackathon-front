@@ -12,6 +12,7 @@ export const Section = styled.section`
   margin-left: 8%;
   border-radius: 5px;
   margin-top: -3px;
+  word-break: break-word;
 
   button {
     margin: 7% 0;
@@ -47,7 +48,17 @@ export const Section = styled.section`
 
   ${customMedia.lessThan('mobileS')`
     padding-left: 3%;
-    word-break: break-word;
+  `}
+
+  ${customMedia.between('laptopS', 'laptop')`
+    height: 100vh;
+    width: 25vw;
+  `}
+
+  ${customMedia.between('tablet', 'laptopS')`
+    width: 45vw;
+    margin-left: 4%;
+    padding: 0;
   `}
 `;
 
@@ -63,6 +74,9 @@ export const H1 = styled.h1`
   ${customMedia.lessThan('mobileS')`
     font-size: 18px;
     line-height: 10px;
+  `}
+  ${customMedia.between('tablet', 'laptopS')`
+    font-size: 26px;
   `}
 `;
 
@@ -111,12 +125,22 @@ export const MidiaWhatsapp = styled(Midia)`
   svg {
     margin: 19px 15px 0px 0px;
   }
+  ${customMedia.between('laptopS', 'laptop')`
+    svg {
+      margin: 15px 15px 0px 0px;
+    }
+  `}
 `;
 
 export const MidiaEmail = styled(Midia)`
   svg {
     margin: 28px 15px 0px 0px;
   }
+  ${customMedia.between('laptopS', 'laptop')`
+    svg {
+      margin: 24px 15px 0px 0px;
+    }
+  `}
 `;
 
 export const Article = styled.article`
@@ -146,6 +170,13 @@ export const Article = styled.article`
       margin-bottom: 5px;
     }
   `}
+
+  ${customMedia.between('tablet', 'laptopS')`
+    width: 40vw;
+    p {
+      font-size: 15px;
+    }
+  `}
 `;
 
 export const Desktop = styled(Article)`
@@ -161,6 +192,22 @@ export const Desktop = styled(Article)`
     margin: 12px 0;
     color: ${theme.colors.orange};
   }
+  ${customMedia.between('laptopS', 'laptop')`
+    p {
+      font-size: 12px;
+    }
+    button {
+      padding: 0;
+    }
+  `}
+
+  ${customMedia.between('tablet', 'laptopS')`
+    button {
+      width: 30vw;
+      height: 5vh;
+      padding: 0;
+    }
+  `}
 `;
 
 export const Contact = styled(Article)``;
@@ -179,6 +226,10 @@ export const ProfilePicture = styled.img`
   ${customMedia.lessThan('mobileL')`
     margin: 0px;
   `}
+
+  ${customMedia.between('tablet', 'laptopS')`
+    width: 23vw;
+  `}
 `;
 
 export const P = styled.p`
@@ -187,11 +238,13 @@ export const P = styled.p`
   ${customMedia.lessThan('tablet')`
     font-size: 15px;
   `}
-
   ${customMedia.lessThan('default')`
     font-size: 13px;
   `}
   ${customMedia.lessThan('mobileS')`
     font-size: 11px;
+  `}
+  ${customMedia.between('laptopS', 'laptop')`
+    font-size: 14px;
   `}
 `;

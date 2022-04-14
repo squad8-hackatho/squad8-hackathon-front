@@ -1,9 +1,8 @@
-/* eslint-disable no-unused-vars */
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { theme } from '../../themes/theme';
-import BannerPattern from './banner/Banner';
-import { HomeImage } from '../../assets/images';
+import BannerPattern from '../../components/banner/Banner';
+import { HomeImage } from '../../assets/home/index';
 
 import {
   Article,
@@ -29,7 +28,7 @@ function Home() {
 
   return (
     <Main>
-      <BannerPattern widthScreen={widthScreen} />
+      <BannerPattern />
       <Section>
         <Article>
           {widthScreen > theme.screenSizes.tablet &&
