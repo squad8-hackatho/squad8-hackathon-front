@@ -4,6 +4,7 @@ import { theme, customMedia } from '../../themes/theme';
 
 export const Main = styled.main`
   background-color: ${theme.colors.background};
+  overflow-x: hidden;
 `;
 
 export const Article = styled.article`

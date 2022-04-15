@@ -37,6 +37,13 @@ export function SkillFilter({
     setShowFilterModal(false);
   }
 
+  const checkValues = () => {
+    return (
+      (skill1.technologie === 'null' || skill1.technologie === '') &&
+      (skill2.technologie === 'null' || skill2.technologie === '')
+    );
+  };
+
   return (
     <div>
       {showFilterModal ? (
@@ -67,6 +74,7 @@ export function SkillFilter({
                     onClick={() => {
                       handleFilterClick();
                     }}
+                    disabled={checkValues()}
                   >
                     Filtrar
                   </ButtonModalFilter>

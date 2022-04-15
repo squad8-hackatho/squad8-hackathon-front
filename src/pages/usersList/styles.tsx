@@ -4,6 +4,7 @@ import { customMedia, theme } from '../../themes/theme';
 export const Main = styled.main`
   width: 100vw;
   background-color: ${theme.colors.background};
+  overflow-x: hidden;
 `;
 
 export const FilterWrapper = styled.section`
@@ -98,7 +99,7 @@ export const PaginationWrapper = styled.section`
 
 export const Section = styled.section`
   width: 1350px;
-  
+
   display: flex;
   justify-content: space-between;
 
@@ -113,7 +114,7 @@ export const NumberPage = styled(Pages)`
 `;
 
 export const Select = styled.select`
-  width: 40px;
+  width: 50px;
   height: 40px;
   border: 2px solid ${theme.colors.gray2};
   font-size: 20px;

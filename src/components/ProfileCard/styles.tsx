@@ -25,9 +25,9 @@ export const Section = styled.section`
 
   button {
     :hover {
-      background-color: ${theme.colors.gray1};
-      color: ${theme.colors.gray3};
-      border: 1px solid ${theme.colors.gray3};
+      background-color: ${theme.colors.background};
+      color: ${theme.colors.mainOrange};
+      border: 1px solid ${theme.colors.mainOrange};
     }
   }
 
@@ -57,7 +57,7 @@ export const Section = styled.section`
   `}
 
   ${customMedia.between('laptop', 'laptopL')`
-    height: 110vh;
+    height: 112vh;
     width: 25vw;
   `}
 
