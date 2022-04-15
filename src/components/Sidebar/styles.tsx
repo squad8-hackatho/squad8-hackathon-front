@@ -1,5 +1,6 @@
 import styled from 'styled-components';
 import { display, DisplayProps } from 'styled-system';
+import { theme } from '../../themes/theme';
 
 export const Dropdown = styled.div`
   position: relative;
@@ -15,7 +16,7 @@ type DropdownContentProps = DisplayProps;
 export const DropdownContent = styled.div<DropdownContentProps>`
   display: none;
   position: absolute;
-  background-color: #f9f9f9;
+  background-color: ${theme.colors.white};
   width: 300px;
   box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
   padding: 12px 16px;
@@ -29,8 +30,7 @@ export const DropdownItem = styled.div`
   flex-direction: row;
   align-items: center;
   height: 50px;
-
-  
+  cursor: pointer;
 `;
 
 export const Text = styled.p`

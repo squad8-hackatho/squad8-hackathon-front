@@ -55,7 +55,7 @@ export const Nav = styled.nav`
 
     &:nth-child(3) {
       pointer-events: none;
-      color: ${theme.colors.black};
+      color: ${theme.colors.gray3};
     }
   }
 
@@ -355,14 +355,14 @@ export const P = styled.p`
 `;
 
 export const Section = styled.section`
-  border-top: 2px solid ${theme.colors.lightGray};
+  border-top: 2px solid ${theme.colors.gray1};
   display: flex;
   flex-direction: row;
 
   ${customMedia.lessThan('tablet')`
     align-items: center;
     flex-direction: column;
-    background-color: ${theme.colors.lightGray};
+    background-color: ${theme.colors.gray1};
   `}
 
   ${customMedia.between('ipadMini', 'tablet')`

@@ -1,6 +1,10 @@
 import styled from 'styled-components';
 // import Modal from 'styled-react-modal';
+<<<<<<< HEAD
 import { theme, customMedia } from '../../themes/theme';
+=======
+import { customMedia, theme } from '../../themes/theme';
+>>>>>>> 4281fa129e9c300e39b8b52ee3438b901e1d3a33
 
 export const Main = styled.main`
   display: flex;
@@ -50,7 +54,7 @@ export const Section = styled.fieldset`
 export const H2 = styled.h2`
   font-weight: normal;
   margin-bottom: 20px;
-  color: ${theme.colors.orange};
+  color: ${theme.colors.mainOrange};
 `;
 
 export const H3 = styled.h3`
@@ -61,8 +65,9 @@ export const H3 = styled.h3`
 `;
 
 export const Span = styled.span`
-  color: ${theme.colors.red};
+  color: ${theme.colors.error};
   font-size: 14px;
+  font-weight: 600;
 `;
 
 export const P = styled.p`
@@ -76,6 +81,10 @@ export const P = styled.p`
     text-decoration: underline;
     margin-top: 20px;
   }
+
+  ${customMedia.lessThan('mobileS')`
+    font-size: 13px;
+  `}
 `;
 
 export const Select = styled.select`
@@ -109,7 +118,7 @@ export const TextArea = styled.textarea`
 `;
 
 export const Button = styled.button`
-  color: ${theme.colors.orange};
+  color: ${theme.colors.mainOrange};
 `;
 
 export const Tags = styled.div`
@@ -124,7 +133,7 @@ export const Tags = styled.div`
 export const Tag = styled.div`
   background-color: ${theme.colors.white};
 
-  border: 2px solid ${theme.colors.orange};
+  border: 2px solid ${theme.colors.mainOrange};
   border-radius: 8px;
   padding: 8px;
   margin: 10px 5px 0;

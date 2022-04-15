@@ -33,7 +33,7 @@ export const Select = styled.select`
   border: 2px groove ${theme.colors.white};
   border-radius: 8px;
   background: ${theme.colors.white};
-  color: ${theme.colors.blackGray};
+  color: ${theme.colors.gray3};
   appearance: none;
   -webkit-appearance: none;
   -moz-appearance: none;

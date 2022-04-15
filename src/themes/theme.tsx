@@ -2,30 +2,40 @@ import React from 'react';
 import { ThemeProvider } from 'styled-components';
 import { generateMedia } from 'styled-media-query';
 
-const sizes = [14, 20, 48];
-
 const fontSizes = {
-  body: sizes[0],
-  bodyExtraLarge: sizes[1],
-  displayExtraLarge: sizes[2],
+  h1: '36px',
+  h2: '32px',
+  h3: '30px',
+  h4: '24px',
+  h5: '18px',
+  body1: '21px',
+  body2: '16px',
+  body3: '14px',
+  buttonLarge: '22px',
+  button: '16px',
+  buttonSmall: '14px',
+  caption1: '14px',
+  caption2: '12px',
 };
 
-const white = 'white';
-const black = 'black';
-const red = 'red';
-const orange = '#FE4400';
-const lightOrange = '#FF652C';
-const lightGray = '#F1F1F1';
-const gray01 = '#DEE2E6';
-const gray02 = '#343a4066';
-const background = '#F1F1F4';
-const mediumGray = '#C4C4C4';
-const darkGray = '#8f8f8f';
-const blue = '#2d7ff9';
-const blackGray = '#474747';
-const mainBlue = '#36357e';
-const grayLetter = '#343a40';
-const buttonLightGray = '#868E964D';
+const colors = {
+  background: '#F1F1F4',
+  lightOrange: '#FEBBA2',
+  mainOrange: '#FE4400',
+  darkOrange: '#B93200',
+
+  lightBlue: '#A8A8D0',
+  mainBlue: '#36357E',
+  darkBlue: '#2A2960',
+
+  white: '#FFFFFF',
+  gray1: '#DEE2E6',
+  gray2: '#868E96',
+  gray3: '#343A40',
+
+  error: '#FF4242',
+  success: '#0BB07B',
+};
 
 export const screenSizes = {
   laptopL: 90,
@@ -42,24 +52,7 @@ export const screenSizes = {
 export const theme = {
   fontSizes,
   screenSizes,
-  colors: {
-    white,
-    black,
-    orange,
-    lightOrange,
-    lightGray,
-    gray01,
-    gray02,
-    background,
-    mediumGray,
-    darkGray,
-    blackGray,
-    red,
-    blue,
-    mainBlue,
-    grayLetter,
-    buttonLightGray,
-  },
+  colors,
 };
 
 export const customMedia = generateMedia({

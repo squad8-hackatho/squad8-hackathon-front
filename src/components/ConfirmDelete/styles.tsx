@@ -21,7 +21,7 @@ export const ModalWrapper = styled.div`
   height: 250px;
   box-shadow: 0 5px 16px rgba(0, 0, 0, 0.2);
   background: ${theme.colors.background};
-  color: ${theme.colors.orange};
+  color: ${theme.colors.mainOrange};
   position: relative;
   z-index: 10;
   border-radius: 16px;
@@ -54,9 +54,9 @@ export const Button = styled.button`
   align-items: center;
   justify-content: center;
 
-  background-color: ${theme.colors.orange};
+  background-color: ${theme.colors.mainOrange};
   border-radius: 16px;
-  border: 1px solid ${theme.colors.orange};
+  border: 1px solid ${theme.colors.mainOrange};
   cursor: pointer;
   font-size: 17px;
   color: #ffffff;

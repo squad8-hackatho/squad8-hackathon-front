@@ -12,7 +12,7 @@ export const Section = styled.section`
 
 export const Title = styled.p`
   font-size: 80px;
-  color: ${theme.colors.orange};
+  color: ${theme.colors.mainOrange};
 
   ${customMedia.lessThan('laptop')`
     font-size: 50px;

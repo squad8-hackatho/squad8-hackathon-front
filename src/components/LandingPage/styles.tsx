@@ -1,12 +1,17 @@
+import { Link } from 'react-router-dom';
 import styled from 'styled-components';
-import { theme } from '../../themes/theme';
+import { customMedia, theme } from '../../themes/theme';
 
 export const Main = styled.main`
-  width: 100vw;
+  max-width: 100vw;
   height: 100vh;
 
   display: flex;
   flex-direction: row;
+
+  ${customMedia.lessThan('tablet')`
+    flex-direction: column;
+  `}
 `;
 
 export const BackgroundWithImage = styled.div`
@@ -17,12 +22,29 @@ export const BackgroundWithImage = styled.div`
   justify-content: center;
   align-items: center;
 
-  background-color: ${theme.colors.orange};
+  background-color: ${theme.colors.mainOrange};
   border-top-right-radius: 214px;
 
   img {
     width: 40%;
   }
+
+  ${customMedia.lessThan('tablet')`
+    width: 100%;
+    height: 45%;
+    border-radius: 30%;
+    border-top-right-radius: 0;
+    border-top-left-radius: 0;
+
+    img{
+      height: 80%;
+      margin-bottom: 0;
+    }
+  `}
+
+  ${customMedia.lessThan('mobileL')`
+    height: 40%;
+  `}
 `;
 
 export const Tutorial = styled.div`
@@ -35,27 +57,47 @@ export const Tutorial = styled.div`
   justify-content: center;
   align-items: center;
   flex-direction: column;
+
+  ${customMedia.lessThan('tablet')`
+    width: 100%;
+    height: 60%;
+    padding: 0 20px;
+    margin-top: 20px;
+  `}
 `;
 
 export const Title = styled.p`
   font-weight: 600;
   font-size: 32px;
+  text-align: center;
 
-  color: ${theme.colors.grayLetter};
+  color: ${theme.colors.gray3};
   margin-bottom: 37px;
+
+  ${customMedia.lessThan('mobileL')`
+    font-size: 28px;
+  `}
 `;
 
 export const Text = styled.p`
   font-weight: 400;
   font-size: 30px;
 
-  color: ${theme.colors.grayLetter};
+  color: ${theme.colors.gray2};
   text-align: center;
   margin-bottom: 51px;
+
+  ${customMedia.lessThan('mobileL')`
+    font-size: 25px;
+  `}
 `;
 
 export const Buttons = styled.div`
-  margin-bottom: 150px;
+  margin-bottom: 100px;
+
+  ${customMedia.lessThan('tablet')`
+    margin-bottom: 50px;
+  `}
 `;
 
 type ButtonProps = {
@@ -66,19 +108,21 @@ export const Button = styled.button<ButtonProps>`
   width: 25px;
   height: 25px;
 
-  border: 1px solid ${theme.colors.buttonLightGray};
+  border: 1px solid ${theme.colors.gray1};
   border-radius: 50%;
   margin: 0 18px;
 
   background-color: ${(props) => {
-    return props.selected ? `${theme.colors.lightOrange}` : 'none';
+    return props.selected
+      ? `${theme.colors.mainOrange}`
+      : `${theme.colors.gray1}`;
   }};
 
   :hover {
     background-color: ${(props) => {
       return props.selected
-        ? `${theme.colors.orange}`
-        : `${theme.colors.mediumGray}`;
+        ? `${theme.colors.lightOrange}`
+        : `${theme.colors.gray2}`;
     }};
   }
 `;
@@ -88,7 +132,25 @@ export const Skip = styled.p`
   font-weight: bold;
 
   .link {
-    color: ${theme.colors.orange};
+    color: ${theme.colors.mainOrange};
   }
-  
+
+  ${customMedia.lessThan('tablet')`
+    position: absolute;
+    top: 30px;
+    right: 30px;
+    font-size: 18px;
+
+    .link {
+      color: ${theme.colors.white};
+    }
+  `}
+`;
+
+export const LinkStyled = styled(Link)`
+  color: ${theme.colors.mainOrange};
+
+  ${customMedia.lessThan('tablet')`
+    color: ${theme.colors.white};
+  `}
 `;

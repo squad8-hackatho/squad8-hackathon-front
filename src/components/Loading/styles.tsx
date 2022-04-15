@@ -14,7 +14,7 @@ export const Section = styled.button`
 
 export const Load = styled.div`
   border: 12px solid ${theme.colors.white};
-  border-top: 16px solid ${theme.colors.lightOrange};
+  border-top: 16px solid ${theme.colors.mainOrange};
   border-radius: 50%;
   width: 50px;
   height: 50px;
