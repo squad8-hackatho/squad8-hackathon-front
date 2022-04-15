@@ -62,7 +62,7 @@ function Profile() {
             connect={connect}
             occupation={
               dataArr.professionList.length > 0
-                ? dataArr.professionList[0].description
+                ? dataArr.professionList[0].occupation
                 : ''
             }
           />

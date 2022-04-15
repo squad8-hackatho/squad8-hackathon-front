@@ -60,9 +60,7 @@ export function MentorCard({
           <ProfilePicture src={foto} alt="Teste" />
           <Description>
             <Name>{name}</Name>
-            <OccupationItem>
-              <strong>Cargo:</strong> {occupation}
-            </OccupationItem>
+            <OccupationItem>{occupation}</OccupationItem>
           </Description>
         </PictureAndName>
         <Bio>
