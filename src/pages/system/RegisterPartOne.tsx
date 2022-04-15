@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import { H3, Input, Section, Span /* TextArea */ } from './styles';
 import { ButtonBig } from '../../components/Button/styles';
 
@@ -7,7 +7,7 @@ type props = {
   // setBio: Function;
   setPassword: Function;
   setEmail: Function;
-  setNext: Function;
+  setPages: Function;
   password: string;
   email: string;
   name: string;
@@ -20,7 +20,7 @@ function Register({
   password,
   email,
   name,
-  setNext,
+  setPages,
 }: props) {
   const [checkEmail, setCheckEmail] = useState(false);
   const [checkPassword, setCheckPassword] = useState('');
@@ -29,12 +29,6 @@ function Register({
     const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     setCheckEmail(!re.test(emailCheck));
   };
-
-  useEffect(() => {
-    // setPassword('');
-    // setCheckPassword('');
-    // setCheckEmail(false);
-  }, []);
 
   const checkValues = (): boolean => {
     return (
@@ -93,7 +87,7 @@ function Register({
       <ButtonBig
         disabled={checkValues()}
         onClick={() => {
-          setNext(true);
+          setPages();
         }}
       >
         Próximo

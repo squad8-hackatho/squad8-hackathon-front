@@ -7,11 +7,6 @@ export const Main = styled.main`
   justify-content: center;
   align-items: center;
   background-color: ${theme.colors.background};
-
-  ${customMedia.between('tablet', 'laptopL')`
-    height: 100vh;
-    overflow-y: hidden;
-  `}
 `;
 
 export const Form = styled.form`
@@ -21,11 +16,6 @@ export const Form = styled.form`
   flex-direction: column;
   justify-content: center;
 
-  ${customMedia.between('tablet', 'laptopL')`
-    height: 97vh;
-    overflow: scroll;
-  `}
-
   margin: 50px 0 50px 0;
 `;
 
@@ -34,12 +24,6 @@ export const Section = styled.fieldset`
   flex-direction: column;
   align-items: center;
   justify-content: center;
-
-  ${customMedia.between('tablet', 'laptopL')`
-    overflow: scroll;
-    
-    height: 100vh;
-  `}
 
   button {
     width: 300px;
@@ -104,7 +88,7 @@ export const Input = styled.input`
 
 export const TextArea = styled.textarea`
   width: 300px;
-  height: 100px;
+  height: 170px;
   margin-top: 10px;
   padding: 15px 15px;
   border-radius: 8px;
