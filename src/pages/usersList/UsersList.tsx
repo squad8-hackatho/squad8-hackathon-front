@@ -5,6 +5,7 @@ import { Navigate } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import { TopBarUserList } from '../../components/topBar';
 import { MentorCard } from '../../components/MentorCard';
+import Loading from '../../components/Loading';
 import {
   Filter,
   Mentors,
@@ -33,6 +34,7 @@ function UsersList() {
   ]);
   const [skill1, setSkill1] = useState({ area: 'null', technologie: 'null' });
   const [skill2, setSkill2] = useState({ area: 'null', technologie: 'null' });
+  const [loading, setLoading] = useState(true);
   const [dataArr, setDataArr] = useState<any[]>([]);
   const currentUser = useSelector((state: any) => {
     return state;
@@ -42,12 +44,13 @@ function UsersList() {
   useEffect(() => {
     async function get() {
       if (sortByName === '') {
-        const { data }: any = await getUsers(
+        const { data, isFetching }: any = await getUsers(
           `/profiles/findall?toExcludeProfileEmail=${currentUser.user.email}&page=${page}&size=${size}`,
           currentUser.authorization
         );
         if (data) {
           setDataArr(data.content);
+          setLoading(isFetching);
           setTotalPages(data.totalPages);
         }
       }
@@ -57,12 +60,13 @@ function UsersList() {
 
   useEffect(() => {
     async function getBySkills() {
-      const { data }: any = await getUsers(
+      const { data, isFetching }: any = await getUsers(
         `/profiles/findbyskill?firstSkill=${selectedSkillsToFilter[0].technologie}&secondSkill=${selectedSkillsToFilter[1].technologie}&filterXP=null&toExcludeProfileEmail=${currentUser.user.email}&page=${page}&size=${size}`,
         currentUser.authorization
       );
       if (data) {
         setDataArr(data.content);
+        setLoading(isFetching);
         setTotalPages(data.totalPages);
       }
     }
@@ -72,12 +76,13 @@ function UsersList() {
   useEffect(() => {
     async function getByName() {
       if (sortByName !== '') {
-        const { data }: any = await getUsers(
+        const { data, isFetching }: any = await getUsers(
           `/profiles/findbyname?name=${sortByName}&toExcludeProfileEmail=${currentUser.user.email}&page=${page}&size=${size}`,
           currentUser.authorization
         );
         if (data) {
           setDataArr(data.content);
+          setLoading(isFetching);
           setTotalPages(data.totalPages);
         }
       }
@@ -144,53 +149,59 @@ function UsersList() {
 
   return currentUser.isLogged ? (
     <Main>
-      <SkillFilter
-        showFilterModal={showFilterModal}
-        setShowFilterModal={setShowFilterModal}
-        setSelectedSkillsToFilter={setSelectedSkillsToFilter}
-        skill1={skill1}
-        setSkill1={setSkill1}
-        skill2={skill2}
-        setSkill2={setSkill2}
-      />
       <TopBarUserList setSortByName={setSortByName} />
+      {loading ? (
+        <Loading />
+      ) : (
+        <>
+          <SkillFilter
+            showFilterModal={showFilterModal}
+            setShowFilterModal={setShowFilterModal}
+            setSelectedSkillsToFilter={setSelectedSkillsToFilter}
+            skill1={skill1}
+            setSkill1={setSkill1}
+            skill2={skill2}
+            setSkill2={setSkill2}
+          />
 
-      <FilterWrapper>
-        <Filter>
-          <ButtonFilter>
-            <RiEqualizerFill
-              onClick={() => {
-                handleSkillFilter();
-              }}
-            />
-            <button type="button" onClick={handleSkillFilter}>
-              Filtrar
-            </button>
-          </ButtonFilter>
-        </Filter>
-      </FilterWrapper>
+          <FilterWrapper>
+            <Filter>
+              <ButtonFilter>
+                <RiEqualizerFill
+                  onClick={() => {
+                    handleSkillFilter();
+                  }}
+                />
+                <button type="button" onClick={handleSkillFilter}>
+                  Filtrar
+                </button>
+              </ButtonFilter>
+            </Filter>
+          </FilterWrapper>
 
-      <MentorsWrapper>
-        <Mentors>{getCards()}</Mentors>
-      </MentorsWrapper>
+          <MentorsWrapper>
+            <Mentors>{getCards()}</Mentors>
+          </MentorsWrapper>
 
-      <PaginationWrapper>
-        <Section>
-          {totalPages > 0 ? (
-            <NumberPage>
-              <Select
-                onChange={(e) => {
-                  setSortByName('');
-                  setSize(e.target.value);
-                }}
-              >
-                {getOptions()}
-              </Select>
-            </NumberPage>
-          ) : null}
-          <Pages>{getPages()}</Pages>
-        </Section>
-      </PaginationWrapper>
+          <PaginationWrapper>
+            <Section>
+              {totalPages > 0 ? (
+                <NumberPage>
+                  <Select
+                    onChange={(e) => {
+                      setSortByName('');
+                      setSize(e.target.value);
+                    }}
+                  >
+                    {getOptions()}
+                  </Select>
+                </NumberPage>
+              ) : null}
+              <Pages>{getPages()}</Pages>
+            </Section>
+          </PaginationWrapper>
+        </>
+      )}
     </Main>
   ) : (
     <Navigate to="/login" />

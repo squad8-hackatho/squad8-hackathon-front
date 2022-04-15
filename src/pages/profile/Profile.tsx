@@ -8,6 +8,7 @@ import ProfileCard from '../../components/ProfileCard/ProfileCard';
 import { getUsers } from '../../services/services';
 import InfoProfile from './Info';
 import Request from './Request';
+import Loading from '../../components/Loading';
 
 function Profile() {
   const currentUser = useSelector((state: any) => {
@@ -47,46 +48,44 @@ function Profile() {
 
   return currentUser.isLogged ? (
     <Main>
+      <TopBarProfile email={params.email} />
       {loading ? (
-        <p>Carregando</p>
+        <Loading />
       ) : (
-        <>
-          <TopBarProfile email={params.email} />
-          <Section>
-            <ProfileCard
-              widthScreen={widthScreen}
-              email={dataArr.email}
-              userName={dataArr.userName}
-              linksListDTO={dataArr.linksListDTO}
-              setConnectCard={setConnectCard}
-              connect={connect}
-              occupation={
-                dataArr.professionList.length > 0
-                  ? dataArr.professionList[0].description
-                  : ''
-              }
-            />
-            <Article>
-              {widthScreen > screenSizes.ipadMini ? (
-                <Nav>
-                  <Link to="/userslist">Lista de Usuários</Link>
-                  <p>/</p>
-                  <Link to="/">Perfil do Mentor</Link>
-                </Nav>
-              ) : null}
+        <Section>
+          <ProfileCard
+            widthScreen={widthScreen}
+            email={dataArr.email}
+            userName={dataArr.userName}
+            linksListDTO={dataArr.linksListDTO}
+            setConnectCard={setConnectCard}
+            connect={connect}
+            occupation={
+              dataArr.professionList.length > 0
+                ? dataArr.professionList[0].description
+                : ''
+            }
+          />
+          <Article>
+            {widthScreen > screenSizes.ipadMini ? (
+              <Nav>
+                <Link to="/userslist">Lista de Usuários</Link>
+                <p>/</p>
+                <Link to="/">Perfil do Mentor</Link>
+              </Nav>
+            ) : null}
 
-              {connect ? (
-                <Request dataArr={dataArr} />
-              ) : (
-                <InfoProfile
-                  setConnectCard={setConnectCard}
-                  widthScreen={widthScreen}
-                  dataArr={dataArr}
-                />
-              )}
-            </Article>
-          </Section>
-        </>
+            {connect ? (
+              <Request dataArr={dataArr} />
+            ) : (
+              <InfoProfile
+                setConnectCard={setConnectCard}
+                widthScreen={widthScreen}
+                dataArr={dataArr}
+              />
+            )}
+          </Article>
+        </Section>
       )}
     </Main>
   ) : (
