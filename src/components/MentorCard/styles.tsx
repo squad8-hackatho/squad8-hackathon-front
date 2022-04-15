@@ -83,23 +83,21 @@ export const OccupationItem = styled.p`
 `;
 
 export const Bio = styled.article`
-  width: 100%;
   margin: 24px 0 0 0;
-
   display: flex;
   flex-direction: column;
-  word-break: break-all;
   align-items: start;
+  word-wrap: break-word;
 `;
 
 export const BioDescr = styled.p`
   height: 80px;
-
   font-size: 14px;
   font-weight: 400;
   line-height: 20px;
   text-align: justify;
-  word-break: normal;
+  max-width: 295px;
+  white-space: break-spaces;
 `;
 
 export const Expertises = styled.div`
