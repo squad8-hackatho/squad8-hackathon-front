@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 // import Modal from 'styled-react-modal';
-import { customMedia, theme } from '../../themes/theme';
+import { theme, customMedia } from '../../themes/theme';
 
 export const Main = styled.main`
   display: flex;
@@ -88,7 +88,7 @@ export const Input = styled.input`
 
 export const TextArea = styled.textarea`
   width: 300px;
-  height: 100px;
+  height: 170px;
   margin-top: 10px;
   padding: 15px 15px;
   border-radius: 8px;

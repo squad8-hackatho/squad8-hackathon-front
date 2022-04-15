@@ -26,7 +26,7 @@ export const Article = styled.article`
   ${customMedia.lessThan('laptopL')`
     text-align: center;
     padding: 30px 20px;
-    `}
+  `}
 
   ${customMedia.lessThan('tablet')`
     text-align: left;

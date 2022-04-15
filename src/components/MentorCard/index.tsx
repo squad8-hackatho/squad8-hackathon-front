@@ -43,6 +43,16 @@ export function MentorCard({
     });
   };
 
+  const getBioDescription = () => {
+    const size = bioDescription.length;
+    let subString = '';
+    if (size > 150) {
+      subString = bioDescription.substring(0, 150);
+      return `${subString} ...`;
+    }
+    return bioDescription;
+  };
+
   return (
     <Card>
       <Header>
@@ -56,7 +66,7 @@ export function MentorCard({
           </Description>
         </PictureAndName>
         <Bio>
-          <BioDescr>{bioDescription}</BioDescr>
+          <BioDescr>{getBioDescription()}</BioDescr>
         </Bio>
         <hr />
       </Header>

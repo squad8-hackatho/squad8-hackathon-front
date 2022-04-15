@@ -4,16 +4,19 @@ import { useDispatch } from 'react-redux';
 import { Main, Button, Form, P, H2 } from './styles';
 import RegisterPartOne from './RegisterPartOne';
 import RegisterPartTwo from './RegisterPartTwo';
+import RegisterPartThree from './RegisterPartThree';
 import { register } from '../../services/services';
 import { fetchUser } from '../../redux/userSlice';
-import Pattern from '../../components/banner/Banner'
+import Pattern from '../../components/banner/Banner';
 
 function Register() {
   const [name, setName] = useState('');
   const [bio, setBio] = useState('');
   const [password, setPassword] = useState('');
   const [email, setEmail] = useState('');
-  const [next, setNext] = useState(false);
+  const [pageOne, setPageOne] = useState(true);
+  const [pageTwo, setPageTwo] = useState(false);
+  const [pageThree, setPageThree] = useState(false);
   const [description, setDescription] = useState('');
   const [area, setArea] = useState('');
   const [numero, setNumero] = useState('');
@@ -64,6 +67,16 @@ function Register() {
     }
   };
 
+  const setPages = () => {
+    if (pageOne) {
+      setPageTwo(pageOne);
+      setPageOne(!pageOne);
+    } else if (pageTwo) {
+      setPageThree(pageTwo);
+      setPageTwo(!pageTwo);
+    }
+  };
+
   return (
     <Main>
       <Pattern />
@@ -76,31 +89,40 @@ function Register() {
         <H2>
           Technical<strong>Share</strong>
         </H2>
-        {!next ? (
+        {pageOne ? (
           <RegisterPartOne
             name={name}
             setName={setName}
-            // setBio={setBio}
             password={password}
             setPassword={setPassword}
             email={email}
             setEmail={setEmail}
-            setNext={setNext}
+            setPages={setPages}
           />
-        ) : (
+        ) : null}
+
+        {pageTwo ? (
           <RegisterPartTwo
             setDescription={setDescription}
+            setPages={setPages}
             setArea={setArea}
             setSkills={setExpertise}
             setLevel={setLevel}
-            setLinkedin={setLinkedin}
-            setNumero={setNumero}
+            level={level}
             area={area}
             description={description}
-            level={level}
-            setBio={setBio}
           />
-        )}
+        ) : null}
+
+        {pageThree ? (
+          <RegisterPartThree
+            setLinkedin={setLinkedin}
+            setNumero={setNumero}
+            setBio={setBio}
+            linkedin={linkedin}
+            numero={numero}
+          />
+        ) : null}
 
         <P>
           Já tem uma conta ?

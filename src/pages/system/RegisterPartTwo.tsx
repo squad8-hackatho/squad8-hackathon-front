@@ -1,16 +1,7 @@
 /* eslint-disable react/jsx-no-bind */
 import React, { useEffect, useState } from 'react';
 import { useSelector } from 'react-redux';
-import {
-  H3,
-  Input,
-  Section,
-  Select,
-  Tag,
-  Tags,
-  Span,
-  TextArea,
-} from './styles';
+import { H3, Input, Section, Select, Tag, Tags, Span } from './styles';
 import { ButtonBig } from '../../components/Button/styles';
 import { getUsers } from '../../services/services';
 import { setSelectedSkillToPost } from '../../helpers/setSelectedSkillsToPost';
@@ -20,9 +11,7 @@ type props = {
   setArea: Function;
   setSkills: Function;
   setLevel: Function;
-  setLinkedin: Function;
-  setNumero: Function;
-  setBio: Function;
+  setPages: Function;
   area: string;
   level: string;
   description: string;
@@ -33,12 +22,10 @@ function Register({
   setArea,
   setSkills,
   setLevel,
-  setLinkedin,
-  setNumero,
   description,
   level,
   area,
-  setBio,
+  setPages,
 }: props) {
   const emptyArray: any = [];
   const [areasList, setAreasList] = useState([]);
@@ -89,7 +76,7 @@ function Register({
     function filterSkill(skill: any) {
       return skill !== event.target.value;
     }
-    if (selectedSkills.length <= 5) {
+    if (selectedSkills.length < 5) {
       if (selectedSkills.includes(event.target.value)) {
         setSelectedSkills(selectedSkills.filter(filterSkill));
       } else {
@@ -168,7 +155,7 @@ function Register({
         })}
       </Select>
 
-      <Select onChange={handleChange} disabled={selectedSkills.length === 5}>
+      <Select onChange={handleChange} disabled={selectedSkills.length === 4}>
         <option defaultValue="default">Habilidades</option>
         {skillsList.map((skill: any) => {
           return (
@@ -178,38 +165,18 @@ function Register({
           );
         })}
       </Select>
-      {selectedSkills.length === 5 ? (
+      {selectedSkills.length === 4 ? (
         <Span>Quantidade máxima atingida</Span>
       ) : null}
 
-      <H3>Biografia</H3>
-      <TextArea
-        onChange={(e) => {
-          return setBio(e.target.value);
+      <ButtonBig
+        type="button"
+        onClick={() => {
+          setPages();
         }}
-        placeholder="Bio"
-      />
-
-      <H3>Número*</H3>
-      <Input
-        type="text"
-        onChange={(e) => {
-          setNumero(e.target.value);
-        }}
-        placeholder="(XX) XXXXX-XXXX"
-      />
-
-      <H3>Linkedin*</H3>
-      <Input
-        type="text"
-        onChange={(e) => {
-          setLinkedin(e.target.value);
-        }}
-        placeholder="Linkedin"
-      />
-
-      <ButtonBig type="submit" disabled={checkValues()}>
-        Criar a minha conta
+        disabled={checkValues()}
+      >
+        Próximo
       </ButtonBig>
     </Section>
   );
