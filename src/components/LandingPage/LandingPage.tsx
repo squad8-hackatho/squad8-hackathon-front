@@ -58,9 +58,7 @@ export function LandingPage({
           />
         </Buttons>
         <Skip>
-          <LinkStyled to="/usersList">
-            Pular
-          </LinkStyled>
+          <LinkStyled to="/usersList">Acessar Plataforma</LinkStyled>
         </Skip>
       </Tutorial>
     </Main>

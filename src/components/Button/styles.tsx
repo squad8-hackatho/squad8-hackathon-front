@@ -66,7 +66,13 @@ export const ButtonBig = styled.button`
   :hover {
     border: 1px solid ${theme.colors.mainOrange};
     background-color: ${theme.colors.white};
-    color: ${theme.colors.gray3};
+    color: ${theme.colors.mainOrange};
+  }
+
+  :disabled {
+    color: ${theme.colors.white};
+    background-color: ${theme.colors.darkOrange};
+    cursor: not-allowed;
   }
 
   ${customMedia.between('tablet', 'laptopS')`

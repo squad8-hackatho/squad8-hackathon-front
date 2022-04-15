@@ -29,12 +29,12 @@ function Request({ dataArr }: props) {
   const [message, setMessage] = useState('');
   const [isOpen, setIsOpen] = useState(false);
   const [telefone, setTelefone] = useState({
-    contact: 'string',
-    type: 'string',
+    contact: '',
+    type: '',
   });
   const [email, setEmail] = useState({
-    contact: 'string',
-    type: 'string',
+    contact: '',
+    type: '',
   });
   const element = document.getElementById('urgency') as HTMLInputElement;
   const form = document.getElementById('formRequest') as HTMLFormElement;
@@ -121,6 +121,10 @@ function Request({ dataArr }: props) {
     );
   };
 
+  const checkValues = () => {
+    return subject === '' || email.contact === '';
+  };
+
   // console.log(currentUser);
   return (
     <Form
@@ -133,7 +137,7 @@ function Request({ dataArr }: props) {
       <Article>
         {modal()}
         <Info>
-          <H2>Assunto</H2>
+          <H2>Assunto*</H2>
           <Input
             placeholder="Digite o assunto da sua requisição"
             onChange={(e) => {
@@ -178,7 +182,7 @@ function Request({ dataArr }: props) {
             />
           </Info>
           <Info>
-            <H2>Email</H2>
+            <H2>Email*</H2>
             <Input
               placeholder="Digite seu e-mail"
               onChange={(e) => {
@@ -192,7 +196,7 @@ function Request({ dataArr }: props) {
         </Contact>
 
         <ResquestButton>
-          <ButtonBig>Enviar</ButtonBig>
+          <ButtonBig disabled={checkValues()}>Enviar</ButtonBig>
         </ResquestButton>
       </Article>
     </Form>

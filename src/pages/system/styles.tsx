@@ -6,34 +6,80 @@ export const Main = styled.main`
   display: flex;
   justify-content: center;
   align-items: center;
+  height: 100vh;
   background-color: ${theme.colors.background};
 `;
 
 export const Form = styled.form`
   display: flex;
-  width: 45vw;
   align-items: center;
-  flex-direction: column;
   justify-content: center;
+  flex-direction: column;
 
+  text-align: justify;
+  text-justify: inter-word;
+
+  ::-webkit-scrollbar {
+    display: none;
+  }
+
+  ${customMedia.between('tablet', 'laptopL')`
+    height: 100vh;
+    overflow:scroll
+    overflow-y: hidden;
+  `}
+
+  width: 45vw;
   margin: 50px 0 50px 0;
+`;
+
+export const Article = styled.article`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 45vw;
+
+  button {
+    outline: none;
+    margin-left: 5px;
+    background-color: ${theme.colors.background};
+    font-weight: bold;
+    cursor: pointer;
+    text-decoration: underline;
+  }
+
+  ${customMedia.lessThan('tablet')`
+    width: 60vw;
+  `}
+
+  ${customMedia.lessThan('default')`
+    width: 90vw;
+  `}
 `;
 
 export const Section = styled.fieldset`
   display: flex;
-  flex-direction: column;
   align-items: center;
   justify-content: center;
+  flex-direction: column;
+
+  ::-webkit-scrollbar {
+    display: none;
+  }
+
+  ${customMedia.between('tablet', 'laptopL')`
+    overflow: scroll;
+  `}
 
   button {
     width: 300px;
-    margin-top: 30px;
+    margin-top: 20px;
   }
 `;
 
 export const H2 = styled.h2`
   font-weight: normal;
-  margin-bottom: 20px;
+  margin-bottom: 10px;
   color: ${theme.colors.mainOrange};
 `;
 
@@ -42,6 +88,9 @@ export const H3 = styled.h3`
   font-size: 16px;
   align-self: flex-start;
   margin: 10px 0 -5px 20px;
+  ${customMedia.lessThan('mobileS')`
+    margin-left: 40px;
+  `}
 `;
 
 export const Span = styled.span`
@@ -52,15 +101,6 @@ export const Span = styled.span`
 
 export const P = styled.p`
   font-size: 14px;
-  button {
-    outline: none;
-    width: 80px;
-    background-color: ${theme.colors.background};
-    font-weight: bold;
-    cursor: pointer;
-    text-decoration: underline;
-    margin-top: 20px;
-  }
 
   ${customMedia.lessThan('mobileS')`
     font-size: 13px;
@@ -74,6 +114,10 @@ export const Select = styled.select`
   border-radius: 8px;
   margin: 10px 10px;
   background-color: ${theme.colors.white};
+
+  ${customMedia.lessThan('mobileS')`
+    width: 250px;
+  `}
 `;
 
 export const Input = styled.input`
@@ -84,6 +128,10 @@ export const Input = styled.input`
   background-color: ${theme.colors.white};
   border-radius: 8px;
   margin: 10px 0px;
+
+  ${customMedia.lessThan('mobileS')`
+    width: 250px;
+  `}
 `;
 
 export const TextArea = styled.textarea`
@@ -95,6 +143,10 @@ export const TextArea = styled.textarea`
   outline: none;
   resize: none;
   background-color: ${theme.colors.white};
+
+  ${customMedia.lessThan('mobileS')`
+    width: 250px;
+  `}
 `;
 
 export const Button = styled.button`

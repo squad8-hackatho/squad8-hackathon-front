@@ -5,7 +5,7 @@ import * as BsIcons from 'react-icons/bs';
 import { theme } from '../../../themes/theme';
 import ProfileButton from '../../ProfileButton/ProfileButton';
 
-import { Container, TopBar, Button, NavBar, Article } from './styles';
+import { Container, TopBar, NavBar, Article } from './styles';
 
 const defaultProps = {
   email: '',
@@ -56,7 +56,8 @@ function TopBarPattern({ email }: Props) {
           <>
             <ProfileButton size={25} />
             <Link to="/userslist">
-              <Button>Voltar</Button>
+              <BsIcons.BsArrowLeft size={28} color="black" />
+              {/* <Button>Voltar</Button> */}
             </Link>
           </>
         )}

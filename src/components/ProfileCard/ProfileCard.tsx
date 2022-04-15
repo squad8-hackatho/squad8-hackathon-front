@@ -73,7 +73,7 @@ function ProfileCard({
         <MidiaLinkedin>
           <LinkedinIcon />
 
-          <A href={linkedin} >{linkedin}</A>
+          <A href={linkedin}>{linkedin}</A>
         </MidiaLinkedin>
       </Article>
       {widthScreen > screenSizes.ipadMini ? (

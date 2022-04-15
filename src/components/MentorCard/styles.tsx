@@ -148,10 +148,27 @@ export const Buttons = styled.article`
     text-decoration: none;
     justify-content: center;
 
-    button {
-      border: 2px solid ${theme.colors.mainOrange};
-      background-color: ${theme.colors.white};
-      color: ${theme.colors.mainOrange};
+    &:nth-child(1) {
+      button {
+        border: 2px solid ${theme.colors.mainOrange};
+        background-color: ${theme.colors.white};
+        color: ${theme.colors.mainOrange};
+
+        :hover {
+          border: 2px solid ${theme.colors.mainOrange};
+          background-color: ${theme.colors.mainOrange};
+          color: ${theme.colors.white};
+        }
+      }
+    }
+    &:nth-child(2) {
+      button {
+        :hover {
+          border: 2px solid ${theme.colors.mainOrange};
+          background-color: ${theme.colors.white};
+          color: ${theme.colors.mainOrange};
+        }
+      }
     }
   }
 `;

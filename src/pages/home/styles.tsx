@@ -132,7 +132,7 @@ export const P = styled.p`
   display: inline-block;
   font-size: 36px;
   padding: 5px;
-  line-height: 60px;
+  line-height: 50px;
 
   ${customMedia.lessThan('laptopL')`
     font-size: 23px;

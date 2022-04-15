@@ -25,9 +25,9 @@ export const Section = styled.section`
 
   button {
     :hover {
-      background-color: ${theme.colors.gray1};
-      color: ${theme.colors.gray3};
-      border: 1px solid ${theme.colors.gray3};
+      background-color: ${theme.colors.background};
+      color: ${theme.colors.mainOrange};
+      border: 1px solid ${theme.colors.mainOrange};
     }
   }
 
@@ -53,6 +53,11 @@ export const Section = styled.section`
 
   ${customMedia.between('laptopS', 'laptop')`
     height: 102vh;
+    width: 25vw;
+  `}
+
+  ${customMedia.between('laptop', 'laptopL')`
+    height: 112vh;
     width: 25vw;
   `}
 
@@ -91,6 +96,10 @@ export const H1 = styled.h1`
     line-height: 10px;
   `}
   ${customMedia.between('tablet', 'laptopS')`
+    font-size: 26px;
+  `}
+
+  ${customMedia.between('laptopS', 'laptop')`
     font-size: 26px;
   `}
 `;

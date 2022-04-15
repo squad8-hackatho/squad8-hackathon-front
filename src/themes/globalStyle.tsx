@@ -10,6 +10,7 @@ const GlobalStyle = createGlobalStyle<{ theme: ThemeType }>`
    }
 
    body {
+      overflow-x: hidden;
       font-size: 18px;
       background-color: ${({ theme }) => {
         return theme.colors.background;

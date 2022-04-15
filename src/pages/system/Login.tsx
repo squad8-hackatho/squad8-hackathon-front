@@ -2,7 +2,7 @@
 import React, { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
-import { Main, Button, H2, Input, Form, P, Span } from './styles';
+import { Main, Button, H2, Input, Form, P, Span, Article } from './styles';
 import { LoginButton } from '../../components/Button/styles';
 import Pattern from '../../components/banner/Banner';
 import { fetchUser } from '../../redux/userSlice';
@@ -61,19 +61,21 @@ function Login() {
 
         <LoginButton type="submit">Entrar</LoginButton>
 
-        <P>
-          Não tem uma conta ?
-          <Link to="/register">
-            <Button
-              type="button"
-              onClick={() => {
-                // return changeModal();
-              }}
-            >
-              Cadastre-se
-            </Button>
-          </Link>
-        </P>
+        <Article>
+          <P>
+            Não tem uma conta ?
+            <Link to="/register">
+              <Button
+                type="button"
+                onClick={() => {
+                  // return changeModal();
+                }}
+              >
+                Cadastre-se
+              </Button>
+            </Link>
+          </P>
+        </Article>
       </Form>
     </Main>
   );

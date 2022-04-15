@@ -4,6 +4,7 @@ import { theme, customMedia } from '../../themes/theme';
 
 export const Main = styled.main`
   background-color: ${theme.colors.background};
+  overflow-x: hidden;
 `;
 
 export const Article = styled.article`
@@ -425,6 +426,8 @@ export const Textarea = styled.textarea`
 export const StyledModal = Modal.styled`
   width: 25vw;
   height: 15vh;
+  min-width: 250px;
+  min-height: 150px;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -441,7 +444,7 @@ export const StyledModal = Modal.styled`
   }
   button {
     width: 8vw;
-    margin-top: 10px;
+    min-width: 150px;
   }
 `;
 

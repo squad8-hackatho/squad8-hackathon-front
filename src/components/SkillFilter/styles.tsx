@@ -134,9 +134,15 @@ export const ButtonModalFilter = styled.button`
   height: 60px;
   border: 1px solid ${theme.colors.mainOrange};
   border-radius: 12px;
+  cursor: pointer;
 
   background-color: ${theme.colors.mainOrange};
   color: ${theme.colors.white};
+
+  :disabled {
+    background-color: ${theme.colors.darkOrange};
+    cursor: not-allowed;
+  }
 
   font-size: 35px;
   line-height: 52px;
