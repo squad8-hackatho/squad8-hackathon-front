@@ -444,7 +444,6 @@ export const StyledModal = Modal.styled`
   button {
     width: 8vw;
     min-width: 150px;
-    margin-top: 10px;
   }
 `;
 

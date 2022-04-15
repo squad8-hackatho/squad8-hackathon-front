@@ -14,9 +14,10 @@ export const RequestsWrapper = styled.section`
   flex-direction: row;
   margin-top: 50px;
 
-  ${customMedia.lessThan('mobileL')`
+  ${customMedia.lessThan('ipadMini')`
     flex-direction: column;
     justify-content: center;
+    align-items: center;
   `}
 `;
 
@@ -69,12 +70,14 @@ export const Article = styled.article`
 `;
 
 export const EmptySchedule = styled.div`
-  width: 50%;
-  height: 200px;
-  border: 5px solid ${theme.colors.mainOrange};
-  border-radius: 16px;
+  width: 30vw;
+  height: 10vh;
+  min-width: 300px;
+  min-height: 110px;
+  border: 3px solid ${theme.colors.mainOrange};
+  border-radius: 8px;
   padding: 30px;
-  margin: 50px 0;
+  margin: 25px 0;
   background-color: ${theme.colors.gray1};
   display: flex;
   justify-content: center;
@@ -87,10 +90,6 @@ export const EmptySchedule = styled.div`
     font-weight: 500;
     margin: 0;
   }
-
-  ${customMedia.lessThan('laptop')`
-    width: 80%;
-  `}
 
   ${customMedia.lessThan('mobileS')`
     h2{

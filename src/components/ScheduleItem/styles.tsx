@@ -1,5 +1,5 @@
-import styled from "styled-components";
-import { customMedia, theme } from "../../themes/theme";
+import styled from 'styled-components';
+import { customMedia, theme } from '../../themes/theme';
 
 export const Container = styled.div`
   width: 310px;

@@ -56,6 +56,11 @@ export const Section = styled.section`
     width: 25vw;
   `}
 
+  ${customMedia.between('laptop', 'laptopL')`
+    height: 110vh;
+    width: 25vw;
+  `}
+
   ${customMedia.between('tablet', 'laptopS')`
     width: 45vw;
     margin-left: 4%;
@@ -91,6 +96,10 @@ export const H1 = styled.h1`
     line-height: 10px;
   `}
   ${customMedia.between('tablet', 'laptopS')`
+    font-size: 26px;
+  `}
+
+  ${customMedia.between('laptopS', 'laptop')`
     font-size: 26px;
   `}
 `;
