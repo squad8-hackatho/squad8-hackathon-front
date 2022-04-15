@@ -49,6 +49,15 @@ A aplicação Web aqui apresentada foi implementada pelo time de desenvolvedores
 
 <h2 id="comoRodarOProjeto">⚙️Como rodar o projeto</h2>
 
+Nosso projeto está disponivel na web - Acesse [<img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/heroku/heroku-original.svg" width='30px'/>](https://fcamara-technicalshare.herokuapp.com)
+
+Mas caso queria rodar localmente aqui vai as instruções :small_red_triangle_down:
+
+Recursos Necessários 
+- .
+- . 
+- . 
+
 ~~~bash 
 # Clone esse repositório 
 $ git clone https://github.com/squad8-hackatho/squad8-hackathon-front.git 
@@ -65,7 +74,9 @@ $npm start
 # ou
 $ yarn start 
 
+#A aplicação(frontend) será aberta na porta:3000 - acesse http://localhost:3000. 
 ~~~
+*OBS: Para que a aplicação funcione, não é necessário rodar o Back localmente pois ele está online na nuvem*
 
 <br>
 
