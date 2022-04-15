@@ -16,11 +16,15 @@ export function ConfirmDelete({
   deleteData,
 }: Props) {
   const currentUser = useSelector((state: any) => {
-    return state.user;
+    return state;
   });
   const dispatch = useDispatch();
   const reload = async () => {
-    await dispatch(fetchUser(currentUser.email));
+    const obj = {
+      profileEmail: currentUser.user.email,
+      authentication: currentUser.authorization,
+    };
+    await dispatch(fetchUser(obj));
   };
 
   return (
@@ -34,7 +38,8 @@ export function ConfirmDelete({
                 onClick={async () => {
                   const flag = await deleteRequisition(
                     deleteData.uuid,
-                    deleteData.email
+                    deleteData.email,
+                    currentUser.authorization
                   );
                   setShowConfirmDelete(false);
                   if (flag) reload();

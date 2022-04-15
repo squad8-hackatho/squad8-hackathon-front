@@ -3,8 +3,6 @@ import styled from 'styled-components';
 import { customMedia, theme } from '../../themes/theme';
 
 export const Main = styled.main`
-  min-height: 100vh;
-  max-height: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -14,8 +12,8 @@ export const Main = styled.main`
 export const Form = styled.form`
   display: flex;
   width: 45vw;
-  flex-direction: column;
   align-items: center;
+  flex-direction: column;
   justify-content: center;
 
   margin: 50px 0 50px 0;
@@ -95,7 +93,7 @@ export const TextArea = styled.textarea`
   border-radius: 8px;
   outline: none;
   resize: none;
-  background-color: ${theme.colors.lightGray};
+  background-color: ${theme.colors.white};
 `;
 
 export const Button = styled.button`

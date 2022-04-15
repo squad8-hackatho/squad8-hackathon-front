@@ -19,7 +19,7 @@ import {
   Button,
   PictureAndName,
 } from './styles';
-import foto from '../../assets/foto.png';
+import foto from '../../assets/profile.jpg';
 
 type Props = {
   name: string;

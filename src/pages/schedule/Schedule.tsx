@@ -17,18 +17,23 @@ import { ConfirmDelete } from '../../components/ConfirmDelete';
 
 export function Schedule() {
   const currentUser = useSelector((state: any) => {
-    return state.user;
+    return state;
   });
-  const { mentoringListGiven, mentoringListReceived } = currentUser;
+  const { mentoringListGiven, mentoringListReceived } = currentUser.user;
   const dispatch = useDispatch();
 
   const reload = async () => {
-    await dispatch(fetchUser(currentUser.email));
+    const obj = {
+      profileEmail: currentUser.user.email,
+      authentication: currentUser.authorization,
+    };
+    await dispatch(fetchUser(obj));
   };
 
   const [showConfirmDelete, setShowConfirmDelete] = useState(false);
   const [deleteData, setDeleteData] = useState({ uuid: '', email: '' });
 
+  // console.log(currentUser);
   return (
     <Main>
       <ConfirmDelete
@@ -79,7 +84,8 @@ export function Schedule() {
                   onClick={async () => {
                     const flag = await deleteRequisition(
                       item.uuidRequisition,
-                      item.requiredUserEmail
+                      item.requiredUserEmail,
+                      currentUser.authorization
                     );
                     if (flag) reload();
                   }}

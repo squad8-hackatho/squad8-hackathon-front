@@ -1,12 +1,19 @@
 import { api } from './api';
 
-export async function getUsers<T = unknown>(url: string) {
+export async function getUsers<T = unknown>(
+  url: string,
+  Authorization: string
+) {
   let data: T | null = null;
   let isFetching = true;
   let error: Error | null = null;
 
   await api
-    .get(url)
+    .get(url, {
+      headers: {
+        Authorization,
+      },
+    })
     .then((response) => {
       data = response.data;
     })
@@ -20,26 +27,56 @@ export async function getUsers<T = unknown>(url: string) {
   return { data, isFetching, error };
 }
 
-export async function request(values: any) {
-  let createFlag = false;
+export async function login<T = unknown>(values: any) {
+  let data: T | null = null;
+  let isFetching = true;
+
   await api
-    .post('/requisitions', {
-      ...values,
+    .post('/user/login/', {
+      userName: values.email,
+      password: values.password,
     })
-    .then(() => {
-      createFlag = true;
+    .then((response) => {
+      data = response.data;
+    })
+    .catch(() => {
+      isFetching = false;
     });
-  return { createFlag };
+
+  return { isFetching, data };
 }
 
-export async function register(values: any) {
-  let createFlag = false;
+export async function request(values: any, Authorization: string) {
+  let flag = false;
+  await api
+    .post(
+      '/requisitions',
+      {
+        ...values,
+      },
+      {
+        headers: {
+          Authorization,
+        },
+      }
+    )
+    .then(() => {
+      flag = true;
+    });
+  return { flag };
+}
+
+export async function register<T = unknown>(values: any) {
+  let data: T | null = null;
+  let flag = true;
 
   await api
     .post('/profiles/register', {
       userName: values.name,
       email: values.email,
       bio: values.bio,
+      image: values.image,
+      password: values.password,
       linksListDTO: values.links,
       expertiseList: values.expertise,
       professionList: [
@@ -60,18 +97,29 @@ export async function register(values: any) {
         },
       ],
     })
-    .then(() => {
-      createFlag = true;
+    .then((response) => {
+      data = response.data;
+    })
+    .catch(() => {
+      flag = false;
     });
 
-  return { createFlag };
+  return { data, flag };
 }
 
-export async function deleteRequisition(id: number, email: string) {
+export async function deleteRequisition(
+  id: number,
+  email: string,
+  Authorization: string
+) {
   let createFlag = false;
 
   await api
-    .delete(`requisitions?uuidRequisition=${id}&emailRemoveRequest=${email}`)
+    .delete(`requisitions?uuidRequisition=${id}&emailRemoveRequest=${email}`, {
+      headers: {
+        Authorization,
+      },
+    })
     .then(() => {
       createFlag = true;
     });

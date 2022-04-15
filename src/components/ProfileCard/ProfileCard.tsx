@@ -15,7 +15,7 @@ import {
 } from './styles';
 import { ButtonBig } from '../Button/styles';
 import { screenSizes } from '../../themes/theme';
-import foto from '../../assets/foto.png';
+import foto from '../../assets/profile.jpg';
 
 type props = {
   widthScreen: number;
