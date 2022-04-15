@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
-import { Main, Button, Form, P, H2 } from './styles';
+import { Main, Button, Form, P, H2, Article } from './styles';
 import RegisterPartOne from './RegisterPartOne';
 import RegisterPartTwo from './RegisterPartTwo';
 import RegisterPartThree from './RegisterPartThree';
@@ -124,12 +124,14 @@ function Register() {
           />
         ) : null}
 
-        <P>
-          Já tem uma conta ?
-          <Link to="/login">
-            <Button type="button">Entrar</Button>
-          </Link>
-        </P>
+        <Article>
+          <P>
+            Já tem uma conta ?
+            <Link to="/login">
+              <Button type="button">Entrar</Button>
+            </Link>
+          </P>
+        </Article>
       </Form>
     </Main>
   );

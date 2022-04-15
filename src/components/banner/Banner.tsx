@@ -13,7 +13,7 @@ const Pattern = () => {
     window.addEventListener('resize', handleResize);
   });
 
-  return widthScreen >= theme.screenSizes.laptopL ? (
+  return widthScreen >= theme.screenSizes.laptopS ? (
     <Section>
       <Title>
         Technical<strong>Share</strong>
