@@ -19,8 +19,12 @@
 <div id="sobre"  style="text-align: justify">
         
 A Technical Share é uma aplicação web com o objetivo de catalogar os profissionais do Grupo FCamara para facilitar a troca de experiências e networking, principalmente de quem está em busca de orientações na área de tecnologia. Na plataforma, após a realização do cadastro do usuário, é possível ver os perfis dos profissionais já cadastrados na plataforma que contém, dentre outros, uma descrição do cargo que exercem, biografia pessoal e as habilidades que têm mais domínio. Essas informações já permitem ao usuário um rápido e fácil reconhecimento de pessoas das quais ele possa pedir orientações, tirar dúvidas e mesmo conhecer melhor os colegas que dividem o mesmo espaço de trabalho. <strong><em>Saiba mais do projeto em > https://github.com/squad8-hackatho/squad8-hackatho</em></strong> <br> 
+        
+A aplicação Web aqui apresentada foi implementada pelo time de desenvolvedores do Squad 8 pela etapa de Hackathon do [Programa de Formação Season 3](https://digital.fcamara.com.br/programadeformacao) do [Grupo FCamara](https://www.fcamara.com.br/).
 
 </div>
+
+<br>
 
 <h2 id="tecnologias">🚀 Tecnologias:</h2>
 
@@ -30,30 +34,18 @@ A Technical Share é uma aplicação web com o objetivo de catalogar os profissi
   <li><strong>Rotas:</strong> React-router-dom;</li>
   <li><strong>Integração com Back-End:</strong> Axios;</li>
   <li>
-    <strong
-      >Utilizamos ESLint e Prettier para padronização na indentação.</strong
-    >
+    <strong>Utilizamos ESLint e Prettier para padronização na indentação.</strong>
   </li>
 </ul>
 
 <p align="left">
-  <img
-    src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg"
-    width="80px"
-  />
-  <img
-    src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg"
-    width="80px"
-  />
-  <img
-    src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/typescript/typescript-original.svg"
-    width="80px"
-  />
-  <img
-    src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg"
-    width="80px"
-  />
+  <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg" width="80px"/>
+  <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg" width="80px"/>
+  <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/typescript/typescript-original.svg" width="80px"/>
+  <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg" width="80px"/>
 </p>
+
+<br>
 
 <h2 id="comoRodarOProjeto">⚙️Como rodar o projeto</h2>
 
@@ -75,6 +67,8 @@ $ yarn start
 
 ~~~
 
+<br>
+
 <h2 id="comoEntrar">🚪 Como entrar?</h2>
 <ul>
   <li><strong>Crie sua conta:</strong></li>
@@ -88,7 +82,7 @@ $ yarn start
     <li>senha: teste</li>
   </ul>
 </ul>
-
+<br>
 <h2 id="solucaoDesenvolvida">🎉 Solução desenvolvida</h2>
 
 <ul>
