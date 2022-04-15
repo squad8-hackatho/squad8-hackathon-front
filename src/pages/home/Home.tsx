@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { theme } from '../../themes/theme';
-import Pattern from '../../components/banner/Banner';
+import Pattern from '../../components/Banner/Banner';
 import { HomeImage } from '../../assets/home/index';
 
 import {

@@ -1,10 +1,6 @@
 import styled from 'styled-components';
 // import Modal from 'styled-react-modal';
-<<<<<<< HEAD
 import { theme, customMedia } from '../../themes/theme';
-=======
-import { customMedia, theme } from '../../themes/theme';
->>>>>>> 4281fa129e9c300e39b8b52ee3438b901e1d3a33
 
 export const Main = styled.main`
   display: flex;

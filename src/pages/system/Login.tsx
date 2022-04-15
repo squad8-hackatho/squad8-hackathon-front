@@ -4,7 +4,7 @@ import { Link, useNavigate } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import { Main, Button, H2, Input, Form, P, Span } from './styles';
 import { LoginButton } from '../../components/Button/styles';
-import Pattern from '../../components/banner/Banner';
+import Pattern from '../../components/Banner/Banner';
 import { fetchUser } from '../../redux/userSlice';
 import { login } from '../../services/services';
 

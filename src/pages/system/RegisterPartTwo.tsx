@@ -89,7 +89,7 @@ function Register({
     function filterSkill(skill: any) {
       return skill !== event.target.value;
     }
-    if (selectedSkills.length <= 5) {
+    if (selectedSkills.length < 5) {
       if (selectedSkills.includes(event.target.value)) {
         setSelectedSkills(selectedSkills.filter(filterSkill));
       } else {
@@ -168,7 +168,7 @@ function Register({
         })}
       </Select>
 
-      <Select onChange={handleChange} disabled={selectedSkills.length === 5}>
+      <Select onChange={handleChange} disabled={selectedSkills.length === 4}>
         <option defaultValue="default">Habilidades</option>
         {skillsList.map((skill: any) => {
           return (
@@ -178,7 +178,7 @@ function Register({
           );
         })}
       </Select>
-      {selectedSkills.length === 5 ? (
+      {selectedSkills.length === 4 ? (
         <Span>Quantidade máxima atingida</Span>
       ) : null}
 
