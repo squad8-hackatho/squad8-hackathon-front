@@ -47,7 +47,7 @@ export async function login<T = unknown>(values: any) {
 }
 
 export async function request(values: any, Authorization: string) {
-  let createFlag = false;
+  let flag = false;
   await api
     .post(
       '/requisitions',
@@ -61,13 +61,14 @@ export async function request(values: any, Authorization: string) {
       }
     )
     .then(() => {
-      createFlag = true;
+      flag = true;
     });
-  return { createFlag };
+  return { flag };
 }
 
-export async function register(values: any) {
-  let createFlag = false;
+export async function register<T = unknown>(values: any) {
+  let data: T | null = null;
+  let flag = true;
 
   await api
     .post('/profiles/register', {
@@ -96,11 +97,14 @@ export async function register(values: any) {
         },
       ],
     })
-    .then(() => {
-      createFlag = true;
+    .then((response) => {
+      data = response.data;
+    })
+    .catch(() => {
+      flag = false;
     });
 
-  return { createFlag };
+  return { data, flag };
 }
 
 export async function deleteRequisition(
