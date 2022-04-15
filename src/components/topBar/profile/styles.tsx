@@ -21,7 +21,7 @@ export const Container = styled.section`
   `};
 
   h3 {
-    color: ${theme.colors.orange};
+    color: ${theme.colors.mainOrange};
     font-weight: 400;
     font-size: 24px;
   }
@@ -67,7 +67,7 @@ export const Article = styled.article`
     margin-right: 10px;
     font-size: 15px;
     font-weight: bold;
-    color: ${theme.colors.lightOrange};
+    color: ${theme.colors.mainOrange};
   }
   svg {
     cursor: pointer;

@@ -19,7 +19,7 @@ export const ModalWrapper = styled.div`
   height: 700px;
   box-shadow: 0 5px 16px rgba(0, 0, 0, 0.2);
   background: ${theme.colors.background};
-  color: ${theme.colors.orange};
+  color: ${theme.colors.mainOrange};
   position: relative;
   z-index: 10;
   border-radius: 10px;
@@ -132,10 +132,10 @@ export const ButtonWrapper = styled.div`
 export const ButtonModalFilter = styled.button`
   width: 25%;
   height: 60px;
-  border: 1px solid ${theme.colors.orange};
+  border: 1px solid ${theme.colors.mainOrange};
   border-radius: 12px;
 
-  background-color: ${theme.colors.orange};
+  background-color: ${theme.colors.mainOrange};
   color: ${theme.colors.white};
 
   font-size: 35px;

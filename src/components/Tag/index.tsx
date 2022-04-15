@@ -8,7 +8,7 @@ type Props = {
 };
 
 function Tag({ children, flagAnimated }: Props) {
-  const [bg, setBg] = useState(theme.colors.black);
+  const [bg, setBg] = useState(theme.colors.gray3);
   const color = theme.colors.white;
 
   const setColors = () => {

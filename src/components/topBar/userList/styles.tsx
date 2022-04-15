@@ -16,7 +16,7 @@ export const Header = styled.header`
   height: 268px;
 
   hr {
-    border: 1px solid ${theme.colors.mediumGray};
+    border: 1px solid ${theme.colors.gray2};
   }
 
   ${customMedia.lessThan('laptopL')`
@@ -36,7 +36,7 @@ export const TopBar = styled.article`
   height: 146px;
 
   h3 {
-    color: ${theme.colors.orange};
+    color: ${theme.colors.mainOrange};
     font-weight: 400;
     font-size: 28px;
   }
@@ -58,14 +58,14 @@ export const Search = styled.input`
 
   font-size: 20px;
   font-weight: 400;
-  color: ${theme.colors.gray02};
+  color: ${theme.colors.gray2};
 
   :focus {
     outline: none;
   }
 
   ::placeholder {
-    color: ${theme.colors.gray02};
+    color: ${theme.colors.gray2};
   }
 
   ${customMedia.lessThan('tablet')`

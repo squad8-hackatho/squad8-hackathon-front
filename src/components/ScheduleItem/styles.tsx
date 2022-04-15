@@ -12,7 +12,7 @@ export const Container = styled.div`
   justify-content: space-around;
   align-items: center;
 
-  border: 1px solid ${theme.colors.gray01};
+  border: 1px solid ${theme.colors.gray1};
   border-radius: 8px;
 
   background-color: ${theme.colors.white};

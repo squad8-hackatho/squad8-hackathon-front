@@ -167,7 +167,7 @@ function Register({
           );
         })}
       </Select>
-      
+
       <Select onChange={handleChange} disabled={selectedSkills.length === 5}>
         <option defaultValue="default">Habilidades</option>
         {skillsList.map((skill: any) => {

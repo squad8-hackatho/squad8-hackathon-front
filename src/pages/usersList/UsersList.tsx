@@ -149,21 +149,21 @@ function UsersList() {
 
   return currentUser.isLogged ? (
     <Main>
+      <SkillFilter
+        showFilterModal={showFilterModal}
+        setShowFilterModal={setShowFilterModal}
+        setSelectedSkillsToFilter={setSelectedSkillsToFilter}
+        skill1={skill1}
+        setSkill1={setSkill1}
+        skill2={skill2}
+        setSkill2={setSkill2}
+      />
       <TopBarUserList setSortByName={setSortByName} />
+
       {loading ? (
         <Loading />
       ) : (
         <>
-          <SkillFilter
-            showFilterModal={showFilterModal}
-            setShowFilterModal={setShowFilterModal}
-            setSelectedSkillsToFilter={setSelectedSkillsToFilter}
-            skill1={skill1}
-            setSkill1={setSkill1}
-            skill2={skill2}
-            setSkill2={setSkill2}
-          />
-
           <FilterWrapper>
             <Filter>
               <ButtonFilter>

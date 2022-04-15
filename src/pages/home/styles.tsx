@@ -35,7 +35,7 @@ export const Article = styled.article`
 `;
 
 export const Title = styled.p`
-  color: ${theme.colors.orange};
+  color: ${theme.colors.mainOrange};
   font-size: 30px;
 
   ${customMedia.between('tablet', 'laptopS')`
@@ -86,18 +86,18 @@ export const ArticleButton = styled.article`
     &:nth-child(1) {
       button {
         :hover {
-          color: ${theme.colors.orange};
+          color: ${theme.colors.mainOrange};
         }
       }
     }
     &:nth-child(2) {
       button {
         background-color: ${theme.colors.white};
-        color: ${theme.colors.orange};
-        border: 1px solid ${theme.colors.orange};
+        color: ${theme.colors.mainOrange};
+        border: 1px solid ${theme.colors.mainOrange};
 
         :hover {
-          background-color: ${theme.colors.orange};
+          background-color: ${theme.colors.mainOrange};
           color: ${theme.colors.white};
           border: 1px solid ${theme.colors.white};
         }

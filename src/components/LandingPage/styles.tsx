@@ -22,7 +22,7 @@ export const BackgroundWithImage = styled.div`
   justify-content: center;
   align-items: center;
 
-  background-color: ${theme.colors.orange};
+  background-color: ${theme.colors.mainOrange};
   border-top-right-radius: 214px;
 
   img {
@@ -71,7 +71,7 @@ export const Title = styled.p`
   font-size: 32px;
   text-align: center;
 
-  color: ${theme.colors.grayLetter};
+  color: ${theme.colors.gray3};
   margin-bottom: 37px;
 
   ${customMedia.lessThan('mobileL')`
@@ -83,7 +83,7 @@ export const Text = styled.p`
   font-weight: 400;
   font-size: 30px;
 
-  color: ${theme.colors.grayLetter};
+  color: ${theme.colors.gray2};
   text-align: center;
   margin-bottom: 51px;
 
@@ -108,19 +108,21 @@ export const Button = styled.button<ButtonProps>`
   width: 25px;
   height: 25px;
 
-  border: 1px solid ${theme.colors.buttonLightGray};
+  border: 1px solid ${theme.colors.gray1};
   border-radius: 50%;
   margin: 0 18px;
 
   background-color: ${(props) => {
-    return props.selected ? `${theme.colors.lightOrange}` : `#868E964D`;
+    return props.selected
+      ? `${theme.colors.mainOrange}`
+      : `${theme.colors.gray1}`;
   }};
 
   :hover {
     background-color: ${(props) => {
       return props.selected
-        ? `${theme.colors.orange}`
-        : `${theme.colors.darkGray}`;
+        ? `${theme.colors.lightOrange}`
+        : `${theme.colors.gray2}`;
     }};
   }
 `;
@@ -130,7 +132,7 @@ export const Skip = styled.p`
   font-weight: bold;
 
   .link {
-    color: ${theme.colors.orange};
+    color: ${theme.colors.mainOrange};
   }
 
   ${customMedia.lessThan('tablet')`
@@ -146,8 +148,8 @@ export const Skip = styled.p`
 `;
 
 export const LinkStyled = styled(Link)`
-  color: ${theme.colors.orange};
-  
+  color: ${theme.colors.mainOrange};
+
   ${customMedia.lessThan('tablet')`
     color: ${theme.colors.white};
   `}
