@@ -425,6 +425,8 @@ export const Textarea = styled.textarea`
 export const StyledModal = Modal.styled`
   width: 25vw;
   height: 15vh;
+  min-width: 250px;
+  min-height: 150px;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -441,6 +443,7 @@ export const StyledModal = Modal.styled`
   }
   button {
     width: 8vw;
+    min-width: 150px;
     margin-top: 10px;
   }
 `;
