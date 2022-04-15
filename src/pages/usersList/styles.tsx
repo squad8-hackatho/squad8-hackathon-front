@@ -115,7 +115,7 @@ export const NumberPage = styled(Pages)`
 export const Select = styled.select`
   width: 40px;
   height: 40px;
-  border: 2px solid ${theme.colors.mediumGray};
+  border: 2px solid ${theme.colors.gray2};
   font-size: 20px;
   text-align: center;
 `;
@@ -123,14 +123,14 @@ export const Select = styled.select`
 export const Button = styled.button`
   width: 40px;
   height: 40px;
-  border: 1px solid ${theme.colors.mediumGray};
+  border: 1px solid ${theme.colors.gray2};
   border-radius: 8px;
   margin-left: 5px;
   font-size: 16px;
   background-color: ${theme.colors.white};
 
   :hover {
-    background-color: ${theme.colors.orange};
+    background-color: ${theme.colors.mainOrange};
     color: ${theme.colors.white};
   }
 

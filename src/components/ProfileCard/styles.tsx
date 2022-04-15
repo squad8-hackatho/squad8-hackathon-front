@@ -25,9 +25,9 @@ export const Section = styled.section`
 
   button {
     :hover {
-      background-color: ${theme.colors.lightGray};
-      color: ${theme.colors.black};
-      border: 1px solid #000;
+      background-color: ${theme.colors.gray1};
+      color: ${theme.colors.gray3};
+      border: 1px solid ${theme.colors.gray3};
     }
   }
 
@@ -99,7 +99,7 @@ export const Midia = styled.div`
   display: flex;
   p {
     font-size: 15px;
-    color: ${theme.colors.gray02};
+    color: ${theme.colors.gray2};
     word-break: break-all;
   }
 
@@ -215,15 +215,15 @@ export const Article = styled.article`
 export const Desktop = styled(Article)`
   margin-top: 2%;
   p {
-    color: ${theme.colors.gray02};
+    color: ${theme.colors.gray2};
     margin-top: 8%;
-    font-size: 16px;
+    font-size: ${theme.fontSizes};
   }
 
   h3 {
     font-size: 22px;
     margin: 12px 0;
-    color: ${theme.colors.orange};
+    color: ${theme.colors.mainOrange};
   }
   ${customMedia.between('laptopS', 'laptop')`
     p {

@@ -29,7 +29,7 @@ export function NewDropdown({ techFilter, setTechFilter }: Props) {
       <Form>
         <DropdownArea AreaDefault={AreaDefault} onChange={handleInputChange} />
         <Icon>
-          <RiArrowDownSLine color={theme.colors.blackGray} />
+          <RiArrowDownSLine color={theme.colors.gray3} />
         </Icon>
         <DropdownTechnologies
           TechDefault={TechDefault}
@@ -38,7 +38,7 @@ export function NewDropdown({ techFilter, setTechFilter }: Props) {
         />
         <Icon>
           {' '}
-          <RiArrowDownSLine color={theme.colors.blackGray} />{' '}
+          <RiArrowDownSLine color={theme.colors.gray3} />{' '}
         </Icon>
       </Form>
     </Container>

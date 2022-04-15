@@ -34,7 +34,7 @@ export const Section = styled.fieldset`
 export const H2 = styled.h2`
   font-weight: normal;
   margin-bottom: 20px;
-  color: ${theme.colors.orange};
+  color: ${theme.colors.mainOrange};
 `;
 
 export const H3 = styled.h3`
@@ -45,8 +45,9 @@ export const H3 = styled.h3`
 `;
 
 export const Span = styled.span`
-  color: ${theme.colors.red};
+  color: ${theme.colors.error};
   font-size: 14px;
+  font-weight: 600;
 `;
 
 export const P = styled.p`
@@ -97,7 +98,7 @@ export const TextArea = styled.textarea`
 `;
 
 export const Button = styled.button`
-  color: ${theme.colors.orange};
+  color: ${theme.colors.mainOrange};
 `;
 
 export const Tags = styled.div`
@@ -112,7 +113,7 @@ export const Tags = styled.div`
 export const Tag = styled.div`
   background-color: ${theme.colors.white};
 
-  border: 2px solid ${theme.colors.orange};
+  border: 2px solid ${theme.colors.mainOrange};
   border-radius: 8px;
   padding: 8px;
   margin: 10px 5px 0;

@@ -13,10 +13,10 @@ export const Card = styled.section`
 
   background-color: white;
   border-radius: 10px;
-  border: 1.5px solid ${theme.colors.mediumGray};
+  border: 1.5px solid ${theme.colors.gray2};
 
   hr {
-    border: 1px solid ${theme.colors.gray01};
+    border: 1px solid ${theme.colors.gray1};
     width: 85%;
     position: relative;
     bottom: -10px;
@@ -39,7 +39,7 @@ export const Header = styled.header`
   flex-direction: column;
 
   hr {
-    border: 1px solid ${theme.colors.gray01};
+    border: 1px solid ${theme.colors.gray1};
     width: 100%;
     margin-top: 18px;
   }
@@ -151,9 +151,9 @@ export const Buttons = styled.article`
     justify-content: center;
 
     button {
-      border: 2px solid ${theme.colors.orange};
+      border: 2px solid ${theme.colors.mainOrange};
       background-color: ${theme.colors.white};
-      color: ${theme.colors.orange};
+      color: ${theme.colors.mainOrange};
     }
   }
 `;
@@ -167,9 +167,9 @@ export const Button = styled.button`
   font-size: 16px;
   line-height: 24px;
 
-  background-color: ${theme.colors.orange};
+  background-color: ${theme.colors.mainOrange};
   color: ${theme.colors.white};
-  border: 2px solid ${theme.colors.orange};
+  border: 2px solid ${theme.colors.mainOrange};
 
   border-radius: 8px;
 

@@ -41,6 +41,8 @@ function Register({
   setBio,
 }: props) {
   const emptyArray: any = [];
+  const [areasList, setAreasList] = useState([]);
+  const [selectedArea, setSelectedArea] = useState('');
   const [skillsList, setSkillsList] = useState([]);
   const [selectedSkills, setSelectedSkills] = useState(emptyArray);
   const currentUser = useSelector((state: any) => {
@@ -58,10 +60,20 @@ function Register({
       const data = await getUsers('/skill', currentUser.authorization);
       dataOutside = data.data;
 
+      const uniqueAreas: any = [];
+      dataOutside.forEach((dataItem: any) => {
+        if (!uniqueAreas.includes(dataItem.area)) {
+          uniqueAreas.push(dataItem.area);
+        }
+      });
+      setAreasList(uniqueAreas);
+
       const uniqueSkills: any = [];
-      dataOutside.forEach((skill: any) => {
-        if (!uniqueSkills.includes(skill.skill)) {
-          uniqueSkills.push(skill.skill);
+      dataOutside.forEach((dataItem: any) => {
+        if (Object.values(dataItem).includes(selectedArea)) {
+          if (!uniqueSkills.includes(dataItem.skill)) {
+            uniqueSkills.push(dataItem.skill);
+          }
         }
       });
       setSkillsList(uniqueSkills);
@@ -71,7 +83,7 @@ function Register({
       );
     }
     getValues();
-  }, [selectedSkills]);
+  }, [selectedSkills, selectedArea]);
 
   function handleChange(event: any) {
     function filterSkill(skill: any) {
@@ -84,6 +96,10 @@ function Register({
         setSelectedSkills([...selectedSkills, event.target.value]);
       }
     }
+  }
+
+  function handleAreaChoice(event: any) {
+    setSelectedArea(event.target.value);
   }
 
   return (
@@ -141,8 +157,19 @@ function Register({
       </Tags>
 
       <H3>Selecione as suas habilidades</H3>
+      <Select onChange={handleAreaChoice}>
+        <option defaultValue="default">Área</option>
+        {areasList.map((areas: any) => {
+          return (
+            <option value={areas} key={areas}>
+              {areas}
+            </option>
+          );
+        })}
+      </Select>
+
       <Select onChange={handleChange} disabled={selectedSkills.length === 5}>
-        <option defaultValue="default">Suas habilidades</option>
+        <option defaultValue="default">Habilidades</option>
         {skillsList.map((skill: any) => {
           return (
             <option value={skill} key={skill}>

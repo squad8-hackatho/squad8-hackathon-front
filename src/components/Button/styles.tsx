@@ -28,6 +28,7 @@ export const Button = styled.button<ButtonProps>`
   height: 45px;
   text-decoration: none;
   font-weight: bold;
+  font-size: ${theme.fontSizes.buttonLarge};
 
   ${typography}
   ${color}
@@ -40,11 +41,11 @@ export const Button = styled.button<ButtonProps>`
     padding: 8px 15px;
     width: 250px;
     height: 55px;
-    font-size: 20px;
+    font-size: ${theme.fontSizes.buttonLarge};
   `};
 
   :hover {
-    background-color: ${theme.colors.blue};
+    background-color: ${theme.colors.mainBlue};
     color: ${theme.colors.white};
   }
 
@@ -58,14 +59,14 @@ export const ButtonBig = styled.button`
   margin: 0px 10px 20px 10px;
   border-radius: 8px;
   padding: 15px 30px;
-  background-color: ${theme.colors.orange};
+  background-color: ${theme.colors.mainOrange};
   color: ${theme.colors.white};
   cursor: pointer;
 
   :hover {
-    border: 1px solid ${theme.colors.orange};
+    border: 1px solid ${theme.colors.mainOrange};
     background-color: ${theme.colors.white};
-    color: ${theme.colors.black};
+    color: ${theme.colors.gray3};
   }
 
   ${customMedia.between('tablet', 'laptopS')`
@@ -74,11 +75,11 @@ export const ButtonBig = styled.button`
 
   ${customMedia.lessThan('tablet')`
     width: 80vw;
-    font-size: 16px;
+    font-size: ${theme.fontSizes.buttonSmall};
   `}
 
   ${customMedia.lessThan('mobileL')`
-    font-size: 18px;
+    font-size: ${theme.fontSizes.button};
   `}
 `;
 
@@ -86,15 +87,15 @@ export const LoginButton = styled.button`
   margin: 20px 10px 20px 10px;
   border-radius: 8px;
   padding: 15px 30px;
-  background-color: ${theme.colors.orange};
+  background-color: ${theme.colors.mainOrange};
   color: ${theme.colors.white};
   cursor: pointer;
   width: 290px;
 
   :hover {
-    border: 1px solid ${theme.colors.orange};
+    border: 1px solid ${theme.colors.mainOrange};
     background-color: ${theme.colors.white};
-    color: ${theme.colors.black};
+    color: ${theme.colors.gray3};
   }
 `;
 

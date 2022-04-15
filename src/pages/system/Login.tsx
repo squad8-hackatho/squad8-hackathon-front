@@ -4,7 +4,7 @@ import { Link, useNavigate } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import { Main, Button, H2, Input, Form, P, Span } from './styles';
 import { LoginButton } from '../../components/Button/styles';
-import BannerPattern from '../../components/Banner/Banner';
+import Pattern from '../../components/banner/Banner';
 import { fetchUser } from '../../redux/userSlice';
 import { login } from '../../services/services';
 
@@ -33,7 +33,7 @@ function Login() {
   };
   return (
     <Main>
-      <BannerPattern />
+      <Pattern />
       <Form
         onSubmit={(e) => {
           e.preventDefault();

@@ -30,14 +30,14 @@ export const TagStyle = styled.button<TagProps>`
 
   :hover {
     background-color: ${(props) => {
-      return props.bgColor === '#ED7117' ? '#ED820E' : '#222';
+      return props.bgColor === `${theme.colors.mainOrange}` ? `${theme.colors.lightOrange}` : `${theme.colors.gray3}`;
     }};
   }
   :active {
     position: relative;
     top: 1px;
-    background-color: ${theme.colors.mediumGray};
-    color: ${theme.colors.black};
+    background-color: ${theme.colors.gray2};
+    color: ${theme.colors.gray3};
   }
 
   ${customMedia.between('laptopS', 'laptop')`
