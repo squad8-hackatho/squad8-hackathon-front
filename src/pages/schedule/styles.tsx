@@ -67,3 +67,34 @@ export const Article = styled.article`
     }
   `}
 `;
+
+export const EmptySchedule = styled.div`
+  width: 50%;
+  height: 200px;
+  border: 5px solid ${theme.colors.mainOrange};
+  border-radius: 16px;
+  padding: 30px;
+  margin: 50px 0;
+  background-color: ${theme.colors.gray1};
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  h2 {
+    color: ${theme.colors.mainOrange};
+    text-align: center;
+    font-size: 32px;
+    font-weight: 500;
+    margin: 0;
+  }
+
+  ${customMedia.lessThan('laptop')`
+    width: 80%;
+  `}
+
+  ${customMedia.lessThan('mobileS')`
+    h2{
+      font-size: 26px;
+    }
+  `}
+`;

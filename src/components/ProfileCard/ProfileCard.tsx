@@ -12,6 +12,7 @@ import {
   MidiaWhatsapp,
   MidiaEmail,
   Desktop,
+  A,
 } from './styles';
 import { ButtonBig } from '../Button/styles';
 import { screenSizes } from '../../themes/theme';
@@ -72,7 +73,7 @@ function ProfileCard({
         <MidiaLinkedin>
           <LinkedinIcon />
 
-          <P>{linkedin}</P>
+          <A href={linkedin} >{linkedin}</A>
         </MidiaLinkedin>
       </Article>
       {widthScreen > screenSizes.ipadMini ? (

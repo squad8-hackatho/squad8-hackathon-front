@@ -12,6 +12,7 @@ import {
   RequestsWrapper,
   UserRequest,
   Article,
+  EmptySchedule,
 } from './styles';
 import { ConfirmDelete } from '../../components/ConfirmDelete';
 
@@ -45,54 +46,67 @@ export function Schedule() {
       <RequestsWrapper>
         <UserRequest>
           <h2>Meus agendamentos</h2>
-          {mentoringListReceived.map((item: any) => {
-            return (
-              <Article key={uuidv4()}>
-                <ScheduleItem
-                  name={item.userName}
-                  subject={item.subject}
-                  urgency={item.urgency}
-                />
-                <BsIcons.BsTrash
-                  size={40}
-                  color="red"
-                  onClick={async () => {
-                    setDeleteData({
-                      uuid: item.uuidRequisition,
-                      email: item.userEmail,
-                    });
-                    setShowConfirmDelete(true);
-                  }}
-                />
-              </Article>
-            );
-          })}
+          {mentoringListReceived[0] !== undefined ? (
+            mentoringListReceived.map((item: any) => {
+              return (
+                <Article key={uuidv4()}>
+                  <ScheduleItem
+                    name={item.userName}
+                    subject={item.subject}
+                    urgency={item.urgency}
+                  />
+                  <BsIcons.BsTrash
+                    size={40}
+                    color="red"
+                    onClick={async () => {
+                      setDeleteData({
+                        uuid: item.uuidRequisition,
+                        email: item.userEmail,
+                      });
+                      setShowConfirmDelete(true);
+                    }}
+                  />
+                </Article>
+              );
+            })
+          ) : (
+            <EmptySchedule>
+              <h2>Nenhum agendamento</h2>
+            </EmptySchedule>
+          )}
         </UserRequest>
         <RequestFromOthers>
           <h2>Solicitações</h2>
-          {mentoringListGiven.map((item: any) => {
-            return (
-              <Article key={uuidv4()}>
-                <ScheduleItem
-                  name={item.userName}
-                  subject={item.subject}
-                  urgency={item.urgency}
-                />
-                <BsIcons.BsTrash
-                  size={40}
-                  color="red"
-                  onClick={async () => {
-                    const flag = await deleteRequisition(
-                      item.uuidRequisition,
-                      item.requiredUserEmail,
-                      currentUser.authorization
-                    );
-                    if (flag) reload();
-                  }}
-                />
-              </Article>
-            );
-          })}
+          {mentoringListGiven[0] !== undefined ? (
+            mentoringListGiven.map((item: any) => {
+              return (
+                <Article key={uuidv4()}>
+                  <ScheduleItem
+                    name={item.userName}
+                    subject={item.subject}
+                    urgency={item.urgency}
+                  />
+                  <BsIcons.BsTrash
+                    size={40}
+                    color="red"
+                    onClick={async () => {
+                      const flag = await deleteRequisition(
+                        item.uuidRequisition,
+                        item.requiredUserEmail,
+                        currentUser.authorization
+                      );
+                      if (flag) reload();
+                    }}
+                  />
+                </Article>
+              );
+            })
+          ) : (
+            <EmptySchedule>
+              <h2>Nenhuma solicitação</h2>
+            </EmptySchedule>
+          )}
+          {}
         </RequestFromOthers>
       </RequestsWrapper>
     </Main>
