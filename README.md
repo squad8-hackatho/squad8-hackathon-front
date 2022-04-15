@@ -1,19 +1,26 @@
-<h1 align="center">Squad 8 - Hackathon Front</h1>
-<br />
+<h1 align='center'>Squad 8 - Back - Hackathon FCamara  </h1> 
+<br/>
+<div align='center'>
+        <a href='#'><img src='https://i.imgur.com/aKiNSth.png' alt='Logo Technical Share.' width='300px'/></a>
+</div>
+<br>
+<p align='center'>
+  <a href="#sobre">Sobre</a> | 
+  <a href="#tecnologias">Tecnologias</a> | 
+  <a href="#comoRodarOProjeto">Como Rodar o Projeto?</a> | 
+  <a href="#comoEntrar"> Como entrar?</a> | 
+  <a href="#solucaoDesenvolvida">Solução Desenvolvida</a>
+<!-- | <a href="#features">Features</a> | 
+  <a href="#conteudoExterno">Conteúdo externo</a>  -->
+</p>
 
-<h1 align="center">Technical<strong>Share</strong></h1>
+<br>
+
+<div id="sobre"  style="text-align: justify">
         
-<ol>
-    <li><a href="#sobre">Sobre</a></li>
-    <li> <a href="#tecnologias">Tecnologias</a></li>
-    <li> <a href="#comoRodarOProjeto">Como Rodar o Projeto?</a> </li>
-    <li> <a href="#comoEntrar"> Como entrar? </a> </li>
-    <li> <a href="#solucaoDesenvolvida">Solução Desenvolvida</a></li>
-    <li> <a href="#features">Features</a></li>
-    <li><a href="#conteudoExterno">Conteúdo externo</a></li>
-</ol>
+A Technical Share é uma aplicação web com o objetivo de catalogar os profissionais do Grupo FCamara para facilitar a troca de experiências e networking, principalmente de quem está em busca de orientações na área de tecnologia. Na plataforma, após a realização do cadastro do usuário, é possível ver os perfis dos profissionais já cadastrados na plataforma que contém, dentre outros, uma descrição do cargo que exercem, biografia pessoal e as habilidades que têm mais domínio. Essas informações já permitem ao usuário um rápido e fácil reconhecimento de pessoas das quais ele possa pedir orientações, tirar dúvidas e mesmo conhecer melhor os colegas que dividem o mesmo espaço de trabalho. <strong><em>Saiba mais do projeto em > https://github.com/squad8-hackatho/squad8-hackatho</em></strong> <br> 
 
-<h2 id="sobre">📄 Sobre</h2>
+</div>
 
 <h2 id="tecnologias">🚀 Tecnologias:</h2>
 
@@ -118,7 +125,7 @@ $ yarn start
 
 <a href="">Inserir aqui link para tela de prints</a>
 
-<h2 id="features">✨Features</h2>
+<!-- <h2 id="features">✨Features</h2>
 
 * O que será que pensamos para o futuro da nossa aplicação...? :sunglasses:
     * **01** - ??
@@ -133,7 +140,7 @@ Também nosso [artigo](#) desenvolvido pela nossa dupla de UX Design, relatando
 todo o processo de desenvolvimento. 
 * :loudspeaker: Nosso [Pitch](#). <br>
 - -- [MIRO](https://miro.com/app/board/uXjVOAKbHZA=/) <br />
-- -- [TRELLO](https://trello.com/b/8MfsWPcR/squad8) <br />
+- -- [TRELLO](https://trello.com/b/8MfsWPcR/squad8) <br /> -->
 
 <hr />
 
