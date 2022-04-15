@@ -33,7 +33,7 @@ export function NewDropdown({ techFilter, setTechFilter }: Props) {
         </Icon>
         <DropdownTechnologies
           TechDefault={TechDefault}
-          state={techFilter.area}
+          value={techFilter.area}
           onChange={handleInputChange}
         />
         <Icon>

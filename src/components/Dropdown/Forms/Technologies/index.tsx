@@ -1,25 +1,29 @@
 import React, { useEffect, useState } from 'react';
+import { useSelector } from 'react-redux';
 import { getUsers } from '../../../../services/services';
 import { Select } from '../../styles';
 
 type Props = {
   TechDefault: string;
-  state: Object;
+  value: Object;
   onChange: any;
 };
 
 function DropdownTechnologies({
   TechDefault,
-  state,
+  value,
   onChange = () => {},
 }: Props) {
   const [technologies, setTechnologies] = useState([]);
+  const currentUser = useSelector((state: any) => {
+    return state;
+  });
 
   useEffect(() => {
     let dataOutside: any = [];
 
     async function getData() {
-      const data = await getUsers('/skill');
+      const data = await getUsers('/skill', currentUser.authorization);
       dataOutside = data.data;
       const sortedData = dataOutside.sort((a: any, b: any) => {
         return a.skill.localeCompare(b.skill);
@@ -27,7 +31,7 @@ function DropdownTechnologies({
       const filteredTechnologies: any = [];
 
       sortedData.forEach((tech: any) => {
-        if (Object.values(tech).indexOf(`${state}`) > -1) {
+        if (Object.values(tech).indexOf(`${value}`) > -1) {
           filteredTechnologies.push(tech.skill);
         }
       });
@@ -35,7 +39,7 @@ function DropdownTechnologies({
     }
 
     getData();
-  }, [state]);
+  }, [value]);
 
   return (
     <Select name="technologie" onChange={onChange}>

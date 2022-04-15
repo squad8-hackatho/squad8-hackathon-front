@@ -6,7 +6,7 @@ import RegisterPartOne from './RegisterPartOne';
 import RegisterPartTwo from './RegisterPartTwo';
 import { register } from '../../services/services';
 import { fetchUser } from '../../redux/userSlice';
-import BannerPattern from '../../components/banner/Banner';
+import BannerPattern from '../../components/Banner/Banner';
 
 function Register() {
   const [name, setName] = useState('');
@@ -51,10 +51,14 @@ function Register() {
       bio,
     };
 
-    const flag = await register(values);
-
+    const { data, flag }: any = await register(values);
     if (flag) {
-      const result: any = await dispatch(fetchUser(email));
+      const obj = {
+        profileEmail: data.profileEmail,
+        authentication: data.authentication,
+      };
+
+      const result: any = await dispatch(fetchUser(obj));
 
       if (result) navigate('/landing');
     }

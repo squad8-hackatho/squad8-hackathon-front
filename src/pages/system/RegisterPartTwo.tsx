@@ -1,5 +1,6 @@
 /* eslint-disable react/jsx-no-bind */
 import React, { useEffect, useState } from 'react';
+import { useSelector } from 'react-redux';
 import {
   H3,
   Input,
@@ -44,6 +45,9 @@ function Register({
   const [selectedArea, setSelectedArea] = useState('');
   const [skillsList, setSkillsList] = useState([]);
   const [selectedSkills, setSelectedSkills] = useState(emptyArray);
+  const currentUser = useSelector((state: any) => {
+    return state;
+  });
 
   const checkValues = (): boolean => {
     return description === '' || level === '' || area === '';
@@ -53,7 +57,7 @@ function Register({
     let dataOutside: any = [];
 
     async function getValues() {
-      const data = await getUsers('/skill');
+      const data = await getUsers('/skill', currentUser.authorization);
       dataOutside = data.data;
 
       const uniqueAreas: any = [];

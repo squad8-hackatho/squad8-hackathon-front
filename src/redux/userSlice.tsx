@@ -3,8 +3,10 @@ import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
 import { getUsers } from '../services/services';
 
 export const fetchUser = createAsyncThunk('user', async (params: any) => {
-  const { data }: any = await getUsers(`/profiles/findprofile?email=${params}`);
-
+  const { data }: any = await getUsers(
+    `/profiles/findprofile?email=${params.profileEmail}`,
+    params.authentication
+  );
   if (data !== null) return data;
   return false;
 });
@@ -12,29 +14,34 @@ export const fetchUser = createAsyncThunk('user', async (params: any) => {
 const userSlice = createSlice({
   name: 'user',
   initialState: {
-    user: {
-      request: false,
-      isLogged: false,
-    },
+    authorization: '',
+    request: false,
+    isLogged: false,
+    user: {},
   },
   reducers: {
     logout(state) {
-      return { ...state, user: { request: false, isLogged: false } };
+      return {
+        ...state,
+        request: false,
+        isLogged: false,
+        authorization: '',
+        user: {},
+      };
     },
     setRequest(state, flag: any) {
-      state.user.request = flag.payload;
-      return { ...state };
+      return { ...state, request: flag.payload };
     },
   },
   extraReducers: (builder) => {
     builder.addCase(fetchUser.fulfilled, (state, action) => {
-      if (action.payload) {
-        state.user = {
-          ...action.payload,
-          isLogged: true,
-          request: false,
-        };
-      }
+      return {
+        ...state,
+        user: action.payload,
+        authorization: action.meta.arg.authentication,
+        isLogged: true,
+        request: false,
+      };
     });
   },
 });

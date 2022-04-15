@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import { useSelector } from 'react-redux';
 import { Capitalize } from '../../../../helpers/Capitalize';
 import { getUsers } from '../../../../services/services';
 import { Select } from '../../styles';
@@ -10,12 +11,15 @@ type Props = {
 
 function DropdownArea({ AreaDefault, onChange = () => {} }: Props) {
   const [areas, setAreas] = useState(['Frontend', 'Programação', 'Softskill']);
+  const currentUser = useSelector((state: any) => {
+    return state;
+  });
 
   useEffect(() => {
     let dataOutside: any = [];
 
     async function getValues() {
-      const data = await getUsers('/skill');
+      const data = await getUsers('/skill', currentUser.authorization);
       dataOutside = data.data;
 
       const uniqueAreas: any = [];

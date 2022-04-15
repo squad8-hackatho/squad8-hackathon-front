@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 // import { screenSizes } from '../../themes/theme';
+import { useNavigate } from 'react-router-dom';
 import { ButtonBig } from '../../components/Button/styles';
 import { fetchUser, setRequest } from '../../redux/userSlice';
 import { request } from '../../services/services';
@@ -39,8 +40,9 @@ function Request({ dataArr }: props) {
   const form = document.getElementById('formRequest') as HTMLFormElement;
   const dispatch = useDispatch();
   const currentUser = useSelector((state: any) => {
-    return state.user;
+    return state;
   });
+  const navigate = useNavigate();
 
   const reset = () => {
     setSubject('');
@@ -57,7 +59,11 @@ function Request({ dataArr }: props) {
   }, []);
 
   const reload = async () => {
-    await dispatch(fetchUser(currentUser.email));
+    const obj = {
+      profileEmail: currentUser.user.email,
+      authentication: currentUser.authorization,
+    };
+    await dispatch(fetchUser(obj));
   };
 
   const toggleModal = () => {
@@ -79,8 +85,8 @@ function Request({ dataArr }: props) {
     const obj = {
       requiredUserName: dataArr.userName,
       requiredUserEmail: dataArr.email,
-      userName: currentUser.userName,
-      userEmail: currentUser.email,
+      userName: currentUser.user.userName,
+      userEmail: currentUser.user.email,
       subject,
       keyWords: keyConcepts,
       urgency: isChecked,
@@ -88,7 +94,7 @@ function Request({ dataArr }: props) {
       contactList,
     };
 
-    const flag = await request(obj);
+    const flag = await request(obj, currentUser.authorization);
     if (flag) {
       toggleModal();
       reset();
@@ -103,7 +109,14 @@ function Request({ dataArr }: props) {
           <h3>Confirmação</h3>
         </article>
         <P>Requisição enviada para {dataArr.userName}! </P>
-        <ButtonBig onClick={toggleModal}>Ok</ButtonBig>
+        <ButtonBig
+          onClick={() => {
+            toggleModal();
+            navigate('/schedule');
+          }}
+        >
+          Ok
+        </ButtonBig>
       </StyledModal>
     );
   };
