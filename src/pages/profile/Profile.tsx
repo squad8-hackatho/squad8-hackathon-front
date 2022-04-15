@@ -11,7 +11,7 @@ import Request from './Request';
 
 function Profile() {
   const currentUser = useSelector((state: any) => {
-    return state.user;
+    return state;
   });
   const [widthScreen, setWidthScreen] = useState(window.screen.width / 16);
   const [dataArr, setDataArr] = useState<any>();
@@ -22,7 +22,8 @@ function Profile() {
   useEffect(() => {
     async function getByName() {
       const { data, isFetching }: any = await getUsers(
-        `/profiles/findprofile?email=${params.email}`
+        `/profiles/findprofile?email=${params.email}`,
+        currentUser.authorization
       );
       if (data) {
         setDataArr(data);

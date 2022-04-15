@@ -6,7 +6,7 @@ import RegisterPartOne from './RegisterPartOne';
 import RegisterPartTwo from './RegisterPartTwo';
 import { register } from '../../services/services';
 import { fetchUser } from '../../redux/userSlice';
-import BannerPattern from '../../components/banner/Banner';
+import BannerPattern from '../../components/Banner/Banner';
 
 function Register() {
   const [name, setName] = useState('');

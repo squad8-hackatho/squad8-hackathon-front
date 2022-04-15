@@ -23,7 +23,6 @@ import { getUsers } from '../../services/services';
 import { SkillFilter } from '../../components/SkillFilter';
 
 function UsersList() {
-  // const levels = ['Trainee', 'Júnior', 'Pleno', 'Sênior'];
   const [page, setPage] = useState(0);
   const [totalPages, setTotalPages] = useState(0);
   const [size, setSize] = useState('6');
@@ -36,16 +35,16 @@ function UsersList() {
   const [skill2, setSkill2] = useState({ area: 'null', technologie: 'null' });
   const [dataArr, setDataArr] = useState<any[]>([]);
   const currentUser = useSelector((state: any) => {
-    return state.user;
+    return state;
   });
-
   const [showFilterModal, setShowFilterModal] = useState(false);
 
   useEffect(() => {
     async function get() {
       if (sortByName === '') {
         const { data }: any = await getUsers(
-          `/profiles/findall?toExcludeProfileEmail=${currentUser.email}&page=${page}&size=${size}`
+          `/profiles/findall?toExcludeProfileEmail=${currentUser.user.email}&page=${page}&size=${size}`,
+          currentUser.authorization
         );
         if (data) {
           setDataArr(data.content);
@@ -59,7 +58,8 @@ function UsersList() {
   useEffect(() => {
     async function getBySkills() {
       const { data }: any = await getUsers(
-        `/profiles/findbyskill?firstSkill=${selectedSkillsToFilter[0].technologie}&secondSkill=${selectedSkillsToFilter[1].technologie}&filterXP=null&toExcludeProfileEmail=${currentUser.email}&page=${page}&size=${size}`
+        `/profiles/findbyskill?firstSkill=${selectedSkillsToFilter[0].technologie}&secondSkill=${selectedSkillsToFilter[1].technologie}&filterXP=null&toExcludeProfileEmail=${currentUser.user.email}&page=${page}&size=${size}`,
+        currentUser.authorization
       );
       if (data) {
         setDataArr(data.content);
@@ -73,7 +73,8 @@ function UsersList() {
     async function getByName() {
       if (sortByName !== '') {
         const { data }: any = await getUsers(
-          `/profiles/findbyname?name=${sortByName}&toExcludeProfileEmail=${currentUser.email}&page=${page}&size=${size}`
+          `/profiles/findbyname?name=${sortByName}&toExcludeProfileEmail=${currentUser.user.email}&page=${page}&size=${size}`,
+          currentUser.authorization
         );
         if (data) {
           setDataArr(data.content);
@@ -105,6 +106,7 @@ function UsersList() {
 
   const getOptions = () => {
     const values = [6, 12, 18];
+
     return values.map((item) => {
       return (
         <option key={item} value={item}>
@@ -174,16 +176,18 @@ function UsersList() {
 
       <PaginationWrapper>
         <Section>
-          <NumberPage>
-            <Select
-              onChange={(e) => {
-                setSortByName('');
-                setSize(e.target.value);
-              }}
-            >
-              {getOptions()}
-            </Select>
-          </NumberPage>
+          {totalPages > 0 ? (
+            <NumberPage>
+              <Select
+                onChange={(e) => {
+                  setSortByName('');
+                  setSize(e.target.value);
+                }}
+              >
+                {getOptions()}
+              </Select>
+            </NumberPage>
+          ) : null}
           <Pages>{getPages()}</Pages>
         </Section>
       </PaginationWrapper>
