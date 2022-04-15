@@ -1,4 +1,4 @@
-<h1 align='center'>Squad 8 - Back - Hackathon FCamara  </h1> 
+<h1 align='center'>Squad 8 - Front - Hackathon FCamara  </h1> 
 <br/>
 <div align='center'>
         <a href='#'><img src='https://i.imgur.com/aKiNSth.png' alt='Logo Technical Share.' width='300px'/></a>
@@ -54,7 +54,8 @@ Nosso projeto está disponivel na web - Acesse [<img src="https://cdn.jsdelivr.n
 Mas caso queria rodar localmente aqui vai as instruções :small_red_triangle_down:
 
 Recursos Necessários 
-- .
+- Editor de codigo bom (recomenda-se o VSCode)
+- Node.js
 - . 
 - . 
 
