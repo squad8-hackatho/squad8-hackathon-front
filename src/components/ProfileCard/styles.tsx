@@ -294,3 +294,28 @@ export const P = styled.p`
     font-size: 13px;
   `}
 `;
+
+export const A = styled.a`
+  font-size: 16px;
+  line-height: 20px;
+  align-self: center;
+  text-decoration: none;
+  color: ${theme.colors.gray2};
+
+  ${customMedia.lessThan('tablet')`
+  font-size: 15px;
+`}
+  ${customMedia.lessThan('default')`
+  font-size: 13px;
+`}
+${customMedia.lessThan('mobileS')`
+  font-size: 11px;
+`}
+${customMedia.between('laptopS', 'laptop')`
+  font-size: 14px;
+`}
+
+${customMedia.between('default', 'tablet')`
+  font-size: 13px;
+`}
+`;
