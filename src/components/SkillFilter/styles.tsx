@@ -140,7 +140,8 @@ export const ButtonModalFilter = styled.button`
   color: ${theme.colors.white};
 
   :disabled {
-    background-color: ${theme.colors.darkOrange};
+    border: none;
+    background-color: ${theme.colors.gray1};
     cursor: not-allowed;
   }
 

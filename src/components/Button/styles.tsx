@@ -70,8 +70,8 @@ export const ButtonBig = styled.button`
   }
 
   :disabled {
-    color: ${theme.colors.white};
-    background-color: ${theme.colors.darkOrange};
+    border: none;
+    background-color: ${theme.colors.gray1};
     cursor: not-allowed;
   }
 

@@ -68,7 +68,7 @@ function ProfileCard({
       <ProfilePicture src={foto} />
       <Article>
         <H1>{userName}</H1>
-        <P>Cargo: {occupation}</P>
+        <P>{occupation}</P>
 
         <MidiaLinkedin>
           <LinkedinIcon />
