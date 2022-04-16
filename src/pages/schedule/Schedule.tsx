@@ -51,7 +51,7 @@ export function Schedule() {
               return (
                 <Article key={uuidv4()}>
                   <ScheduleItem
-                    name={item.userName}
+                    name={item.requiredUserName}
                     subject={item.subject}
                     urgency={item.urgency}
                   />

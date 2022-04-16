@@ -8,14 +8,19 @@ type props = {
   dataArr: any;
   widthScreen: number;
   setConnectCard: Function;
+  areas: any;
 };
 
-function Profile({ dataArr, widthScreen, setConnectCard }: props) {
-  const getTags = (value: string) => {
+function Profile({ dataArr, widthScreen, setConnectCard, areas }: props) {
+  const getTags = () => {
     return dataArr.expertiseList.map((item: any) => {
-      if (value === 'area') return <Tag key={uuidv4()}>{item.area}</Tag>;
-
       return <Tag key={uuidv4()}>{item.skill}</Tag>;
+    });
+  };
+
+  const getAreas = () => {
+    return areas.map((item: any) => {
+      return <Tag key={uuidv4()}>{item}</Tag>;
     });
   };
 
@@ -27,11 +32,11 @@ function Profile({ dataArr, widthScreen, setConnectCard }: props) {
       </Description>
       <Description>
         <H2>Área</H2>
-        <Tags>{getTags('area')}</Tags>
+        <Tags>{getAreas()}</Tags>
       </Description>
       <Description>
         <H2>Tecnologias</H2>
-        <Tags>{getTags('skill')}</Tags>
+        <Tags>{getTags()}</Tags>
       </Description>
 
       {widthScreen < screenSizes.tablet ? (

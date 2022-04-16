@@ -18,7 +18,19 @@ function Profile() {
   const [dataArr, setDataArr] = useState<any>();
   const [loading, setLoading] = useState(true);
   const [connect, setConnect] = useState(currentUser.request);
+  const [areas, setAreas] = useState<any>([]);
   const params = useParams();
+
+  const getValues = () => {
+    if (dataArr)
+      dataArr.expertiseList.forEach((item: any) => {
+        const arrTemp = areas;
+        if (!areas.includes(item.area)) {
+          arrTemp.push(item.area);
+          setAreas(arrTemp);
+        }
+      });
+  };
 
   useEffect(() => {
     async function getByName() {
@@ -40,6 +52,7 @@ function Profile() {
     }
 
     window.addEventListener('resize', handleResize);
+    getValues();
   });
 
   const setConnectCard = () => {
@@ -82,6 +95,7 @@ function Profile() {
                 setConnectCard={setConnectCard}
                 widthScreen={widthScreen}
                 dataArr={dataArr}
+                areas={areas}
               />
             )}
           </Article>
