@@ -65,15 +65,11 @@ $ git clone https://github.com/squad8-hackatho/squad8-hackathon-front.git
 
 # Instale as dependências do projeto
 
-$ npm install
-# ou
-$ yarn install 
+$ npm install 
 
 # Inicie o projeto
 
-$npm start
-# ou
-$ yarn start 
+$npm run dev
 
 #A aplicação(frontend) será aberta na porta:3000 - acesse http://localhost:3000. 
 ~~~
@@ -129,7 +125,7 @@ $ yarn start
   </li>
 </ul>
 
-<a href="">Inserir aqui link para tela de prints</a>
+[Detalhamento dos resultados](detalhamento-resultados.md)
 
 <!-- <h2 id="features">✨Features</h2>
 
